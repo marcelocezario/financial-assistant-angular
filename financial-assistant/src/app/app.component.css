@@ -1,0 +1,10 @@
+.section-main {
+  display: flex;
+  flex-direction: column;
+}
+
+.body-container {
+  padding-top: var(--header-height);
+  min-height: var(--body-heigth-min);
+  display: flex;
+}

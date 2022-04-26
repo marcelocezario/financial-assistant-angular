@@ -2,3 +2,27 @@
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+:root {
+  --header-height: 0px;
+  --footer-height: 50px;
+  --body-heigth-min: calc(100vh - var(--header-height) - var(--footer-height));
+  --default-width: 500px;
+}
+
+.default-body {
+  width: 100vw;
+  min-height: var(--body-heigth-min);
+  display: flex;
+  justify-content: center;
+}
+
+.default-container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  width: var(--default-width);
+  padding: 10px;
+  /* 95 vw - 10px ref padding */
+  max-width: calc(95vw - 10px);
+}

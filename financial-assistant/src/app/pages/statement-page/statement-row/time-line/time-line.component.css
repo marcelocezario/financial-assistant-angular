@@ -1,0 +1,18 @@
+.line {
+  flex: 1;
+  border-left: 1px solid grey ;
+}
+
+.icon-entry {
+  transform: scale(0.8);
+}
+
+
+.icon-credit {
+  background-color: blue;
+}
+
+.icon-debit {
+  background-color: red;
+}
+

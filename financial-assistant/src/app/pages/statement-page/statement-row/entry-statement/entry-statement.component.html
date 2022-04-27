@@ -1,0 +1,26 @@
+<div class="entry" [ngClass]="{ credit: credit, debit: !credit }">
+  <div class="entry-content">
+    <div class="entry-row">
+      <div class="entry-col entry-value">
+        {{ entry.value | currency: "BRL" }}
+      </div>
+    </div>
+    <div class="entry-row">
+      <div class="entry-col">
+        {{ entry.comments }}
+      </div>
+    </div>
+    <div class="entry-row">
+      <mat-chip
+        *ngFor="let categorie of entry.categories"
+        class="chips-categories"
+      >
+        <span> {{ categorie.name }} </span>
+        <span> {{ categorie.value | currency: "BRL" }} </span>
+      </mat-chip>
+    </div>
+    <div class="entry-row entry-moment">
+      {{entry.moment | date: 'EEEE, dd-MM-yyyy HH:mm'}}
+    </div>
+  </div>
+</div>

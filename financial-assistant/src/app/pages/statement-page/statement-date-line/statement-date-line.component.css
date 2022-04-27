@@ -1,0 +1,9 @@
+.date-line {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.date-chip {
+  font-size: small;
+}

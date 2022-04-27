@@ -10,6 +10,8 @@ export class StatementRowComponent implements OnInit {
 
   @Input() entry: Entry = new Entry();
 
+  @Input() firstDate: boolean = false;
+
   constructor() { }
 
   ngOnInit(): void {

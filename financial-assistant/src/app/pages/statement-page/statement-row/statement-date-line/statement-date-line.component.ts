@@ -1,6 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
 import * as moment from 'moment';
-import { Moment } from 'moment';
 
 @Component({
   selector: 'app-statement-date-line',
@@ -17,14 +16,17 @@ export class StatementDateLineComponent implements OnInit {
 
   ngOnInit(): void {
     moment.locale("pt-br")
-    this.formatedDate = moment(this.date).calendar(null, {
-      lastDay: '[Ontem]',
-      sameDay: '[Hoje]',
-      nextDay: '[Amanhã]',
-      lastWeek: '[Última] dddd',
-      nextWeek: '[Próxima] dddd',
-      sameElse: 'L'
-    });
+    this.formatedDate = moment(this.date).calendar().split(" às")[0];
+    /*
+        this.formatedDate = moment(this.date).calendar(null, {
+          lastDay: '[Ontem]',
+          sameDay: '[Hoje]',
+          nextDay: '[Amanhã]',
+          lastWeek: 'dddd [passada]',
+          nextWeek: '[Próxima] dddd',
+          sameElse: 'L'
+        });
+        */
   }
 
 }

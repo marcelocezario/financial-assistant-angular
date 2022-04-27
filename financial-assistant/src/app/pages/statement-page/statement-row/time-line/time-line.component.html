@@ -1,4 +1,4 @@
-<div class="icon-entry">
+<div class="icon-entry" *ngIf="credit != null">
   <button mat-mini-fab *ngIf="credit" class="icon-credit">
     <mat-icon>trending_up</mat-icon>
   </button>
@@ -6,4 +6,7 @@
     <mat-icon>trending_down</mat-icon>
   </button>
 </div>
-<div class="line"></div>
+<div class="line">
+  <div class="line-right"></div>
+  <div class="line-left"></div>
+</div>

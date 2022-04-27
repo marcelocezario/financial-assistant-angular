@@ -1,3 +1,10 @@
+<div class="statement-row" *ngIf="firstDate">
+  <app-time-line [credit]="null" class="time-line"></app-time-line>
+  <div class="date-line">
+    <app-statement-date-line [date]="entry.moment"></app-statement-date-line>
+  </div>
+</div>
+
 <div class="statement-row">
   <app-time-line [credit]="entry.credit" class="time-line"></app-time-line>
   <app-entry-statement [entry]="entry" class="entry"></app-entry-statement>

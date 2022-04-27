@@ -1,6 +1,5 @@
 .statement-row {
   display: flex;
-  min-height: 100px;
 }
 
 .time-line {
@@ -12,6 +11,11 @@
 .entry {
   margin-left: 10px;
   flex: 1;
+}
+
+.date-line {
+  flex: 1;
+  justify-content: center;
 }
 
 /*

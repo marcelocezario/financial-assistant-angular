@@ -1,18 +1,13 @@
 <section class="default-container">
   <app-section-title>Extrato</app-section-title>
 
-
   <div *ngFor="let entry of entries; let index = index">
+    <!--
     <app-statement-date-line *ngIf="checkIsRepeatedDate(index)" [date]="entry.moment"></app-statement-date-line>
-    <app-statement-row [entry]="entry"></app-statement-row>
+    -->
+    <app-statement-row
+      [entry]="entry"
+      [firstDate]="checkIsRepeatedDate(index)"
+    ></app-statement-row>
   </div>
-
-
-
-
-
-
-
-
-
 </section>

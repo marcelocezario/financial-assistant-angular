@@ -7,7 +7,7 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class TimeLineComponent implements OnInit {
 
-  @Input() credit: boolean = false;
+  @Input() credit: boolean | null = null;
 
   constructor() { }
 

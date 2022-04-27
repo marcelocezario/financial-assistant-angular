@@ -5,19 +5,12 @@
         {{ entry.value | currency: "BRL" }}
       </div>
     </div>
-    <div class="entry-row">
-      <div class="entry-col">
-        {{ entry.comments }}
-      </div>
-    </div>
-
     <div class="entry-row entry-categories">
       <app-category-chip
         *ngFor="let category of entry.categories"
         [entryCategory]="category"
       ></app-category-chip>
     </div>
-
     <div class="entry-row entry-moment">
       {{ entry.moment | date: "EEEE, dd-MM-yyyy HH:mm" }}
     </div>

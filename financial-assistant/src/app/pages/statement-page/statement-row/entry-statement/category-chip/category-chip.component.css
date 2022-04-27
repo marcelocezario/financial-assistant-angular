@@ -1,0 +1,10 @@
+.category-chip {
+  font-size: x-small;
+  font-weight: 500;
+  height: 20px;
+  padding: 3px;
+  background-color: lightgray;
+  border-radius: 5px;
+  margin-block: 2px;
+  margin-inline: 2px;
+}

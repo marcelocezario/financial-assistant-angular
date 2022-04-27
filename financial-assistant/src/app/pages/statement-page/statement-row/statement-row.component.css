@@ -1,0 +1,59 @@
+.statement-row {
+  display: flex;
+}
+
+.time-line {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.entry {
+  margin-left: 10px;
+  flex: 1;
+}
+
+.date-line {
+  flex: 1;
+  justify-content: center;
+}
+
+/*
+.statement-row {
+  padding-top: 10px;
+  display: flex;
+}
+
+.statement-row-debit {
+  justify-content: flex-end;
+}
+
+.statement-row-credit {
+  justify-content: flex-start;
+}
+
+.entry {
+  min-height: 80px;
+  width: 75%;
+  border-radius: 5px 5px 5px 5px;
+
+  /*
+  border-style: solid;
+  border-width: 1px;
+  border-color: grey;
+  */ /*
+}
+
+.credit {
+  background-color: lightcyan;
+}
+
+.debit {
+  background-color: linen;
+}
+
+.time-line {
+  border-left: 3px solid black;
+  width: 15%;
+}
+*/

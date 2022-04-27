@@ -1,4 +1,5 @@
 .bottom-navigation-bar {
+  position: fixed;
   width: 100vw;
   /* altura do footer - 1px ref borda */
   height: calc(var(--footer-height) - 1px);

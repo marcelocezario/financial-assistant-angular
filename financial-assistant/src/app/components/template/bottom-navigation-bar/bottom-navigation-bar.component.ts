@@ -1,3 +1,4 @@
+import { ROUTES_KEYS } from './../../../config/routes-keys.config';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -8,6 +9,9 @@ import { Component, OnInit } from '@angular/core';
 export class BottomNavigationBarComponent implements OnInit {
 
   constructor() { }
+
+  public homePageLink = "/" + ROUTES_KEYS.home;
+  public statementPageLink = "/" + ROUTES_KEYS.statement;
 
   ngOnInit(): void {
   }

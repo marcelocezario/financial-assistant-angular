@@ -1,0 +1,10 @@
+.date-line {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  margin-top: 15px;
+}
+
+.date-chip {
+  font-size: xx-small;
+}

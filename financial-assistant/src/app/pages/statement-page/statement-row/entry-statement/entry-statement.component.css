@@ -1,0 +1,75 @@
+.entry {
+  position: relative;
+  flex: 1;
+  margin-left: 10px;
+  margin-top: 20px;
+  width: calc(100% - 10px);
+  border-radius: 0px 5px 5px 5px;
+}
+
+.entry::before {
+  content: "";
+  position: absolute;
+  left: -9px;
+  border-left: 5px solid transparent;
+  border-bottom: 5px solid transparent;
+}
+
+.credit {
+  background-color: #c5ecec;
+}
+
+.credit::before {
+  border-right: 5px solid #c5ecec;
+  border-top: 5px solid #c5ecec;
+}
+
+.debit {
+  background-color: #f3ecee;
+}
+
+.debit::before {
+  border-right: 5px solid #f3ecee;
+  border-top: 5px solid #f3ecee;
+}
+
+.entry-content {
+  display: flex;
+  flex-direction: column;
+  padding: 15px;
+}
+
+.entry-row {
+  display: flex;
+  flex-direction: row;
+  flex: 1;
+  flex-wrap: wrap;
+}
+
+.entry-col {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+.chips-categories {
+  padding: 0px;
+  margin: 0px;
+  transform: scale(0.8);
+}
+
+.entry-value {
+  font-size: large;
+  font-weight: bold;
+  padding-bottom: 15px;
+}
+
+.entry-moment {
+  font-size: x-small;
+  padding-top: 15px;
+  justify-content: end;
+  color: grey;
+}
+
+.entry-categories {
+  padding-top: 15px;
+}

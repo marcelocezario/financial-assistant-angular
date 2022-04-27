@@ -1,0 +1,32 @@
+.line {
+  content: "";
+  display: flex;
+  height: 100%;
+}
+
+.line-right {
+  width: 15px;
+  flex: 1;
+  border-right: 1px solid grey ;
+}
+
+.line-left {
+  width: 15px;
+  flex: 1;
+  border-left: 1px solid grey ;
+}
+
+.icon-entry {
+  transform: scale(0.8);
+  width: 30px;
+}
+
+
+.icon-credit {
+  background-color: darkcyan;
+}
+
+.icon-debit {
+  background-color: brown;
+}
+

@@ -1,3 +1,4 @@
+import { Entry } from 'src/app/models/entry.model';
 import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
@@ -7,7 +8,7 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class StatementRowComponent implements OnInit {
 
-  @Input() credit: boolean = false;
+  @Input() entry: Entry = new Entry();
 
   constructor() { }
 

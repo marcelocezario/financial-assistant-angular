@@ -20,6 +20,9 @@ import { TimeLineComponent } from './pages/statement-page/statement-row/time-lin
 import { EntryStatementComponent } from './pages/statement-page/statement-row/entry-statement/entry-statement.component';
 import { StatementDateLineComponent } from './pages/statement-page/statement-date-line/statement-date-line.component';
 import { MatChipsModule } from '@angular/material/chips';
+import { CategoryChipComponent } from './pages/statement-page/statement-row/entry-statement/category-chip/category-chip.component';
+import { HttpClientModule } from '@angular/common/http';
+import { MatDividerModule } from '@angular/material/divider';
 
 @NgModule({
   declarations: [
@@ -32,7 +35,8 @@ import { MatChipsModule } from '@angular/material/chips';
     StatementRowComponent,
     TimeLineComponent,
     EntryStatementComponent,
-    StatementDateLineComponent
+    StatementDateLineComponent,
+    CategoryChipComponent
   ],
   imports: [
     BrowserModule,
@@ -40,7 +44,9 @@ import { MatChipsModule } from '@angular/material/chips';
     BrowserAnimationsModule,
     MatButtonModule,
     MatIconModule,
-    MatChipsModule
+    MatChipsModule,
+    HttpClientModule,
+    MatDividerModule
   ],
   providers: [
     {

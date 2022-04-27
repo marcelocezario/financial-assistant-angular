@@ -1,21 +1,11 @@
 <section class="default-container">
   <app-section-title>Extrato</app-section-title>
 
-  <app-statement-date-line></app-statement-date-line>
-  <app-statement-row [credit]="true"></app-statement-row>
-  <app-statement-row [credit]="false"></app-statement-row>
-  <app-statement-row [credit]="false"></app-statement-row>
-  <app-statement-row [credit]="true"></app-statement-row>
-  <app-statement-row [credit]="false"></app-statement-row>
-  <app-statement-row [credit]="false"></app-statement-row>
-  <app-statement-row [credit]="true"></app-statement-row>
-  <app-statement-row [credit]="true"></app-statement-row>
-  <app-statement-row [credit]="true"></app-statement-row>
-  <app-statement-row [credit]="true"></app-statement-row>
-  <app-statement-row [credit]="false"></app-statement-row>
-  <app-statement-row [credit]="false"></app-statement-row>
-  <app-statement-row [credit]="false"></app-statement-row>
-  <app-statement-row [credit]="false"></app-statement-row>
+
+  <div *ngFor="let entry of entries; let index = index">
+    <app-statement-date-line *ngIf="checkIsRepeatedDate(index)" [date]="entry.moment"></app-statement-date-line>
+    <app-statement-row [entry]="entry"></app-statement-row>
+  </div>
 
 
 

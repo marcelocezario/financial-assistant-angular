@@ -16,21 +16,21 @@
 }
 
 .credit {
-  background-color: aliceblue;
+  background-color: #c5ecec;
 }
 
 .credit::before {
-  border-right: 5px solid aliceblue;
-  border-top: 5px solid aliceblue;
+  border-right: 5px solid #c5ecec;
+  border-top: 5px solid #c5ecec;
 }
 
 .debit {
-  background-color: #f7cdd8;
+  background-color: #f3ecee;
 }
 
 .debit::before {
-  border-right: 5px solid #f7cdd8;
-  border-top: 5px solid #f7cdd8;
+  border-right: 5px solid #f3ecee;
+  border-top: 5px solid #f3ecee;
 }
 
 .entry-content {
@@ -68,4 +68,8 @@
   padding-top: 15px;
   justify-content: end;
   color: grey;
+}
+
+.entry-categories {
+  padding-top: 15px;
 }

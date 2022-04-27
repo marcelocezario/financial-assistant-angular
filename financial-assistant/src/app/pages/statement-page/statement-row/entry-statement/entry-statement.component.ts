@@ -1,5 +1,5 @@
+import { Entry } from 'src/app/models/entry.model';
 import { Component, Input, OnInit } from '@angular/core';
-import * as moment from 'moment';
 
 @Component({
   selector: 'app-entry-statement',
@@ -8,23 +8,9 @@ import * as moment from 'moment';
 })
 export class EntryStatementComponent implements OnInit {
 
-  @Input() credit: boolean = false;
+  @Input() entry: Entry = new Entry();
 
   constructor() {
-    moment.locale("pt-br")
-  }
-
-  public entry = {
-    moment: new Date(),
-    value: 58.99,
-    account: "Carteira",
-    comments: "Compras mercado",
-    categories: [
-      { name: "Alimentação", value: 30 },
-      { name: "Pet", value: 15 },
-      { name: "Produtos Limpeza", value: 13.99 }
-    ]
-
   }
 
   ngOnInit(): void {

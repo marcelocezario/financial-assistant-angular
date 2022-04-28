@@ -1,0 +1,337 @@
+[
+  {
+    "name": "account_circle",
+    "tags": "pessoa perfil person social",
+    "moreUsed": false
+  },
+  {
+    "name": "apartment",
+    "tags": "casa home lar apartamento moradia",
+    "moreUsed": false
+  },
+  {
+    "name": "assured_workload",
+    "tags": "governo imposto tributo advogado",
+    "moreUsed": false
+  },
+  {
+    "name": "backup",
+    "tags": "nuvem software segurança internet",
+    "moreUsed": false
+  },
+  {
+    "name": "bolt",
+    "tags": "energia elétrica raio trovão",
+    "moreUsed": true
+  },
+  {
+    "name": "build",
+    "tags": "manutenção ferramenta obra configuração arrumar",
+    "moreUsed": false
+  },
+  {
+    "name": "calendar_month",
+    "tags": "calendário dia mês ano",
+    "moreUsed": false
+  },
+  {
+    "name": "celebration",
+    "tags": "celebração festa balada aniversário lazer",
+    "moreUsed": true
+  },
+  {
+    "name": "checkroom",
+    "tags": "roupas camisetas calças meias cuecas calcinhas sutiã casacos blusinhas",
+    "moreUsed": true
+  },
+  {
+    "name": "church",
+    "tags": "igreja doação",
+    "moreUsed": false
+  },
+  {
+    "name": "clean_hands",
+    "tags": "limpeza higiene pessoal banheiro cuidados pessoais",
+    "moreUsed": false
+  },
+  {
+    "name": "cleaning_services",
+    "tags": "limpeza limpar vassoura produtos",
+    "moreUsed": false
+  },
+  {
+    "name": "construction",
+    "tags": "manutenção ferramenta obra configuração arrumar",
+    "moreUsed": false
+  },
+  {
+    "name": "directions_bike",
+    "tags": "transporte bike bicicleta ecologia sustentabilidade",
+    "moreUsed": true
+  },
+  {
+    "name": "directions_bus",
+    "tags": "car automotivo combustível transporte ônibus",
+    "moreUsed": false
+  },
+  {
+    "name": "directions_car",
+    "tags": "carro car automotivo combustível transporte",
+    "moreUsed": true
+  },
+  {
+    "name": "eco",
+    "tags": "folha flor árvore economia sustentabilidade",
+    "moreUsed": true
+  },
+  {
+    "name": "electric_scooter",
+    "tags": "patinete elétrico transporte ecologia sustentabilidade",
+    "moreUsed": false
+  },
+  {
+    "name": "favorite",
+    "tags": "favorito coração saúde bem-estar",
+    "moreUsed": false
+  },
+  {
+    "name": "flight",
+    "tags": "avião férias viagem transporte descanso trabalho",
+    "moreUsed": false
+  },
+  {
+    "name": "flight_takeoff",
+    "tags": "avião férias viagem transporte descanso trabalho",
+    "moreUsed": true
+  },
+  {
+    "name": "gavel",
+    "tags": "governo imposto tributo advogado",
+    "moreUsed": false
+  },
+  {
+    "name": "handshake",
+    "tags": "ajuda aperto de mãos doação",
+    "moreUsed": false
+  },
+  {
+    "name": "headset_mic",
+    "tags": "headset jogos eletrônicos músicas chat voz",
+    "moreUsed": false
+  },
+  {
+    "name": "home",
+    "tags": "casa home lar apartamento moradia",
+    "moreUsed": true
+  },
+  {
+    "name": "hotel",
+    "tags": "hotel férias viagem descanso",
+    "moreUsed": false
+  },
+  {
+    "name": "language",
+    "tags": "linguagem mundo continente países planeta",
+    "moreUsed": false
+  },
+  {
+    "name": "laptop_chromebook",
+    "tags": "laptop notebook computador trabalho eletrônicos",
+    "moreUsed": false
+  },
+  {
+    "name": "lightbulb",
+    "tags": "lâmpada ideia luz energia elétrica",
+    "moreUsed": false
+  },
+  {
+    "name": "local_bar",
+    "tags": "celebração festa balada aniversário bar bebida",
+    "moreUsed": false
+  },
+  {
+    "name": "local_cafe",
+    "tags": "café lanche comida refeição",
+    "moreUsed": false
+  },
+  {
+    "name": "local_shipping",
+    "tags": "carro car automotivo combustível transporte",
+    "moreUsed": false
+  },
+  {
+    "name": "lock",
+    "tags": "cadeado segurança seguro",
+    "moreUsed": false
+  },
+  {
+    "name": "lunch_dining",
+    "tags": "lanche sanduíche fastfood pão hambúrguer refeição comida",
+    "moreUsed": false
+  },
+  {
+    "name": "monitor_heart",
+    "tags": "saúde coração bem-estar medicina",
+    "moreUsed": true
+  },
+  {
+    "name": "more",
+    "tags": "etiqueta preço preco tag",
+    "moreUsed": true
+  },
+  {
+    "name": "palette",
+    "tags": "tinta artes cultura lazer",
+    "moreUsed": false
+  },
+  {
+    "name": "pan_tool",
+    "tags": "mão hands corpo parar",
+    "moreUsed": false
+  },
+  {
+    "name": "paragliding",
+    "tags": "esportes radicais paraquedas saúde coração",
+    "moreUsed": false
+  },
+  {
+    "name": "pets",
+    "tags": "pet animal cachorro gato dog cat",
+    "moreUsed": true
+  },
+  {
+    "name": "phone_enabled",
+    "tags": "telefone celular ligação telefonia",
+    "moreUsed": false
+  },
+  {
+    "name": "phone_iphone",
+    "tags": "celular telefonia telefone smarphone iphone",
+    "moreUsed": true
+  },
+  {
+    "name": "public",
+    "tags": "linguagem mundo continente países planeta",
+    "moreUsed": false
+  },
+  {
+    "name": "redeem",
+    "tags": "gift presente doação",
+    "moreUsed": false
+  },
+  {
+    "name": "restaurant",
+    "tags": "restaurante alimentação lanche comida",
+    "moreUsed": true
+  },
+  {
+    "name": "sanitizer",
+    "tags": "limpeza higiene pessoal banheiro cuidados pessoais",
+    "moreUsed": true
+  },
+  {
+    "name": "school",
+    "tags": "escolha faculdade educação aluno professor ensino",
+    "moreUsed": false
+  },
+  {
+    "name": "self_improvement",
+    "tags": "bem estar saúde tranquilidade exercício",
+    "moreUsed": false
+  },
+  {
+    "name": "sentiment_satisfied",
+    "tags": "feliz pessoa smile profile",
+    "moreUsed": false
+  },
+  {
+    "name": "shopping_cart",
+    "tags": "mercado compras mantimentos",
+    "moreUsed": false
+  },
+  {
+    "name": "south_america",
+    "tags": "linguagem mundo continente países planeta américa do sul",
+    "moreUsed": false
+  },
+  {
+    "name": "sports_esports",
+    "tags": "video games vídeo-games jogos eletrônicos",
+    "moreUsed": true
+  },
+  {
+    "name": "sports_kabaddi",
+    "tags": "esportes luta capoeira saúde exercício",
+    "moreUsed": false
+  },
+  {
+    "name": "sports_mma",
+    "tags": "esportes luta luva mma ufc saúde exercício",
+    "moreUsed": false
+  },
+  {
+    "name": "sports_motorsports",
+    "tags": "esportes corrida formula 1 stock car lazer",
+    "moreUsed": false
+  },
+  {
+    "name": "sports_soccer",
+    "tags": "esportes bola futebol lazer saúde exercício",
+    "moreUsed": true
+  },
+  {
+    "name": "sports_volleybal",
+    "tags": "esportes bola vôlei lazer saúde exercício",
+    "moreUsed": false
+  },
+  {
+    "name": "star",
+    "tags": "estrela star sol",
+    "moreUsed": false
+  },
+  {
+    "name": "styler",
+    "tags": "roupas camisetas calças meias cuecas calcinhas sutiã casacos blusinhas",
+    "moreUsed": false
+  },
+  {
+    "name": "theater_comedy",
+    "tags": "celebração festa balada aniversário lazer cultura",
+    "moreUsed": true
+  },
+  {
+    "name": "train",
+    "tags": "car automotivo combustível transporte trem metrô",
+    "moreUsed": false
+  },
+  {
+    "name": "vaccines",
+    "tags": "vacina saúde doença",
+    "moreUsed": false
+  },
+  {
+    "name": "visibility",
+    "tags": "olhos visibilidade eyes",
+    "moreUsed": false
+  },
+  {
+    "name": "volunteer_activism",
+    "tags": "ativismo doação voluntário voluntariado",
+    "moreUsed": false
+  },
+  {
+    "name": "vpn_key",
+    "tags": "cadeado segurança seguro chave",
+    "moreUsed": false
+  },
+  {
+    "name": "water_drop",
+    "tags": "água saneamento esgoto",
+    "moreUsed": true
+  },
+  {
+    "name": "work",
+    "tags": "trabalho",
+    "moreUsed": false
+  }
+]

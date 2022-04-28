@@ -1,0 +1,13 @@
+.mat-column-icon,
+.mat-column-name,
+.mat-column-budget {
+  border-right: 1px solid gray;
+  text-align: center;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+.table-row:hover {
+  background-color: lightgray;
+  cursor: pointer;
+}

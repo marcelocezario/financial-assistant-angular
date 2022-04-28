@@ -1,0 +1,22 @@
+.form-container {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+}
+
+.mat-button-toggle-group {
+  display: flex;
+  flex-wrap: wrap;
+  border: none;
+  justify-content: center;
+}
+
+.icon-group {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.choice-icons {
+  width: 50px;
+  border: solid 1px rgba(0, 0, 0, 0.12);
+}

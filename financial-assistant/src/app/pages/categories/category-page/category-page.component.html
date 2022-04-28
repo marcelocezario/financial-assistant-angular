@@ -1,0 +1,17 @@
+<section class="default-container">
+  <app-section-title>Categorias</app-section-title>
+
+  <table matSort (matSortChange)="sortData($event)">
+    <tr>
+      <th mat-sort-header="name">Nome</th>
+      <th mat-sort-header="budget">Orçamento</th>
+      <th mat-sort-header="icon">Ícone</th>
+    </tr>
+    <tr *ngFor="let category of sortedData" (click)="actionRow(category)" class="table-row">
+      <td>{{ category.name }}</td>
+      <td>{{ category.budget | currency: " " }}</td>
+      <td><mat-icon>{{ category.icon }}</mat-icon></td>
+    </tr>
+
+  </table>
+</section>

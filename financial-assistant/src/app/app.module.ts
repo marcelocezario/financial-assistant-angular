@@ -23,6 +23,17 @@ import { MatChipsModule } from '@angular/material/chips';
 import { CategoryChipComponent } from './pages/statement-page/statement-row/entry-statement/category-chip/category-chip.component';
 import { HttpClientModule } from '@angular/common/http';
 import { MatDividerModule } from '@angular/material/divider';
+import { CategoryPageComponent } from './pages/categories/category-page/category-page.component';
+import { MatTableModule } from '@angular/material/table';
+import { MatSortModule } from '@angular/material/sort';
+import { MatExpansionModule } from '@angular/material/expansion';
+import { EditCategoryPageComponent } from './pages/categories/edit-category-page/edit-category-page.component';
+import { MatInputModule } from '@angular/material/input';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatRadioModule } from '@angular/material/radio';
+import { MatButtonToggleModule } from '@angular/material/button-toggle';
+import { FormsModule } from '@angular/forms';
+import { FloatButtonComponent } from './components/utils/float-button/float-button.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +47,10 @@ import { MatDividerModule } from '@angular/material/divider';
     TimeLineComponent,
     EntryStatementComponent,
     StatementDateLineComponent,
-    CategoryChipComponent
+    CategoryChipComponent,
+    CategoryPageComponent,
+    EditCategoryPageComponent,
+    FloatButtonComponent
   ],
   imports: [
     BrowserModule,
@@ -46,7 +60,15 @@ import { MatDividerModule } from '@angular/material/divider';
     MatIconModule,
     MatChipsModule,
     HttpClientModule,
-    MatDividerModule
+    MatDividerModule,
+    MatTableModule,
+    MatSortModule,
+    MatExpansionModule,
+    MatInputModule,
+    MatFormFieldModule,
+    MatRadioModule,
+    MatButtonToggleModule,
+    FormsModule
   ],
   providers: [
     {

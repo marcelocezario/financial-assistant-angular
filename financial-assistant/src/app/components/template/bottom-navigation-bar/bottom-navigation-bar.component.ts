@@ -10,7 +10,9 @@ export class BottomNavigationBarComponent implements OnInit {
 
   constructor() { }
 
+  public categoryPageLink = "/" + ROUTES_KEYS.categories;
   public homePageLink = "/" + ROUTES_KEYS.home;
+  public newCategoryPageLink = "/" + ROUTES_KEYS.newCategory;
   public statementPageLink = "/" + ROUTES_KEYS.statement;
 
   ngOnInit(): void {

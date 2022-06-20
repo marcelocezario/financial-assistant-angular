@@ -34,6 +34,9 @@ import { MatRadioModule } from '@angular/material/radio';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { FormsModule } from '@angular/forms';
 import { FloatButtonComponent } from './components/utils/float-button/float-button.component';
+import { TopNavigationBarComponent } from './components/template/top-navigation-bar/top-navigation-bar.component';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 
 @NgModule({
   declarations: [
@@ -50,7 +53,8 @@ import { FloatButtonComponent } from './components/utils/float-button/float-butt
     CategoryChipComponent,
     CategoryPageComponent,
     EditCategoryPageComponent,
-    FloatButtonComponent
+    FloatButtonComponent,
+    TopNavigationBarComponent
   ],
   imports: [
     BrowserModule,
@@ -68,7 +72,9 @@ import { FloatButtonComponent } from './components/utils/float-button/float-butt
     MatFormFieldModule,
     MatRadioModule,
     MatButtonToggleModule,
-    FormsModule
+    FormsModule,
+    MatToolbarModule,
+    MatSlideToggleModule
   ],
   providers: [
     {

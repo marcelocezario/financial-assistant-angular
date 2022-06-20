@@ -9,9 +9,9 @@ export class FloatButtonComponent implements OnInit {
 
   @Input() matIcon: string = "save";
 
-  @Output() actionButton = new EventEmitter<boolean>();
+  @Output() actionClick = new EventEmitter<boolean>();
 
-  public positionBottom: number = 100;
+  public positionBottom: number = 80;
 
   constructor() { }
 
@@ -19,7 +19,7 @@ export class FloatButtonComponent implements OnInit {
   }
 
   clickButton() {
-    this.actionButton.emit(true);
+    this.actionClick.emit(true);
   }
 
 }

@@ -232,7 +232,7 @@
   {
     "name": "school",
     "tags": "escolha faculdade educação aluno professor ensino",
-    "moreUsed": false
+    "moreUsed": true
   },
   {
     "name": "self_improvement",

@@ -72,7 +72,6 @@ export class EditCategoryPageComponent implements OnInit {
   }
 
   save() {
-    console.log("Foi?")
     if(this.category.id == undefined) {
       this.categoryService.createCategory(this.category).subscribe(response => {
         this.saveSuccess();

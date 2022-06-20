@@ -1,0 +1,5 @@
+mat-toolbar {
+  height: var(--header-height);
+  position: fixed;
+  z-index: 999;
+}

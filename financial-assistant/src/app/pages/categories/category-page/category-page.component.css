@@ -7,7 +7,35 @@
   padding-right: 5px;
 }
 
-.table-row:hover {
+table {
+  border: none;
+  background-color: darkslategrey;
+}
+
+tr:nth-child(odd) {
+  background-color: #ffffff;
+}
+tr:nth-child(even) {
   background-color: lightgray;
-  cursor: pointer;
+}
+
+td {
+  border-top: solid 1px rgba(0, 0, 0, 0.12);
+}
+
+.table-row:hover {
+  background-color: darkseagreen;
+}
+
+.table-header,
+.table-footer {
+  background-color: darkslategrey;
+  color: white;
+  font-weight: 500;
+}
+
+.footer-legend {
+  display: flex;
+  justify-content: end;
+  padding-right: 15px;
 }

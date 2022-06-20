@@ -18,6 +18,8 @@ export class CategoryPageComponent implements OnInit {
   }
 
   public categories: Category[] = [];
+  private newCategoryLink = "/" + ROUTES_KEYS.newCategory;
+  public totalBudget: number = 0;
 
   sortedData: Category[] = [];
 
@@ -28,7 +30,15 @@ export class CategoryPageComponent implements OnInit {
     this.categoryService.getCategories().subscribe(response => {
       this.categories = response;
       this.sortedData = this.categories.slice();
+
+      this.totalBudget = response.map(c => c.budget).reduce((total, budget) => {
+        if (!isNaN(budget)){
+          total += budget
+        }
+        return total;
+      });
     })
+
   }
 
   sortData(sort: Sort) {
@@ -53,8 +63,20 @@ export class CategoryPageComponent implements OnInit {
     });
   }
 
-  actionRow(category: Category) {
+  editCategory(category: Category) {
     this.router.navigate([ROUTES_KEYS.categories, category.id]);
+  }
+
+  deleteCategory(category: Category) {
+    if (category.id != undefined) {
+      this.categoryService.deleteCategory(category.id).subscribe(response => {
+        location.reload();
+      });
+    }
+  }
+
+  addCategory() {
+    this.router.navigate([this.newCategoryLink]);
   }
 
 }

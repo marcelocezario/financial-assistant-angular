@@ -1,0 +1,9 @@
+<mat-button-toggle-group>
+  @for(language of languageOptions; track $index) {
+  <mat-button-toggle [value]="language.locale" (click)="setLanguage(language.locale)"
+    [checked]="(current$ | async) === language.locale">
+    <img class="mhc-flag" [src]="language.flag"
+      [ngClass]="{ 'mhc-flag-selected': (current$ | async) === language.locale }" />
+  </mat-button-toggle>
+  }
+</mat-button-toggle-group>

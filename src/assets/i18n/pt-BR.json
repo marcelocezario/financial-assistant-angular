@@ -4,6 +4,8 @@
     "pageTitle": {
       "categories": "Categorias",
       "currencies": "Moedas",
+      "home": "Início",
+      "not-found": "Não encontrado",
       "transactions": "Transações",
       "users": "Usuários",
       "wallets": "Carteiras"

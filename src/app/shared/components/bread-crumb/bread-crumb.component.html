@@ -1,0 +1,9 @@
+<nav class="mhc-breadcrumb" aria-label="breadcrumb">
+  <mat-chip-grid>
+    <a [routerLink]="homeLink"><mat-chip class="mhc-breadcrumb-item">{{ 'web.pageTitle.home' | translate }}</mat-chip></a>
+    @for(item of breadCrumb; track item; let isLast = $last) {
+      <a [routerLink]="item.route"><mat-chip class="mhc-breadcrumb-item">{{ item.translated }}</mat-chip></a>
+    }
+  </mat-chip-grid>
+
+</nav>

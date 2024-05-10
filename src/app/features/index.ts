@@ -1,5 +1,7 @@
 export * from './categories'
 export * from './currencies'
+export * from './home'
+export * from './not-found'
 export * from './transactions'
 export * from './users'
 export * from './wallets'

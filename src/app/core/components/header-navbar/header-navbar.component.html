@@ -1,16 +1,31 @@
-<mat-toolbar>
+<mat-toolbar color="primary">
   <mat-toolbar-row class="container">
     <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon" [matMenuTriggerFor]="menu">
       <mat-icon>menu</mat-icon>
     </button>
     <mat-menu #menu="matMenu">
-      <button mat-menu-item>Usuários</button>
-      <button mat-menu-item>Moedas</button>
-      <button mat-menu-item>Categorias</button>
-      <button mat-menu-item>Carteiras</button>
-      <button mat-menu-item>Transações</button>
+      <button mat-menu-item>
+        <mat-icon>group</mat-icon>
+        <span>Usuários</span>
+      </button>
+      <button mat-menu-item>
+        <mat-icon>monetization_on</mat-icon>
+        <span>Moedas</span>
+      </button>
+      <button mat-menu-item>
+        <mat-icon>category</mat-icon>
+        <span>Categorias</span>
+      </button>
+      <button mat-menu-item>
+        <mat-icon>wallet</mat-icon>
+        <span>Carteiras</span>
+      </button>
+      <button mat-menu-item>
+        <mat-icon>payments</mat-icon>
+        <span>Transações</span>
+      </button>
     </mat-menu>
-    <span>My App</span>
+  <span>My App</span>
     <span class="mhc-empty-spacer"></span>
     <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
       <mat-icon>favorite</mat-icon>

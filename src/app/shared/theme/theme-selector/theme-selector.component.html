@@ -1,0 +1,14 @@
+<mat-button-toggle-group
+  (change)="changeTheme($event.value)"
+>
+@for(item of options; track item) {
+  <mat-button-toggle
+    [value]="item.theme"
+    [checked]="(current | async) === item.theme"
+  >
+    <span>
+      <i class="material-icons">{{ item.icon }}</i>
+    </span>
+  </mat-button-toggle>
+}
+</mat-button-toggle-group>

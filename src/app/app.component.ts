@@ -10,10 +10,13 @@ import { MainContentComponent } from './core/components/main-content/main-conten
   selector: 'app-root',
   standalone: true,
   imports: [HeaderNavbarComponent, MainContentComponent, FooterComponent],
+  styleUrl: './app.component.scss',
   template: `
+  <div class="mhc-main mat-app-background">
     <app-header-navbar />
-    <app-main-content />
+    <app-main-content class="mhc-body" />
     <app-footer />
+  </div>
   `
 })
 export class AppComponent {

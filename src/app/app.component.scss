@@ -1,0 +1,9 @@
+.mhc-main {
+  display: flex;
+  flex-direction: column;
+  min-height: 100dvh;
+}
+
+.mhc-body {
+  flex-grow: 1;
+}

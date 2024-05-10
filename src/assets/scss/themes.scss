@@ -1,0 +1,132 @@
+@use '@angular/material' as mat;
+
+@include mat.core();
+
+// $personal-palette: (
+//   50: #6A1B9A,
+//   100: #9a1b1b,
+//   700: #0a4422,
+//   contrast: (
+//     50: white,
+//     100: white,
+//     700: white,
+//   )
+// );
+
+$personal-palette: mat.$teal-palette;
+
+$my-primary: mat.define-palette(mat.$teal-palette, 800);
+$my-accent: mat.define-palette(mat.$pink-palette, 100);
+$my-warn: mat.define-palette($personal-palette, 700);
+
+$personal-theme-light: mat.define-light-theme(
+  (
+    color: (
+      primary: $my-primary,
+      accent: $my-accent,
+      // warn: $my-warn
+      // warn:
+    ),
+    typography: mat.define-typography-config(),
+    density: 0,
+  )
+);
+
+$personal-theme-dark: mat.define-dark-theme(
+  (
+    color: (
+      primary: $my-primary,
+      accent: $my-accent,
+      // warn:
+    ),
+    typography: mat.define-typography-config(),
+    density: 0,
+  )
+);
+
+// $material-theme-pink-and-blue-grey: mat.define-light-theme(
+//   (
+//     color: (
+//       primary: mat.define-palette(mat.$deep-purple-palette),
+//       accent: $my-accent
+//     )
+//   )
+// );
+
+$material-theme-deeppurple-amber: mat.define-light-theme(
+  (
+    color: (
+      primary: mat.define-palette(mat.$deep-purple-palette),
+      accent: mat.define-palette(mat.$amber-palette),
+      warn: mat.define-palette(mat.$red-palette)
+    ),
+    typography: mat.define-typography-config(),
+    density: 0
+  )
+);
+
+$material-theme-indigo-pink: mat.define-light-theme(
+  (
+    color: (
+      primary: mat.define-palette(mat.$indigo-palette),
+      accent: mat.define-palette(mat.$pink-palette),
+      warn: mat.define-palette(mat.$red-palette)
+    ),
+    typography: mat.define-typography-config(),
+    density: 0
+  )
+);
+
+$material-theme-pink-bluegrey: mat.define-dark-theme(
+  (
+    color: (
+      primary: mat.define-palette(mat.$pink-palette),
+      accent: mat.define-palette(mat.$blue-grey-palette),
+      warn: mat.define-palette(mat.$red-palette)
+    ),
+    typography: mat.define-typography-config(),
+    density: 0
+  )
+);
+
+$material-theme-purple-green: mat.define-dark-theme(
+  (
+    color: (
+      primary: mat.define-palette(mat.$purple-palette),
+      accent: mat.define-palette(mat.$green-palette),
+      warn: mat.define-palette(mat.$red-palette)
+    ),
+    typography: mat.define-typography-config(),
+    density: 0
+  )
+);
+
+mat.$theme-ignore-duplication-warnings: true;
+
+@include mat.all-component-themes($personal-theme-light);
+
+.theme-personal-dark {
+  @include mat.all-component-colors($personal-theme-dark);
+}
+
+@media (prefers-color-scheme: dark) {
+  .theme-default-user {
+    @include mat.all-component-colors($personal-theme-dark);
+  }
+}
+
+.theme-deeppurple-amber {
+  @include mat.all-component-colors($material-theme-deeppurple-amber);
+}
+
+.theme-indigo-pink {
+  @include mat.all-component-colors($material-theme-indigo-pink);
+}
+
+.theme-pink-bluegrey {
+  @include mat.all-component-colors($material-theme-pink-bluegrey);
+}
+
+.theme-purple-green {
+  @include mat.all-component-colors($material-theme-purple-green);
+}

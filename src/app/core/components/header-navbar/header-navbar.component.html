@@ -4,23 +4,23 @@
       <mat-icon>menu</mat-icon>
     </button>
     <mat-menu #menu="matMenu">
-      <button mat-menu-item>
+      <button mat-menu-item [routerLink]="usersLink">
         <mat-icon>group</mat-icon>
         <span>Usuários</span>
       </button>
-      <button mat-menu-item>
+      <button mat-menu-item [routerLink]="currenciesLink">
         <mat-icon>monetization_on</mat-icon>
         <span>Moedas</span>
       </button>
-      <button mat-menu-item>
+      <button mat-menu-item [routerLink]="categoriesLink">
         <mat-icon>category</mat-icon>
         <span>Categorias</span>
       </button>
-      <button mat-menu-item>
+      <button mat-menu-item [routerLink]="walletsLink">
         <mat-icon>wallet</mat-icon>
         <span>Carteiras</span>
       </button>
-      <button mat-menu-item>
+      <button mat-menu-item [routerLink]="transactionsLink">
         <mat-icon>payments</mat-icon>
         <span>Transações</span>
       </button>

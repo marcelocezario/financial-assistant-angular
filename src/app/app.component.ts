@@ -5,6 +5,7 @@ import { LanguageService } from './shared';
 import { HeaderNavbarComponent } from './core/components/header-navbar/header-navbar.component';
 import { FooterComponent } from './core/components/footer/footer.component';
 import { MainContentComponent } from './core/components/main-content/main-content.component';
+import { TranslatePageTitleService } from './shared/language/translate-page-title.service';
 
 @Component({
   selector: 'app-root',
@@ -22,7 +23,8 @@ import { MainContentComponent } from './core/components/main-content/main-conten
 export class AppComponent {
   title = 'financial-assistant';
 
-  constructor(languageService: LanguageService) {
+  constructor(languageService: LanguageService, translatePageTitle: TranslatePageTitleService) {
     languageService.determineBestLanguageForUser();
+    translatePageTitle.translateTitle();
   }
 }

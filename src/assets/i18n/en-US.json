@@ -1,3 +1,13 @@
 {
-  "helloApp": "Hello {{user}}, welcome!"
+  "helloApp": "Hello {{user}}, welcome!",
+  "web": {
+    "pageTitle": {
+      "categories": "Categories",
+      "currencies": "Currencies",
+      "transactions": "Transactions",
+      "users": "Users",
+      "wallets": "Wallets"
+    }
+  }
+
 }

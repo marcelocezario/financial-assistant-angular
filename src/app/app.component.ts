@@ -1,6 +1,4 @@
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
-import { TesteComponent } from './features/teste/teste/teste.component';
 import { LanguageService } from './shared';
 import { HeaderNavbarComponent } from './core/components/header-navbar/header-navbar.component';
 import { FooterComponent } from './core/components/footer/footer.component';

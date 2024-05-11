@@ -1,5 +1,6 @@
 export * from './api/index-api'
 export * from './components/index-components'
+export * from './dialog/index-dialog'
 export * from './language'
 export * from './storage'
 export * from './theme'

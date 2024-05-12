@@ -2,13 +2,50 @@
   "helloApp": "Olá {{user}}, bem vindo!",
   "web": {
     "pageTitle": {
+      "auth": "Autenticar",
       "categories": "Categorias",
       "currencies": "Moedas",
+      "forgot-password": "Esqueci minha senha",
       "home": "Início",
+      "login": "Entrar",
+      "my-account": "Minha conta",
       "not-found": "Não encontrado",
+      "sign-up": "Cadastre-se",
       "transactions": "Transações",
       "users": "Usuários",
       "wallets": "Carteiras"
+    }
+  },
+  "auth": {
+    "guards": {
+      "nonAuthenticated": {
+        "title": "Usuário não autenticado",
+        "message": "Faça login para acessar a página desejada"
+      },
+      "nonAdmin": {
+        "title": "Usuário não autorizado",
+        "message": "Acesso não permitido"
+      }
+    },
+    "login": {
+      "emailLogin": "Email de login",
+      "emailLoginPlaceHolder": "examplo@email.com.br",
+      "password": "Senha",
+      "passwordPlaceHolder": "Digite sua senha",
+      "keepLoggedIn": "Manter logado",
+      "enter": "Entrar",
+      "forgotPassword": "Esqueci minha senha",
+      "welcomeTitle": "Bem-vindo!",
+      "welcomeMessage": "Olá {{user}}! Autenticação efetuada com sucesso",
+      "signUp": "Cadastre-se"
+    },
+    "login-button": {
+      "login": "Entrar",
+      "logout": "Sair"
+    },
+    "logout": {
+      "farewellTitle": "Adeus {{user}}!",
+      "farewellMessage": "Obrigado por utilizar nossos serviços"
     }
   }
 }

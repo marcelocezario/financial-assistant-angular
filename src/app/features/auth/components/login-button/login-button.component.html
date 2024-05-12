@@ -1,0 +1,30 @@
+@if (isAuthenticated$ | async) {
+<button mat-fab extended [matMenuTriggerFor]="userMenu">
+  <mat-icon>account_circle</mat-icon>
+  {{ userNickname }}
+</button>
+<mat-menu #userMenu="matMenu" xPosition="before">
+  @if (isAdmin$ | async) {
+  <button mat-menu-item [matMenuTriggerFor]="admin">
+    <mat-icon>admin_panel_settings</mat-icon>
+    ADMIN
+  </button>
+  <mat-menu #admin="matMenu">
+    <button mat-menu-item>
+      <mat-icon>groups</mat-icon>
+      USER
+    </button>
+  </mat-menu>
+  <mat-divider></mat-divider>
+  }
+  <button mat-menu-item (click)="logout()">
+    <mat-icon>logout</mat-icon>
+    {{ getTranslateKey('logout') | translate }}
+  </button>
+</mat-menu>
+} @else {
+<button mat-fab extended (click)="login()">
+  <mat-icon>login</mat-icon>
+  {{ getTranslateKey('login') | translate }}
+</button>
+}

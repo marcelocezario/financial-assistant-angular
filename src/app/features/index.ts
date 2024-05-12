@@ -1,7 +1,0 @@
-export * from './categories/index-categories'
-export * from './currencies/index-currencies'
-export * from './home/index-home'
-export * from './not-found/index-not-found'
-export * from './transactions/index-transactions'
-export * from './users/index-users'
-export * from './wallets/index-wallets'

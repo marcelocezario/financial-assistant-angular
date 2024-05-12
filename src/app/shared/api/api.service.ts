@@ -1,6 +1,6 @@
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { API_CONFIG } from '../../core/config/api.config';
+import { API_CONFIG } from '../../core/config';
 import { Observable, take } from 'rxjs';
 
 @Injectable({

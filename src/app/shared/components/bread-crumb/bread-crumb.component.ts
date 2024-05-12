@@ -4,12 +4,14 @@ import { NavigationEnd, Router, RouterModule } from '@angular/router';
 import { TranslateModule } from '@ngx-translate/core';
 import { MatChipsModule } from '@angular/material/chips';
 import { LanguageService } from '../../language';
-import { ROUTES_KEYS } from '../../../core/config/routes-keys.config';
+import { ROUTES_KEYS } from '../../../core/config';
+import { AuthService } from '../../../features/auth';
 
 export interface BreadCrumbItem {
   name: string;
-  translated: string;
+  translateKey: string;
   route: string;
+  authRequired: boolean;
 }
 
 @Component({
@@ -23,8 +25,10 @@ export class BreadCrumbComponent {
 
   breadCrumb: BreadCrumbItem[] = [];
   homeLink = `/${ROUTES_KEYS.home}`
+  myAccountLink = `/${ROUTES_KEYS.myAccount}`
+  isAuthenticated$ = this._authService.isAuthenticated()
 
-  constructor(private _router: Router, private _languageService: LanguageService) {
+  constructor(private _router: Router, private _languageService: LanguageService, private _authService: AuthService) {
   }
 
   ngOnInit() {
@@ -34,8 +38,11 @@ export class BreadCrumbComponent {
         let paths: string[] = event.url.split("/");
 
         let url: string = "";
+
+        this._addItem(ROUTES_KEYS.home, `/${ROUTES_KEYS.home}`);
+        this._addItem(ROUTES_KEYS.myAccount, `/${ROUTES_KEYS.myAccount}`, true);
         paths.forEach(path => {
-          if (path != '' && path != 'home') {
+          if (path != '' && path != ROUTES_KEYS.home && path != ROUTES_KEYS.myAccount) {
             url = url.concat(`/${path}`);
             this._addItem(path, url);
           }
@@ -44,13 +51,8 @@ export class BreadCrumbComponent {
     });
   }
 
-  private _addItem(name: string, route: string) {
-    const translateKey = `web.pageTitle.${name}`;
-    let translated = this._languageService.getTranslateInstant(translateKey);
-    if (translateKey === translated) {
-      translated = name;
-    }
-    this.breadCrumb.push({ name: name, translated: translated, route: route });
+  private _addItem(name: string, route: string, authRequired: boolean = false) {
+    this.breadCrumb.push({ name: name, translateKey: `web.pageTitle.${name}`, route: route , authRequired: authRequired});
   }
 
 }

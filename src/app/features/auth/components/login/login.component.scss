@@ -1,0 +1,23 @@
+mat-card {
+  max-width: 500px;
+}
+
+.mhc-img-container {
+  display: flex;
+  justify-content: center;
+}
+
+.mhc-img-login {
+  max-width: 250px;
+  padding-bottom: 5px;
+}
+
+.mhc-card-login-action {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.mhc-check-keep-logged {
+  padding-left: 10px;
+}

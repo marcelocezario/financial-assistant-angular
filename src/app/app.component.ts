@@ -1,8 +1,6 @@
 import { Component } from '@angular/core';
 import { LanguageService } from './shared';
-import { HeaderNavbarComponent } from './core/components/header-navbar/header-navbar.component';
-import { FooterComponent } from './core/components/footer/footer.component';
-import { MainContentComponent } from './core/components/main-content/main-content.component';
+import { FooterComponent, HeaderNavbarComponent, MainContentComponent } from './core/components';
 import { TranslatePageTitleService } from './shared/language/translate-page-title.service';
 
 @Component({

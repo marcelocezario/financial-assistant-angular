@@ -1,0 +1,44 @@
+<div class="d-flex justify-content-center">
+  <mat-card>
+    <mat-card-header>
+      {{ 'web.pageTitle.login' | translate }}
+    </mat-card-header>
+    <mat-card-content>
+      <div class="mhc-card-login-content">
+        <div class="mhc-img-container">
+          <img class="mhc-img-login" src="assets/img/undraw_safe_re_kiil.svg" />
+        </div>
+        <mat-form-field appearance="fill" class="mhc-full-width">
+          <mat-label>{{ "auth.login.emailLogin" | translate }}</mat-label>
+          <input name="username" type="email" matInput
+            placeholder="{{ 'auth.login.emailLoginPlaceHolder' | translate }}" [(ngModel)]="credentials.username" />
+        </mat-form-field>
+        <mat-form-field appearance="fill" class="mhc-full-width">
+          <mat-label>{{ "auth.login.password" | translate }}</mat-label>
+          <input name="password" [type]="hidePassword ? 'password' : 'text'" matInput
+            placeholder="{{ 'auth.login.passwordPlaceHolder' | translate }}" [(ngModel)]="credentials.password" />
+          <button mat-icon-button matSuffix (click)="hidePassword = !hidePassword" [attr.aria-label]="'Hide password'"
+            [attr.aria-pressed]="hidePassword">
+            <mat-icon>{{ hidePassword ? "visibility_off" : "visibility" }}</mat-icon>
+          </button>
+        </mat-form-field>
+        <p>
+          <mat-checkbox class="mhc-check-keep-logged" [(ngModel)]="keepLoggedIn">
+            {{ "auth.login.keepLoggedIn" | translate }}
+          </mat-checkbox>
+        </p>
+      </div>
+      <div class="mhc-card-login-action">
+        <button mat-raised-button color="primary" (click)="login()">
+          {{ "auth.login.enter" | translate }}
+        </button>
+        <button mat-button (click)="forgotPassword()">
+          {{ "auth.login.forgotPassword" | translate }}
+        </button>
+        <button mat-raised-button color="accent" (click)="signUp()">
+          {{ "auth.login.signUp" | translate }}
+        </button>
+      </div>
+    </mat-card-content>
+  </mat-card>
+</div>

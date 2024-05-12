@@ -2,14 +2,50 @@
   "helloApp": "Hello {{user}}, welcome!",
   "web": {
     "pageTitle": {
+      "auth": "Auth",
       "categories": "Categories",
       "currencies": "Currencies",
+      "forgot-password": "Forgot password",
       "home": "Home",
+      "login": "Login",
+      "my-account": "My account",
       "not-found": "Not found",
+      "sign-up": "Sign up",
       "transactions": "Transactions",
       "users": "Users",
       "wallets": "Wallets"
     }
+  },
+  "auth": {
+    "guards": {
+      "nonAuthenticated": {
+        "title": "Unauthenticated user",
+        "message": "Please log in to access the required page"
+      },
+      "nonAdmin": {
+        "title": "Unauthorized user",
+        "message": "Access not allowed"
+      }
+    },
+    "login": {
+      "emailLogin": "Login email",
+      "emailLoginPlaceHolder": "example@email.com",
+      "password": "Password",
+      "passwordPlaceHolder": "Enter the password",
+      "keepLoggedIn": "Keep logged in",
+      "enter": "Login",
+      "forgotPassword": "Forgot password",
+      "welcomeTitle": "Welcome!",
+      "welcomeMessage": "Hello {{user}}! Authentication successful",
+      "signUp": "Sign up"
+    },
+    "login-button": {
+      "login": "Login",
+      "logout": "Logout"
+    },
+    "logout": {
+      "farewellTitle": "Goodbye {{user}}!",
+      "farewellMessage": "Thank you for using our services"
+    }
   }
-
 }

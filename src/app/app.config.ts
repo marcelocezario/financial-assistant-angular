@@ -7,13 +7,14 @@ import { HttpClient, provideHttpClient, withInterceptors } from '@angular/common
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { languageInterceptor } from './shared';
+import { authInterceptor } from './features/auth';
 
 export const appConfig: ApplicationConfig = {
   providers: [
     provideRouter(routes),
     provideAnimationsAsync(),
     provideHttpClient(withInterceptors([
-      languageInterceptor
+      authInterceptor, languageInterceptor
     ])),
     TranslateModule.forRoot({
       defaultLanguage: 'pt-BR',

@@ -5,11 +5,12 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatMenuModule } from '@angular/material/menu';
 import { RouterModule } from '@angular/router';
 import { ROUTES_KEYS } from '../../config/routes-keys.config';
+import { LoginButtonComponent } from '../../../features/auth';
 
 @Component({
   selector: 'app-header-navbar',
   standalone: true,
-  imports: [MatToolbarModule, MatButtonModule, MatIconModule, MatMenuModule, RouterModule],
+  imports: [MatToolbarModule, MatButtonModule, MatIconModule, MatMenuModule, RouterModule, LoginButtonComponent],
   templateUrl: './header-navbar.component.html',
   styleUrl: './header-navbar.component.scss'
 })
@@ -20,7 +21,5 @@ export class HeaderNavbarComponent {
   transactionsLink = `/${ROUTES_KEYS.transactions}`;
   usersLink = `/${ROUTES_KEYS.users}`;
   walletsLink = `/${ROUTES_KEYS.wallets}`;
-
-
 
 }

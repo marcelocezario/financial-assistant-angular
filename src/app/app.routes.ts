@@ -1,20 +1,40 @@
 import { Routes } from '@angular/router';
-import { ROUTES_KEYS } from './core/config/routes-keys.config';
-import { CategoriesPageComponent, CurrenciesPageComponent, NotFoundPageComponent, TransactionsPageComponent, UsersPageComponent, WalletsPageComponent } from './features';
-import { HomePageComponent } from './features/home/home-page/home-page.component';
+import { ROUTES_KEYS } from './core/config';
 import { TesteComponent } from './features/teste/teste/teste.component';
+import { HomePageComponent } from './features/home';
+import { CategoriesPageComponent } from './features/categories';
+import { CurrenciesPageComponent } from './features/currencies';
+import { ForgotPasswordPageComponent, LoginPageComponent, adminGuard, authGuard } from './features/auth';
+import { MyAccountPageComponent, SignUpPageComponent, UsersPageComponent } from './features/users';
+import { NotFoundPageComponent } from './features/not-found';
+import { TransactionsPageComponent } from './features/transactions';
+import { WalletsPageComponent } from './features/wallets';
 
 export const routes: Routes = [
 
   { path: '', component: TesteComponent },
-  { path: ROUTES_KEYS.home, component: HomePageComponent, title: ROUTES_KEYS.home },
-  { path: ROUTES_KEYS.categories, component: CategoriesPageComponent, title: ROUTES_KEYS.categories },
-  { path: ROUTES_KEYS.currencies, component: CurrenciesPageComponent, title: ROUTES_KEYS.currencies },
-  { path: ROUTES_KEYS.notFound, component: NotFoundPageComponent, title: ROUTES_KEYS.notFound },
-  { path: ROUTES_KEYS.transactions, component: TransactionsPageComponent, title: ROUTES_KEYS.transactions },
-  { path: ROUTES_KEYS.users, component: UsersPageComponent, title: ROUTES_KEYS.users },
-  { path: ROUTES_KEYS.wallets, component: WalletsPageComponent, title: ROUTES_KEYS.wallets },
 
+  { path: ROUTES_KEYS.forgotPassword, component: ForgotPasswordPageComponent, title: ROUTES_KEYS.forgotPassword },
+  { path: ROUTES_KEYS.home, component: HomePageComponent, title: ROUTES_KEYS.home },
+  { path: ROUTES_KEYS.login, component: LoginPageComponent, title: ROUTES_KEYS.login },
+  { path: ROUTES_KEYS.notFound, component: NotFoundPageComponent, title: ROUTES_KEYS.notFound },
+  { path: ROUTES_KEYS.signUp, component: SignUpPageComponent, title: ROUTES_KEYS.signUp },
+  {
+    // AUTHENTICATED ROUTES
+    path: '', canActivate: [authGuard], children: [
+      { path: ROUTES_KEYS.categories, component: CategoriesPageComponent, title: ROUTES_KEYS.categories },
+      { path: ROUTES_KEYS.currencies, component: CurrenciesPageComponent, title: ROUTES_KEYS.currencies },
+      { path: ROUTES_KEYS.myAccount, component: MyAccountPageComponent, title: ROUTES_KEYS.myAccount },
+      { path: ROUTES_KEYS.transactions, component: TransactionsPageComponent, title: ROUTES_KEYS.transactions },
+      { path: ROUTES_KEYS.wallets, component: WalletsPageComponent, title: ROUTES_KEYS.wallets },
+      {
+        // AUTHENTICATED ADMIN ROUTES
+        path: '', canActivate: [adminGuard], children: [
+          { path: ROUTES_KEYS.users, component: UsersPageComponent, title: ROUTES_KEYS.users },
+        ]
+      }
+    ]
+  },
 
   { path: '**', redirectTo: ROUTES_KEYS.notFound, title: ROUTES_KEYS.notFound }
 

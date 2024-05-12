@@ -1,5 +1,5 @@
 <div>
-  @if(sectionTitle != 'home'  && sectionTitle != undefined) {
+  @if(sectionTitle != 'home' && sectionTitle != '' && sectionTitle != undefined) {
     <h1>{{ 'web.pageTitle.' + sectionTitle | translate }}</h1>
     <mat-divider></mat-divider>
   }

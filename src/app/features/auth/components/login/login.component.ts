@@ -50,6 +50,8 @@ export class LoginComponent {
         .catch(() => this._notification.success('Welcome'));
       if (this._dialogRef) {
         this._dialogRef?.close({ success: true });
+      } else {
+        this._router.navigate([`/${ROUTES_KEYS.myAccount}`]);
       }
     }).catch(err => console.error('Attempt login failed'))
   }

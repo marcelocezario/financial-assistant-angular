@@ -8,13 +8,14 @@ import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { languageInterceptor } from './shared';
 import { authInterceptor } from './features/auth';
+import { apiErrorInterceptor } from './shared/api/api-error.interceptor';
 
 export const appConfig: ApplicationConfig = {
   providers: [
     provideRouter(routes),
     provideAnimationsAsync(),
     provideHttpClient(withInterceptors([
-      authInterceptor, languageInterceptor
+      authInterceptor, apiErrorInterceptor, languageInterceptor
     ])),
     TranslateModule.forRoot({
       defaultLanguage: 'pt-BR',

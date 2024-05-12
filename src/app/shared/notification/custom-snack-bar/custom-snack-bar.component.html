@@ -1,7 +1,14 @@
 <div class="d-flex flex-row">
+  @if(data.type && (data.type === 'success' || data.type === 'error' || data.type === 'warning')) {
+  <span class="mhc-notification-type" [ngClass]="{
+      'mhc-success': data.type === 'success',
+      'mhc-error': data.type === 'error',
+      'mhc-warning': data.type === 'warning'
+    }"></span>
+  }
   <strong>{{ data.title }}</strong>
   <button class="mhc-dismisss-button" mat-icon-button (click)="dismiss()">
-        <mat-icon>cancel</mat-icon>
+    <mat-icon>cancel</mat-icon>
   </button>
 </div>
 <span>{{ data.message }}</span>

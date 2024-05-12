@@ -47,5 +47,13 @@
       "farewellTitle": "Goodbye {{user}}!",
       "farewellMessage": "Thank you for using our services"
     }
+  },
+  "api": {
+    "errors": {
+      "http403": {
+        "title": "Forbidden",
+        "message": "Unauthorized user or lack of permission to access the resource"
+      }
+    }
   }
 }

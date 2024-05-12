@@ -11,7 +11,7 @@ export class NotificationService {
 
   private show(message: string, type: 'success' | 'warning' | 'error' | 'info', delay: number | undefined = undefined, classname: string = '', title: string = '') {
     const config: MatSnackBarConfig = {
-      data: { title: title, message: message },
+      data: { title: title, message: message, type: type },
       duration: delay
     }
     this._snackBar.openFromComponent(CustomSnackBarComponent, config);

@@ -47,5 +47,13 @@
       "farewellTitle": "Adeus {{user}}!",
       "farewellMessage": "Obrigado por utilizar nossos serviços"
     }
+  },
+  "api": {
+    "errors": {
+      "http403": {
+        "title": "Não autorizado",
+        "message": "Usuário não autenticado ou sem permissão de acesso ao recurso"
+      }
+    }
   }
 }

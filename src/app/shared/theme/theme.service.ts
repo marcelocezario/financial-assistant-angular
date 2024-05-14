@@ -14,19 +14,14 @@ export class ThemeService {
   private _themeOptions = [
     'theme-personal-light',
     'theme-personal-dark',
-    'theme-default-user',
-    'theme-deeppurple-amber',
-    'theme-indigo-pink',
-    'theme-pink-bluegrey',
-    'theme-purple-green'
+    'theme-default-user'
   ]
 
   constructor(@Inject(DOCUMENT) private document: Document, private _storageService: StorageService) {
-    this._currentTheme$ = new BehaviorSubject<ThemeOptions>('theme-personal-light');
-    const userPreferences = this._storageService.getUserPreferences();
-    if (userPreferences?.theme) {
-      this.switchTheme(userPreferences.theme);
-    }
+    const defaultTheme = 'theme-default-user';
+    this._currentTheme$ = new BehaviorSubject<ThemeOptions>(defaultTheme);
+    const userTheme = this._storageService.getUserPreferences()?.theme || defaultTheme;
+    this.switchTheme(userTheme);
   }
 
   switchTheme(theme: ThemeOptions): void {

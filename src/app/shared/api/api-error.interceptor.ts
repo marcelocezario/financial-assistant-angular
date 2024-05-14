@@ -27,8 +27,8 @@ export const apiErrorInterceptor: HttpInterceptorFn = (req, next) => {
     }
 
     const handle403 = () => {
-      const keyTitle = 'errors.http403.title';
-      const keyMessage = 'errors.http403.message';
+      const keyTitle = 'api.errors.http403.title';
+      const keyMessage = 'api.errors.http403.message';
       languageService.getTranslate([keyTitle, keyMessage])
         .then((translated: any) =>
           notificationService.error(translated[keyMessage], translated[keyTitle])

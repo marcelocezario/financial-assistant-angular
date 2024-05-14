@@ -1,6 +1,68 @@
 {
+  "api": {
+    "errors": {
+      "http403": {
+        "message": "Unauthorized user or lack of permission to access the resource",
+        "title": "Forbidden"
+      }
+    }
+  },
+  "auth": {
+    "guards": {
+      "nonAdmin": {
+        "message": "Access not allowed",
+        "title": "Unauthorized user"
+      },
+      "nonAuthenticated": {
+        "message": "Please log in to access the required page",
+        "title": "Unauthenticated user"
+      }
+    },
+    "login": {
+      "emailLogin": "Login email",
+      "emailLoginPlaceHolder": "example@email.com",
+      "enter": "Login",
+      "forgotPassword": "Forgot password",
+      "keepLoggedIn": "Keep logged in",
+      "password": "Password",
+      "passwordPlaceHolder": "Enter the password",
+      "signUp": "Sign up",
+      "welcomeMessage": "Hello {{user}}! Authentication successful",
+      "welcomeTitle": "Welcome!"
+    },
+    "login-button": {
+      "login": "Login",
+      "logout": "Logout"
+    },
+    "logout": {
+      "farewellMessage": "Thank you for using our services",
+      "farewellTitle": "Goodbye {{user}}!"
+    }
+  },
   "helloApp": "Hello {{user}}, welcome!",
+  "models": {
+    "category": {
+      "active": "active",
+      "color": "color",
+      "createdAt": "createdAt",
+      "icon": "icon",
+      "id": "id",
+      "name": "name",
+      "updatedAt": "updatedAt"
+    }
+  },
   "web": {
+    "components": {
+      "_CategoriesPageComponent": {
+        "sortByActive": "Sort by active status",
+        "sortByColor": "Sort by color",
+        "sortByCreatedAt": "Sort by creation date",
+        "sortByIcon": "Sort by icon",
+        "sortById": "Sort by id",
+        "sortByName": "Sort by name",
+        "sortByUpdatedAt": "Sort by update date"
+      }
+    },
     "pageTitle": {
       "auth": "Auth",
       "categories": "Categories",
@@ -14,46 +76,6 @@
       "transactions": "Transactions",
       "users": "Users",
       "wallets": "Wallets"
-    }
-  },
-  "auth": {
-    "guards": {
-      "nonAuthenticated": {
-        "title": "Unauthenticated user",
-        "message": "Please log in to access the required page"
-      },
-      "nonAdmin": {
-        "title": "Unauthorized user",
-        "message": "Access not allowed"
-      }
-    },
-    "login": {
-      "emailLogin": "Login email",
-      "emailLoginPlaceHolder": "example@email.com",
-      "password": "Password",
-      "passwordPlaceHolder": "Enter the password",
-      "keepLoggedIn": "Keep logged in",
-      "enter": "Login",
-      "forgotPassword": "Forgot password",
-      "welcomeTitle": "Welcome!",
-      "welcomeMessage": "Hello {{user}}! Authentication successful",
-      "signUp": "Sign up"
-    },
-    "login-button": {
-      "login": "Login",
-      "logout": "Logout"
-    },
-    "logout": {
-      "farewellTitle": "Goodbye {{user}}!",
-      "farewellMessage": "Thank you for using our services"
-    }
-  },
-  "api": {
-    "errors": {
-      "http403": {
-        "title": "Forbidden",
-        "message": "Unauthorized user or lack of permission to access the resource"
-      }
     }
   }
 }

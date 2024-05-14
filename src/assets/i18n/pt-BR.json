@@ -1,6 +1,68 @@
 {
+  "api": {
+    "errors": {
+      "http403": {
+        "message": "Usuário não autenticado ou sem permissão de acesso ao recurso",
+        "title": "Não autorizado"
+      }
+    }
+  },
+  "auth": {
+    "guards": {
+      "nonAdmin": {
+        "message": "Acesso não permitido",
+        "title": "Usuário não autorizado"
+      },
+      "nonAuthenticated": {
+        "message": "Faça login para acessar a página desejada",
+        "title": "Usuário não autenticado"
+      }
+    },
+    "login": {
+      "emailLogin": "Email de login",
+      "emailLoginPlaceHolder": "examplo@email.com.br",
+      "enter": "Entrar",
+      "forgotPassword": "Esqueci minha senha",
+      "keepLoggedIn": "Manter logado",
+      "password": "Senha",
+      "passwordPlaceHolder": "Digite sua senha",
+      "signUp": "Cadastre-se",
+      "welcomeMessage": "Olá {{user}}! Autenticação efetuada com sucesso",
+      "welcomeTitle": "Bem-vindo!"
+    },
+    "login-button": {
+      "login": "Entrar",
+      "logout": "Sair"
+    },
+    "logout": {
+      "farewellMessage": "Obrigado por utilizar nossos serviços",
+      "farewellTitle": "Adeus {{user}}!"
+    }
+  },
   "helloApp": "Olá {{user}}, bem vindo!",
+  "models": {
+    "category": {
+      "active": "ativo",
+      "color": "cor",
+      "createdAt": "criado em",
+      "icon": "ícone",
+      "id": "id",
+      "name": "nome",
+      "updatedAt": "atualizado em"
+    }
+  },
   "web": {
+    "components": {
+      "_CategoriesPageComponent": {
+        "sortByActive": "Ordenar por status ativo",
+        "sortByColor": "Ordenar por cor",
+        "sortByCreatedAt": "Ordenar por data de criação",
+        "sortByIcon": "Ordenar por ícone",
+        "sortById": "Ordenar por id",
+        "sortByName": "Ordenar por nome",
+        "sortByUpdatedAt": "Ordenar por data de atualização"
+      }
+    },
     "pageTitle": {
       "auth": "Autenticar",
       "categories": "Categorias",
@@ -14,46 +76,6 @@
       "transactions": "Transações",
       "users": "Usuários",
       "wallets": "Carteiras"
-    }
-  },
-  "auth": {
-    "guards": {
-      "nonAuthenticated": {
-        "title": "Usuário não autenticado",
-        "message": "Faça login para acessar a página desejada"
-      },
-      "nonAdmin": {
-        "title": "Usuário não autorizado",
-        "message": "Acesso não permitido"
-      }
-    },
-    "login": {
-      "emailLogin": "Email de login",
-      "emailLoginPlaceHolder": "examplo@email.com.br",
-      "password": "Senha",
-      "passwordPlaceHolder": "Digite sua senha",
-      "keepLoggedIn": "Manter logado",
-      "enter": "Entrar",
-      "forgotPassword": "Esqueci minha senha",
-      "welcomeTitle": "Bem-vindo!",
-      "welcomeMessage": "Olá {{user}}! Autenticação efetuada com sucesso",
-      "signUp": "Cadastre-se"
-    },
-    "login-button": {
-      "login": "Entrar",
-      "logout": "Sair"
-    },
-    "logout": {
-      "farewellTitle": "Adeus {{user}}!",
-      "farewellMessage": "Obrigado por utilizar nossos serviços"
-    }
-  },
-  "api": {
-    "errors": {
-      "http403": {
-        "title": "Não autorizado",
-        "message": "Usuário não autenticado ou sem permissão de acesso ao recurso"
-      }
     }
   }
 }

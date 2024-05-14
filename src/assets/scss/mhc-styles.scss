@@ -1,7 +1,88 @@
+:root {
+  --table-light-bg: #e4e4e4;
+  --table-light-header-bg: #333;
+  --table-light-header-color: #e4e4e4;
+  --table-light-row-bg: #fff;
+  --table-light-row-hover-bg: #979797;
+
+  --table-dark-bg: #333;
+  --table-dark-header-bg: #e4e4e4;
+  --table-dark-header-color: #333;
+  --table-dark-row-bg: #525252;
+  --table-dark-row-hover-bg: #000000;
+}
+
 .mhc-empty-spacer {
   flex: 1 1 auto;
 }
 
 .mhc-full-width {
   width: 100%;
+}
+
+.mhc-table {
+  th {
+    text-transform: capitalize;
+    font-weight: bold;
+    position: sticky;
+    top: 0;
+  }
+}
+
+@mixin theme-personal-light {
+
+  .mhc-table {
+    background-color: var(--table-light-bg);
+
+    th {
+      background-color: var(--table-light-header-bg);
+      color: var(--table-light-header-color);
+    }
+
+    tr:nth-child(odd) {
+      background-color: var(--table-light-row-bg);
+    }
+
+    tbody tr:hover {
+      background-color: var(--table-light-row-hover-bg);
+    }
+  }
+}
+
+@mixin theme-personal-dark {
+
+  .mhc-table {
+    background-color: var(--table-dark-bg);
+
+    th {
+      background-color: var(--table-dark-header-bg);
+      color: var(--table-dark-header-color);
+    }
+
+    tr:nth-child(odd) {
+      background-color: var(--table-dark-row-bg);
+    }
+
+    tbody tr:hover {
+      background-color: var(--table-dark-row-hover-bg);
+    }
+  }
+}
+
+.theme-personal-light {
+  @include theme-personal-light
+}
+
+.theme-personal-dark {
+  @include theme-personal-dark
+}
+
+.theme-default-user {
+  @media (prefers-color-scheme: light) {
+    @include theme-personal-light
+  }
+
+  @media (prefers-color-scheme: dark) {
+    @include theme-personal-dark
+  }
 }

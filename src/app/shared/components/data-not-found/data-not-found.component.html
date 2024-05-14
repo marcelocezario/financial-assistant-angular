@@ -1,0 +1,6 @@
+<div class="mhc-data-not-found-container">
+  <p>{{ 'generic.dataNotFound' | translate }}</p>
+  @if (data !== '') {
+  <p>{{ 'generic.terms' | translate: { terms: data } }}</p>
+  }
+</div>

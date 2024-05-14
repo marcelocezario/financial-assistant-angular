@@ -1,10 +1,12 @@
 :root {
+  --color-font-light-theme: #666666;
   --table-light-bg: #e4e4e4;
   --table-light-header-bg: #333;
   --table-light-header-color: #e4e4e4;
   --table-light-row-bg: #fff;
   --table-light-row-hover-bg: #979797;
 
+  --color-font-dark-theme: #F2F2F2;
   --table-dark-bg: #333;
   --table-dark-header-bg: #e4e4e4;
   --table-dark-header-color: #333;
@@ -47,6 +49,10 @@
       background-color: var(--table-light-row-hover-bg);
     }
   }
+
+  .mhc-data-not-found-container {
+    color: var(--color-font-light-theme);
+  }
 }
 
 @mixin theme-personal-dark {
@@ -66,6 +72,10 @@
     tbody tr:hover {
       background-color: var(--table-dark-row-hover-bg);
     }
+  }
+
+  .mhc-data-not-found-container {
+    color: var(--color-font-dark-theme);
   }
 }
 

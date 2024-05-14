@@ -39,6 +39,10 @@
       "farewellTitle": "Adeus {{user}}!"
     }
   },
+  "generic": {
+    "dataNotFound": "Sem dados econtrados",
+    "terms": "Termos: \"{{terms}}\""
+  },
   "helloApp": "Olá {{user}}, bem vindo!",
   "models": {
     "category": {
@@ -54,6 +58,10 @@
   "web": {
     "components": {
       "_CategoriesPageComponent": {
+        "addCategory": "Adicionar categoria",
+        "filter": "Filtro",
+        "filterPlaceHolder": "Digite sua busca",
+        "myCategories": "Minhas categorias",
         "sortByActive": "Ordenar por status ativo",
         "sortByColor": "Ordenar por cor",
         "sortByCreatedAt": "Ordenar por data de criação",

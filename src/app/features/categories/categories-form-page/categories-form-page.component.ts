@@ -48,12 +48,13 @@ export class CategoriesFormPageComponent extends FormBaseDirective {
       const translateKey = this.getTranslateKey('categoryCreatedSuccessfully');
       this._languageService.getTranslate(translateKey).then(message => {
         this._notification.success(message)
-        this._router.navigate([`/${ROUTES_KEYS.categories}`]);
+        this._router.navigate([`/${ROUTES_KEYS.categories}`])
       });
     })
   }
 
   override cancel(): void {
+    this._router.navigate([`/${ROUTES_KEYS.categories}`])
   }
 
 }

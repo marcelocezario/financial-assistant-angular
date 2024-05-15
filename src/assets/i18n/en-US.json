@@ -47,6 +47,8 @@
     "cancel": "Cancel",
     "confirm": "Confirm",
     "dataNotFound": "Data not found",
+    "exitConfirmationTitle": "Are you sure you want to exit?",
+    "exitConfirmationMessage": "There are unsaved changes",
     "terms": "Terms: \"{{terms}}\""
   },
   "helloApp": "Hello {{user}}, welcome!",

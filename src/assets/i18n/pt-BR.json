@@ -47,6 +47,8 @@
     "cancel": "Cancelar",
     "confirm": "Confirmar",
     "dataNotFound": "Sem dados econtrados",
+    "exitConfirmationTitle": "Tem certeza que deseja sair?",
+    "exitConfirmationMessage": "Existem dados não salvos",
     "terms": "Termos: \"{{terms}}\""
   },
   "helloApp": "Olá {{user}}, bem vindo!",

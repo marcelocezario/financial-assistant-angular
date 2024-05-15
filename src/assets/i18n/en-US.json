@@ -4,6 +4,10 @@
       "http403": {
         "message": "Unauthorized user or lack of permission to access the resource",
         "title": "Forbidden"
+      },
+      "http500": {
+        "message": "There was a problem and the request could not be fulfilled by the server",
+        "title": "Internal server error"
       }
     }
   },

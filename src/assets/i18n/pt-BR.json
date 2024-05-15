@@ -4,6 +4,10 @@
       "http403": {
         "message": "Usuário não autenticado ou sem permissão de acesso ao recurso",
         "title": "Não autorizado"
+      },
+      "http500": {
+        "message": "Houve um problema e a requisição não pode ser atendida pelo servidor",
+        "title": "Erro interno de servidor"
       }
     }
   },

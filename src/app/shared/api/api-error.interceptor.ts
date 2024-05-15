@@ -22,8 +22,17 @@ export const apiErrorInterceptor: HttpInterceptorFn = (req, next) => {
 
   return next(req).pipe(catchError((response: HttpErrorResponse) => {
 
-    const defaultAction = (error: StandardError) => {
-      notificationService.error(error.message, error.error);
+    const defaultAction = (error: any) => {
+      if (error.message) {
+        notificationService.error(error.message, error.error);
+      } else {
+        const keyTitle = 'api.errors.http500.title';
+        const keyMessage = 'api.errors.http500.message';
+        languageService.getTranslate([keyTitle, keyMessage])
+          .then((translated: any) =>
+            notificationService.error(translated[keyMessage], translated[keyTitle])
+          )
+      }
     }
 
     const handle403 = () => {

@@ -24,12 +24,12 @@
     },
     "login": {
       "emailLogin": "Login email",
-      "emailLoginPlaceHolder": "example@email.com",
+      "emailLoginPlaceholder": "example@email.com",
       "enter": "Login",
       "forgotPassword": "Forgot password",
       "keepLoggedIn": "Keep logged in",
       "password": "Password",
-      "passwordPlaceHolder": "Enter the password",
+      "passwordPlaceholder": "Enter the password",
       "signUp": "Sign up",
       "welcomeMessage": "Hello {{user}}! Authentication successful",
       "welcomeTitle": "Welcome!"
@@ -67,14 +67,16 @@
     "components": {
       "_CategoriesFormPageComponent": {
         "categoryCreatedSuccessfully": "Category created successfully",
+        "colorLabel": "Color",
+        "colorPlaceholder": "Select a color or enter one in hexadecimal format (e.g., '#00695C')",
         "nameLabel": "Name",
-        "namePlaceHolder": "Enter the category name",
+        "namePlaceholder": "Enter the category name",
         "nameValidationRequired": "Category name is mandatory"
       },
       "_CategoriesPageComponent": {
         "addCategory": "Add category",
         "filter": "Filter",
-        "filterPlaceHolder": "Enter your search",
+        "filterPlaceholder": "Enter your search",
         "myCategories": "My categories",
         "sortByActive": "Sort by active status",
         "sortByColor": "Sort by color",

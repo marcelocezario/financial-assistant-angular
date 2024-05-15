@@ -2,7 +2,7 @@
 
   <mat-form-field class="mhc-full-width" appearance="outline">
     <mat-label>{{ getTranslateKey('nameLabel') | translate }}</mat-label>
-    <input matInput name="name" formControlName="name" [placeholder]="getTranslateKey('namePlaceHolder') | translate">
+    <input matInput name="name" formControlName="name" [placeholder]="getTranslateKey('namePlaceholder') | translate">
     @if (formGroup.get('name')?.hasError('required')) {
       <mat-error [innerHtml]="getTranslateKey('nameValidationRequired') | translate"></mat-error>
     }

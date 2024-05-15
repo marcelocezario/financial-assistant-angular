@@ -24,12 +24,12 @@
     },
     "login": {
       "emailLogin": "Email de login",
-      "emailLoginPlaceHolder": "examplo@email.com.br",
+      "emailLoginPlaceholder": "examplo@email.com.br",
       "enter": "Entrar",
       "forgotPassword": "Esqueci minha senha",
       "keepLoggedIn": "Manter logado",
       "password": "Senha",
-      "passwordPlaceHolder": "Digite sua senha",
+      "passwordPlaceholder": "Digite sua senha",
       "signUp": "Cadastre-se",
       "welcomeMessage": "Olá {{user}}! Autenticação efetuada com sucesso",
       "welcomeTitle": "Bem-vindo!"
@@ -68,13 +68,13 @@
       "_CategoriesFormPageComponent": {
         "categoryCreatedSuccessfully": "Categoria criada com sucesso",
         "nameLabel": "Nome",
-        "namePlaceHolder": "Digite o nome da categoria",
+        "namePlaceholder": "Digite o nome da categoria",
         "nameValidationRequired": "Nome da categoria é obrigatório"
       },
       "_CategoriesPageComponent": {
         "addCategory": "Adicionar categoria",
         "filter": "Filtro",
-        "filterPlaceHolder": "Digite sua busca",
+        "filterPlaceholder": "Digite sua busca",
         "myCategories": "Minhas categorias",
         "sortByActive": "Ordenar por status ativo",
         "sortByColor": "Ordenar por cor",

@@ -9,6 +9,7 @@ import { MyAccountPageComponent, SignUpPageComponent, UsersPageComponent } from 
 import { NotFoundPageComponent } from './features/not-found';
 import { TransactionsPageComponent } from './features/transactions';
 import { WalletsPageComponent } from './features/wallets';
+import { CategoriesFormPageComponent } from './features/categories/categories-form-page/categories-form-page.component';
 
 export const routes: Routes = [
 
@@ -23,6 +24,7 @@ export const routes: Routes = [
     // AUTHENTICATED ROUTES
     path: '', canActivate: [authGuard], children: [
       { path: ROUTES_KEYS.categories, component: CategoriesPageComponent, title: ROUTES_KEYS.categories },
+      { path: ROUTES_KEYS.categories_add, component: CategoriesFormPageComponent, title: ROUTES_KEYS.categories_add },
       { path: ROUTES_KEYS.currencies, component: CurrenciesPageComponent, title: ROUTES_KEYS.currencies },
       { path: ROUTES_KEYS.myAccount, component: MyAccountPageComponent, title: ROUTES_KEYS.myAccount },
       { path: ROUTES_KEYS.transactions, component: TransactionsPageComponent, title: ROUTES_KEYS.transactions },

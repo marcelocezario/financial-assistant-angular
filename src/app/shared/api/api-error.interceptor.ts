@@ -10,6 +10,7 @@ export interface StandardError {
   error: string;
   message: string;
   path: string;
+  additionalInfo: string[];
 }
 
 export const apiErrorInterceptor: HttpInterceptorFn = (req, next) => {
@@ -44,17 +45,24 @@ export const apiErrorInterceptor: HttpInterceptorFn = (req, next) => {
         )
     }
 
+    const handle422 = (error: StandardError) => {
+      const infos = error.additionalInfo.join('/');
+      notificationService.error(infos, error.message, false);
+    }
+
     const error: StandardError = response.error;
 
     switch (response.status) {
       case 403:
         handle403();
         break;
+      case 422:
+        handle422(error);
+        break;
       case 400:
       case 401:
       case 404:
       case 409:
-      case 422:
       case 500:
       default:
         defaultAction(error);

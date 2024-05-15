@@ -6,4 +6,5 @@ export interface Category {
   active?: boolean
   createdAt?: Date
   updatedAt?: Date
+  userId?: string
 }

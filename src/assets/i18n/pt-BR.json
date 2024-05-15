@@ -44,6 +44,8 @@
     }
   },
   "generic": {
+    "cancel": "Cancelar",
+    "confirm": "Confirmar",
     "dataNotFound": "Sem dados econtrados",
     "terms": "Termos: \"{{terms}}\""
   },
@@ -61,6 +63,12 @@
   },
   "web": {
     "components": {
+      "_CategoriesFormPageComponent": {
+        "categoryCreatedSuccessfully": "Categoria criada com sucesso",
+        "nameLabel": "Nome",
+        "namePlaceHolder": "Digite o nome da categoria",
+        "nameValidationRequired": "Nome da categoria é obrigatório"
+      },
       "_CategoriesPageComponent": {
         "addCategory": "Adicionar categoria",
         "filter": "Filtro",
@@ -78,6 +86,7 @@
     "pageTitle": {
       "auth": "Autenticar",
       "categories": "Categorias",
+      "categories/add": "Adicionar categoria",
       "currencies": "Moedas",
       "forgot-password": "Esqueci minha senha",
       "home": "Início",

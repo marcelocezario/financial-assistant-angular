@@ -2,6 +2,7 @@ export const ROUTES_KEYS = {
 
   auth: 'auth',
   categories: 'categories',
+  categories_add: 'categories/add',
   currencies: 'currencies',
   forgotPassword: 'forgot-password',
   home: 'home',

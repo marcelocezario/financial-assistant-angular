@@ -1,1 +1,20 @@
-<p>categories-form-page works!</p>
+<form class="mhc-form" [formGroup]="formGroup" (ngSubmit)="onSubmit()">
+
+  <mat-form-field class="mhc-full-width" appearance="outline">
+    <mat-label>{{ getTranslateKey('nameLabel') | translate }}</mat-label>
+    <input matInput name="name" formControlName="name" [placeholder]="getTranslateKey('namePlaceHolder') | translate">
+    @if (formGroup.get('name')?.hasError('required')) {
+      <mat-error [innerHtml]="getTranslateKey('nameValidationRequired') | translate"></mat-error>
+    }
+  </mat-form-field>
+
+  <div class="d-flex flex-column mhc-form-actions">
+    <button type="submit" mat-raised-button color="primary">
+      {{ 'generic.confirm' | translate }}
+    </button>
+    <button mat-raised-button (click)="cancel()">
+      {{ 'generic.cancel' | translate }}
+    </button>
+  </div>
+
+</form>

@@ -43,13 +43,12 @@ export class LoginButtonComponent {
   }
 
   login(): void {
-    this._dialogService.openComponent(LoginComponent).afterClosed().pipe(first()).subscribe({
-      next: res => {
-        if (res?.success) {
-          this._router.navigate([this.myAccountLink]);
-        }
+    this._dialogService.openComponent(LoginComponent).then(res => {
+      if (res?.success) {
+        this._router.navigate([this.myAccountLink]);
       }
-    });
+    }
+    );
   }
 
   logout(): void {

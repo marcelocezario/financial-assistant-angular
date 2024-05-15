@@ -47,8 +47,8 @@
     "cancel": "Cancel",
     "confirm": "Confirm",
     "dataNotFound": "Data not found",
-    "exitConfirmationTitle": "Are you sure you want to exit?",
     "exitConfirmationMessage": "There are unsaved changes",
+    "exitConfirmationTitle": "Are you sure you want to exit?",
     "terms": "Terms: \"{{terms}}\""
   },
   "helloApp": "Hello {{user}}, welcome!",
@@ -69,6 +69,8 @@
         "categoryCreatedSuccessfully": "Category created successfully",
         "colorLabel": "Color",
         "colorPlaceholder": "Select a color or enter one in hexadecimal format (e.g., '#00695C')",
+        "iconLabel": "Icon",
+        "iconPlaceholder": "Select an icon or enter the name (Material Icons reference)",
         "nameLabel": "Name",
         "namePlaceholder": "Enter the category name",
         "nameValidationRequired": "Category name is mandatory"
@@ -85,6 +87,20 @@
         "sortById": "Sort by id",
         "sortByName": "Sort by name",
         "sortByUpdatedAt": "Sort by update date"
+      },
+      "forms": {
+        "errors": {
+          "email": "Invalid email address",
+          "equalsTo": "Value does not match '{{ equalsTo }}'",
+          "generic": "Validation error",
+          "hexadecimalColor": "The value is not a valid hexadecimal",
+          "max": "The maximum allowed number is {{ max.max }}",
+          "maxlength": "A maximum of {{ maxlength.requiredLength }} characters is allowed",
+          "min": "The minimum allowed number is {{ min.min }}",
+          "minlength": "A minimum of {{ minlength.requiredLength }} characters is required",
+          "pattern": "The value is not valid",
+          "required": "Mandatory field"
+        }
       }
     },
     "pageTitle": {
@@ -101,6 +117,23 @@
       "transactions": "Transactions",
       "users": "Users",
       "wallets": "Wallets"
+    },
+    "shared": {
+      "components": {
+        "_IconPickerComponent": {
+          "selected": "Selected",
+          "previous": "Previous",
+          "title": "Select an icon",
+          "useCustomColor": "Use custom color"
+        },
+        "_InputColorComponent": {
+          "selectColor": "Select color"
+        },
+        "_InputIconComponent": {
+          "hint": "The complete list of icons can be found at {{url}}",
+          "selectIcon": "Select icon"
+        }
+      }
     }
   }
 }

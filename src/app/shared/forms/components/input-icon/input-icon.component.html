@@ -1,0 +1,10 @@
+<mat-form-field appearance="outline" class="mhc-full-width">
+  <mat-label [attr.for]="id">{{ label }}</mat-label>
+  <button class="mhc-prefix-form-button" type="button" mat-stroked-button matTextPrefix (click)="searchIcon()">
+    {{ getTranslateKey('selectIcon') | translate }}
+  </button>
+  <input matInput [id]="id" [name]="id" type="text" [placeholder]="placeholder" [readonly]="!!isReadOnly"
+    [formControl]="getFormControl()" />
+  <mat-icon matSuffix [style.color]="iconColor">{{ getFormControl().value }}</mat-icon>
+  <mat-hint>{{ getTranslateKey('hint') | translate: {url: materialIconsWebSite} }}</mat-hint>
+</mat-form-field>

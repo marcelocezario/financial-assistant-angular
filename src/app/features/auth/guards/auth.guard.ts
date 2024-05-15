@@ -26,8 +26,7 @@ export const authGuard: CanActivateFn = async (route, state) => {
     languageService.getTranslate([keyTitle, keyMessage]).then(translated => {
       notification.info(translated[keyMessage], translated[keyTitle]);
     })
-    const login$ = dialogService.openComponent(LoginComponent).afterClosed().pipe(first());
-    await lastValueFrom(login$).then();
+    await dialogService.openComponent(LoginComponent).then();
     await checkIsAuthenticated();
   }
   return isAuthenticated;

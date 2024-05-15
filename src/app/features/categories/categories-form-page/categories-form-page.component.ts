@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormBaseDirective, LanguageService, NotificationService, StorageService } from '../../../shared';
+import { FormBaseDirective, FormValidations, InputColorComponent, InputIconComponent, LanguageService, NotificationService, StorageService } from '../../../shared';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { CategoryService } from '../category.service';
 import { Category } from '../../../core/models';
@@ -10,11 +10,12 @@ import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { Router } from '@angular/router';
 import { ROUTES_KEYS } from '../../../core/config';
+import { MatIconModule } from '@angular/material/icon';
 
 @Component({
   selector: 'app-categories-form-page',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule, MatFormFieldModule, MatInputModule, TranslateModule, MatButtonModule],
+  imports: [CommonModule, ReactiveFormsModule, MatFormFieldModule, MatInputModule, TranslateModule, MatButtonModule, MatIconModule, InputColorComponent, InputIconComponent],
   templateUrl: './categories-form-page.component.html',
   styleUrl: './categories-form-page.component.scss'
 })
@@ -23,8 +24,8 @@ export class CategoriesFormPageComponent extends FormBaseDirective {
   override formGroup: FormGroup<any> = this._formBuilder.group({
     id: [null],
     name: [null, [Validators.required]],
+    color: [null, [FormValidations.hexadecimalColor()]],
     icon: [null],
-    color: [null],
     active: [true],
     createdAt: [null],
     updatedAt: [null]

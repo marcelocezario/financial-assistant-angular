@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { DialogConfirmComponent } from './index-dialog';
-import { first } from 'rxjs';
+import { first, lastValueFrom } from 'rxjs';
 import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { LanguageService } from '../language';
 import { ComponentType } from '@angular/cdk/portal';
@@ -34,7 +34,8 @@ export class DialogService {
     });
   }
 
-  openComponent<T>(component: ComponentType<T>): MatDialogRef<T> {
-    return this._dialog.open(component);
+  openComponent<T>(component: ComponentType<T>, data: any = undefined): Promise<any> {
+    const dialogRef = this._dialog.open(component, { data: data, width: data?.width, height: data?.height });
+    return lastValueFrom(dialogRef.afterClosed());
   }
 }

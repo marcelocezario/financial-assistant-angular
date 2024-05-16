@@ -4,13 +4,13 @@ import { LanguageSelectorComponent, NotificationService } from '../../../shared'
 import { MatButtonModule } from '@angular/material/button';
 
 @Component({
-  selector: 'app-teste',
+  selector: 'app-test',
   standalone: true,
   imports: [TranslateModule, LanguageSelectorComponent, MatButtonModule],
-  templateUrl: './teste.component.html',
-  styleUrl: './teste.component.scss'
+  templateUrl: './test.component.html',
+  styleUrl: './test.component.scss'
 })
-export class TesteComponent {
+export class TestComponent {
 
   constructor(public notificationService: NotificationService) { }
 

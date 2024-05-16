@@ -1,6 +1,6 @@
 import { Routes } from '@angular/router';
 import { ROUTES_KEYS } from './core/config';
-import { TesteComponent } from './features/teste/teste/teste.component';
+import { TestComponent } from './features/test/test/test.component';
 import { HomePageComponent } from './features/home';
 import { CategoriesPageComponent } from './features/categories';
 import { CurrenciesPageComponent } from './features/currencies';
@@ -14,7 +14,7 @@ import { unsavedChangesGuard } from './shared';
 
 export const routes: Routes = [
 
-  { path: '', component: TesteComponent },
+  { path: '', component: TestComponent },
 
   { path: ROUTES_KEYS.forgotPassword, component: ForgotPasswordPageComponent, title: ROUTES_KEYS.forgotPassword },
   { path: ROUTES_KEYS.home, component: HomePageComponent, title: ROUTES_KEYS.home },

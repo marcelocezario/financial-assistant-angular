@@ -1,14 +1,11 @@
 <div class="container">
-  <div class="d-flex flex-column">
+  <div matDialogTitle class="d-flex flex-column">
     <h2>{{ getTranslateKey('title') | translate }}</h2>
     <mat-slide-toggle [(ngModel)]="useCustomColor" name="useCustomColor">
       {{ getTranslateKey('useCustomColor') | translate }}
     </mat-slide-toggle>
   </div>
-
-  <mat-divider></mat-divider>
-
-  <mat-dialog-content class="mat-typography">
+  <mat-dialog-content>
     <div class="container mhc-icon-picker-container justify-content-center">
       @for(icon of icons; track icon) {
       <button class="d-flex flex-column justify-content-center mhc-icon-button" mat-stroked-button
@@ -16,48 +13,12 @@
         'mhc-current-icon': icon.name === currentIcon,
         'mhc-selected-icon': icon.name === selectedIcon
         }">
-        <div>
-          <mat-icon [style.color]="useCustomColor ? iconColor : undefined">{{ icon.name }}</mat-icon>
-          <span class="mhc-icon-text">
-            {{ icon.name }}
-          </span>
-        </div>
+        <app-icon-card [icon]="icon.name" [customColor]="useCustomColor ? iconColor : undefined"></app-icon-card>
       </button>
       }
     </div>
   </mat-dialog-content>
-  <mat-dialog-actions align="center">
-    <mat-divider></mat-divider>
-
-    @if (currentIcon) {
-    <mat-card  class="mhc-current-icon mhc-user-icons">
-      <mat-card-header>
-        {{ getTranslateKey('previous') | translate }}
-      </mat-card-header>
-      <mat-card-content>
-        <mat-icon [style.color]="useCustomColor ? iconColor : undefined">{{ currentIcon }}</mat-icon>
-        <span class="mhc-icon-text">
-          {{ currentIcon }}
-        </span>
-      </mat-card-content>
-    </mat-card>
-    }
-
-    @if (selectedIcon) {
-    <mat-card class="mhc-selected-icon mhc-user-icons">
-      <mat-card-header>
-        {{ getTranslateKey('selected') | translate }}
-      </mat-card-header>
-      <mat-card-content>
-        <mat-icon [style.color]="useCustomColor ? iconColor : undefined">{{ selectedIcon }}</mat-icon>
-        <span class="mhc-icon-text">
-          {{ selectedIcon }}
-        </span> </mat-card-content>
-    </mat-card>
-    }
-
-  </mat-dialog-actions>
-  <mat-dialog-actions align="end">
+  <mat-dialog-actions>
     <button mat-raised-button mat-dialog-close>{{ 'generic.cancel' | translate }}</button>
     <button mat-raised-button color="primary" [mat-dialog-close]="selectedIcon" cdkFocusInitial>{{ 'generic.confirm' |
       translate }}</button>

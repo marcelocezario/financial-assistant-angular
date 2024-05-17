@@ -1,0 +1,14 @@
+.mhc-icon-card-container {
+  display: flex;
+  flex-direction: column;
+  max-width: 100%;
+}
+
+.mhc-icon-text {
+  font-size: x-small;
+  max-width: 100%;
+  display: block;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}

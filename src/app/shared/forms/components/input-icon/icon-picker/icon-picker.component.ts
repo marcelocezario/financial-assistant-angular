@@ -10,6 +10,7 @@ import { TranslateModule } from '@ngx-translate/core';
 import { FormsModule } from '@angular/forms';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatCardModule } from '@angular/material/card';
+import { IconCardComponent } from '../icon-card/icon-card.component';
 
 interface MaterialIcons {
   categories: string[];
@@ -23,7 +24,7 @@ interface MaterialIcons {
 @Component({
   selector: 'app-icon-picker',
   standalone: true,
-  imports: [CommonModule, MatButtonModule, MatIconModule, MatDialogModule, TranslateModule, MatSlideToggleModule, FormsModule, MatDividerModule, MatCardModule],
+  imports: [CommonModule, MatButtonModule, MatIconModule, MatDialogModule, TranslateModule, MatSlideToggleModule, FormsModule, MatCardModule, IconCardComponent],
   templateUrl: './icon-picker.component.html',
   styleUrl: './icon-picker.component.scss'
 })
@@ -38,7 +39,6 @@ export class IconPickerComponent implements OnInit {
 
   constructor(
     private _httpClient: HttpClient,
-    private _dialogRef: MatDialogRef<IconPickerComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any
   ) {
     if (data?.currentIcon) {

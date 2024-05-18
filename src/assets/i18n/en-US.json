@@ -24,13 +24,39 @@
       "updatedAt": "updated at"
     },
     "confirm": "Confirm",
+    "currency": {
+      "active": "ativo",
+      "brlRate": "exchange rate to Brazilian reais (R$)",
+      "code": "code",
+      "createdAt": "criado em",
+      "id": "id",
+      "symbol": "symbol",
+      "types": {
+        "ARS": "Argentine Peso",
+        "AUD": "Australian Dollar",
+        "BRL": "Real",
+        "BTC": "Bitcoin",
+        "CAD": "Canadian Dollar",
+        "CHF": "Swiss Franc",
+        "ETH": "Ethereum",
+        "EUR": "Euro",
+        "GBP": "British Pound",
+        "JPY": "Yen",
+        "USD": "US Dollar"
+      },
+      "updatedAt": "atualizado em"
+    },
     "dataNotFound": "Data not found",
     "delete": "Delete",
     "edit": "Edit",
     "exitConfirmationMessage": "There are unsaved changes",
     "exitConfirmationTitle": "Are you sure you want to exit?",
+    "filter": "Filter",
+    "filterPlaceholder": "Enter your search",
     "helloApp": "Hello {{user}}, welcome!",
-    "terms": "Terms: \"{{terms}}\""
+    "no": "No",
+    "terms": "Terms: \"{{terms}}\"",
+    "yes": "Yes"
   },
   "web": {
     "components": {
@@ -50,8 +76,6 @@
         "categoryDeleteConfirmMessage": "This action is irreversible and the data will be permanently lost",
         "categoryDeleteConfirmTitle": "Are you sure you want to delete the category '{{categoryName}}'?",
         "categoryDeletedSuccessfully": "Category '{{categoryName}}' deleted successfully",
-        "filter": "Filter",
-        "filterPlaceholder": "Enter your search",
         "myCategories": "My categories",
         "sortByActive": "Sort by active status",
         "sortByColor": "Sort by color",
@@ -59,6 +83,30 @@
         "sortByIcon": "Sort by icon",
         "sortById": "Sort by id",
         "sortByName": "Sort by name",
+        "sortByUpdatedAt": "Sort by update date"
+      },
+      "_CurrenciesFormPageComponent": {
+        "activeLabel": "Active",
+        "brlRateLabel": "Exchange Brazilia Real Rate",
+        "brlRatePlaceholder": "Enter the exchange rate in reais",
+        "brlRateValidationRequired": "Exchange rate is required",
+        "codeLabel": "Code",
+        "codePlaceholder": "Enter the currency code (ISO 4217)",
+        "codeValidationRequired": "Code is required",
+        "symbolLabel": "Symbol",
+        "symbolPlaceholder": "Enter the currency symbol (e.g., US$)",
+        "symbolValidationRequired": "Symbol is required"
+      },
+      "_CurrenciesPageComponent": {
+        "addCurrency": "Add currency",
+        "currencies": "Currencies",
+        "currencyDeleteConfirmMessage": "This action is irreversible and the data will be permanently lost",
+        "currencyDeleteConfirmTitle": "Are you sure you want to delete the currency '{{currencyCode}}'?",
+        "currencyDeletedSuccessfully": "Currency '{{currencyCode}}' deleted successfully",
+        "sortByActive": "Sort by active status",
+        "sortByBrlRate": "Sort by Brazilian rate",
+        "sortByCode": "Sort by code",
+        "sortById": "Sort by id",
         "sortByUpdatedAt": "Sort by update date"
       }
     },
@@ -110,11 +158,13 @@
     },
     "pageTitle": {
       ":categoryId": "Edit category",
+      ":currencyId": "Edit currency",
       "add": "Add",
       "auth": "Auth",
       "categories": "Categories",
       "categories/add": "Add category",
       "currencies": "Currencies",
+      "currencies/add": "Add currency",
       "forgot-password": "Forgot password",
       "home": "Home",
       "login": "Login",

@@ -1,0 +1,43 @@
+<form class="mhc-form" [formGroup]="formGroup" (ngSubmit)="onSubmit()">
+
+  <mat-form-field class="mhc-full-width" appearance="outline">
+    <mat-label>{{ getTranslateKey('codeLabel') | translate }}</mat-label>
+    <input matInput name="code" formControlName="code" [placeholder]="getTranslateKey('codePlaceholder') | translate">
+    @if (formGroup.get('code')?.hasError('required')) {
+    <mat-error [innerHtml]="getTranslateKey('codeValidationRequired') | translate"></mat-error>
+    }
+  </mat-form-field>
+
+  <mat-form-field class="mhc-full-width" appearance="outline">
+    <mat-label>{{ getTranslateKey('symbolLabel') | translate }}</mat-label>
+    <input matInput name="symbol" formControlName="symbol"
+      [placeholder]="getTranslateKey('symbolPlaceholder') | translate">
+    @if (formGroup.get('symbol')?.hasError('required')) {
+    <mat-error [innerHtml]="getTranslateKey('symbolValidationRequired') | translate"></mat-error>
+    }
+  </mat-form-field>
+
+  <mat-form-field class="mhc-full-width" appearance="outline">
+    <mat-label>{{ getTranslateKey('brlRateLabel') | translate }}</mat-label>
+    <input matInput type="number" name="brlRate" formControlName="symbol"
+      [placeholder]="getTranslateKey('brlRatePlaceholder') | translate">
+    @if (formGroup.get('brlRate')?.hasError('required')) {
+    <mat-error [innerHtml]="getTranslateKey('brlRateValidationRequired') | translate"></mat-error>
+    }
+  </mat-form-field>
+
+  <mat-checkbox formControlName="active">
+    {{ getTranslateKey('activeLabel') | translate }}
+  </mat-checkbox>
+
+
+  <div class="d-flex flex-column mhc-form-actions">
+    <button type="submit" mat-raised-button color="primary">
+      {{ 'generic.confirm' | translate }}
+    </button>
+    <button type="button" mat-raised-button (click)="cancel()">
+      {{ 'generic.cancel' | translate }}
+    </button>
+  </div>
+
+</form>

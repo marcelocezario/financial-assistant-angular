@@ -24,13 +24,39 @@
       "updatedAt": "atualizado em"
     },
     "confirm": "Confirmar",
+    "currency": {
+      "active": "ativo",
+      "brlRate": "cotação em reais (R$)",
+      "code": "código",
+      "createdAt": "criado em",
+      "id": "id",
+      "symbol": "símbolo",
+      "types": {
+        "ARS": "Peso Argentino",
+        "AUD": "Dólar Australiano",
+        "BRL": "Real",
+        "BTC": "Bitcoin",
+        "CAD": "Dólar Canadense",
+        "CHF": "Franco Suíço",
+        "ETH": "Ethereum",
+        "EUR": "Euro",
+        "GBP": "Libra Esterlina",
+        "JPY": "Iene",
+        "USD": "Dólar Americano"
+      },
+      "updatedAt": "atualizado em"
+    },
     "dataNotFound": "Sem dados econtrados",
     "delete": "Deletar",
     "edit": "Editar",
     "exitConfirmationMessage": "Existem dados não salvos",
     "exitConfirmationTitle": "Tem certeza que deseja sair?",
+    "filter": "Filtro",
+    "filterPlaceholder": "Digite sua busca",
     "helloApp": "Olá {{user}}, bem vindo!",
-    "terms": "Termos: \"{{terms}}\""
+    "no": "Não",
+    "terms": "Termos: \"{{terms}}\"",
+    "yes": "Sim"
   },
   "web": {
     "components": {
@@ -49,9 +75,7 @@
         "addCategory": "Adicionar categoria",
         "categoryDeleteConfirmMessage": "Esta ação é irreversível e os dados serão permanentemente perdidos",
         "categoryDeleteConfirmTitle": "Você tem certeza que deseja deletar a categoria '{{categoryName}}'?",
-        "categoryDeleteSuccessfully": "Categoria '{{categoryName}}' deletada com sucesso",
-        "filter": "Filtro",
-        "filterPlaceholder": "Digite sua busca",
+        "categoryDeletedSuccessfully": "Categoria '{{categoryName}}' deletada com sucesso",
         "myCategories": "Minhas categorias",
         "sortByActive": "Ordenar por status ativo",
         "sortByColor": "Ordenar por cor",
@@ -59,6 +83,30 @@
         "sortByIcon": "Ordenar por ícone",
         "sortById": "Ordenar por id",
         "sortByName": "Ordenar por nome",
+        "sortByUpdatedAt": "Ordenar por data de atualização"
+      },
+      "_CurrenciesFormPageComponent": {
+        "activeLabel": "Ativo",
+        "brlRateLabel": "Cotação",
+        "brlRatePlaceholder": "Digite a cotação em reais da moeda",
+        "brlRateValidationRequired": "A cotação é obriigatória",
+        "codeLabel": "Código",
+        "codePlaceholder": "Digite o código (ISO 4217) da moeda",
+        "codeValidationRequired": "O código é obrigatório",
+        "symbolLabel": "Símbolo",
+        "symbolPlaceholder": "Digite o símbolo da moeda (ex. R$)",
+        "symbolValidationRequired": "O símbolo é obrigatório"
+      },
+      "_CurrenciesPageComponent": {
+        "addCurrency": "Adicionar moeda",
+        "currencies": "Moedas",
+        "currencyDeleteConfirmMessage": "Esta ação é irreversível e os dados serão permanentemente perdidos",
+        "currencyDeleteConfirmTitle": "Você tem certeza que deseja deletar a moeda '{{currencyCode}}'?",
+        "currencyDeletedSuccessfully": "Moeda '{{currencyCode}}' deletada com sucesso",
+        "sortByActive": "Ordenar por status ativo",
+        "sortByBrlRate": "Ordenar por cotação",
+        "sortByCode": "Ordenar por código",
+        "sortById": "Ordenar por id",
         "sortByUpdatedAt": "Ordenar por data de atualização"
       }
     },
@@ -110,11 +158,13 @@
     },
     "pageTitle": {
       ":categoryId": "Editar categoria",
+      ":currencyId": "Editar moeda",
       "add": "Adicionar",
       "auth": "Autenticar",
       "categories": "Categorias",
       "categories/add": "Adicionar categoria",
       "currencies": "Moedas",
+      "currencies/add": "Adicionar moeda",
       "forgot-password": "Esqueci minha senha",
       "home": "Início",
       "login": "Entrar",

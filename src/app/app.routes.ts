@@ -3,7 +3,7 @@ import { ROUTES_KEYS } from './core/config';
 import { TestComponent } from './features/test/test/test.component';
 import { HomePageComponent } from './features/home';
 import { CategoriesPageComponent } from './features/categories';
-import { CurrenciesPageComponent } from './features/currencies';
+import { CurrenciesFormPageComponent, CurrenciesPageComponent } from './features/currencies';
 import { ForgotPasswordPageComponent, LoginPageComponent, adminGuard, authGuard } from './features/auth';
 import { MyAccountPageComponent, SignUpPageComponent, UsersPageComponent } from './features/users';
 import { NotFoundPageComponent } from './features/not-found';
@@ -28,6 +28,7 @@ export const routes: Routes = [
       { path: ROUTES_KEYS.categories_add, canDeactivate: [unsavedChangesGuard], component: CategoriesFormPageComponent, title: ROUTES_KEYS.categories_add },
       { path: `${ROUTES_KEYS.categories}/${ROUTES_KEYS.category_id}`, canDeactivate: [unsavedChangesGuard], component: CategoriesFormPageComponent, title: ROUTES_KEYS.category_id },
       { path: ROUTES_KEYS.currencies, component: CurrenciesPageComponent, title: ROUTES_KEYS.currencies },
+      { path: ROUTES_KEYS.currencies_add, canDeactivate: [unsavedChangesGuard], component: CurrenciesFormPageComponent, title: ROUTES_KEYS.currencies_add },
       { path: ROUTES_KEYS.myAccount, component: MyAccountPageComponent, title: ROUTES_KEYS.myAccount },
       { path: ROUTES_KEYS.transactions, component: TransactionsPageComponent, title: ROUTES_KEYS.transactions },
       { path: ROUTES_KEYS.wallets, component: WalletsPageComponent, title: ROUTES_KEYS.wallets },

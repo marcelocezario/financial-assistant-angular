@@ -5,6 +5,8 @@ export const ROUTES_KEYS = {
   categories_add: 'categories/add',
   category_id: ':categoryId',
   currencies: 'currencies',
+  currencies_add: 'currencies/add',
+  currency_id: ':currencyId',
   forgotPassword: 'forgot-password',
   home: 'home',
   login: 'login',

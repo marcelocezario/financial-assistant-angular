@@ -1,1 +1,100 @@
-<p>currencies-page works!</p>
+<div class="d-flex">
+  <div class="d-flex justify-content">
+    @if (isAdmin) {
+    <button mat-raised-button color="primary" [routerLink]="addCurrencyLink">
+      {{getTranslateKey('addCurrency') |translate}}
+    </button>
+    }
+  </div>
+  <span class="mhc-empty-spacer"></span>
+  <mat-form-field appearance="outline">
+    <mat-label>{{'generic.filter' | translate}}</mat-label>
+    <input matInput #input (keyup)="applyFilter($event)" [placeholder]="'generic.filterPlaceholder' | translate">
+    <mat-icon matSuffix>search</mat-icon>
+  </mat-form-field>
+</div>
+
+<div class="card table-responsive">
+  <table mat-table [dataSource]="dataSource" matSort class="mhc-table">
+
+    <ng-container matColumnDef="actions">
+      <th mat-header-cell *matHeaderCellDef>
+        {{'generic.actions' | translate}}
+      </th>
+      <td mat-cell *matCellDef="let element">
+        <button mat-icon-button [matMenuTriggerFor]="manuActions">
+          <mat-icon class="mat-18">more_vert</mat-icon>
+        </button>
+        <mat-menu #manuActions="matMenu">
+          <a mat-menu-item [routerLink]="currencyLink + '/' + element.id">
+            <mat-icon class="mat-18">edit</mat-icon>
+            <span>{{ 'generic.edit' | translate }}</span>
+          </a>
+          <button mat-menu-item (click)="deleteCurrency(element)">
+            <mat-icon class="mat-18">delete</mat-icon>
+            <span>{{ 'generic.delete' | translate }}</span>
+          </button>
+        </mat-menu>
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="id">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header
+        [sortActionDescription]="getTranslateKey('sortById') | translate">
+        {{'generic.currency.id' | translate}}
+      </th>
+      <td mat-cell *matCellDef="let element">
+        {{element.id}}
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="currency">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header
+        [sortActionDescription]="getTranslateKey('sortByCode') | translate">
+        {{'generic.currency.code' | translate}}</th>
+      <td mat-cell *matCellDef="let element">
+        {{element.code}} - {{'generic.currency.types.' + element.code | translate}}({{element.symbol}})
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="brlRate">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header
+        [sortActionDescription]="getTranslateKey('sortByBrlRate') | translate">
+        {{'generic.currency.brlRate' | translate}}</th>
+      <td mat-cell *matCellDef="let element">
+        {{element.brlRate | appCurrency }}
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="active">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header
+        [sortActionDescription]="getTranslateKey('sortByActive') | translate">
+        {{'generic.currency.active' | translate}}</th>
+      <td mat-cell *matCellDef="let element">
+        {{ 'generic.' + (element.active ? 'yes' : 'no') | translate }}
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="updatedAt">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header
+        [sortActionDescription]="getTranslateKey('sortByUpdatedAt') | translate">
+        {{'generic.category.updatedAt' | translate}}</th>
+      <td mat-cell *matCellDef="let element"> {{element.updatedAt | date: 'dd-MMM-yyyy HH:mm'}} </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="['table-title']"></tr>
+    <ng-container matColumnDef="table-title">
+      <th mat-header-cell *matHeaderCellDef [attr.colspan]="displayedColumns.length">
+        {{getTranslateKey('currencies') | translate}}
+      </th>
+    </ng-container>
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+    <tr *matNoDataRow>
+      <td [attr.colspan]="displayedColumns.length">
+        <app-data-not-found [data]="input.value"></app-data-not-found>
+      </td>
+    </tr>
+  </table>
+</div>

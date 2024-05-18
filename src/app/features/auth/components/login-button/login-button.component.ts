@@ -54,8 +54,8 @@ export class LoginButtonComponent {
   logout(): void {
     const nickname = this._storageService.getUserNickname() ?? '';
     this._authService.logout(this.homeLink).then(() => {
-      const messageKey = 'auth.logout.farewellMessage';
-      const titleKey = 'auth.logout.farewellTitle';
+      const messageKey = this.getTranslateKey('farewellMessage');
+      const titleKey = this.getTranslateKey('farewellTitle');
       this._languageService.getTranslate([messageKey, titleKey], { user: nickname }).then(translated => {
         this._notification.info(translated[messageKey], translated[titleKey]);
       })
@@ -63,7 +63,7 @@ export class LoginButtonComponent {
   }
 
   getTranslateKey(key: string): string {
-    return `auth.login-button.${key}`
+    return `web.features.auth.components.${this.constructor.name}.${key}`
   }
 
 }

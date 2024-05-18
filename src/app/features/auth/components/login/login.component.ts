@@ -43,8 +43,8 @@ export class LoginComponent {
 
   login() {
     this._authService.login(this.credentials.username, this.credentials.password, this.keepLoggedIn).then(() => {
-      const title: string = 'auth.login.welcomeTitle';
-      const message: string = 'auth.login.welcomeMessage';
+      const title: string = this.getTranslateKey('welcomeTitle');
+      const message: string = this.getTranslateKey('welcomeMessage');
       this._languageService.getTranslate([title, message], { user: this._storage.getUserNickname() })
         .then(translated => this._notification.success(translated[message], translated[title]))
         .catch(() => this._notification.success('Welcome'));
@@ -64,6 +64,10 @@ export class LoginComponent {
   signUp() {
     this._router.navigate([`/${ROUTES_KEYS.signUp}`]);
     this._dialogRef?.close({ success: false });
+  }
+
+  getTranslateKey(key: string): string {
+    return `web.features.auth.components.${this.constructor.name}.${key}`;
   }
 
 }

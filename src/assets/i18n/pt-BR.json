@@ -11,51 +11,9 @@
       }
     }
   },
-  "auth": {
-    "guards": {
-      "nonAdmin": {
-        "message": "Acesso não permitido",
-        "title": "Usuário não autorizado"
-      },
-      "nonAuthenticated": {
-        "message": "Faça login para acessar a página desejada",
-        "title": "Usuário não autenticado"
-      }
-    },
-    "login": {
-      "emailLogin": "Email de login",
-      "emailLoginPlaceholder": "examplo@email.com.br",
-      "enter": "Entrar",
-      "forgotPassword": "Esqueci minha senha",
-      "keepLoggedIn": "Manter logado",
-      "password": "Senha",
-      "passwordPlaceholder": "Digite sua senha",
-      "signUp": "Cadastre-se",
-      "welcomeMessage": "Olá {{user}}! Autenticação efetuada com sucesso",
-      "welcomeTitle": "Bem-vindo!"
-    },
-    "login-button": {
-      "login": "Entrar",
-      "logout": "Sair"
-    },
-    "logout": {
-      "farewellMessage": "Obrigado por utilizar nossos serviços",
-      "farewellTitle": "Adeus {{user}}!"
-    }
-  },
   "generic": {
     "actions": "Ações",
     "cancel": "Cancelar",
-    "confirm": "Confirmar",
-    "dataNotFound": "Sem dados econtrados",
-    "delete": "Deletar",
-    "edit": "Editar",
-    "exitConfirmationMessage": "Existem dados não salvos",
-    "exitConfirmationTitle": "Tem certeza que deseja sair?",
-    "terms": "Termos: \"{{terms}}\""
-  },
-  "helloApp": "Olá {{user}}, bem vindo!",
-  "models": {
     "category": {
       "active": "ativo",
       "color": "cor",
@@ -64,7 +22,15 @@
       "id": "id",
       "name": "nome",
       "updatedAt": "atualizado em"
-    }
+    },
+    "confirm": "Confirmar",
+    "dataNotFound": "Sem dados econtrados",
+    "delete": "Deletar",
+    "edit": "Editar",
+    "exitConfirmationMessage": "Existem dados não salvos",
+    "exitConfirmationTitle": "Tem certeza que deseja sair?",
+    "helloApp": "Olá {{user}}, bem vindo!",
+    "terms": "Termos: \"{{terms}}\""
   },
   "web": {
     "components": {
@@ -108,18 +74,38 @@
         }
       }
     },
-    "forms": {
-      "errors": {
-        "email": "Endereço de e-mail inválido",
-        "equalsTo": "O valor não confere com '{{ equalsTo }}'",
-        "generic": "Erro de validação",
-        "hexadecimalColor": "O valor não é um hexadecimal válido",
-        "max": "O número máximo permitido é {{ max.max }}",
-        "maxlength": "É permitido no máximo {{ maxlength.requiredLength }} caracteres",
-        "min": "O número mínimo permitido é {{ min.min }}",
-        "minlength": "É necessário no mínimo {{ minlength.requiredLength }} caracteres",
-        "pattern": "O valor não é válido",
-        "required": "Campo obrigatório"
+    "features": {
+      "auth": {
+        "components": {
+          "_LoginButtonComponent": {
+            "farewellMessage": "Obrigado por utilizar nossos serviços",
+            "farewellTitle": "Adeus {{user}}!",
+            "login": "Entrar",
+            "logout": "Sair"
+          },
+          "_LoginComponent": {
+            "emailLogin": "Email de login",
+            "emailLoginPlaceholder": "examplo@email.com.br",
+            "enter": "Entrar",
+            "forgotPassword": "Esqueci minha senha",
+            "keepLoggedIn": "Manter logado",
+            "password": "Senha",
+            "passwordPlaceholder": "Digite sua senha",
+            "signUp": "Cadastre-se",
+            "welcomeMessage": "Olá {{user}}! Autenticação efetuada com sucesso",
+            "welcomeTitle": "Bem-vindo!"
+          }
+        },
+        "guards": {
+          "nonAdmin": {
+            "message": "Acesso não permitido",
+            "title": "Usuário não autorizado"
+          },
+          "nonAuthenticated": {
+            "message": "Faça login para acessar a página desejada",
+            "title": "Usuário não autenticado"
+          }
+        }
       }
     },
     "pageTitle": {
@@ -154,6 +140,20 @@
         "_InputIconComponent": {
           "hint": "A lista completa de ícones pode ser encontrada em {{url}}",
           "selectIcon": "Selecionar ícone"
+        }
+      },
+      "forms": {
+        "errors": {
+          "email": "Endereço de e-mail inválido",
+          "equalsTo": "O valor não confere com '{{ equalsTo }}'",
+          "generic": "Erro de validação",
+          "hexadecimalColor": "O valor não é um hexadecimal válido",
+          "max": "O número máximo permitido é {{ max.max }}",
+          "maxlength": "É permitido no máximo {{ maxlength.requiredLength }} caracteres",
+          "min": "O número mínimo permitido é {{ min.min }}",
+          "minlength": "É necessário no mínimo {{ minlength.requiredLength }} caracteres",
+          "pattern": "O valor não é válido",
+          "required": "Campo obrigatório"
         }
       }
     }

@@ -12,6 +12,10 @@ export class AppMissingTranslationHandler implements MissingTranslationHandler {
     const key = params.key.split('.');
     const lastKey = key[key.length - 1];
 
-    return lastKey;
+    if (lastKey && lastKey !== 'undefined') {
+      console.warn('Translation key not found: ', params.key);
+    }
+
+    return (lastKey) ? lastKey : '';
   }
 }

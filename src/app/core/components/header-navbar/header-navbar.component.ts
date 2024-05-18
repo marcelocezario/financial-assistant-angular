@@ -24,8 +24,6 @@ export class HeaderNavbarComponent {
   walletsLink = `/${ROUTES_KEYS.wallets}`;
 
   getTranslateKey(key: string): string {
-
-    console.log('eeee', this.constructor.name)
     return `web.core.components.${this.constructor.name}.${key}`
   }
 

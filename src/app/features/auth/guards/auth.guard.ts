@@ -21,8 +21,8 @@ export const authGuard: CanActivateFn = async (route, state) => {
     await checkIsAuthenticated();
   }
   if (!isAuthenticated) {
-    const keyTitle = 'auth.guards.nonAuthenticated.title';
-    const keyMessage = 'auth.guards.nonAuthenticated.message';
+    const keyTitle = 'web.features.auth.guards.nonAuthenticated.title';
+    const keyMessage = 'web.features.auth.guards.nonAuthenticated.message';
     languageService.getTranslate([keyTitle, keyMessage]).then(translated => {
       notification.info(translated[keyMessage], translated[keyTitle]);
     })

@@ -24,8 +24,8 @@ export const adminGuard: CanActivateFn = async (route, state) => {
     await checkIsAdmin();
   }
   if (isAuthenticated && !isAdmin) {
-    const keyTitle = 'auth.guards.nonAdmin.title';
-    const keyMessage = 'auth.guards.nonAdmin.message';
+    const keyTitle = 'web.features.auth.guards.nonAdmin.title';
+    const keyMessage = 'web.features.auth.guards.nonAdmin.message';
     languageService.getTranslate([keyTitle, keyMessage]).then(translated => {
       notification.error(translated[keyMessage], translated[keyTitle]);
     })

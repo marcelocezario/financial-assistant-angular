@@ -9,14 +9,14 @@
           <img class="mhc-img-login" src="assets/img/undraw_safe_re_kiil.svg" />
         </div>
         <mat-form-field appearance="fill" class="mhc-full-width">
-          <mat-label>{{ "auth.login.emailLogin" | translate }}</mat-label>
+          <mat-label>{{ getTranslateKey('emailLogin') | translate }}</mat-label>
           <input name="username" type="email" matInput
-            placeholder="{{ 'auth.login.emailLoginPlaceholder' | translate }}" [(ngModel)]="credentials.username" />
+            [placeholder]="getTranslateKey('emailLoginPlaceholder') | translate" [(ngModel)]="credentials.username" />
         </mat-form-field>
         <mat-form-field appearance="fill" class="mhc-full-width">
-          <mat-label>{{ "auth.login.password" | translate }}</mat-label>
+          <mat-label>{{ getTranslateKey('password') | translate }}</mat-label>
           <input name="password" [type]="hidePassword ? 'password' : 'text'" matInput
-            placeholder="{{ 'auth.login.passwordPlaceholder' | translate }}" [(ngModel)]="credentials.password" />
+            [placeholder]="getTranslateKey('passwordPlaceholder') | translate" [(ngModel)]="credentials.password" />
           <button mat-icon-button matSuffix (click)="hidePassword = !hidePassword" [attr.aria-label]="'Hide password'"
             [attr.aria-pressed]="hidePassword">
             <mat-icon>{{ hidePassword ? "visibility_off" : "visibility" }}</mat-icon>
@@ -24,19 +24,19 @@
         </mat-form-field>
         <p>
           <mat-checkbox class="mhc-check-keep-logged" [(ngModel)]="keepLoggedIn">
-            {{ "auth.login.keepLoggedIn" | translate }}
+            {{ getTranslateKey('keepLoggedIn') | translate }}
           </mat-checkbox>
         </p>
       </div>
       <div class="mhc-card-login-action">
         <button mat-raised-button color="primary" (click)="login()">
-          {{ "auth.login.enter" | translate }}
+          {{ getTranslateKey('enter') | translate }}
         </button>
         <button mat-button (click)="forgotPassword()">
-          {{ "auth.login.forgotPassword" | translate }}
+          {{ getTranslateKey('forgotPassword') | translate }}
         </button>
         <button mat-raised-button color="accent" (click)="signUp()">
-          {{ "auth.login.signUp" | translate }}
+          {{ getTranslateKey('signUp') | translate }}
         </button>
       </div>
     </mat-card-content>

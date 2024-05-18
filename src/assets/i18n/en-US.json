@@ -11,60 +11,26 @@
       }
     }
   },
-  "auth": {
-    "guards": {
-      "nonAdmin": {
-        "message": "Access not allowed",
-        "title": "Unauthorized user"
-      },
-      "nonAuthenticated": {
-        "message": "Please log in to access the required page",
-        "title": "Unauthenticated user"
-      }
-    },
-    "login": {
-      "emailLogin": "Login email",
-      "emailLoginPlaceholder": "example@email.com",
-      "enter": "Login",
-      "forgotPassword": "Forgot password",
-      "keepLoggedIn": "Keep logged in",
-      "password": "Password",
-      "passwordPlaceholder": "Enter the password",
-      "signUp": "Sign up",
-      "welcomeMessage": "Hello {{user}}! Authentication successful",
-      "welcomeTitle": "Welcome!"
-    },
-    "login-button": {
-      "login": "Login",
-      "logout": "Logout"
-    },
-    "logout": {
-      "farewellMessage": "Thank you for using our services",
-      "farewellTitle": "Goodbye {{user}}!"
-    }
-  },
   "generic": {
     "actions": "Actions",
     "cancel": "Cancel",
+    "category": {
+      "active": "active",
+      "color": "color",
+      "createdAt": "created at",
+      "icon": "icon",
+      "id": "id",
+      "name": "name",
+      "updatedAt": "updated at"
+    },
     "confirm": "Confirm",
     "dataNotFound": "Data not found",
     "delete": "Delete",
     "edit": "Edit",
     "exitConfirmationMessage": "There are unsaved changes",
     "exitConfirmationTitle": "Are you sure you want to exit?",
+    "helloApp": "Hello {{user}}, welcome!",
     "terms": "Terms: \"{{terms}}\""
-  },
-  "helloApp": "Hello {{user}}, welcome!",
-  "models": {
-    "category": {
-      "active": "active",
-      "color": "color",
-      "createdAt": "createdAt",
-      "icon": "icon",
-      "id": "id",
-      "name": "name",
-      "updatedAt": "updatedAt"
-    }
   },
   "web": {
     "components": {
@@ -108,18 +74,38 @@
         }
       }
     },
-    "forms": {
-      "errors": {
-        "email": "Invalid email address",
-        "equalsTo": "Value does not match '{{ equalsTo }}'",
-        "generic": "Validation error",
-        "hexadecimalColor": "The value is not a valid hexadecimal",
-        "max": "The maximum allowed number is {{ max.max }}",
-        "maxlength": "A maximum of {{ maxlength.requiredLength }} characters is allowed",
-        "min": "The minimum allowed number is {{ min.min }}",
-        "minlength": "A minimum of {{ minlength.requiredLength }} characters is required",
-        "pattern": "The value is not valid",
-        "required": "Mandatory field"
+    "features": {
+      "auth": {
+        "components": {
+          "_LoginButtonComponent": {
+            "farewellMessage": "Thank you for using our services",
+            "farewellTitle": "Goodbye {{user}}!",
+            "login": "Login",
+            "logout": "Logout"
+          },
+          "_LoginComponent": {
+            "emailLogin": "Login email",
+            "emailLoginPlaceholder": "example@email.com",
+            "enter": "Login",
+            "forgotPassword": "Forgot password",
+            "keepLoggedIn": "Keep logged in",
+            "password": "Password",
+            "passwordPlaceholder": "Enter the password",
+            "signUp": "Sign up",
+            "welcomeMessage": "Hello {{user}}! Authentication successful",
+            "welcomeTitle": "Welcome!"
+          }
+        },
+        "guards": {
+          "nonAdmin": {
+            "message": "Access not allowed",
+            "title": "Unauthorized user"
+          },
+          "nonAuthenticated": {
+            "message": "Please log in to access the required page",
+            "title": "Unauthenticated user"
+          }
+        }
       }
     },
     "pageTitle": {
@@ -154,6 +140,20 @@
         "_InputIconComponent": {
           "hint": "The complete list of icons can be found at {{url}}",
           "selectIcon": "Select icon"
+        }
+      },
+      "forms": {
+        "errors": {
+          "email": "Invalid email address",
+          "equalsTo": "Value does not match '{{ equalsTo }}'",
+          "generic": "Validation error",
+          "hexadecimalColor": "The value is not a valid hexadecimal",
+          "max": "The maximum allowed number is {{ max.max }}",
+          "maxlength": "A maximum of {{ maxlength.requiredLength }} characters is allowed",
+          "min": "The minimum allowed number is {{ min.min }}",
+          "minlength": "A minimum of {{ minlength.requiredLength }} characters is required",
+          "pattern": "The value is not valid",
+          "required": "Mandatory field"
         }
       }
     }

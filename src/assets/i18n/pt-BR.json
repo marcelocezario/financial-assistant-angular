@@ -44,9 +44,12 @@
     }
   },
   "generic": {
+    "actions": "Ações",
     "cancel": "Cancelar",
     "confirm": "Confirmar",
     "dataNotFound": "Sem dados econtrados",
+    "delete": "Deletar",
+    "edit": "Editar",
     "exitConfirmationMessage": "Existem dados não salvos",
     "exitConfirmationTitle": "Tem certeza que deseja sair?",
     "terms": "Termos: \"{{terms}}\""
@@ -67,6 +70,7 @@
     "components": {
       "_CategoriesFormPageComponent": {
         "categoryCreatedSuccessfully": "Categoria criada com sucesso",
+        "categoryUpdatedSuccessfully": "Categoria alterada com sucesso",
         "colorLabel": "Cor",
         "colorPlaceholder": "Selecione uma cor ou digite uma no formato hexadecimal (ex: '#00695C')",
         "iconLabel": "Ícone",
@@ -77,6 +81,9 @@
       },
       "_CategoriesPageComponent": {
         "addCategory": "Adicionar categoria",
+        "categoryDeleteConfirmMessage": "Esta ação é irreversível e os dados serão permanentemente perdidos",
+        "categoryDeleteConfirmTitle": "Você tem certeza que deseja deletar a categoria '{{categoryName}}'?",
+        "categoryDeleteSuccessfully": "Categoria '{{categoryName}}' deletada com sucesso",
         "filter": "Filtro",
         "filterPlaceholder": "Digite sua busca",
         "myCategories": "Minhas categorias",
@@ -87,23 +94,37 @@
         "sortById": "Ordenar por id",
         "sortByName": "Ordenar por nome",
         "sortByUpdatedAt": "Ordenar por data de atualização"
-      },
-      "forms": {
-        "errors": {
-          "email": "Endereço de e-mail inválido",
-          "equalsTo": "O valor não confere com '{{ equalsTo }}'",
-          "generic": "Erro de validação",
-          "hexadecimalColor": "O valor não é um hexadecimal válido",
-          "max": "O número máximo permitido é {{ max.max }}",
-          "maxlength": "É permitido no máximo {{ maxlength.requiredLength }} caracteres",
-          "min": "O número mínimo permitido é {{ min.min }}",
-          "minlength": "É necessário no mínimo {{ minlength.requiredLength }} caracteres",
-          "pattern": "O valor não é válido",
-          "required": "Campo obrigatório"
+      }
+    },
+    "core": {
+      "components": {
+        "_HeaderNavbarComponent": {
+          "categories": "Categorias",
+          "currencies": "Moedas",
+          "notFound": "Não encontrado",
+          "transactions": "Transações",
+          "users": "Usuários",
+          "wallets": "Carteiras"
         }
       }
     },
+    "forms": {
+      "errors": {
+        "email": "Endereço de e-mail inválido",
+        "equalsTo": "O valor não confere com '{{ equalsTo }}'",
+        "generic": "Erro de validação",
+        "hexadecimalColor": "O valor não é um hexadecimal válido",
+        "max": "O número máximo permitido é {{ max.max }}",
+        "maxlength": "É permitido no máximo {{ maxlength.requiredLength }} caracteres",
+        "min": "O número mínimo permitido é {{ min.min }}",
+        "minlength": "É necessário no mínimo {{ minlength.requiredLength }} caracteres",
+        "pattern": "O valor não é válido",
+        "required": "Campo obrigatório"
+      }
+    },
     "pageTitle": {
+      ":categoryId": "Editar categoria",
+      "add": "Adicionar",
       "auth": "Autenticar",
       "categories": "Categorias",
       "categories/add": "Adicionar categoria",
@@ -121,12 +142,13 @@
     "shared": {
       "components": {
         "_IconPickerComponent": {
-          "selected": "Selecionado",
           "previous": "Anterior",
+          "selected": "Selecionado",
           "title": "Selecione um ícone",
           "useCustomColor": "Usar cor personalizada"
         },
         "_InputColorComponent": {
+          "generateRandomColor": "Gerar cor aleatória",
           "selectColor": "Selecionar cor"
         },
         "_InputIconComponent": {

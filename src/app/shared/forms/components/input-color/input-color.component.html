@@ -7,7 +7,10 @@
   <mat-label [attr.for]="id">{{ label }}</mat-label>
   <input matInput [id]="id" [name]="id" type="text" [placeholder]="placeholder" [readonly]="!!isReadOnly"
     [formControl]="getFormControl()" #colorInputText (input)="onTextColorChanged()" />
-  <mat-icon matSuffix [style.color]="getFormControl().value">palette</mat-icon>
+  <button type="button" mat-icon-button matSuffix (click)="setRandomColor()"
+    [matTooltip]="getTranslateKey('generateRandomColor') | translate">
+    <mat-icon [style.color]="getFormControl().value">palette</mat-icon>
+  </button>
   @if (hint) {
   <mat-hint>{{ hint }}</mat-hint>
   }

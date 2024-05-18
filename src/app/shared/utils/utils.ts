@@ -6,4 +6,13 @@ export class Utils {
     return corHexRegExp.test(color);
   }
 
+  static generateRandomHexadecimalColor(): string {
+    const red = Math.floor(Math.random() * 256);
+    const green = Math.floor(Math.random() * 256);
+    const blue = Math.floor(Math.random() * 256);
+    const pad = (s: string) => (s.length < 2) ? "0" + s : s;
+    const hexadecimal = "#" + pad(red.toString(16)) + pad(green.toString(16)) + pad(blue.toString(16));
+    return hexadecimal;
+  }
+
 }

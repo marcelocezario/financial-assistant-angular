@@ -51,8 +51,14 @@ export class BreadCrumbComponent {
     });
   }
 
-  private _addItem(name: string, route: string, authRequired: boolean = false) {
-    this.breadCrumb.push({ name: name, translateKey: `web.pageTitle.${name}`, route: route , authRequired: authRequired});
+  private async _addItem(name: string, route: string, authRequired: boolean = false) {
+    const item: BreadCrumbItem = {
+      name: name,
+      translateKey: `web.pageTitle.${name}`,
+      route: route,
+      authRequired: authRequired
+    }
+    this.breadCrumb.push(item);
   }
 
 }

@@ -1,32 +1,32 @@
 <mat-toolbar color="primary">
   <mat-toolbar-row class="container">
-    <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon" [matMenuTriggerFor]="menu">
+    <button mat-icon-button [matMenuTriggerFor]="menu">
       <mat-icon>menu</mat-icon>
     </button>
     <mat-menu #menu="matMenu">
       <button mat-menu-item [routerLink]="usersLink">
         <mat-icon>group</mat-icon>
-        <span>Usuários</span>
+        <span>{{getTranslateKey('users') | translate}}</span>
       </button>
       <button mat-menu-item [routerLink]="currenciesLink">
         <mat-icon>monetization_on</mat-icon>
-        <span>Moedas</span>
+        <span>{{getTranslateKey('currencies') | translate}}</span>
       </button>
       <button mat-menu-item [routerLink]="categoriesLink">
         <mat-icon>category</mat-icon>
-        <span>Categorias</span>
+        <span>{{getTranslateKey('categories') | translate}}</span>
       </button>
       <button mat-menu-item [routerLink]="walletsLink">
         <mat-icon>wallet</mat-icon>
-        <span>Carteiras</span>
+        <span>{{getTranslateKey('wallets') | translate}}</span>
       </button>
       <button mat-menu-item [routerLink]="transactionsLink">
         <mat-icon>payments</mat-icon>
-        <span>Transações</span>
+        <span>{{getTranslateKey('transactions') | translate}}</span>
       </button>
       <button mat-menu-item routerLink="/not-found">
         <mat-icon>search_off</mat-icon>
-        <span>Não encontrado</span>
+        <span>{{getTranslateKey('notFound') | translate}}</span>
       </button>
     </mat-menu>
   <a routerLink="/">My App</a>

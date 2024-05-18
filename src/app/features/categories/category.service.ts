@@ -20,9 +20,36 @@ export class CategoryService {
     })
   }
 
+  async update(category: Category): Promise<Category> {
+    return new Promise((resolve, reject) => {
+      this._apiService.httpPut(`${this._getPathWithUserId()}/${category.id}`, category).subscribe({
+        next: response => resolve(response),
+        error: error => reject(error)
+      })
+    })
+  }
+
+  async delete(categoryId: string): Promise<void> {
+    return new Promise((resolve, reject) => {
+      this._apiService.httpDelete(`${this._getPathWithUserId()}/${categoryId}`).subscribe({
+        next: response => resolve(response),
+        error:error => reject(error)
+      })
+    })
+  }
+
   async getByUser(): Promise<Category[]> {
     return new Promise((resolve, reject) => {
       this._apiService.httpGet(this._getPathWithUserId()).subscribe({
+        next: categories => resolve(categories),
+        error: error => reject(error)
+      })
+    });
+  }
+
+  async getByIdAndUser(id: string): Promise<Category[]> {
+    return new Promise((resolve, reject) => {
+      this._apiService.httpGet(`${this._getPathWithUserId()}/${id}`).subscribe({
         next: categories => resolve(categories),
         error: error => reject(error)
       })

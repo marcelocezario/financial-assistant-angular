@@ -7,11 +7,13 @@ import { MatFormField } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { TranslateModule } from '@ngx-translate/core';
+import { Utils } from '../../../utils/utils';
+import { MatTooltipModule } from '@angular/material/tooltip';
 
 @Component({
   selector: 'app-input-color',
   standalone: true,
-  imports: [CommonModule, MatFormField, MatInputModule, ReactiveFormsModule, MatButtonModule, MatIconModule, TranslateModule],
+  imports: [CommonModule, MatFormField, MatInputModule, ReactiveFormsModule, MatButtonModule, MatIconModule, TranslateModule, MatTooltipModule],
   templateUrl: './input-color.component.html',
   styleUrl: './input-color.component.scss'
 })
@@ -62,6 +64,12 @@ export class InputColorComponent implements OnInit {
 
   getTranslateKey(key: string): string {
     return `web.shared.components.${this.constructor.name}.${key}`
+  }
+
+  setRandomColor() {
+    const color = Utils.generateRandomHexadecimalColor();
+    this.getFormControl().setValue(color);
+    this.onTextColorChanged();
   }
 
 }

@@ -44,9 +44,12 @@
     }
   },
   "generic": {
+    "actions": "Actions",
     "cancel": "Cancel",
     "confirm": "Confirm",
     "dataNotFound": "Data not found",
+    "delete": "Delete",
+    "edit": "Edit",
     "exitConfirmationMessage": "There are unsaved changes",
     "exitConfirmationTitle": "Are you sure you want to exit?",
     "terms": "Terms: \"{{terms}}\""
@@ -67,6 +70,7 @@
     "components": {
       "_CategoriesFormPageComponent": {
         "categoryCreatedSuccessfully": "Category created successfully",
+        "categoryUpdatedSuccessfully": "Category updated successfully",
         "colorLabel": "Color",
         "colorPlaceholder": "Select a color or enter one in hexadecimal format (e.g., '#00695C')",
         "iconLabel": "Icon",
@@ -77,6 +81,9 @@
       },
       "_CategoriesPageComponent": {
         "addCategory": "Add category",
+        "categoryDeleteConfirmMessage": "This action is irreversible and the data will be permanently lost",
+        "categoryDeleteConfirmTitle": "Are you sure you want to delete the category '{{categoryName}}'?",
+        "categoryDeletedSuccessfully": "Category '{{categoryName}}' deleted successfully",
         "filter": "Filter",
         "filterPlaceholder": "Enter your search",
         "myCategories": "My categories",
@@ -87,23 +94,37 @@
         "sortById": "Sort by id",
         "sortByName": "Sort by name",
         "sortByUpdatedAt": "Sort by update date"
-      },
-      "forms": {
-        "errors": {
-          "email": "Invalid email address",
-          "equalsTo": "Value does not match '{{ equalsTo }}'",
-          "generic": "Validation error",
-          "hexadecimalColor": "The value is not a valid hexadecimal",
-          "max": "The maximum allowed number is {{ max.max }}",
-          "maxlength": "A maximum of {{ maxlength.requiredLength }} characters is allowed",
-          "min": "The minimum allowed number is {{ min.min }}",
-          "minlength": "A minimum of {{ minlength.requiredLength }} characters is required",
-          "pattern": "The value is not valid",
-          "required": "Mandatory field"
+      }
+    },
+    "core": {
+      "components": {
+        "_HeaderNavbarComponent": {
+          "categories": "Categories",
+          "currencies": "Currencies",
+          "notFound": "Not found",
+          "transactions": "Transactions",
+          "users": "Usuários",
+          "wallets": "Wallets"
         }
       }
     },
+    "forms": {
+      "errors": {
+        "email": "Invalid email address",
+        "equalsTo": "Value does not match '{{ equalsTo }}'",
+        "generic": "Validation error",
+        "hexadecimalColor": "The value is not a valid hexadecimal",
+        "max": "The maximum allowed number is {{ max.max }}",
+        "maxlength": "A maximum of {{ maxlength.requiredLength }} characters is allowed",
+        "min": "The minimum allowed number is {{ min.min }}",
+        "minlength": "A minimum of {{ minlength.requiredLength }} characters is required",
+        "pattern": "The value is not valid",
+        "required": "Mandatory field"
+      }
+    },
     "pageTitle": {
+      ":categoryId": "Edit category",
+      "add": "Add",
       "auth": "Auth",
       "categories": "Categories",
       "categories/add": "Add category",
@@ -121,12 +142,13 @@
     "shared": {
       "components": {
         "_IconPickerComponent": {
-          "selected": "Selected",
           "previous": "Previous",
+          "selected": "Selected",
           "title": "Select an icon",
           "useCustomColor": "Use custom color"
         },
         "_InputColorComponent": {
+          "generateRandomColor": "Generate random color",
           "selectColor": "Select color"
         },
         "_InputIconComponent": {

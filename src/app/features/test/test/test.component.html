@@ -1,8 +1,67 @@
-<h1> TESTS </h1>
+<!-- <mat-card>
+  <mat-card-header>
+    {{ getTranslateKey('previous') | translate }}
+  </mat-card-header>
+  <mat-card-content>
+    <app-icon-card [icon]="currentIcon" [customColor]="useCustomColor ? iconColor : undefined"></app-icon-card>
+  </mat-card-content>
+</mat-card>
+<mat-card>
+  <mat-card-header>
+    {{ getTranslateKey('selected') | translate }}
+  </mat-card-header>
+  <mat-card-content>
+    <app-icon-card [icon]="selectedIcon" [customColor]="useCustomColor ? iconColor : undefined"></app-icon-card>
+  </mat-card-content>
+</mat-card> -->
 
+<form class="mhc-form" [formGroup]="formGroup">
+  <app-input-icon id="icon" [label]="getTranslateKey('iconLabel') | translate" iconColor="#fcba03"
+    [placeholder]="getTranslateKey('iconPlaceholder') | translate" [control]="formGroup.get('icon')"></app-input-icon>
+</form>
 
-<button mat-button (click)="showNotification()">Action</button>
+<!-- <div class="container">
+  <div matDialogTitle class="d-flex flex-column">
+    <h2>{{ getTranslateKey('title') | translate }}</h2>
+    <mat-slide-toggle [(ngModel)]="useCustomColor" name="useCustomColor">
+      {{ getTranslateKey('useCustomColor') | translate }}
+    </mat-slide-toggle>
+  </div>
+  <mat-divider></mat-divider>
+  <mat-dialog-content>
+    <div class="container mhc-icon-picker-container justify-content-center">
+      @for(icon of icons; track icon) {
+      <button class="d-flex flex-column justify-content-center mhc-icon-button" mat-stroked-button
+        (click)="selectIcon(icon.name)" [ngClass]="{
+        'mhc-current-icon': icon.name === currentIcon,
+        'mhc-selected-icon': icon.name === selectedIcon
+        }">
+        <app-icon-card [icon]="icon.name" [customColor]="useCustomColor ? iconColor : undefined"></app-icon-card>
+      </button>
+      }
+    </div>
+  </mat-dialog-content>
+  <mat-dialog-actions align="end">
+    <mat-divider></mat-divider>
+    <mat-card class="mhc-current-icon mhc-user-icons">
+      <mat-card-header>
+        {{ getTranslateKey('previous') | translate }}
+      </mat-card-header>
+      <mat-card-content>
+        <app-icon-card [icon]="currentIcon" [customColor]="useCustomColor ? iconColor : undefined"></app-icon-card>
+      </mat-card-content>
+    </mat-card>
+    <mat-card class="mhc-selected-icon mhc-user-icons">
+      <mat-card-header>
+        {{ getTranslateKey('selected') | translate }}
+      </mat-card-header>
+      <mat-card-content>
+        <app-icon-card [icon]="selectedIcon" [customColor]="useCustomColor ? iconColor : undefined"></app-icon-card>
+      </mat-card-content>
+    </mat-card>
 
-
-
-
+    <button mat-raised-button mat-dialog-close>{{ 'generic.cancel' | translate }}</button>
+    <button mat-raised-button color="primary" [mat-dialog-close]="selectedIcon" cdkFocusInitial>{{ 'generic.confirm' |
+      translate }}</button>
+  </mat-dialog-actions>
+</div> -->

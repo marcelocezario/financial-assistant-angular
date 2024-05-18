@@ -4,9 +4,9 @@ import { provideRouter } from '@angular/router';
 import { routes } from './app.routes';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { HttpClient, provideHttpClient, withInterceptors } from '@angular/common/http';
-import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
+import { MissingTranslationHandler, TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
-import { languageInterceptor } from './shared';
+import { AppMissingTranslationHandler, languageInterceptor } from './shared';
 import { authInterceptor } from './features/auth';
 import { apiErrorInterceptor } from './shared/api/api-error.interceptor';
 
@@ -23,6 +23,10 @@ export const appConfig: ApplicationConfig = {
         provide: TranslateLoader,
         useFactory: HttpLoaderFactory,
         deps: [HttpClient]
+      },
+      missingTranslationHandler: {
+        provide: MissingTranslationHandler,
+        useClass: AppMissingTranslationHandler
       }
     }).providers!
   ]

@@ -6,11 +6,12 @@ import { MatMenuModule } from '@angular/material/menu';
 import { RouterModule } from '@angular/router';
 import { ROUTES_KEYS } from '../../config/routes-keys.config';
 import { LoginButtonComponent } from '../../../features/auth';
+import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-header-navbar',
   standalone: true,
-  imports: [MatToolbarModule, MatButtonModule, MatIconModule, MatMenuModule, RouterModule, LoginButtonComponent],
+  imports: [MatToolbarModule, MatButtonModule, MatIconModule, MatMenuModule, RouterModule, LoginButtonComponent, TranslateModule],
   templateUrl: './header-navbar.component.html',
   styleUrl: './header-navbar.component.scss'
 })
@@ -21,5 +22,11 @@ export class HeaderNavbarComponent {
   transactionsLink = `/${ROUTES_KEYS.transactions}`;
   usersLink = `/${ROUTES_KEYS.users}`;
   walletsLink = `/${ROUTES_KEYS.wallets}`;
+
+  getTranslateKey(key: string): string {
+
+    console.log('eeee', this.constructor.name)
+    return `web.core.components.${this.constructor.name}.${key}`
+  }
 
 }

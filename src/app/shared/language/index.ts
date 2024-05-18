@@ -1,3 +1,4 @@
+export * from './app-missing-translation-handler'
 export * from './language-selector/language-selector.component'
 export * from './language.interceptor'
 export * from './language.service'

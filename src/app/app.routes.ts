@@ -26,6 +26,7 @@ export const routes: Routes = [
     path: '', canActivate: [authGuard], children: [
       { path: ROUTES_KEYS.categories, component: CategoriesPageComponent, title: ROUTES_KEYS.categories },
       { path: ROUTES_KEYS.categories_add, canDeactivate: [unsavedChangesGuard], component: CategoriesFormPageComponent, title: ROUTES_KEYS.categories_add },
+      { path: `${ROUTES_KEYS.categories}/${ROUTES_KEYS.category_id}`, canDeactivate: [unsavedChangesGuard], component: CategoriesFormPageComponent, title: ROUTES_KEYS.category_id },
       { path: ROUTES_KEYS.currencies, component: CurrenciesPageComponent, title: ROUTES_KEYS.currencies },
       { path: ROUTES_KEYS.myAccount, component: MyAccountPageComponent, title: ROUTES_KEYS.myAccount },
       { path: ROUTES_KEYS.transactions, component: TransactionsPageComponent, title: ROUTES_KEYS.transactions },

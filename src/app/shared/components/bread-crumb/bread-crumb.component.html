@@ -1,12 +1,11 @@
 <nav class="mhc-breadcrumb" aria-label="breadcrumb">
   <mat-chip-set>
     @for(item of breadCrumb; track item; let isLast = $last) {
-      @if(!item.authRequired || (isAuthenticated$ | async)) {
-        <a [routerLink]="item.route">
-          <mat-chip class="mhc-breadcrumb-item">{{ item.translateKey | translate }}</mat-chip>
-        </a>
-      }
+    @if(!item.authRequired || (isAuthenticated$ | async)) {
+    <a [routerLink]="item.route">
+      <mat-chip class="mhc-breadcrumb-item">{{ item.translateKey | translate }}</mat-chip>
+    </a>
+    }
     }
   </mat-chip-set>
-
 </nav>

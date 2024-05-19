@@ -1,44 +1,44 @@
 import { Injectable } from '@angular/core';
 import { ApiService, StorageService } from '../../shared';
-import { Category } from '../../core/models';
+import { Wallet } from '../../core/models';
 
 @Injectable({
   providedIn: 'root'
 })
-export class CategoryService {
+export class WalletService {
 
-  private _path = `/users/#{userId}/categories`
+  private _path = `/users/#{userId}/wallets`
 
   constructor(private _apiService: ApiService, private _storageService: StorageService) { }
 
-  async create(category: Category): Promise<Category> {
+  async create(wallet: Wallet): Promise<Wallet> {
     return new Promise((resolve, reject) => {
-      this._apiService.httpPost(this._getPathWithUserId(), category).subscribe({
+      this._apiService.httpPost(this._getPathWithUserId(), wallet).subscribe({
         next: response => resolve(response),
         error: error => reject(error)
       })
     })
   }
 
-  async update(category: Category): Promise<Category> {
+  async update(wallet: Wallet): Promise<Wallet> {
     return new Promise((resolve, reject) => {
-      this._apiService.httpPut(`${this._getPathWithUserId()}/${category.id}`, category).subscribe({
+      this._apiService.httpPut(`${this._getPathWithUserId()}/${wallet.id}`, wallet).subscribe({
         next: response => resolve(response),
         error: error => reject(error)
       })
     })
   }
 
-  async delete(categoryId: string): Promise<void> {
+  async delete(walletId: string): Promise<void> {
     return new Promise((resolve, reject) => {
-      this._apiService.httpDelete(`${this._getPathWithUserId()}/${categoryId}`).subscribe({
+      this._apiService.httpDelete(`${this._getPathWithUserId()}/${walletId}`).subscribe({
         next: response => resolve(response),
         error:error => reject(error)
       })
     })
   }
 
-  async getByUser(): Promise<Category[]> {
+  async getByUser(): Promise<Wallet[]> {
     return new Promise((resolve, reject) => {
       this._apiService.httpGet(this._getPathWithUserId()).subscribe({
         next: categories => resolve(categories),
@@ -47,7 +47,7 @@ export class CategoryService {
     });
   }
 
-  async getByIdAndUser(id: string): Promise<Category> {
+  async getByIdAndUser(id: string): Promise<Wallet> {
     return new Promise((resolve, reject) => {
       this._apiService.httpGet(`${this._getPathWithUserId()}/${id}`).subscribe({
         next: categories => resolve(categories),

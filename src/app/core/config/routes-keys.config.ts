@@ -1,11 +1,11 @@
 export const ROUTES_KEYS = {
 
   auth: 'auth',
-  categories: 'categories',
   categories_add: 'categories/add',
+  categories: 'categories',
   category_id: ':categoryId',
-  currencies: 'currencies',
   currencies_add: 'currencies/add',
+  currencies: 'currencies',
   currency_id: ':currencyId',
   forgotPassword: 'forgot-password',
   home: 'home',
@@ -15,6 +15,8 @@ export const ROUTES_KEYS = {
   signUp: 'sign-up',
   transactions: 'transactions',
   users: 'users',
-  wallets: 'wallets'
+  wallet_id: ':walletId',
+  wallets_add: 'wallets/add',
+  wallets: 'wallets',
 
 }

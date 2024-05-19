@@ -31,7 +31,7 @@
       "createdAt": "criado em",
       "id": "id",
       "symbol": "symbol",
-      "types": {
+      "type": {
         "ARS": "Argentine Peso",
         "AUD": "Australian Dollar",
         "BRL": "Real",
@@ -56,6 +56,22 @@
     "helloApp": "Hello {{user}}, welcome!",
     "no": "No",
     "terms": "Terms: \"{{terms}}\"",
+    "wallet": {
+      "active": "active",
+      "balance": "balance",
+      "createdAt": "created at",
+      "currency": "currency",
+      "id": "id",
+      "name": "name",
+      "type": "type",
+      "types": {
+        "BANK_ACCOUNT": "Bank account",
+        "CASH_WALLET": "Money",
+        "CREDIT_CARD": "Crédit card",
+        "CRYPTO_WALLET": "Crypto"
+      },
+      "updatedAt": "updated at"
+    },
     "yes": "Yes"
   },
   "web": {
@@ -113,6 +129,20 @@
         "sortByCode": "Sort by code",
         "sortById": "Sort by id",
         "sortByUpdatedAt": "Sort by update date"
+      },
+      "_WalletsPageComponent": {
+        "addWallet": "Add wallet",
+        "myWallets": "My wallets",
+        "sortByActive": "Sort by active status",
+        "sortByBalance": "Sort by balance",
+        "sortByCurrency": "Sort by currency",
+        "sortById": "Sort by id",
+        "sortByName": "Sort by name",
+        "sortByType": "Sort by type",
+        "sortByUpdatedAt": "Sort by update date",
+        "walletDeleteConfirmMessage": "This action is irreversible and the data will be permanently lost",
+        "walletDeleteConfirmTitle": "Are you sure you want to delete the wallet '{{walletName}}'?",
+        "walletDeletedSuccessfully": "Wallet '{{walletName}}' deleted successfully"
       }
     },
     "core": {
@@ -164,6 +194,7 @@
     "pageTitle": {
       ":categoryId": "Edit category",
       ":currencyId": "Edit currency",
+      ":walletId": "Edit wallet",
       "add": "Add",
       "auth": "Auth",
       "categories": "Categories",
@@ -178,7 +209,8 @@
       "sign-up": "Sign up",
       "transactions": "Transactions",
       "users": "Users",
-      "wallets": "Wallets"
+      "wallets": "Wallets",
+      "wallets/add": "Add wallet"
     },
     "shared": {
       "components": {

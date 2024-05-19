@@ -8,8 +8,8 @@ import { ForgotPasswordPageComponent, LoginPageComponent, adminGuard, authGuard 
 import { MyAccountPageComponent, SignUpPageComponent, UsersPageComponent } from './features/users';
 import { NotFoundPageComponent } from './features/not-found';
 import { TransactionsPageComponent } from './features/transactions';
-import { WalletsPageComponent } from './features/wallets';
-import { CategoriesFormPageComponent } from './features/categories/categories-form-page/categories-form-page.component';
+import { WalletsFormPageComponent, WalletsPageComponent } from './features/wallets';
+import { CategoriesFormPageComponent } from './features/categories';
 import { unsavedChangesGuard } from './shared';
 
 export const routes: Routes = [
@@ -24,13 +24,21 @@ export const routes: Routes = [
   {
     // AUTHENTICATED ROUTES
     path: '', canActivate: [authGuard], children: [
+
       { path: ROUTES_KEYS.categories, component: CategoriesPageComponent, title: ROUTES_KEYS.categories },
       { path: ROUTES_KEYS.categories_add, canDeactivate: [unsavedChangesGuard], component: CategoriesFormPageComponent, title: ROUTES_KEYS.categories_add },
       { path: `${ROUTES_KEYS.categories}/${ROUTES_KEYS.category_id}`, canDeactivate: [unsavedChangesGuard], component: CategoriesFormPageComponent, title: ROUTES_KEYS.category_id },
+
       { path: ROUTES_KEYS.currencies, component: CurrenciesPageComponent, title: ROUTES_KEYS.currencies },
+
       { path: ROUTES_KEYS.myAccount, component: MyAccountPageComponent, title: ROUTES_KEYS.myAccount },
+
       { path: ROUTES_KEYS.transactions, component: TransactionsPageComponent, title: ROUTES_KEYS.transactions },
+
       { path: ROUTES_KEYS.wallets, component: WalletsPageComponent, title: ROUTES_KEYS.wallets },
+      { path: ROUTES_KEYS.wallets_add, component: WalletsFormPageComponent, title: ROUTES_KEYS.wallets_add },
+      { path: `${ROUTES_KEYS.wallets}/${ROUTES_KEYS.wallet_id}`, component: WalletsFormPageComponent, title: ROUTES_KEYS.wallet_id },
+
       {
         // AUTHENTICATED ADMIN ROUTES
         path: '', canActivate: [adminGuard], children: [

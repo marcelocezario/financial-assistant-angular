@@ -1,1 +1,100 @@
-<p>wallets-page works!</p>
+<div class="d-flex">
+  <div class="d-flex justify-content">
+    <button mat-raised-button color="primary" [routerLink]="addWalletLink">
+      {{getTranslateKey('addWallet') |translate}}
+    </button>
+  </div>
+  <span class="mhc-empty-spacer"></span>
+  <mat-form-field appearance="outline">
+    <mat-label>{{'generic.filter' | translate}}</mat-label>
+    <input matInput #input (keyup)="applyFilter($event)" [placeholder]="'generic.filterPlaceholder' | translate">
+    <mat-icon matSuffix>search</mat-icon>
+  </mat-form-field>
+</div>
+
+<div class="card table-responsive">
+  <table mat-table [dataSource]="dataSource" matSort class="mhc-table">
+
+    <ng-container matColumnDef="actions">
+      <th mat-header-cell *matHeaderCellDef>
+        {{'generic.actions' | translate}}
+      </th>
+      <td mat-cell *matCellDef="let element">
+        <button mat-icon-button [matMenuTriggerFor]="menuActions">
+          <mat-icon class="mat-18">more_vert</mat-icon>
+        </button>
+        <mat-menu #menuActions="matMenu">
+          <a mat-menu-item [routerLink]="walletLink + '/' + element.id">
+            <mat-icon class="mat-18">edit</mat-icon>
+            <span>{{ 'generic.edit' | translate }}</span>
+          </a>
+          <button mat-menu-item (click)="deleteWallet(element)">
+            <mat-icon class="mat-18">delete</mat-icon>
+            <span>{{ 'generic.delete' | translate }}</span>
+          </button>
+        </mat-menu>
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="name">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header
+        [sortActionDescription]="getTranslateKey('sortByName') | translate">
+        {{'generic.wallet.name' | translate}}</th>
+      <td mat-cell *matCellDef="let element">
+        {{element.name}}
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="currency">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header
+        [sortActionDescription]="getTranslateKey('sortByCurrency') | translate">
+        {{'generic.wallet.currency' | translate}}</th>
+      <td mat-cell *matCellDef="let element">
+        {{'generic.currency.type.' + element.currency.code | translate: {default: element.currency.name + 'shshsh'} }}
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="balance">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header
+        [sortActionDescription]="getTranslateKey('sortByBalance') | translate">
+        {{'generic.wallet.balance' | translate}}</th>
+      <td mat-cell *matCellDef="let element">
+        {{element.balance | currency: element.currency.symbol + ' ' }}
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="type">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header
+        [sortActionDescription]="getTranslateKey('sortByType') | translate">
+        {{'generic.wallet.type' | translate}}</th>
+      <td mat-cell *matCellDef="let element">
+        {{'generic.wallet.types.' + element.type | translate}}
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="updatedAt">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header
+        [sortActionDescription]="getTranslateKey('sortByUpdatedAt') | translate">
+        {{'generic.wallet.updatedAt' | translate}}</th>
+      <td mat-cell *matCellDef="let element"> {{element.updatedAt | date: 'dd-MMM-yyyy HH:mm'}} </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="['table-title']"></tr>
+    <ng-container matColumnDef="table-title">
+      <th mat-header-cell *matHeaderCellDef [attr.colspan]="displayedColumns.length">
+        <span>{{getTranslateKey('myWallets') | translate}}</span>
+        <span> - </span>
+        <span>{{getBalanceTotalWallets() | currency: 'BRL'}}</span>
+      </th>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+    <tr *matNoDataRow>
+      <td [attr.colspan]="displayedColumns.length">
+        <app-data-not-found [data]="input.value"></app-data-not-found>
+      </td>
+    </tr>
+  </table>
+</div>

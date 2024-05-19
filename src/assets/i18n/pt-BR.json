@@ -31,7 +31,7 @@
       "createdAt": "criado em",
       "id": "id",
       "symbol": "símbolo",
-      "types": {
+      "type": {
         "ARS": "Peso Argentino",
         "AUD": "Dólar Australiano",
         "BRL": "Real",
@@ -56,6 +56,22 @@
     "helloApp": "Olá {{user}}, bem vindo!",
     "no": "Não",
     "terms": "Termos: \"{{terms}}\"",
+    "wallet": {
+      "active": "ativa",
+      "balance": "saldo",
+      "createdAt": "criado em",
+      "currency": "moeda",
+      "id": "id",
+      "name": "nome",
+      "type": "tipo",
+      "types": {
+        "BANK_ACCOUNT": "Conta bancária",
+        "CASH_WALLET": "Dinheiro",
+        "CREDIT_CARD": "Cartão de crédito",
+        "CRYPTO_WALLET": "Cripto"
+      },
+      "updatedAt": "atualizado em"
+    },
     "yes": "Sim"
   },
   "web": {
@@ -113,6 +129,21 @@
         "sortByCode": "Ordenar por código",
         "sortById": "Ordenar por id",
         "sortByUpdatedAt": "Ordenar por data de atualização"
+      },
+      "_WalletsPageComponent": {
+        "addWallet": "Adicionar carteira",
+        "myWallets": "Minhas carteiras",
+        "sortByActive": "Ordenar por status ativo",
+        "sortByBalance": "Ordenar por saldo",
+        "sortByCreatedAt": "Ordenar por data de criação",
+        "sortByCurrency": "Ordenar por moeda",
+        "sortById": "Ordenar por id",
+        "sortByName": "Ordenar por nome",
+        "sortByType": "Ordenar por tipo",
+        "sortByUpdatedAt": "Ordenar por data de atualização",
+        "walletDeleteConfirmMessage": "Esta ação é irreversível e os dados serão permanentemente perdidos",
+        "walletDeleteConfirmTitle": "Você tem certeza que deseja deletar a cateira '{{walletName}}'?",
+        "walletDeletedSuccessfully": "Carteira '{{walletName}}' deletada com sucesso"
       }
     },
     "core": {
@@ -164,6 +195,7 @@
     "pageTitle": {
       ":categoryId": "Editar categoria",
       ":currencyId": "Editar moeda",
+      ":walletId": "Editar carteira",
       "add": "Adicionar",
       "auth": "Autenticar",
       "categories": "Categorias",
@@ -178,7 +210,8 @@
       "sign-up": "Cadastre-se",
       "transactions": "Transações",
       "users": "Usuários",
-      "wallets": "Carteiras"
+      "wallets": "Carteiras",
+      "wallets/add": "Adicionar carteira"
     },
     "shared": {
       "components": {

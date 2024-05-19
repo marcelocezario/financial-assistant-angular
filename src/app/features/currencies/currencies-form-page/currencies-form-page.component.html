@@ -9,6 +9,14 @@
   </mat-form-field>
 
   <mat-form-field class="mhc-full-width" appearance="outline">
+    <mat-label>{{ getTranslateKey('nameLabel') | translate }}</mat-label>
+    <input matInput name="name" formControlName="name" [placeholder]="getTranslateKey('namePlaceholder') | translate">
+    @if (formGroup.get('name')?.hasError('required')) {
+    <mat-error [innerHtml]="getTranslateKey('nameValidationRequired') | translate"></mat-error>
+    }
+  </mat-form-field>
+
+  <mat-form-field class="mhc-full-width" appearance="outline">
     <mat-label>{{ getTranslateKey('symbolLabel') | translate }}</mat-label>
     <input matInput name="symbol" formControlName="symbol"
       [placeholder]="getTranslateKey('symbolPlaceholder') | translate">
@@ -19,7 +27,7 @@
 
   <mat-form-field class="mhc-full-width" appearance="outline">
     <mat-label>{{ getTranslateKey('brlRateLabel') | translate }}</mat-label>
-    <input matInput type="number" name="brlRate" formControlName="symbol"
+    <input matInput type="number" name="brlRate" formControlName="brlRate"
       [placeholder]="getTranslateKey('brlRatePlaceholder') | translate">
     @if (formGroup.get('brlRate')?.hasError('required')) {
     <mat-error [innerHtml]="getTranslateKey('brlRateValidationRequired') | translate"></mat-error>

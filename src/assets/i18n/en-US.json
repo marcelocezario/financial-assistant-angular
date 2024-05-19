@@ -93,6 +93,11 @@
         "codeLabel": "Code",
         "codePlaceholder": "Enter the currency code (ISO 4217)",
         "codeValidationRequired": "Code is required",
+        "currencyCreatedSuccessfully": "Currency created successfully",
+        "currencyUpdatedSuccessfully": "Currency updated successfully",
+        "nameLabel": "Name",
+        "namePlaceholder": "Enter the currency name",
+        "nameValidationRequired": "Currency name is mandatory",
         "symbolLabel": "Symbol",
         "symbolPlaceholder": "Enter the currency symbol (e.g., US$)",
         "symbolValidationRequired": "Symbol is required"

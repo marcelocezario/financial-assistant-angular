@@ -4,10 +4,6 @@
       <mat-icon>menu</mat-icon>
     </button>
     <mat-menu #menu="matMenu">
-      <button mat-menu-item [routerLink]="usersLink">
-        <mat-icon>group</mat-icon>
-        <span>{{getTranslateKey('users') | translate}}</span>
-      </button>
       <button mat-menu-item [routerLink]="currenciesLink">
         <mat-icon>monetization_on</mat-icon>
         <span>{{getTranslateKey('currencies') | translate}}</span>
@@ -23,6 +19,10 @@
       <button mat-menu-item [routerLink]="transactionsLink">
         <mat-icon>payments</mat-icon>
         <span>{{getTranslateKey('transactions') | translate}}</span>
+      </button>
+      <button mat-menu-item [routerLink]="usersLink">
+        <mat-icon>group</mat-icon>
+        <span>{{getTranslateKey('users') | translate}}</span>
       </button>
       <button mat-menu-item routerLink="/not-found">
         <mat-icon>search_off</mat-icon>

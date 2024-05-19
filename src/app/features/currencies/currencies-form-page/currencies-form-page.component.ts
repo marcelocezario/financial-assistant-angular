@@ -24,6 +24,7 @@ export class CurrenciesFormPageComponent extends FormBaseDirective implements On
   override formGroup: FormGroup<any> = this._formBuilder.group({
     id: [null],
     code: [null, [Validators.required]],
+    name: [null, [Validators.required]],
     symbol: [null, [Validators.required]],
     brlRate: [null, [Validators.required, Validators.min(0)]],
     active: [false],
@@ -43,7 +44,7 @@ export class CurrenciesFormPageComponent extends FormBaseDirective implements On
   }
 
   ngOnInit(): void {
-    const id = this._route.snapshot.paramMap.get(ROUTES_KEYS.currency_id);
+    const id = this._route.snapshot.paramMap.get('currencyId');
     if (id) {
       this._currencyService.getById(id)
         .then(currency => this.formGroup.patchValue(currency))
@@ -52,7 +53,6 @@ export class CurrenciesFormPageComponent extends FormBaseDirective implements On
   }
 
   override async submit(): Promise<void> {
-    console.log("PASSOU AQUI")
     const currency: Currency = this.formGroup.value
     if (currency.id) {
       await this._updateCurrency(currency).then();

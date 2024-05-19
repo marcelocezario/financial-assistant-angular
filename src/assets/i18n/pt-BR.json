@@ -93,6 +93,11 @@
         "codeLabel": "Código",
         "codePlaceholder": "Digite o código (ISO 4217) da moeda",
         "codeValidationRequired": "O código é obrigatório",
+        "currencyCreatedSuccessfully": "Moeda criada com sucesso",
+        "currencyUpdatedSuccessfully": "Moeda alterada com sucesso",
+        "nameLabel": "Nome",
+        "namePlaceholder": "Digite o nome da moeda",
+        "nameValidationRequired": "Nome da moeda é obrigatório",
         "symbolLabel": "Símbolo",
         "symbolPlaceholder": "Digite o símbolo da moeda (ex. R$)",
         "symbolValidationRequired": "O símbolo é obrigatório"

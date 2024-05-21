@@ -1,4 +1,5 @@
 import { TransactionCategory } from "./transaction-category.model"
+import { TransactionMethod } from "./transaction-method.enum"
 import { TransactionType } from "./transaction-type.enum"
 import { User } from "./user.model"
 import { Wallet } from "./wallet.model"
@@ -16,4 +17,6 @@ export interface Transaction {
   user: User
   wallet: Wallet
   categories: TransactionCategory[]
+
+  availableTransactionMethods: TransactionMethod[]
 }

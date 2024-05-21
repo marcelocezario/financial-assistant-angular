@@ -45,7 +45,7 @@ export abstract class FormBaseDirective {
   getFirstErrorTranslateKey(formControlName: string): string {
     const formControl = this.formGroup.get(formControlName);
     if (!formControl || !formControl.errors) {
-      return 'web.shared.forms.error.noErrors';
+      return 'web.shared.forms.errors.noErrors';
     }
     return `web.shared.forms.errors.${Object.keys(formControl.errors)[0]}`;
   }

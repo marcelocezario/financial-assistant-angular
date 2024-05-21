@@ -3,35 +3,32 @@
   <mat-form-field class="mhc-full-width" appearance="outline">
     <mat-label>{{ getTranslateKey('codeLabel') | translate }}</mat-label>
     <input matInput name="code" formControlName="code" [placeholder]="getTranslateKey('codePlaceholder') | translate">
-    @if (formGroup.get('code')?.hasError('required')) {
-    <mat-error [innerHtml]="getTranslateKey('codeValidationRequired') | translate"></mat-error>
-    }
+    <mat-error [innerHtml]="getFirstErrorTranslateKey('code') | translate : formGroup.get('code')?.errors ">
+    </mat-error>
   </mat-form-field>
 
   <mat-form-field class="mhc-full-width" appearance="outline">
     <mat-label>{{ getTranslateKey('nameLabel') | translate }}</mat-label>
     <input matInput name="name" formControlName="name" [placeholder]="getTranslateKey('namePlaceholder') | translate">
-    @if (formGroup.get('name')?.hasError('required')) {
-    <mat-error [innerHtml]="getTranslateKey('nameValidationRequired') | translate"></mat-error>
-    }
+    <mat-error [innerHtml]="getFirstErrorTranslateKey('name') | translate : formGroup.get('name')?.errors ">
+    </mat-error>
   </mat-form-field>
 
   <mat-form-field class="mhc-full-width" appearance="outline">
     <mat-label>{{ getTranslateKey('symbolLabel') | translate }}</mat-label>
     <input matInput name="symbol" formControlName="symbol"
       [placeholder]="getTranslateKey('symbolPlaceholder') | translate">
-    @if (formGroup.get('symbol')?.hasError('required')) {
-    <mat-error [innerHtml]="getTranslateKey('symbolValidationRequired') | translate"></mat-error>
-    }
+    <mat-error [innerHtml]="getFirstErrorTranslateKey('symbol') | translate : formGroup.get('symbol')?.errors ">
+    </mat-error>
   </mat-form-field>
 
   <mat-form-field class="mhc-full-width" appearance="outline">
     <mat-label>{{ getTranslateKey('brlRateLabel') | translate }}</mat-label>
     <input matInput type="number" name="brlRate" formControlName="brlRate"
       [placeholder]="getTranslateKey('brlRatePlaceholder') | translate">
-    @if (formGroup.get('brlRate')?.hasError('required')) {
-    <mat-error [innerHtml]="getTranslateKey('brlRateValidationRequired') | translate"></mat-error>
-    }
+    <mat-error
+      [innerHtml]="getFirstErrorTranslateKey('brlRateLabel') | translate : formGroup.get('brlRateLabel')?.errors ">
+    </mat-error>
   </mat-form-field>
 
   <mat-checkbox formControlName="active">

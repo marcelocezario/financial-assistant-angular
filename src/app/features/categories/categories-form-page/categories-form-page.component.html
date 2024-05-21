@@ -3,17 +3,17 @@
   <mat-form-field class="mhc-full-width" appearance="outline">
     <mat-label>{{ getTranslateKey('nameLabel') | translate }}</mat-label>
     <input matInput name="name" formControlName="name" [placeholder]="getTranslateKey('namePlaceholder') | translate">
-    @if (formGroup.get('name')?.hasError('required')) {
-    <mat-error [innerHtml]="getTranslateKey('nameValidationRequired') | translate"></mat-error>
-    }
+    <mat-error [innerHtml]="getFirstErrorTranslateKey('name') | translate : formGroup.get('name')?.errors ">
+    </mat-error>
   </mat-form-field>
 
   <app-input-color id="color" [label]="getTranslateKey('colorLabel') | translate"
     [placeholder]="getTranslateKey('colorPlaceholder') | translate" [control]="formGroup.get('color')">
   </app-input-color>
 
-  <app-input-icon id="icon" [label]="getTranslateKey('iconLabel') | translate" [iconColor]="formGroup.get('color')?.value"
-    [placeholder]="getTranslateKey('iconPlaceholder') | translate" [control]="formGroup.get('icon')"></app-input-icon>
+  <app-input-icon id="icon" [label]="getTranslateKey('iconLabel') | translate"
+    [iconColor]="formGroup.get('color')?.value" [placeholder]="getTranslateKey('iconPlaceholder') | translate"
+    [control]="formGroup.get('icon')"></app-input-icon>
 
   <div class="d-flex flex-column mhc-form-actions">
     <button type="submit" mat-raised-button color="primary">

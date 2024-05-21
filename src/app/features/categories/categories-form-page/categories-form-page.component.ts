@@ -3,7 +3,6 @@ import { FormBaseDirective, FormValidations, InputColorComponent, InputIconCompo
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { CategoryService } from '../category.service';
 import { Category } from '../../../core/models';
-import { CommonModule } from '@angular/common';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { TranslateModule } from '@ngx-translate/core';
 import { MatInputModule } from '@angular/material/input';
@@ -15,7 +14,7 @@ import { MatIconModule } from '@angular/material/icon';
 @Component({
   selector: 'app-categories-form-page',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule, MatFormFieldModule, MatInputModule, TranslateModule, MatButtonModule, MatIconModule, InputColorComponent, InputIconComponent],
+  imports: [ReactiveFormsModule, MatFormFieldModule, MatInputModule, TranslateModule, MatButtonModule, MatIconModule, InputColorComponent, InputIconComponent],
   templateUrl: './categories-form-page.component.html',
   styleUrl: './categories-form-page.component.scss'
 })

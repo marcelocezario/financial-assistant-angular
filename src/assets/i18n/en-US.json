@@ -84,8 +84,7 @@
         "iconLabel": "Icon",
         "iconPlaceholder": "Select an icon or enter the name (Material Icons reference)",
         "nameLabel": "Name",
-        "namePlaceholder": "Enter the category name",
-        "nameValidationRequired": "Category name is mandatory"
+        "namePlaceholder": "Enter the category name"
       },
       "_CategoriesPageComponent": {
         "addCategory": "Add category",
@@ -105,18 +104,14 @@
         "activeLabel": "Active",
         "brlRateLabel": "Exchange Brazilia Real Rate",
         "brlRatePlaceholder": "Enter the exchange rate in reais",
-        "brlRateValidationRequired": "Exchange rate is required",
         "codeLabel": "Code",
         "codePlaceholder": "Enter the currency code (ISO 4217)",
-        "codeValidationRequired": "Code is required",
         "currencyCreatedSuccessfully": "Currency created successfully",
         "currencyUpdatedSuccessfully": "Currency updated successfully",
         "nameLabel": "Name",
         "namePlaceholder": "Enter the currency name",
-        "nameValidationRequired": "Currency name is mandatory",
         "symbolLabel": "Symbol",
-        "symbolPlaceholder": "Enter the currency symbol (e.g., US$)",
-        "symbolValidationRequired": "Symbol is required"
+        "symbolPlaceholder": "Enter the currency symbol (e.g., US$)"
       },
       "_CurrenciesPageComponent": {
         "addCurrency": "Add currency",

@@ -84,8 +84,7 @@
         "iconLabel": "Ícone",
         "iconPlaceholder": "Selecione um ícone ou digite o nome (referencia Material Icons)",
         "nameLabel": "Nome",
-        "namePlaceholder": "Digite o nome da categoria",
-        "nameValidationRequired": "Nome da categoria é obrigatório"
+        "namePlaceholder": "Digite o nome da categoria"
       },
       "_CategoriesPageComponent": {
         "addCategory": "Adicionar categoria",
@@ -105,18 +104,14 @@
         "activeLabel": "Ativo",
         "brlRateLabel": "Cotação",
         "brlRatePlaceholder": "Digite a cotação em reais da moeda",
-        "brlRateValidationRequired": "A cotação é obriigatória",
         "codeLabel": "Código",
         "codePlaceholder": "Digite o código (ISO 4217) da moeda",
-        "codeValidationRequired": "O código é obrigatório",
         "currencyCreatedSuccessfully": "Moeda criada com sucesso",
         "currencyUpdatedSuccessfully": "Moeda alterada com sucesso",
         "nameLabel": "Nome",
         "namePlaceholder": "Digite o nome da moeda",
-        "nameValidationRequired": "Nome da moeda é obrigatório",
         "symbolLabel": "Símbolo",
-        "symbolPlaceholder": "Digite o símbolo da moeda (ex. R$)",
-        "symbolValidationRequired": "O símbolo é obrigatório"
+        "symbolPlaceholder": "Digite o símbolo da moeda (ex. R$)"
       },
       "_CurrenciesPageComponent": {
         "addCurrency": "Adicionar moeda",

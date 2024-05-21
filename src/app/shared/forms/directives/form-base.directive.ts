@@ -42,4 +42,12 @@ export abstract class FormBaseDirective {
     return this._submissionAttempted;
   }
 
+  getFirstErrorTranslateKey(formControlName: string): string {
+    const formControl = this.formGroup.get(formControlName);
+    if (!formControl || !formControl.errors) {
+      return 'web.shared.forms.error.noErrors';
+    }
+    return `web.shared.forms.errors.${Object.keys(formControl.errors)[0]}`;
+  }
+
 }

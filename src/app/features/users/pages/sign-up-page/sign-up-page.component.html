@@ -1,1 +1,44 @@
-<p>sign-up-page works!</p>
+<form class="mhc-form" [formGroup]="formGroup" (ngSubmit)="onSubmit()">
+
+  <mat-form-field class="mhc-full-width" appearance="outline">
+    <mat-label>{{getTranslateKey('nicknameLabel') | translate}}</mat-label>
+    <input matInput name="nickname" formControlName="nickname"
+      [placeholder]="getTranslateKey('nicknamePlaceholder') | translate">
+    <mat-error [innerHtml]="getFirstErrorTranslateKey('nickname') | translate : formGroup.get('nickname')?.errors ">
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field class="mhc-full-width" appearance="outline">
+    <mat-label>{{getTranslateKey('emailLabel') | translate}}</mat-label>
+    <input matInput type="email" name="email" formControlName="email"
+      [placeholder]="getTranslateKey('emailPlaceholder') | translate">
+    <mat-error [innerHtml]="getFirstErrorTranslateKey('email') | translate : formGroup.get('email')?.errors ">
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field class="mhc-full-width" appearance="outline">
+    <mat-label>{{getTranslateKey('passwordLabel') | translate}}</mat-label>
+    <input matInput type="password" name="password" formControlName="password"
+      [placeholder]="getTranslateKey('passwordPlaceholder') | translate">
+    <mat-error [innerHtml]="getFirstErrorTranslateKey('password') | translate : formGroup.get('password')?.errors ">
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field class="mhc-full-width" appearance="outline">
+    <mat-label>{{getTranslateKey('passwordConfirmationLabel') | translate}}</mat-label>
+    <input matInput type="password" name="passwordConfirmation" formControlName="passwordConfirmation"
+      [placeholder]="getTranslateKey('passwordConfirmationPlaceholder') | translate">
+    <mat-error
+      [innerHtml]="getFirstErrorTranslateKey('passwordConfirmation') | translate : formGroup.get('passwordConfirmation')?.errors ">
+    </mat-error>
+  </mat-form-field>
+
+  <div class="d-flex flex-column mhc-form-actions">
+    <button type="submit" mat-raised-button color="primary">
+      {{ 'generic.confirm' | translate }}
+    </button>
+    <button type="button" mat-raised-button (click)="cancel()">
+      {{ 'generic.cancel' | translate }}
+    </button>
+  </div>
+</form>

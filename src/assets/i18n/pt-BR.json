@@ -130,12 +130,22 @@
         "sortById": "Ordenar por id",
         "sortByUpdatedAt": "Ordenar por data de atualização"
       },
+      "_SignUpPageComponent": {
+        "emailLabel": "Email",
+        "emailPlaceholder": "Ex: exemplo@email.com.br",
+        "nicknameLabel": "Nome ou apelido",
+        "nicknamePlaceholder": "Como gostaria de ser chamado?",
+        "passwordConfirmationLabel": "Confirme sua senha",
+        "passwordConfirmationPlaceholder": "Digite novamente sua senha",
+        "passwordLabel": "Senha",
+        "passwordPlaceholder": "Digite sua senha",
+        "userCreatedSuccessfully": "Usuário '{{ nickname }}' criado com sucesso"
+      },
       "_WalletsPageComponent": {
         "addWallet": "Adicionar carteira",
         "myWallets": "Minhas carteiras",
         "sortByActive": "Ordenar por status ativo",
         "sortByBalance": "Ordenar por saldo",
-        "sortByCreatedAt": "Ordenar por data de criação",
         "sortByCurrency": "Ordenar por moeda",
         "sortById": "Ordenar por id",
         "sortByName": "Ordenar por nome",
@@ -233,13 +243,14 @@
       "forms": {
         "errors": {
           "email": "Endereço de e-mail inválido",
-          "equalsTo": "O valor não confere com '{{ equalsTo }}'",
+          "equalsTo": "Os valores digitados não são iguais",
           "generic": "Erro de validação",
           "hexadecimalColor": "O valor não é um hexadecimal válido",
           "max": "O número máximo permitido é {{ max.max }}",
           "maxlength": "É permitido no máximo {{ maxlength.requiredLength }} caracteres",
           "min": "O número mínimo permitido é {{ min.min }}",
           "minlength": "É necessário no mínimo {{ minlength.requiredLength }} caracteres",
+          "noErrors": "Sem erros",
           "pattern": "O valor não é válido",
           "required": "Campo obrigatório"
         }

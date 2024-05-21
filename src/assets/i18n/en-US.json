@@ -130,6 +130,17 @@
         "sortById": "Sort by id",
         "sortByUpdatedAt": "Sort by update date"
       },
+      "_SignUpPageComponent": {
+        "emailLabel": "Email",
+        "emailPlaceholder": "E.g.: example@email.com",
+        "nicknameLabel": "Name or nickname",
+        "nicknamePlaceholder": "How would you like to be called?",
+        "passwordConfirmationLabel": "Confirm your password",
+        "passwordConfirmationPlaceholder": "Type your password again",
+        "passwordLabel": "Password",
+        "passwordPlaceholder": "Type your password",
+        "userCreatedSuccessfully": "User '{{ nickname }}' created successfully"
+      },
       "_WalletsPageComponent": {
         "addWallet": "Add wallet",
         "myWallets": "My wallets",
@@ -232,13 +243,14 @@
       "forms": {
         "errors": {
           "email": "Invalid email address",
-          "equalsTo": "Value does not match '{{ equalsTo }}'",
+          "equalsTo": "The entered values do not match",
           "generic": "Validation error",
           "hexadecimalColor": "The value is not a valid hexadecimal",
           "max": "The maximum allowed number is {{ max.max }}",
           "maxlength": "A maximum of {{ maxlength.requiredLength }} characters is allowed",
           "min": "The minimum allowed number is {{ min.min }}",
           "minlength": "A minimum of {{ minlength.requiredLength }} characters is required",
+          "noErrors": "No errors",
           "pattern": "The value is not valid",
           "required": "Mandatory field"
         }

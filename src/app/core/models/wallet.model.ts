@@ -1,5 +1,6 @@
 import { Currency } from "./currency.model"
 import { User } from "./user.model"
+import { WalletType } from "./wallet-type.enum"
 
 export interface Wallet {
   id?: string
@@ -8,6 +9,7 @@ export interface Wallet {
   active?: boolean
   createdAt?: Date
   updatedAt?: Date
-  user: User
-  currency: Currency
+  userId: string
+  currency: Currency,
+  type: WalletType
 }

@@ -63,14 +63,14 @@
       "currency": "moeda",
       "id": "id",
       "name": "nome",
-      "type": "tipo",
-      "types": {
+      "type": {
         "BANK_ACCOUNT": "Conta bancária",
         "CASH_WALLET": "Dinheiro",
         "CREDIT_CARD": "Cartão de crédito",
         "CRYPTO_WALLET": "Cripto"
       },
-      "updatedAt": "atualizado em"
+      "updatedAt": "atualizado em",
+      "walletType": "tipo"
     },
     "yes": "Sim"
   },
@@ -101,7 +101,7 @@
         "sortByUpdatedAt": "Ordenar por data de atualização"
       },
       "_CurrenciesFormPageComponent": {
-        "activeLabel": "Ativo",
+        "activeLabel": "Moeda ativa",
         "brlRateLabel": "Cotação",
         "brlRatePlaceholder": "Digite a cotação em reais da moeda",
         "codeLabel": "Código",
@@ -135,6 +135,28 @@
         "passwordLabel": "Senha",
         "passwordPlaceholder": "Digite sua senha",
         "userCreatedSuccessfully": "Usuário '{{ nickname }}' criado com sucesso"
+      },
+      "_WalletsFormPageComponent": {
+        "activeLabel": "Carteira ativa",
+        "additionalInfoForBankAccount": "Dados adicionais para conta bancária",
+        "additionalInfoForCreditCard": "Dados adicionais para cartão de crédito",
+        "balanceLabel": "Saldo da carteira",
+        "balancePlaceholder": "Digite o saldo atual da carteira",
+        "billingCycleDateLabel": "Data de fechamento da fatura",
+        "billingCycleDatePlaceholder": "Qual a data mensal de fechamento da fatura?",
+        "creditLimitLabel": "Limite de crédito",
+        "creditLimitPlaceholder": "Qual o valor de limite de crédito que a conta possui?",
+        "currencyLabel": "Moeda",
+        "currencyPlaceholder": "Selecione uma moeda",
+        "desactivatedCurrency": "Moeda desativada",
+        "dueDateLabel": "Data de vencimento da fatura",
+        "dueDatePlaceholder": "Qual a data mensal de vencimento da fatura?",
+        "interestRateLabel": "Taxa de juros",
+        "interestRatePlaceholder": "Qual a taxa de juros do limite?",
+        "nameLabel": "Nome",
+        "namePlaceholder": "Digite o nome da carteira",
+        "typeLabel": "Tipo carteira",
+        "typePlaceholder": "Selecione um tipo para a carteira"
       },
       "_WalletsPageComponent": {
         "addWallet": "Adicionar carteira",

@@ -38,7 +38,7 @@ export class CurrencyService {
     })
   }
 
-  async getAll(onlyActive: boolean = false): Promise<Currency[]>{
+  async getAll(onlyActive: boolean = true): Promise<Currency[]>{
     return new Promise((resolve, reject) => {
       const params = new Map;
       if (!onlyActive) {

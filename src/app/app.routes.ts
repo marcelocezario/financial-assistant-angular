@@ -36,8 +36,8 @@ export const routes: Routes = [
       { path: ROUTES_KEYS.transactions, component: TransactionsPageComponent, title: ROUTES_KEYS.transactions },
 
       { path: ROUTES_KEYS.wallets, component: WalletsPageComponent, title: ROUTES_KEYS.wallets },
-      { path: ROUTES_KEYS.wallets_add, component: WalletsFormPageComponent, title: ROUTES_KEYS.wallets_add },
-      { path: `${ROUTES_KEYS.wallets}/${ROUTES_KEYS.wallet_id}`, component: WalletsFormPageComponent, title: ROUTES_KEYS.wallet_id },
+      { path: ROUTES_KEYS.wallets_add, canDeactivate: [unsavedChangesGuard], component: WalletsFormPageComponent, title: ROUTES_KEYS.wallets_add },
+      { path: `${ROUTES_KEYS.wallets}/${ROUTES_KEYS.wallet_id}`, canDeactivate: [unsavedChangesGuard], component: WalletsFormPageComponent, title: ROUTES_KEYS.wallet_id },
 
       {
         // AUTHENTICATED ADMIN ROUTES

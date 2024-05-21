@@ -63,14 +63,14 @@
       "currency": "currency",
       "id": "id",
       "name": "name",
-      "type": "type",
-      "types": {
+      "type": {
         "BANK_ACCOUNT": "Bank account",
         "CASH_WALLET": "Money",
         "CREDIT_CARD": "Crédit card",
         "CRYPTO_WALLET": "Crypto"
       },
-      "updatedAt": "updated at"
+      "updatedAt": "updated at",
+      "walletType": "type"
     },
     "yes": "Yes"
   },
@@ -101,7 +101,7 @@
         "sortByUpdatedAt": "Sort by update date"
       },
       "_CurrenciesFormPageComponent": {
-        "activeLabel": "Active",
+        "activeLabel": "Active currency",
         "brlRateLabel": "Exchange Brazilia Real Rate",
         "brlRatePlaceholder": "Enter the exchange rate in reais",
         "codeLabel": "Code",
@@ -135,6 +135,28 @@
         "passwordLabel": "Password",
         "passwordPlaceholder": "Type your password",
         "userCreatedSuccessfully": "User '{{ nickname }}' created successfully"
+      },
+      "_WalletsFormPageComponent": {
+        "activeLabel": "Active wallet",
+        "additionalInfoForBankAccount": "Additional information for bank account",
+        "additionalInfoForCreditCard": "Additional information for credit card",
+        "balanceLabel": "Wallet balance",
+        "balancePlaceholder": "Enter the current wallet balance",
+        "billingCycleDateLabel": "Billing Cycle Date",
+        "billingCycleDatePlaceholder": "What is the monthly billing cycle date?",
+        "creditLimitLabel": "Credit Limit",
+        "creditLimitPlaceholder": "What is the credit limit for the account?",
+        "currencyLabel": "Currency",
+        "currencyPlaceholder": "Select a currency",
+        "desactivatedCurrency": "Desactivated currency",
+        "dueDateLabel": "Due Date",
+        "dueDatePlaceholder": "What is the monthly due date for the invoice?",
+        "interestRateLabel": "Interest Rate",
+        "interestRatePlaceholder": "What is the interest rate for the limit?",
+        "nameLabel": "Name",
+        "namePlaceholder": "Enter the wallet name",
+        "typeLabel": "Wallet type",
+        "typePlaceholder": "Select a wallet type"
       },
       "_WalletsPageComponent": {
         "addWallet": "Add wallet",

@@ -1,1 +1,9 @@
-<p>transactions-page works!</p>
+<div class="d-flex flex-column justify-content-center">
+  @for(transaction of transactions; track transaction) {
+    <div class="d-flex flex-row justify-content-center mhc-timeline-item">
+      <app-timeline-item></app-timeline-item>
+      <app-transaction-card [transaction]="transaction"></app-transaction-card>
+    </div>
+  }
+  <button mat-raised-button (click)="findNextPage()">More</button>
+</div>

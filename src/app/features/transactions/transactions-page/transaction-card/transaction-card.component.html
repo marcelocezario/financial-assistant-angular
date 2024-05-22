@@ -1,0 +1,21 @@
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>{{transaction.amount | currency: transaction.wallet.currency.symbol}}</mat-card-title>
+    <mat-card-subtitle>{{transaction.notes}}</mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-content>
+
+  </mat-card-content>
+  <mat-card-actions align="start">
+    <mat-chip-set>
+      @for(category of transaction.categories; track category) {
+      <mat-chip><mat-icon [style.color]="category.category.color">{{category.category.icon}}</mat-icon>{{category.category.name}}</mat-chip>
+      }
+    </mat-chip-set>
+  </mat-card-actions>
+  <mat-card-actions>
+    <span>
+      {{transaction.id}}
+    </span>
+  </mat-card-actions>
+</mat-card>

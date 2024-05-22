@@ -33,18 +33,18 @@ export class CurrencyService {
     return new Promise((resolve, reject) => {
       this._apiService.httpDelete(`${this._path}/${currencyId}`).subscribe({
         next: response => resolve(response),
-        error:error => reject(error)
+        error: error => reject(error)
       })
     })
   }
 
-  async getAll(onlyActive: boolean = true): Promise<Currency[]>{
+  async getAll(onlyActive: boolean = true): Promise<Currency[]> {
     return new Promise((resolve, reject) => {
       const params = new Map;
       if (!onlyActive) {
         params.set('onlyActive', onlyActive);
       }
-      this._apiService.httpGet(this._path, params).subscribe({
+      this._apiService.httpGet(this._path, { params: params }).subscribe({
         next: response => resolve(response),
         error: error => reject(error)
       })

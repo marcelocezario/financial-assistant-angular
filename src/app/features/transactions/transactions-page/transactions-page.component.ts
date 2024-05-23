@@ -1,12 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { TransactionService } from '../transaction.service';
-import { NotificationService, Page, Pageable } from '../../../shared';
+import { NotificationService, Page, Pageable, TimelineItemComponent } from '../../../shared';
 import { Transaction } from '../../../core/models';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { TransactionCardComponent } from './transaction-card/transaction-card.component';
-import { TimelineItemComponent } from './timeline-item/timeline-item.component';
 
 @Component({
   selector: 'app-transactions-page',
@@ -21,9 +20,8 @@ export class TransactionsPageComponent implements OnInit {
   page!: Page<Transaction>;
   pageable: Pageable<Transaction> = {
     page: 0,
-    size: 2,
-    sortField: 'moment',
-    sortDirection: 'desc'
+    size: 24,
+    sort: [['moment', 'desc'], ['amount', 'desc'], ['id', 'desc']]
   }
 
   constructor(
@@ -49,6 +47,14 @@ export class TransactionsPageComponent implements OnInit {
       this.page = response
       this.transactions = [...this.transactions, ...response.content]
     })
+  }
+
+  getIcons(transaction: Transaction) {
+    const icons =  transaction.categories.sort((a, b) => b.amount - a.amount).map(c => c.category).map(c => {
+      const icon = {icon: c.icon, color: c.color};
+      return icon;
+    })
+    return icons;
   }
 
 }

@@ -1,21 +1,29 @@
-<mat-card>
-  <mat-card-header>
-    <mat-card-title>{{transaction.amount | currency: transaction.wallet.currency.symbol}}</mat-card-title>
-    <mat-card-subtitle>{{transaction.notes}}</mat-card-subtitle>
-  </mat-card-header>
-  <mat-card-content>
-
-  </mat-card-content>
-  <mat-card-actions align="start">
-    <mat-chip-set>
-      @for(category of transaction.categories; track category) {
-      <mat-chip><mat-icon [style.color]="category.category.color">{{category.category.icon}}</mat-icon>{{category.category.name}}</mat-chip>
+<div class="d-flex flex-column">
+  <div class="d-flex flex-row">
+    <p>
+      {{transaction.moment | date: 'dd-MMM-yyyy'}}
+    </p>
+    <span class="mhc-empty-spacer"></span>
+    <p class="mhc-transaction-amount" [ngClass]="{
+      'mhc-transaction-credit': transaction.type === 'CREDIT',
+      'mhc-transaction-debit': transaction.type === 'DEBIT',
+    }">
+      @if (transaction.type === 'CREDIT') {
+      <span>+</span>
       }
-    </mat-chip-set>
-  </mat-card-actions>
-  <mat-card-actions>
-    <span>
-      {{transaction.id}}
-    </span>
-  </mat-card-actions>
-</mat-card>
+      <strong>
+        {{transaction.amount | currency: transaction.wallet.currency.symbol}}
+      </strong>
+    </p>
+  </div>
+  <p>{{transaction.notes}}</p>
+  <mat-chip-set>
+    @for (category of transaction.categories; track category) {
+    <mat-chip>
+      <mat-icon [style.color]="category.category.color">{{category.category.icon}}</mat-icon>
+      <span>{{category.category.name}}</span>
+    </mat-chip>
+    }
+  </mat-chip-set>
+  <p class="mhc-transaction-id"><span>id: </span>{{transaction.id}}</p>
+</div>

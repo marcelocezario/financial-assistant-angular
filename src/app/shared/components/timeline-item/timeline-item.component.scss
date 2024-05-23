@@ -26,7 +26,13 @@
   position: relative;
   margin-top: 30px;
   margin-bottom: 30px;
-  // border: 1px dashed;
+  border: 1px solid;
+  border-radius: 50px 50px 50px 50px;
+  padding: 2px;
+  // background-color: rgb(0, 136, 255);
+  // filter: drop-shadow(0 0 0.1rem);
+  // border-start-start-radius: 50% 100px;
+
   // border-start-start-radius: 15px;
   // border-end-end-radius: 15px;
 }
@@ -66,6 +72,8 @@
   margin-top: 40px;
   width: 25px;
   height: 25px;
+  min-width: 25px;
+  min-height: 25px;
   display: block;
   transform: rotate(45deg) translateX(-17.67766952966369px);
   border-left: 1px solid;
@@ -78,6 +86,8 @@
   margin-top: 40px;
   width: 25px;
   height: 25px;
+  min-width: 25px;
+  min-height: 25px;
   display: block;
   transform: rotate(-45deg) translateX(17.67766952966369px);
   border-right: 1px solid;

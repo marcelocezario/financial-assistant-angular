@@ -1,9 +1,8 @@
 <div class="d-flex flex-column justify-content-center">
   @for(transaction of transactions; track transaction) {
-    <div class="d-flex flex-row justify-content-center mhc-timeline-item">
-      <app-timeline-item></app-timeline-item>
-      <app-transaction-card [transaction]="transaction"></app-transaction-card>
-    </div>
+  <app-timeline-item linePosition="center" [eventPosition]="transaction.type === 'CREDIT' ? 'left' : 'right'" [icons]="getIcons(transaction)">
+    <app-transaction-card [transaction]="transaction"></app-transaction-card>
+  </app-timeline-item>
   }
   <button mat-raised-button (click)="findNextPage()">More</button>
 </div>

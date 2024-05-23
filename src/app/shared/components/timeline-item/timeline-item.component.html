@@ -1,0 +1,35 @@
+<div class="mat-app-background d-flex flex-row mhc-timeline-container justify-content-center"
+  [ngClass]="{
+    'flex-row-reverse': ((priorityEventPosition === 'left' && priorityLinePosition !== 'left') || priorityLinePosition === 'right')
+    }">
+  @if (priorityLinePosition === 'center') {
+    <div class="mhc-flex-1 mhc-empty-block"></div>
+  }
+  <div class="mhc-timeline-item">
+    <span class="mhc-vertical-line"></span>
+    <div class="d-flex flex-column mhc-timeline-icons">
+      @if (icons.length === 0) {
+        <button mat-mini-fab color="primary" class="mhc-timeline-button">
+        </button>
+      }
+      @for (icon of icons; track icon) {
+        <button mat-mini-fab [style.background-color]="icon.color" class="mhc-timeline-button">
+          <mat-icon class="mat-18" [style.color]="getContrastingColor(icon.color)">{{icon.icon}}</mat-icon>
+        </button>
+      }
+    </div>
+  </div>
+  <div class="mhc-flex-1 mhc-timeline-event">
+    <div class="mhc-timeline-event-container">
+      @if ((priorityEventPosition === 'right' && priorityLinePosition !== 'right') || priorityLinePosition === 'left') {
+      <div class="mhc-timeline-event-arrow-left"></div>
+      }
+      <div class="mhc-timeline-event-content">
+        <ng-content></ng-content>
+      </div>
+      @if ((priorityEventPosition === 'left' && priorityLinePosition !== 'left') || priorityLinePosition === 'right') {
+      <div class="mhc-timeline-event-arrow-right"></div>
+      }
+    </div>
+  </div>
+</div>

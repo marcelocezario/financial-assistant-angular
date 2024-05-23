@@ -1,6 +1,5 @@
 export interface Pageable<T> {
   page: number
   size: number
-  sortField: keyof T
-  sortDirection: 'asc' | 'desc'
+  sort: Array<[keyof T, 'asc' | 'desc']>
 }

@@ -69,7 +69,9 @@ export class ApiService {
     if (options.pageable) {
       httpParams = httpParams.set('page', options.pageable.page)
       httpParams = httpParams.set('size', options.pageable.size)
-      httpParams = httpParams.set('sort', `${String(options.pageable.sortField)},${options.pageable.sortDirection}`)
+      options.pageable.sort.forEach(([field, direction]) => {
+        httpParams = httpParams.append('sort', `${String(field)},${direction}`);
+      });
     }
     return httpParams;
   }

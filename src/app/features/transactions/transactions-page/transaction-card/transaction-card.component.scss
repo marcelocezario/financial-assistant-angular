@@ -7,10 +7,22 @@ mat-icon {
   font-size: x-small;
 }
 
+.mhc-transaction-moment {
+  font-size: small;
+}
+
+.mhc-transaction-amount {
+  text-align: end;
+}
+
 .mhc-transaction-credit {
   color: green;
 }
 
 .mhc-transaction-debit {
   // color: red;
+}
+
+.mhc-brl-transaction-amount {
+  font-size: xx-small;
 }

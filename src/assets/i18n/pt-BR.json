@@ -136,6 +136,9 @@
         "passwordPlaceholder": "Digite sua senha",
         "userCreatedSuccessfully": "Usuário '{{ nickname }}' criado com sucesso"
       },
+      "_TransactionsPageComponent": {
+        "addTransaction": "Adicionar transação"
+      },
       "_WalletsFormPageComponent": {
         "activeLabel": "Carteira ativa",
         "additionalInfoForBankAccount": "Dados adicionais para conta bancária",
@@ -222,6 +225,7 @@
     "pageTitle": {
       ":categoryId": "Editar categoria",
       ":currencyId": "Editar moeda",
+      ":transactionId": "Editar transação",
       ":walletId": "Editar carteira",
       "add": "Adicionar",
       "auth": "Autenticar",
@@ -236,6 +240,7 @@
       "not-found": "Não encontrado",
       "sign-up": "Cadastre-se",
       "transactions": "Transações",
+      "transactions/add": "Adicionar transação",
       "users": "Usuários",
       "wallets": "Carteiras",
       "wallets/add": "Adicionar carteira"

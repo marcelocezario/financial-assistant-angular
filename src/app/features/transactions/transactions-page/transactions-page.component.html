@@ -1,6 +1,21 @@
+<div class="d-flex">
+  <div class="d-flex justify-content">
+    <button mat-raised-button color="primary" [routerLink]="addTransactionLink">
+      {{getTranslateKey('addTransaction') |translate}}
+    </button>
+  </div>
+  <span class="mhc-empty-spacer"></span>
+  <mat-form-field appearance="outline">
+    <mat-label>{{'generic.filter' | translate}}</mat-label>
+    <input matInput type="search" #input [placeholder]="'generic.filterPlaceholder' | translate">
+    <mat-icon matSuffix>search</mat-icon>
+  </mat-form-field>
+</div>
+
 <div class="d-flex flex-column justify-content-center">
   @for(transaction of transactions; track transaction) {
-  <app-timeline-item linePosition="center" [eventPosition]="transaction.type === 'CREDIT' ? 'left' : 'right'" [icons]="getIcons(transaction)">
+  <app-timeline-item linePosition="center" [eventPosition]="transaction.type === 'CREDIT' ? 'left' : 'right'"
+    [icons]="getIcons(transaction)">
     <app-transaction-card [transaction]="transaction"></app-transaction-card>
   </app-timeline-item>
   }

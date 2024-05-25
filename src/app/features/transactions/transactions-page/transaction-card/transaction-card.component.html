@@ -23,7 +23,7 @@
     </p>
   </div>
   <p>{{transaction.notes}}</p>
-  <mat-chip-set>
+  <mat-chip-set class="mhc-categories-chip">
     @for (category of transaction.categories; track category) {
     <mat-chip>
       <mat-icon [style.color]="category.category.color">{{category.category.icon}}</mat-icon>

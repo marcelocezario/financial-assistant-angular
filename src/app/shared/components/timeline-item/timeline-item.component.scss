@@ -1,16 +1,25 @@
 .mhc-timeline-container {
   width: 100%;
+  max-width: calc(min(100%, 100vw));
   gap: 20px;
+}
+
+.mhc-timeline-block {
+  display: flex;
+  flex: 1;
+  margin-top: 10px;
+  margin-bottom: 15px;
+  background-color: inherit;
 }
 
 
 .mhc-timeline-item {
+  flex: 0;
   position: relative;
   display: inline-block;
   width: auto;
   min-height: 50px;
   background-color: inherit;
-
 }
 
 .mhc-vertical-line {
@@ -32,12 +41,6 @@
   border-radius: 50px 50px 50px 50px;
   padding: 2px;
   background-color: inherit;
-  // background-color: rgb(0, 136, 255);
-  // filter: drop-shadow(0 0 0.1rem);
-  // border-start-start-radius: 50% 100px;
-
-  // border-start-start-radius: 15px;
-  // border-end-end-radius: 15px;
 }
 
 .mhc-timeline-button {
@@ -46,44 +49,24 @@
 }
 
 .mhc-timeline-event {
-  display: flex;
-  margin-top: 10px;
-  margin-bottom: 15px;
-  position: relative;
-  background-color: inherit;
-}
-
-.mhc-timeline-event-container {
-  height: auto;
   width: 100%;
+  max-width: 100%;
+  height: auto;
   border-radius: 5px;
   border: 1px solid;
   background-color: inherit;
   display: flex;
   flex-direction: row;
-  justify-content: center;
 }
 
 .mhc-timeline-event-content {
+  width: 100%;
+  max-width: 100%;
   margin: 15px;
   background-color: inherit;
-  flex: auto;
 }
 
-.mhc-timeline-event-arrow-left {
-  content: "";
-  margin-top: 40px;
-  width: 25px;
-  height: 25px;
-  min-width: 25px;
-  min-height: 25px;
-  display: block;
-  transform: rotate(45deg) translateX(-17.67766952966369px);
-  border-left: 1px solid;
-  border-bottom: 1px solid;
-  background-color: inherit;
-}
-
+.mhc-timeline-event-arrow-left,
 .mhc-timeline-event-arrow-right {
   content: "";
   margin-top: 40px;
@@ -92,8 +75,17 @@
   min-width: 25px;
   min-height: 25px;
   display: block;
+  background-color: inherit;
+}
+
+.mhc-timeline-event-arrow-left {
+  transform: rotate(45deg) translateX(-17.67766952966369px);
+  border-left: 1px solid;
+  border-bottom: 1px solid;
+}
+
+.mhc-timeline-event-arrow-right {
   transform: rotate(-45deg) translateX(17.67766952966369px);
   border-right: 1px solid;
   border-bottom: 1px solid;
-  background-color: inherit;
 }

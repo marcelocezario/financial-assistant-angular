@@ -136,6 +136,9 @@
         "passwordPlaceholder": "Type your password",
         "userCreatedSuccessfully": "User '{{ nickname }}' created successfully"
       },
+      "_TransactionsPageComponent": {
+        "addTransaction": "Add transaction"
+      },
       "_WalletsFormPageComponent": {
         "activeLabel": "Active wallet",
         "additionalInfoForBankAccount": "Additional information for bank account",
@@ -222,6 +225,7 @@
     "pageTitle": {
       ":categoryId": "Edit category",
       ":currencyId": "Edit currency",
+      ":transactionId": "Edit transaction",
       ":walletId": "Edit wallet",
       "add": "Add",
       "auth": "Auth",
@@ -236,6 +240,7 @@
       "not-found": "Not found",
       "sign-up": "Sign up",
       "transactions": "Transactions",
+      "transactions/add": "Add transaction",
       "users": "Users",
       "wallets": "Wallets",
       "wallets/add": "Add wallet"

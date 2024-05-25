@@ -7,7 +7,7 @@ import { CurrenciesFormPageComponent, CurrenciesPageComponent } from './features
 import { ForgotPasswordPageComponent, LoginPageComponent, adminGuard, authGuard } from './features/auth';
 import { MyAccountPageComponent, SignUpPageComponent, UsersPageComponent } from './features/users';
 import { NotFoundPageComponent } from './features/not-found';
-import { TransactionsPageComponent } from './features/transactions';
+import { TransactionsFormPageComponent, TransactionsPageComponent } from './features/transactions';
 import { WalletsFormPageComponent, WalletsPageComponent } from './features/wallets';
 import { CategoriesFormPageComponent } from './features/categories';
 import { unsavedChangesGuard } from './shared';
@@ -20,7 +20,7 @@ export const routes: Routes = [
   { path: ROUTES_KEYS.home, component: HomePageComponent, title: ROUTES_KEYS.home },
   { path: ROUTES_KEYS.login, component: LoginPageComponent, title: ROUTES_KEYS.login },
   { path: ROUTES_KEYS.notFound, component: NotFoundPageComponent, title: ROUTES_KEYS.notFound },
-  { path: ROUTES_KEYS.signUp, component: SignUpPageComponent, title: ROUTES_KEYS.signUp },
+  { path: ROUTES_KEYS.signUp, canDeactivate: [unsavedChangesGuard], component: SignUpPageComponent, title: ROUTES_KEYS.signUp },
   {
     // AUTHENTICATED ROUTES
     path: '', canActivate: [authGuard], children: [
@@ -34,6 +34,8 @@ export const routes: Routes = [
       { path: ROUTES_KEYS.myAccount, component: MyAccountPageComponent, title: ROUTES_KEYS.myAccount },
 
       { path: ROUTES_KEYS.transactions, component: TransactionsPageComponent, title: ROUTES_KEYS.transactions },
+      { path: ROUTES_KEYS.transactions_add, canDeactivate: [unsavedChangesGuard], component: TransactionsFormPageComponent, title: ROUTES_KEYS.transactions_add},
+      { path: `${ROUTES_KEYS.transactions}/${ROUTES_KEYS.transaction_id}`, canDeactivate: [unsavedChangesGuard], component: TransactionsFormPageComponent, title: ROUTES_KEYS.transaction_id},
 
       { path: ROUTES_KEYS.wallets, component: WalletsPageComponent, title: ROUTES_KEYS.wallets },
       { path: ROUTES_KEYS.wallets_add, canDeactivate: [unsavedChangesGuard], component: WalletsFormPageComponent, title: ROUTES_KEYS.wallets_add },

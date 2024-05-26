@@ -1,1 +1,24 @@
-<p>transactions-form-page works!</p>
+<form class="mhc-form" [formGroup]="formGroup" (ngSubmit)="onSubmit()">
+
+  <mat-form-field class="mhc-full-width" appearance="outline">
+    <mat-label>{{ getTranslateKey('amountLabel') | translate }}</mat-label>
+    <input matInput name="amount" formControlName="amount" [placeholder]="getTranslateKey('amountPlaceholder') | translate">
+    <mat-error [innerHtml]="getFirstErrorTranslateKey('amount') | translate : formGroup.get('amount')?.errors ">
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field class="mhc-full-width" appearance="outline">
+    <mat-label>{{getTranslateKey('walletLabel') | translate}}</mat-label>
+    <mat-select name="wallet" formControlName="wallet"
+      [placeholder]="getTranslateKey('walletPlaceholder') | translate" appCompareObjectId>
+      @for(wallet of wallets; track $index) {
+      <mat-option [value]="wallet">
+        {{wallet.name}}
+      </mat-option>
+      }
+    </mat-select>
+    <mat-error [innerHtml]="getFirstErrorTranslateKey('wallet') | translate : formGroup.get('wallet')?.errors ">
+    </mat-error>
+  </mat-form-field>
+
+  </form>

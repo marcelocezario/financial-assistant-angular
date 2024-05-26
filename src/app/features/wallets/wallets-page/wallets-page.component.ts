@@ -28,7 +28,7 @@ export class WalletsPageComponent implements OnInit {
   walletLink = `/${ROUTES_KEYS.wallets}`
   @ViewChild(MatSort) sort!: MatSort;
   dataSource: MatTableDataSource<Wallet> = new MatTableDataSource();
-  displayedColumns = ['actions', 'name', 'currency', 'balance', 'type', 'updatedAt'];
+  displayedColumns = ['actions', 'name', 'currency', 'balance', 'type', 'active', 'updatedAt'];
 
   constructor(
     private _languageService: LanguageService,

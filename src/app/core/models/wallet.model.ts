@@ -1,4 +1,5 @@
 import { Currency } from "./currency.model"
+import { TransactionMethod } from "./transaction-method.enum"
 import { User } from "./user.model"
 import { WalletType } from "./wallet-type.enum"
 
@@ -10,6 +11,8 @@ export interface Wallet {
   createdAt?: Date
   updatedAt?: Date
   userId: string
-  currency: Currency,
+  currency: Currency
   type: WalletType
+
+  availableTransactionMethods?: TransactionMethod[]
 }

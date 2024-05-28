@@ -54,9 +54,9 @@ export class CurrenciesFormPageComponent extends FormBaseDirective implements On
   override async submit(): Promise<void> {
     const currency: Currency = this.formGroup.value
     if (currency.id) {
-      await this._updateCurrency(currency).then();
+      await this._update(currency).then();
     } else {
-      await this._createCurrency(currency).then();
+      await this._create(currency).then();
     }
   }
 
@@ -64,7 +64,7 @@ export class CurrenciesFormPageComponent extends FormBaseDirective implements On
     this._router.navigate([`/${ROUTES_KEYS.currencies}`])
   }
 
-  async _createCurrency(currency: Currency) {
+  async _create(currency: Currency) {
     await this._currencyService.create(currency).then(() => {
       const translateKey = this.getTranslateKey('currencyCreatedSuccessfully');
       this._languageService.getTranslate(translateKey).then(message => {
@@ -74,7 +74,7 @@ export class CurrenciesFormPageComponent extends FormBaseDirective implements On
     })
   }
 
-  async _updateCurrency(currency: Currency) {
+  async _update(currency: Currency) {
     await this._currencyService.update(currency).then(() => {
       const translateKey = this.getTranslateKey('currencyUpdatedSuccessfully');
       this._languageService.getTranslate(translateKey).then(message => {

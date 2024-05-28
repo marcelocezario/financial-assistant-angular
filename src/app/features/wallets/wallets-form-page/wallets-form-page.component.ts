@@ -57,6 +57,7 @@ export class WalletsFormPageComponent extends FormBaseDirective implements OnIni
     if (id) {
       this._walletService.getByIdAndUser(id)
         .then(wallet => {
+          this.formGroup.get('type')?.setValue(wallet.type)
           this.onTypeChange(wallet.type);
           this.formGroup.get('currency')?.disable()
           this.formGroup.patchValue(wallet)

@@ -55,9 +55,9 @@ export class CategoriesFormPageComponent extends FormBaseDirective implements On
     const category: Category = this.formGroup.value
     category.userId = this._storageService.getUserId()!
     if (category.id) {
-      await this._updateCategory(category).then();
+      await this._update(category).then();
     } else {
-      await this._createCategory(category).then();
+      await this._create(category).then();
     }
   }
 
@@ -65,7 +65,7 @@ export class CategoriesFormPageComponent extends FormBaseDirective implements On
     this._router.navigate([`/${ROUTES_KEYS.categories}`])
   }
 
-  async _createCategory(category: Category) {
+  async _create(category: Category) {
     await this._categoryService.create(category).then(() => {
       const translateKey = this.getTranslateKey('categoryCreatedSuccessfully');
       this._languageService.getTranslate(translateKey).then(message => {
@@ -75,7 +75,7 @@ export class CategoriesFormPageComponent extends FormBaseDirective implements On
     })
   }
 
-  async _updateCategory(category: Category) {
+  async _update(category: Category) {
     await this._categoryService.update(category).then(() => {
       const translateKey = this.getTranslateKey('categoryUpdatedSuccessfully');
       this._languageService.getTranslate(translateKey).then(message => {

@@ -8,12 +8,12 @@
         <div class="mhc-img-container">
           <img class="mhc-img-login" src="assets/img/undraw_safe_re_kiil.svg" />
         </div>
-        <mat-form-field appearance="fill" class="mhc-full-width">
+        <mat-form-field appearance="outline" class="mhc-full-width">
           <mat-label>{{ getTranslateKey('emailLogin') | translate }}</mat-label>
           <input name="username" type="email" matInput
             [placeholder]="getTranslateKey('emailLoginPlaceholder') | translate" [(ngModel)]="credentials.username" />
         </mat-form-field>
-        <mat-form-field appearance="fill" class="mhc-full-width">
+        <mat-form-field appearance="outline" class="mhc-full-width">
           <mat-label>{{ getTranslateKey('password') | translate }}</mat-label>
           <input name="password" [type]="hidePassword ? 'password' : 'text'" matInput
             [placeholder]="getTranslateKey('passwordPlaceholder') | translate" [(ngModel)]="credentials.password" />

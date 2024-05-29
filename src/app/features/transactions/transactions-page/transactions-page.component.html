@@ -16,7 +16,7 @@
   @for(transaction of transactions; track transaction) {
   <app-timeline-item linePosition="center" [eventPosition]="transaction.type === 'CREDIT' ? 'left' : 'right'"
     [icons]="getIcons(transaction)">
-    <app-transaction-card [transaction]="transaction"></app-transaction-card>
+    <app-transaction-card [transaction]="transaction" (deleteTransaction)="delete($event)"></app-transaction-card>
   </app-timeline-item>
   }
   <button mat-raised-button (click)="findNextPage()">More</button>

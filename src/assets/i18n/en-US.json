@@ -13,6 +13,7 @@
   },
   "generic": {
     "actions": "Actions",
+    "amount": "Amount",
     "cancel": "Cancel",
     "category": {
       "active": "active",
@@ -56,6 +57,36 @@
     "helloApp": "Hello {{user}}, welcome!",
     "no": "No",
     "terms": "Terms: \"{{terms}}\"",
+    "transaction": {
+      "active": "active",
+      "amount": "amount",
+      "createdAt": "created at",
+      "currentInstallment": "current installment",
+      "id": "id",
+      "method": {
+        "AUTOMATIC_DEBIT": "automatic debit",
+        "BANK_SLIP": "bank slip",
+        "BANK_TRANSFER": "bank transfer",
+        "CASH": "cash",
+        "CREDIT_CARD": "credit card",
+        "CRYPTO": "crypto",
+        "DEBIT_CARD": "debit card",
+        "OTHERS": "others",
+        "PIX": "PIX"
+      },
+      "moment": "moment",
+      "notes": "notes",
+      "transactionType": "type",
+      "type": {
+        "CREDIT": "credit",
+        "DEBIT": "debit"
+      },
+      "updatedAt": "updated at",
+      "wallet": "wallet"
+    },
+    "transactionCategory": {
+      "amount": "amount"
+    },
     "wallet": {
       "active": "active",
       "balance": "balance",
@@ -136,8 +167,43 @@
         "passwordPlaceholder": "Type your password",
         "userCreatedSuccessfully": "User '{{ nickname }}' created successfully"
       },
+      "_TransactionsFormPageComponent": {
+        "addCategory": "Add Category",
+        "amountLabel": "Total Amount",
+        "amountPlaceholder": "Enter the total transaction amount",
+        "categories": "Categories",
+        "categoryAmountLabel": "Category Amount",
+        "categoryAmountPlaceholder": "Enter the amount for the category",
+        "categoryLabel": "Category",
+        "categoryPlaceholder": "Select a category",
+        "currentInstallmentLabel": "Current Installment",
+        "currentInstallmentPlaceholder": "Enter the current installment of the transaction",
+        "mergeCategoryMessage": "The category '{{categoryName}}' has already been added to this transaction. It cannot be added twice. Do you want to merge the values?",
+        "mergeCategoryTitle": "Category already added previously",
+        "methodLabel": "Method",
+        "methodPlaceholder": "Select the payment method",
+        "momentLabel": "Date",
+        "momentPlaceholder": "Select or enter the date",
+        "notesLabel": "Notes",
+        "notesPlaceholder": "Additional transaction notes",
+        "sortByCategory": "Sort by category",
+        "sortByCategoryAmount": "Sort by category amount",
+        "sumOfCategories": "Sum of the categories",
+        "transactionCategoryDeleteConfirmMessage": "Are you sure you want to remove the category '{{categoryName}}' from this transaction?",
+        "transactionCategoryDeleteConfirmTitle": "Remove Category",
+        "transactionCategoryDeletedSuccessfully": "Category '{{categoryName}}' successfully removed from the transaction",
+        "transactionUpdatedSuccessfully": "Transaction updated successfully",
+        "typeLabel": "Transaction Type",
+        "typePlaceholder": "Select the transaction type",
+        "walletLabel": "Wallet",
+        "walletPlaceholder": "Select a wallet"
+      },
       "_TransactionsPageComponent": {
-        "addTransaction": "Add transaction"
+        "addTransaction": "Add transaction",
+        "noMoreData": "There is no more data",
+        "transactionDeleteConfirmMessage": "This action is irreversible and the data will be permanently lost",
+        "transactionDeleteConfirmTitle": "Are you sure you want to delete transaction?",
+        "transactionDeletedSuccessfully": "Transaction '{{transactionId}}' deleted successfully"
       },
       "_WalletsFormPageComponent": {
         "activeLabel": "Active wallet",

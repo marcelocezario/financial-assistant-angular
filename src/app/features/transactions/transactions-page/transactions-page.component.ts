@@ -1,7 +1,7 @@
 import { ROUTES_KEYS } from './../../../core/config/routes-keys.config';
 import { Component, OnInit } from '@angular/core';
 import { TransactionService } from '../transaction.service';
-import { NotificationService, Page, Pageable, TimelineItemComponent } from '../../../shared';
+import { DialogService, LanguageService, NotificationService, Page, Pageable, TimelineItemComponent } from '../../../shared';
 import { Transaction } from '../../../core/models';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatButtonModule } from '@angular/material/button';
@@ -32,7 +32,9 @@ export class TransactionsPageComponent implements OnInit {
 
   constructor(
     private _transactionService: TransactionService,
-    private _notification: NotificationService
+    private _notification: NotificationService,
+    private _languageService: LanguageService,
+    private _dialogService: DialogService
   ) { }
 
   async ngOnInit(): Promise<void> {
@@ -44,8 +46,8 @@ export class TransactionsPageComponent implements OnInit {
 
   async findNextPage() {
     if (this.page.last) {
-      // TODO
-      this._notification.info('Não há mais dados')
+      const noMoreDataMessage = await this._languageService.getTranslate(this.getTranslateKey('noMoreData')).then()
+      this._notification.info(noMoreDataMessage)
       return
     }
     this.pageable.page!++
@@ -65,6 +67,23 @@ export class TransactionsPageComponent implements OnInit {
 
   getTranslateKey(key: string): string {
     return `web.components.${this.constructor.name}.${key}`
+  }
+
+  async delete(transaction: Transaction) {
+    const titleKey = this.getTranslateKey('transactionDeleteConfirmTitle');
+    const messageKey = this.getTranslateKey('transactionDeleteConfirmMessage');
+    const translated = await this._languageService.getTranslate([titleKey, messageKey], { transactionId: transaction.id });
+    const userConfirm = await this._dialogService.openConfirmation({ title: translated[titleKey], message: translated[messageKey] }).then() || false;
+    if (userConfirm) {
+      await this._transactionService.delete(transaction.id!).then();
+      const index = this.transactions.findIndex(t => t.id === transaction.id)
+      if (index >= 0) {
+        this.transactions.splice(index, 1);
+      }
+      const messageKey = this.getTranslateKey('transactionDeletedSuccessfully');
+      const message = await this._languageService.getTranslate(messageKey, { transactionId: transaction.id }).then();
+      this._notification.warning(message)
+    }
   }
 
 }

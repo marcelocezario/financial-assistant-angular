@@ -1,5 +1,5 @@
 import { Directive } from '@angular/core';
-import { FormGroup } from '@angular/forms';
+import { FormControl, FormGroup } from '@angular/forms';
 
 @Directive({
   selector: '[appFormBase]',
@@ -42,12 +42,13 @@ export abstract class FormBaseDirective {
     return this._submissionAttempted;
   }
 
-  getFirstErrorTranslateKey(formControlName: string): string {
-    const formControl = this.formGroup.get(formControlName);
-    if (!formControl || !formControl.errors) {
+  getFirstErrorTranslateKey(formControlName: string, formGroup: FormGroup | undefined = undefined): string {
+    const group = formGroup ? formGroup : this.formGroup;
+    const control = group.get(formControlName);
+    if (!control || !control.errors) {
       return 'web.shared.forms.errors.noErrors';
     }
-    return `web.shared.forms.errors.${Object.keys(formControl.errors)[0]}`;
+    return `web.shared.forms.errors.${Object.keys(control.errors)[0]}`;
   }
 
 }

@@ -2,15 +2,54 @@
 
   <mat-form-field class="mhc-full-width" appearance="outline">
     <mat-label>{{ getTranslateKey('amountLabel') | translate }}</mat-label>
-    <input matInput name="amount" formControlName="amount" [placeholder]="getTranslateKey('amountPlaceholder') | translate">
+    <input matInput type="number" step="0.01" name="amount" formControlName="amount"
+      [placeholder]="getTranslateKey('amountPlaceholder') | translate" (change)="updateCategoriesAmountDiff()">
     <mat-error [innerHtml]="getFirstErrorTranslateKey('amount') | translate : formGroup.get('amount')?.errors ">
     </mat-error>
   </mat-form-field>
 
   <mat-form-field class="mhc-full-width" appearance="outline">
+    <mat-label>{{ getTranslateKey('momentLabel') | translate }}</mat-label>
+    <input matInput type="datetime-local" name="moment" formControlName="moment"
+      [placeholder]="getTranslateKey('momentPlaceholder') | translate">
+    <mat-error [innerHtml]="getFirstErrorTranslateKey('moment') | translate : formGroup.get('moment')?.errors ">
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field class="mhc-full-width" appearance="outline">
+    <mat-label>{{ getTranslateKey('notesLabel') | translate }}</mat-label>
+    <textarea matInput formControlName="notes"
+      [placeholder]="getTranslateKey('notesPlaceholder') | translate"></textarea>
+  </mat-form-field>
+
+  <mat-form-field class="mhc-full-width" appearance="outline">
+    <mat-label>{{ getTranslateKey('currentInstallmentLabel') | translate }}</mat-label>
+    <input matInput type="number" step="1" name="currentInstallment" formControlName="currentInstallment"
+      [placeholder]="getTranslateKey('currentInstallmentPlaceholder') | translate">
+    <mat-error
+      [innerHtml]="getFirstErrorTranslateKey('currentInstallment') | translate : formGroup.get('currentInstallment')?.errors ">
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field class="mhc-full-width" appearance="outline">
+    <mat-label>{{getTranslateKey('typeLabel') | translate}}</mat-label>
+    <mat-select name="type" formControlName="type" [placeholder]="getTranslateKey('typePlaceholder') | translate"
+      appCompareObjectId>
+      <mat-option value="CREDIT">
+        {{'generic.transaction.type.CREDIT' | translate}}
+      </mat-option>
+      <mat-option value="DEBIT">
+        {{'generic.transaction.type.DEBIT' | translate}}
+      </mat-option>
+    </mat-select>
+    <mat-error [innerHtml]="getFirstErrorTranslateKey('wallet') | translate : formGroup.get('wallet')?.errors ">
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field class="mhc-full-width" appearance="outline">
     <mat-label>{{getTranslateKey('walletLabel') | translate}}</mat-label>
-    <mat-select name="wallet" formControlName="wallet"
-      [placeholder]="getTranslateKey('walletPlaceholder') | translate" appCompareObjectId>
+    <mat-select name="wallet" formControlName="wallet" [placeholder]="getTranslateKey('walletPlaceholder') | translate"
+      appCompareObjectId>
       @for(wallet of wallets; track $index) {
       <mat-option [value]="wallet">
         {{wallet.name}}
@@ -21,4 +60,126 @@
     </mat-error>
   </mat-form-field>
 
-  </form>
+  <mat-form-field class="mhc-full-width" appearance="outline">
+    <mat-label>{{getTranslateKey('methodLabel') | translate}}</mat-label>
+    <mat-select name="method" formControlName="method" [placeholder]="getTranslateKey('methodPlaceholder') | translate"
+      appCompareObjectId>
+      @for(method of formGroup.get('wallet')?.value?.availableTransactionMethods || []; track $index) {
+      <mat-option [value]="method">
+        {{'generic.transaction.method.' + method | translate}}
+      </mat-option>
+      }
+    </mat-select>
+    <mat-error [innerHtml]="getFirstErrorTranslateKey('method') | translate : formGroup.get('method')?.errors ">
+    </mat-error>
+  </mat-form-field>
+
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title>{{getTranslateKey('categories') | translate}}</mat-card-title>
+      <mat-card-subtitle>
+        <span>{{getTranslateKey('sumOfCategories') | translate}}:&nbsp;</span>
+        <span>
+          {{getCategoriesAmount() | currency: formGroup.get('wallet')?.value?.currency?.symbol || '' }}
+        </span>
+      </mat-card-subtitle>
+    </mat-card-header>
+    @if(getCategoriesDiff() !== 0) {
+    <mat-card-actions class="d-flex flex-column">
+      <form [formGroup]="formCategories" class="mhc-full-width" (ngSubmit)="addCategory(formCategories)">
+
+        <mat-form-field class="mhc-full-width" appearance="outline">
+          <mat-label>{{getTranslateKey('categoryLabel') | translate}}</mat-label>
+          <mat-select name="category" formControlName="category"
+            [placeholder]="getTranslateKey('categoryPlaceholder') | translate">
+            @for(category of categories; track $index) {
+            <mat-option [value]="category">
+              <mat-icon class="mat-18" [style.color]="category.color">{{category.icon}}</mat-icon>
+              <span>{{category.name}}</span>
+            </mat-option>
+            }
+          </mat-select>
+          <mat-error
+            [innerHtml]="getFirstErrorTranslateKey('category', formCategories) | translate : formCategories.get('category')?.errors ">
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="mhc-full-width" appearance="outline">
+          <mat-label>{{getTranslateKey('categoryAmountLabel') | translate}}</mat-label>
+          @if (formGroup.get('wallet')?.value) {
+          <span matTextPrefix>
+            <span>{{(formGroup.get('wallet')?.value).currency.symbol}}</span>
+            <span>&nbsp;</span>
+          </span>
+          }
+          <input matInput type="number" step="0.01" name="amount" formControlName="amount"
+            [placeholder]="getTranslateKey('categoryAmountPlaceholder') | translate">
+          <mat-error
+            [innerHtml]="getFirstErrorTranslateKey('amount', formCategories) | translate : formCategories.get('amount')?.errors ">
+          </mat-error>
+        </mat-form-field>
+
+        <button matTextSuffix type="submit" mat-flat-button color="primary" class="mhc-flex-1">
+          <mat-icon class="mat-18">add</mat-icon>
+          <span>{{getTranslateKey('addCategory') | translate}}</span>
+        </button>
+
+      </form>
+    </mat-card-actions>
+    }
+    <mat-card-content>
+      <div class="card table-responsive">
+        <table mat-table [dataSource]="formGroup.get('categories')?.value || []" matSort class="mhc-table">
+
+          <ng-container matColumnDef="category">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header
+              [sortActionDescription]="getTranslateKey('sortByCategory') | translate">
+              {{'generic.category.name' | translate}}</th>
+            <td mat-cell *matCellDef="let element">
+              <div class="d-flex flex-row align-items-center">
+                <mat-icon [style.color]="element.category.color"
+                  class="mhc-category-icon">{{element.category.icon}}</mat-icon>
+                <span>{{element.category.name}}</span>
+              </div>
+            </td>
+          </ng-container>
+
+          <ng-container matColumnDef="categoryAmount">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header
+              [sortActionDescription]="getTranslateKey('sortByCategoryAmount') | translate">
+              {{'generic.transactionCategory.amount' | translate}}
+            </th>
+            <td mat-cell *matCellDef="let element">
+              {{element.amount}}
+            </td>
+          </ng-container>
+
+          <ng-container matColumnDef="actions">
+            <th mat-header-cell *matHeaderCellDef>
+              {{'generic.actions' | translate}}
+            </th>
+            <td mat-cell *matCellDef="let element">
+              <button type="button" mat-icon-button (click)="deleteTransactionCategory(element)">
+                <mat-icon class="mat-18">delete</mat-icon>
+              </button>
+            </td>
+          </ng-container>
+
+          <tr mat-header-row *matHeaderRowDef="['category', 'categoryAmount', 'actions']"></tr>
+          <tr mat-row *matRowDef="let row; columns: ['category', 'categoryAmount', 'actions'];"></tr>
+
+        </table>
+      </div>
+    </mat-card-content>
+  </mat-card>
+
+  <div class="d-flex flex-column mhc-form-actions">
+    <button type="submit" mat-raised-button color="primary">
+      {{ 'generic.confirm' | translate }}
+    </button>
+    <button type="button" mat-raised-button (click)="cancel()">
+      {{ 'generic.cancel' | translate }}
+    </button>
+  </div>
+
+</form>

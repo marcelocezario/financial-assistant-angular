@@ -13,6 +13,7 @@
   },
   "generic": {
     "actions": "Ações",
+    "amount": "Valor total",
     "cancel": "Cancelar",
     "category": {
       "active": "ativo",
@@ -56,6 +57,36 @@
     "helloApp": "Olá {{user}}, bem vindo!",
     "no": "Não",
     "terms": "Termos: \"{{terms}}\"",
+    "transaction": {
+      "active": "ativo",
+      "amount": "valor total",
+      "createdAt": "criado em",
+      "currentInstallment": "parcela atual",
+      "id": "id",
+      "method": {
+        "AUTOMATIC_DEBIT": "débito automático",
+        "BANK_SLIP": "boleto",
+        "BANK_TRANSFER": "transferência bancária",
+        "CASH": "dinheiro",
+        "CREDIT_CARD": "cartão de crédito",
+        "CRYPTO": "cripto",
+        "DEBIT_CARD": "cartão de débito",
+        "OTHERS": "outros",
+        "PIX": "PIX"
+      },
+      "moment": "data",
+      "notes": "observações",
+      "transactionType": "tipo",
+      "type": {
+        "CREDIT": "crédito",
+        "DEBIT": "débito"
+      },
+      "updatedAt": "atualizado em",
+      "wallet": "carteira"
+    },
+    "transactionCategory": {
+      "amount": "valor"
+    },
     "wallet": {
       "active": "ativa",
       "balance": "saldo",
@@ -136,8 +167,43 @@
         "passwordPlaceholder": "Digite sua senha",
         "userCreatedSuccessfully": "Usuário '{{ nickname }}' criado com sucesso"
       },
+      "_TransactionsFormPageComponent": {
+        "addCategory": "Adicionar categoria",
+        "amountLabel": "Valor total",
+        "amountPlaceholder": "Digite o valor total da transação",
+        "categories": "Categorias",
+        "categoryAmountLabel": "Valor da categoria",
+        "categoryAmountPlaceholder": "Digite o valor para a categoria",
+        "categoryLabel": "Categoria",
+        "categoryPlaceholder": "Selecione uma categoria",
+        "currentInstallmentLabel": "Parcela atual",
+        "currentInstallmentPlaceholder": "Digite a parcela atual da transação",
+        "mergeCategoryMessage": "A categoria '{{categoryName}}' já foi adicionada anteriormente a essa transação, não é possível adicionar duas vezes, deseja somar o valores?",
+        "mergeCategoryTitle": "Categoria já adicionada anteriormente",
+        "methodLabel": "Método",
+        "methodPlaceholder": "Selecione o método de pagamento",
+        "momentLabel": "Data",
+        "momentPlaceholder": "Selecione ou digite a data",
+        "notesLabel": "Observações",
+        "notesPlaceholder": "Observações adicionais de transação",
+        "sortByCategory": "Ordenar por categoria",
+        "sortByCategoryAmount": "Ordenar por valor categoria",
+        "sumOfCategories": "Soma das categorias",
+        "transactionCategoryDeleteConfirmMessage": "Você tem certeza que deseja remover a categoria '{{categoryName}}' dessa transação?",
+        "transactionCategoryDeleteConfirmTitle": "Remover categoria",
+        "transactionCategoryDeletedSuccessfully": "Categoria '{{categoryName}}' removida da transação com sucesso",
+        "transactionUpdatedSuccessfully": "Transação atualizada com sucesso",
+        "typeLabel": "Tipo transação",
+        "typePlaceholder": "Selecione o tipo da transação",
+        "walletLabel": "Carteira",
+        "walletPlaceholder": "Selecione uma carteira"
+      },
       "_TransactionsPageComponent": {
-        "addTransaction": "Adicionar transação"
+        "addTransaction": "Adicionar transação",
+        "noMoreData": "Não há mais dados",
+        "transactionDeleteConfirmMessage": "Esta ação é irreversível e os dados serão permanentemente perdidos",
+        "transactionDeleteConfirmTitle": "Você tem certeza que deseja deletar a transação?",
+        "transactionDeletedSuccessfully": "Transação '{{transactionId}}' deletada com sucesso"
       },
       "_WalletsFormPageComponent": {
         "activeLabel": "Carteira ativa",
@@ -172,7 +238,7 @@
         "sortByType": "Ordenar por tipo",
         "sortByUpdatedAt": "Ordenar por data de atualização",
         "walletDeleteConfirmMessage": "Esta ação é irreversível e os dados serão permanentemente perdidos",
-        "walletDeleteConfirmTitle": "Você tem certeza que deseja deletar a cateira '{{walletName}}'?",
+        "walletDeleteConfirmTitle": "Você tem certeza que deseja deletar a carteira '{{walletName}}'?",
         "walletDeletedSuccessfully": "Carteira '{{walletName}}' deletada com sucesso"
       }
     },

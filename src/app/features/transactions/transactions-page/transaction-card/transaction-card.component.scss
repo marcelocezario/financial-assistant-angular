@@ -1,14 +1,24 @@
+.mhc-transaction-card-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 100%;
+  flex: 1; /* Adicionado para permitir crescimento */
+}
+
 mat-icon {
   vertical-align: middle;
 }
 
 .mhc-transaction-id {
+  text-align: end;
   font-weight: 100;
   font-size: x-small;
 }
 
 .mhc-transaction-moment {
   font-size: small;
+  font-weight: bold;
 }
 
 .mhc-transaction-amount {
@@ -28,6 +38,5 @@ mat-icon {
 }
 
 .mhc-categories-chip {
-  max-width: 250px;
   overflow: hidden;
 }

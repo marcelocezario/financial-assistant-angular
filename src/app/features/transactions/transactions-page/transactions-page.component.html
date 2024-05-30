@@ -12,7 +12,7 @@
   </mat-form-field>
 </div>
 
-<div class="d-flex flex-column justify-content-center">
+<app-timeline>
   @for(transaction of transactions; track transaction) {
   <app-timeline-item linePosition="center" [eventPosition]="transaction.type === 'CREDIT' ? 'left' : 'right'"
     [icons]="getIcons(transaction)">
@@ -20,4 +20,4 @@
   </app-timeline-item>
   }
   <button mat-raised-button (click)="findNextPage()">More</button>
-</div>
+</app-timeline>

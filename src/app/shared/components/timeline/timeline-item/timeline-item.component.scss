@@ -1,0 +1,89 @@
+.mhc-timeline-item {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  max-width: 100%;
+  position: relative;
+}
+
+.mhc-column-edge {
+  background-color: inherit;
+  display: flex;
+  flex: 1;
+  overflow: hidden;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.mhc-column-edge-container {
+  background-color: inherit;
+  height: 100%;
+  width: 100%;
+  flex: 1;
+  display: flex;
+  overflow: hidden;
+  // overflow: auto;
+  text-overflow: ellipsis;
+  border: 1px solid;
+  border-radius: 5px;
+  padding: 20px;
+}
+
+.mhc-column-center {
+  background-color: inherit;
+  flex: 0 1 auto;
+  display: inline-block;
+  justify-content: center;
+  position: relative;
+}
+
+.mhc-timeline-line {
+  content: '';
+  background-color: inherit;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  height: 100%;
+  border-left: 1px solid;
+  z-index: 0;
+}
+
+.mhc-timeline-icons {
+  background-color: inherit;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  margin-top: 40px;
+  margin-bottom: 20px;
+  border: 1px solid;
+  border-radius: 50px 50px 50px 50px;
+  padding: 5px;
+  z-index: 1;
+  position: relative;
+}
+
+.mhc-arrow {
+  background-color: inherit;
+  content: "";
+  margin-top: 40px;
+  width: 25px;
+  height: 25px;
+  min-width: 25px;
+  min-height: 25px;
+}
+
+.mhc-arrow-left {
+  transform: rotate(-45deg) translateX(17.67766952966369px);
+  border-left: 1px solid;
+  border-top: 1px solid;
+}
+
+.mhc-arrow-right {
+  transform: rotate(45deg) translateX(-17.67766952966369px);
+  border-right: 1px solid;
+  border-top: 1px solid;
+}
+
+::ng-deep app-transaction-card {
+  width: 100%;
+}

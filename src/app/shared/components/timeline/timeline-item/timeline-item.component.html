@@ -1,0 +1,33 @@
+<div class="mat-app-background mhc-timeline-item" [ngClass]="{
+  'flex-row-reverse': ((priorityEventPosition === 'right' && priorityLinePosition !== 'right') || priorityLinePosition === 'left')
+}">
+  <div class="mhc-column-edge" [ngClass]="{
+    'flex-row-reverse': ((priorityEventPosition === 'right' && priorityLinePosition !== 'right') || priorityLinePosition === 'left')
+  }">
+    <div class="mhc-column-edge-container">
+      <ng-content></ng-content>
+    </div>
+    <div class="mat-column-center mhc-arrow mhc-arrow-right" [ngClass]="{
+      'mhc-arrow-right': (priorityEventPosition === 'left' && priorityLinePosition !== 'left') || priorityLinePosition === 'right',
+      'mhc-arrow-left': (priorityEventPosition === 'right' && priorityLinePosition !== 'right') || priorityLinePosition === 'left',
+      }"></div>
+  </div>
+
+  <div class="mhc-column-center">
+    <span class="mhc-timeline-line"></span>
+    <div class="mhc-timeline-icons">
+      @if (icons.length === 0) {
+      <button mat-mini-fab color="primary">
+      </button>
+      }
+      @for (icon of icons; track icon) {
+      <button mat-mini-fab [style.background-color]="icon.color">
+        <mat-icon class="mat-18" [style.color]="getContrastingColor(icon.color)">{{icon.icon}}</mat-icon>
+      </button>
+      }
+    </div>
+  </div>
+  @if (priorityLinePosition === 'center') {
+  <div class="mhc-column-edge"></div>
+  }
+</div>

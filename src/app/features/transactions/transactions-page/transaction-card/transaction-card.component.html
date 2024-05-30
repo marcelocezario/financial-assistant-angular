@@ -1,4 +1,4 @@
-<div class="d-flex flex-column">
+<div class="mhc-transaction-card-container">
   <div class="d-flex flex-row">
     <p class="mhc-transaction-moment">
       {{transaction.moment | date: "dd-MMM-yyyy HH'h'mm"}}
@@ -33,15 +33,15 @@
     </mat-chip>
     }
   </mat-chip-set>
-  <p class="mhc-transaction-id"><span>id: </span>{{transaction.id}}</p>
-  <div>
-    <a mat-stroked-button [routerLink]="transactionLink + '/' + transaction.id">
+  <div class="d-flex">
+    <a mat-stroked-button [routerLink]="transactionLink + '/' + transaction.id" class="mhc-flex-1">
       <mat-icon>edit</mat-icon>
       {{'generic.edit' | translate}}
     </a>
-    <button mat-stroked-button (click)="delete(transaction)">
+    <button mat-stroked-button (click)="delete(transaction)" class="mhc-flex-1">
       <mat-icon>delete</mat-icon>
       {{'generic.delete' | translate}}
     </button>
   </div>
+  <p class="mhc-transaction-id"><span>id: </span>{{transaction.id}}</p>
 </div>

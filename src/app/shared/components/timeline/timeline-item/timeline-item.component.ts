@@ -1,16 +1,16 @@
+import { BreakpointObserver } from '@angular/cdk/layout';
+import { CommonModule } from '@angular/common';
 import { Component, Input, OnDestroy, OnInit } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
-import { MatCardModule } from '@angular/material/card';
+import { MatChipsModule } from '@angular/material/chips';
 import { MatIconModule } from '@angular/material/icon';
-import { CommonModule } from '@angular/common';
 import { Subscription } from 'rxjs';
-import { BreakpointObserver } from '@angular/cdk/layout';
-import { ColorUtils } from '../../utils/color-utils';
+import { ColorUtils } from '../../../utils/index-utils';
 
 @Component({
   selector: 'app-timeline-item',
   standalone: true,
-  imports: [CommonModule, MatIconModule, MatButtonModule, MatCardModule],
+  imports: [CommonModule, MatChipsModule, MatButtonModule, MatIconModule],
   templateUrl: './timeline-item.component.html',
   styleUrl: './timeline-item.component.scss'
 })

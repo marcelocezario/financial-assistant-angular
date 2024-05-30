@@ -1,12 +1,10 @@
 import { Component } from '@angular/core';
-import { MatButtonModule } from '@angular/material/button';
-import { MatChipsModule } from '@angular/material/chips';
-import { MatIconModule } from '@angular/material/icon';
+import { TimelineItemComponent } from './timeline-item/timeline-item.component';
 
 @Component({
   selector: 'app-timeline',
   standalone: true,
-  imports: [MatChipsModule, MatButtonModule, MatIconModule],
+  imports: [TimelineItemComponent],
   templateUrl: './timeline.component.html',
   styleUrl: './timeline.component.scss'
 })

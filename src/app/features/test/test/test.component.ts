@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { TranslateModule } from '@ngx-translate/core';
-import { InputIconComponent, LanguageSelectorComponent, NotificationService } from '../../../shared';
+import { InputIconComponent, LanguageSelectorComponent, NotificationService, TimelineComponent } from '../../../shared';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { IconCardComponent } from '../../../shared/forms/components/input-icon/icon-card/icon-card.component';
@@ -13,7 +13,7 @@ import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule } from '@angul
 @Component({
   selector: 'app-test',
   standalone: true,
-  imports: [CommonModule, FormsModule, TranslateModule, LanguageSelectorComponent, MatButtonModule, MatCardModule, IconCardComponent, MatDialogModule, MatSlideToggleModule, MatDividerModule, InputIconComponent, FormsModule, ReactiveFormsModule],
+  imports: [CommonModule, FormsModule, TranslateModule, LanguageSelectorComponent, MatButtonModule, MatCardModule, IconCardComponent, MatDialogModule, MatSlideToggleModule, MatDividerModule, InputIconComponent, FormsModule, ReactiveFormsModule, TimelineComponent],
   templateUrl: './test.component.html',
   styleUrl: './test.component.scss'
 })

@@ -1,0 +1,64 @@
+.mhc-timeline {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 100%;
+
+  min-height: 200px;
+}
+
+.mhc-timeline-item {
+  background-color: inherit;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  max-width: 100%;
+  gap: 25px;
+}
+
+.mhc-column-edge {
+  background-color: inherit;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  // overflow: auto;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  border: 1px solid;
+  border-radius: 5px;
+}
+
+.mhc-column-center {
+  background-color: inherit;
+  flex: 0 1 auto;
+  display: flex;
+  justify-content: center;
+  position: relative;
+}
+
+.mhc-col-b::before {
+  background-color: inherit;
+  content: '';
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  height: 100%;
+  border: 1px solid;
+  z-index: 0;
+}
+
+.mhc-timeline-icons {
+  background-color: inherit;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  border: 1px solid;
+  border-radius: 50px 50px 50px 50px;
+  padding: 2px;
+  z-index: 1;
+}
+
+

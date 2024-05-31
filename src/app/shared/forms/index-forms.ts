@@ -1,4 +1,5 @@
 export * from './components/input-color/input-color.component'
+export * from './components/input-datetime/input-datetime.component'
 export * from './components/input-icon/input-icon.component'
 export * from './directives/compare-object-id.directive'
 export * from './directives/form-base.directive'

@@ -6,7 +6,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { TranslateModule } from '@ngx-translate/core';
-import { CompareObjectIdDirective, DialogService, FormBaseDirective, LanguageService, NotificationService, StorageService } from '../../../shared';
+import { CompareObjectIdDirective, DialogService, FormBaseDirective, InputDatetimeComponent, LanguageService, NotificationService, StorageService } from '../../../shared';
 import { CategoryService } from '../../categories';
 import { WalletService } from '../../wallets';
 import { Category, Transaction, TransactionCategory, Wallet } from '../../../core/models';
@@ -23,7 +23,7 @@ import Decimal from 'decimal.js';
 @Component({
   selector: 'app-transactions-form-page',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule, MatFormFieldModule, MatInputModule, MatButtonModule, TranslateModule, MatCheckboxModule, MatSelectModule, CompareObjectIdDirective, MatTableModule, MatIconModule, MatSortModule, MatCardModule],
+  imports: [CommonModule, ReactiveFormsModule, MatFormFieldModule, MatInputModule, MatButtonModule, TranslateModule, MatCheckboxModule, MatSelectModule, CompareObjectIdDirective, MatTableModule, MatIconModule, MatSortModule, MatCardModule, InputDatetimeComponent],
   templateUrl: './transactions-form-page.component.html',
   styleUrl: './transactions-form-page.component.scss'
 })

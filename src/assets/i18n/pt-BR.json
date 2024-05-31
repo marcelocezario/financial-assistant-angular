@@ -178,6 +178,7 @@
         "categoryPlaceholder": "Selecione uma categoria",
         "currentInstallmentLabel": "Parcela atual",
         "currentInstallmentPlaceholder": "Digite a parcela atual da transação",
+        "desactivatedWallet": "Carteira desativada",
         "mergeCategoryMessage": "A categoria '{{categoryName}}' já foi adicionada anteriormente a essa transação, não é possível adicionar duas vezes, deseja somar o valores?",
         "mergeCategoryTitle": "Categoria já adicionada anteriormente",
         "methodLabel": "Método",

@@ -178,6 +178,7 @@
         "categoryPlaceholder": "Select a category",
         "currentInstallmentLabel": "Current Installment",
         "currentInstallmentPlaceholder": "Enter the current installment of the transaction",
+        "desactivatedWallet": "Desactivated wallet",
         "mergeCategoryMessage": "The category '{{categoryName}}' has already been added to this transaction. It cannot be added twice. Do you want to merge the values?",
         "mergeCategoryTitle": "Category already added previously",
         "methodLabel": "Method",

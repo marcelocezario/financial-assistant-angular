@@ -52,7 +52,11 @@
       appCompareObjectId>
       @for(wallet of wallets; track $index) {
       <mat-option [value]="wallet">
-        {{wallet.name}}
+        <span>{{wallet.name}}</span>
+        @if (!wallet.active) {
+        <span>&nbsp;</span>
+        <span>--{{getTranslateKey('desactivatedWallet') | translate}}--</span>
+        }
       </mat-option>
       }
     </mat-select>

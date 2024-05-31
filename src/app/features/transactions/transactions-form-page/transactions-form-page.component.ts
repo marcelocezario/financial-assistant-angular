@@ -84,6 +84,9 @@ export class TransactionsFormPageComponent extends FormBaseDirective implements 
       this._transactionService.getByIdAndUser(id)
         .then(transaction => {
           this.formGroup.patchValue(transaction)
+          if (this.wallets.findIndex(w => w.id === transaction.wallet.id) < 0) {
+            this.wallets.unshift(transaction.wallet)
+          }
 
           const categories = transaction.categories || []
           const categoriesFormArray = this.formGroup.get('categories') as FormArray;

@@ -9,11 +9,10 @@ import { MatTableDataSource, MatTableModule } from '@angular/material/table';
 import { RouterModule } from '@angular/router';
 import { TranslateModule } from '@ngx-translate/core';
 import { Currency, Wallet } from '../../../core/models';
-import { DataNotFoundComponent, DialogService, LanguageService, NotificationService } from '../../../shared';
+import { DataNotFoundComponent, DialogService, LanguageService, NotificationService, AppCurrencyPipe } from '../../../shared';
 import { WalletService } from '../wallet.service';
 import { MatMenuModule } from '@angular/material/menu';
 import { CommonModule } from '@angular/common';
-import { AppCurrencyPipe } from '../../../shared/pipes/app-currency.pipe';
 
 @Component({
   selector: 'app-wallets-page',

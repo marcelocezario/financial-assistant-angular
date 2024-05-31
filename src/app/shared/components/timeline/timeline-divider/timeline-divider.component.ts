@@ -11,6 +11,6 @@ import { MatDividerModule } from '@angular/material/divider';
 })
 export class TimelineDividerComponent {
 
-  @Input({ required: true }) date!: Date;
+  @Input({ required: true }) data!: any;
 
 }

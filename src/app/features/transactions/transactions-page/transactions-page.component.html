@@ -10,7 +10,7 @@
 <app-timeline>
   @for(transaction of transactions; track $index) {
   @if(!isSameDate(transaction, transactions[$index - 1])) {
-  <app-timeline-divider [date]="transaction.moment"></app-timeline-divider>
+  <app-timeline-divider [data]="transaction.moment | appRelativeTime"></app-timeline-divider>
   }
   <app-timeline-item linePosition="center" [eventPosition]="transaction.type === 'CREDIT' ? 'left' : 'right'"
     [icons]="getIcons(transaction)">

@@ -6,7 +6,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { CommonModule } from '@angular/common';
 import { MatChipsModule } from '@angular/material/chips';
 import { MatIconModule } from '@angular/material/icon';
-import { AppCurrencyPipe } from '../../../../shared/pipes/app-currency.pipe';
+import { AppCurrencyPipe } from '../../../../shared';
 import { TranslateModule } from '@ngx-translate/core';
 import { RouterModule } from '@angular/router';
 

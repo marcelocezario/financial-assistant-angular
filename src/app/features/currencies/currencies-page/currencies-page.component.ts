@@ -6,14 +6,13 @@ import { MatInputModule } from '@angular/material/input';
 import { MatSort, MatSortModule } from '@angular/material/sort';
 import { MatTableDataSource, MatTableModule } from '@angular/material/table';
 import { TranslateModule } from '@ngx-translate/core';
-import { DataNotFoundComponent, DialogService, LanguageService, NotificationService } from '../../../shared';
+import { DataNotFoundComponent, DialogService, LanguageService, NotificationService, AppCurrencyPipe } from '../../../shared';
 import { RouterModule } from '@angular/router';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { ROUTES_KEYS } from '../../../core/config';
 import { Currency } from '../../../core/models';
 import { CurrencyService } from '../currency.service';
-import { AppCurrencyPipe } from '../../../shared/pipes/app-currency.pipe';
 import { AuthService } from '../../auth';
 import { first } from 'rxjs';
 

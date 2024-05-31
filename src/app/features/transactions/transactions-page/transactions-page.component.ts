@@ -12,11 +12,12 @@ import { MatInputModule } from '@angular/material/input';
 import { TranslateModule } from '@ngx-translate/core';
 import { RouterModule } from '@angular/router';
 import { TimelineComponent } from '../../../shared/components/timeline/timeline.component';
+import { AppRelativeTimePipe } from '../../../shared/pipes/app-relative-time.pipe';
 
 @Component({
   selector: 'app-transactions-page',
   standalone: true,
-  imports: [MatDividerModule, MatButtonModule, MatIconModule, TransactionCardComponent, TimelineComponent, TimelineItemComponent, MatFormFieldModule, MatInputModule, TranslateModule, RouterModule, TimelineDividerComponent],
+  imports: [AppRelativeTimePipe, MatDividerModule, MatButtonModule, MatIconModule, TransactionCardComponent, TimelineComponent, TimelineItemComponent, MatFormFieldModule, MatInputModule, TranslateModule, RouterModule, TimelineDividerComponent],
   templateUrl: './transactions-page.component.html',
   styleUrl: './transactions-page.component.scss'
 })

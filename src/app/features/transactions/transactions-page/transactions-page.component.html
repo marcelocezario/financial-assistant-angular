@@ -5,15 +5,13 @@
     </button>
   </div>
   <span class="mhc-empty-spacer"></span>
-  <mat-form-field appearance="outline">
-    <mat-label>{{'generic.filter' | translate}}</mat-label>
-    <input matInput type="search" #input [placeholder]="'generic.filterPlaceholder' | translate">
-    <mat-icon matSuffix>search</mat-icon>
-  </mat-form-field>
 </div>
 
 <app-timeline>
-  @for(transaction of transactions; track transaction) {
+  @for(transaction of transactions; track $index) {
+  @if(!isSameDate(transaction, transactions[$index - 1])) {
+  <app-timeline-divider [date]="transaction.moment"></app-timeline-divider>
+  }
   <app-timeline-item linePosition="center" [eventPosition]="transaction.type === 'CREDIT' ? 'left' : 'right'"
     [icons]="getIcons(transaction)">
     <app-transaction-card [transaction]="transaction" (deleteTransaction)="delete($event)"></app-transaction-card>

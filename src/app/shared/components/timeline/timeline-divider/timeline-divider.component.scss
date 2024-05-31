@@ -1,0 +1,17 @@
+.mhc-divider-with-text {
+  position: relative;
+  text-align: center;
+}
+
+.mhc-divider-text {
+  background: inherit;
+  position: absolute;
+  top: -15px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding-block: 5px;
+  padding-inline: 25px;
+  border: 1px solid;
+  border-radius: 25px 25px 25px 25px;
+  z-index: 2;
+}

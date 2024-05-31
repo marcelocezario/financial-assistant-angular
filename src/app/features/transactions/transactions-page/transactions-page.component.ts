@@ -1,7 +1,7 @@
 import { ROUTES_KEYS } from './../../../core/config/routes-keys.config';
 import { Component, OnInit } from '@angular/core';
 import { TransactionService } from '../transaction.service';
-import { DialogService, LanguageService, NotificationService, Page, Pageable, TimelineItemComponent } from '../../../shared';
+import { DialogService, LanguageService, NotificationService, Page, Pageable, TimelineDividerComponent, TimelineItemComponent } from '../../../shared';
 import { Transaction } from '../../../core/models';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatButtonModule } from '@angular/material/button';
@@ -16,7 +16,7 @@ import { TimelineComponent } from '../../../shared/components/timeline/timeline.
 @Component({
   selector: 'app-transactions-page',
   standalone: true,
-  imports: [MatDividerModule, MatButtonModule, MatIconModule, TransactionCardComponent, TimelineComponent, TimelineItemComponent, MatFormFieldModule, MatInputModule, TranslateModule, RouterModule],
+  imports: [MatDividerModule, MatButtonModule, MatIconModule, TransactionCardComponent, TimelineComponent, TimelineItemComponent, MatFormFieldModule, MatInputModule, TranslateModule, RouterModule, TimelineDividerComponent],
   templateUrl: './transactions-page.component.html',
   styleUrl: './transactions-page.component.scss'
 })
@@ -85,6 +85,22 @@ export class TransactionsPageComponent implements OnInit {
       const message = await this._languageService.getTranslate(messageKey, { transactionId: transaction.id }).then();
       this._notification.warning(message)
     }
+  }
+
+  isSameDate(transaction1: Transaction, transaction2: Transaction): boolean {
+
+    const date1: Date | undefined = new Date(transaction1?.moment);
+    const date2: Date | undefined = new Date(transaction2?.moment);
+
+    if (!date1 || !date2) {
+      return false;
+    }
+
+    const isSameYear = date1.getUTCFullYear() === date2.getUTCFullYear();
+    const isSameMonth = date1.getUTCMonth() === date2.getUTCMonth();
+    const isSameDate = date1.getUTCDate() === date2.getUTCDate();
+
+    return isSameYear && isSameMonth && isSameDate;
   }
 
 }

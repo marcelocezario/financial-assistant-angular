@@ -61,6 +61,17 @@
                   "with": "src/environments/environment.development.ts"
                 }
               ]
+            },
+            "netlify": {
+              "optimization": false,
+              "extractLicenses": false,
+              "sourceMap": true,
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.netlify.ts"
+                }
+              ]
             }
           },
           "defaultConfiguration": "production"
@@ -73,6 +84,9 @@
             },
             "development": {
               "buildTarget": "financial-assistant:build:development"
+            },
+            "netlify": {
+              "buildTarget": "financial-assistant:build:netlify"
             }
           },
           "defaultConfiguration": "development"

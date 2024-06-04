@@ -8,7 +8,7 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { AppMissingTranslationHandler, LocaleService, languageInterceptor } from './shared';
 import { authInterceptor } from './features/auth';
 import { apiErrorInterceptor } from './shared/api/api-error.interceptor';
-import { registerLocaleData } from '@angular/common';
+import { HashLocationStrategy, LocationStrategy, registerLocaleData } from '@angular/common';
 import localePt from '@angular/common/locales/pt';
 import localePtExtra from '@angular/common/locales/extra/pt';
 
@@ -34,6 +34,7 @@ export const appConfig: ApplicationConfig = {
       }
     }).providers!,
     { provide: LOCALE_ID, useFactory: (localeService: LocaleService) => localeService.getLocale(), deps: [LocaleService] },
+    { provide: LocationStrategy, useClass: HashLocationStrategy },
     LocaleService
   ]
 };

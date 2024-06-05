@@ -8,11 +8,24 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { MatTooltip } from '@angular/material/tooltip';
 import { TranslateModule } from '@ngx-translate/core';
+import { TimePickerComponent } from './time-picker/time-picker.component';
+import { MatDialog } from '@angular/material/dialog';
+import { DialogService } from '../../../dialog/dialog.service';
 
 @Component({
   selector: 'app-input-datetime',
   standalone: true,
-  imports: [MatFormFieldModule, MatInputModule, MatDatepickerModule, ReactiveFormsModule, MatButtonModule, MatIconModule, MatTooltip, TranslateModule],
+  imports: [
+    MatButtonModule,
+    MatDatepickerModule,
+    MatFormFieldModule,
+    MatIconModule,
+    MatInputModule,
+    // MatTooltip,
+    ReactiveFormsModule,
+    TranslateModule,
+    TimePickerComponent
+  ],
   templateUrl: './input-datetime.component.html',
   styleUrl: './input-datetime.component.scss'
 })
@@ -28,7 +41,10 @@ export class InputDatetimeComponent {
   @Input() isReadOnly: boolean = false
   @Input() hint: string | undefined;
 
-  constructor(private _languageService: LanguageService) { }
+  constructor(
+    private _languageService: LanguageService,
+    private _dialogService: DialogService
+  ) { }
 
   onTimeSelected(): void {
     this.getFormControl().setValue(this.timeInput.nativeElement.value);
@@ -43,9 +59,16 @@ export class InputDatetimeComponent {
     return `web.shared.components.${this.constructor.name}.${key}`
   }
 
-  openTimePicker(input: HTMLInputElement): void {
-    input.click();
+  async openTimePicker() {
+    const data = {
+      time: '13:56'
+    }
+    await this._dialogService.openComponent(TimePickerComponent, data)
+      .then(time => {
+        console.log(time)
+      })
   }
+
 
   onTimeChanged(): void {
     this.timeInput.nativeElement.value = this.timeInputText.nativeElement.value;

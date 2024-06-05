@@ -1,0 +1,28 @@
+.mhc-clock {
+  margin: 20px;
+  position: relative;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  border: 2px solid;
+}
+
+
+.mhc-clock-number {
+  display: flex;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+}
+
+.mhc-clock-time {
+  margin-top: 5px;
+  font-weight: bold;
+}
+
+.mhc-clock-number > * {
+  position: absolute;
+  width: auto;
+  height: auto;
+}

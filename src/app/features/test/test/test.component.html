@@ -1,8 +1,5 @@
 <h1>Test</h1>
 
-<app-timeline>
-
-
-</app-timeline>
-
-
+<app-input-datetime id="moment" [label]="getTranslateKey('momentLabel') | translate"
+  [placeholder]="getTranslateKey('momentPlaceholder') | translate" [control]="formGroup.get('datetime')">
+</app-input-datetime>

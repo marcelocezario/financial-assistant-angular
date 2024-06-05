@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { TranslateModule } from '@ngx-translate/core';
-import { InputIconComponent, LanguageSelectorComponent, NotificationService, TimelineComponent } from '../../../shared';
+import { InputDatetimeComponent, InputIconComponent, LanguageSelectorComponent, NotificationService, TimelineComponent } from '../../../shared';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { IconCardComponent } from '../../../shared/forms/components/input-icon/icon-card/icon-card.component';
@@ -13,7 +13,23 @@ import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule } from '@angul
 @Component({
   selector: 'app-test',
   standalone: true,
-  imports: [CommonModule, FormsModule, TranslateModule, LanguageSelectorComponent, MatButtonModule, MatCardModule, IconCardComponent, MatDialogModule, MatSlideToggleModule, MatDividerModule, InputIconComponent, FormsModule, ReactiveFormsModule, TimelineComponent],
+  imports: [
+    CommonModule,
+    FormsModule,
+    FormsModule,
+    IconCardComponent,
+    InputDatetimeComponent,
+    InputIconComponent,
+    LanguageSelectorComponent,
+    MatButtonModule,
+    MatCardModule,
+    MatDialogModule,
+    MatDividerModule,
+    MatSlideToggleModule,
+    ReactiveFormsModule,
+    TimelineComponent,
+    TranslateModule,
+  ],
   templateUrl: './test.component.html',
   styleUrl: './test.component.scss'
 })
@@ -21,14 +37,14 @@ export class TestComponent {
 
   isTest: boolean = true;
 
-  icons = [{name:'home'}, {name:'favorite'}];
+  icons = [{ name: 'home' }, { name: 'favorite' }];
   useCustomColor: boolean = false;
   selectedIcon = 'favorite'
   currentIcon = 'home';
   iconColor = '#00695c';
 
   formGroup: FormGroup<any> = this._formBuilder.group({
-    icon: [null]
+    datetime: [null]
   });
 
   constructor(

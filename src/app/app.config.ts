@@ -11,6 +11,7 @@ import { apiErrorInterceptor } from './shared/api/api-error.interceptor';
 import { HashLocationStrategy, LocationStrategy, registerLocaleData } from '@angular/common';
 import localePt from '@angular/common/locales/pt';
 import localePtExtra from '@angular/common/locales/extra/pt';
+import { provideLuxonDateAdapter } from '@angular/material-luxon-adapter';
 
 registerLocaleData(localePt, 'pt-BR', localePtExtra);
 
@@ -21,6 +22,7 @@ export const appConfig: ApplicationConfig = {
     provideHttpClient(withInterceptors([
       authInterceptor, apiErrorInterceptor, languageInterceptor
     ])),
+    provideLuxonDateAdapter(),
     TranslateModule.forRoot({
       defaultLanguage: 'pt-BR',
       loader: {

@@ -14,6 +14,7 @@
   "generic": {
     "actions": "Ações",
     "amount": "Valor total",
+    "apply": "Aplicar",
     "cancel": "Cancelar",
     "category": {
       "active": "ativo",
@@ -155,6 +156,46 @@
         "sortByCode": "Ordenar por código",
         "sortById": "Ordenar por id",
         "sortByUpdatedAt": "Ordenar por data de atualização"
+      },
+      "_HomePageComponent": {
+        "appInDevelopment": "Essa aplicação ainda está em desenvolvimento",
+        "appSugestionsFeedback": "Fique a vontade para utilizar como quiser, dar sugestões e feedbacks, sua opinião é muito importante.",
+        "appTestMessage": "Mas me ajudaria muito se você testasse ela comigo.",
+        "backlog": {
+          "enableSendEmail": {
+            "description": "Habilitar envio de e-mail para criação de usuário e recuperação de senha",
+            "title": "Habilitar envio de e-mail"
+          },
+          "inputColorIOS": {
+            "description": "No iphone, o campo de seleção de cores não abriu o dialog para seleção",
+            "title": "Campo de seleção de cores no IOS (iphone)"
+          },
+          "inputDateTimeMobile": {
+            "description": "O próprio dispositivo fornece um dialog de seleção, ficando estranho 2 opções como no iphone que da um bug na tela ao abrir um e fechar o outro",
+            "title": "Campo de data e hora em dispositivos mobile"
+          },
+          "loader": {
+            "description": "Sem o carregamento, o usuário não sabe se a requisição foi realizada, se está tendo algum processamento, ou se a aplicação travou",
+            "title": "Indicador de carregamento (loader)"
+          },
+          "showUserRegisterPassword": {
+            "description": "Ao realizar cadastro do usuário, é necessário inserir uma senha, para melhor experiencia do usuário, adicionar um botão com opção de exibir a senha",
+            "title": "Habilitar opção de exibir senha no cadastro de usuário"
+          },
+          "transactionTypeNames": {
+            "description": "Nomes 'débito' e 'crédito' podem ser confusos para alguns usuários no tipo de transação, alterar para 'pagamento' e 'recebimento'",
+            "title": "Alterar nomes de tipo de transação"
+          },
+          "userRegisterPasswordConfirm": {
+            "description": "Ao usar senha sugerida pelo navegador, preencher automaticamente campo confirmar senha",
+            "title": "Preencher campo confirmar senha ao usar sugestão do navegador"
+          }
+        },
+        "contactMessage": "Você pode me enviar um e-mail ou mensagem no whatsapp:",
+        "developmentBacklog": "Items para desenvolvimento (backlog)",
+        "userReportedChanges": "Ficarei muito feliz em ter alterações necessárias e que foram relatadas por um usuário.",
+        "welcome": "Bem vindo!",
+        "whatsappMessage": "Olá,%20consegui%20seu%20contato%20através%20da%20aplicação%20de%20controle%20financeiro%20desenvolvido%20por%20você"
       },
       "_SignUpPageComponent": {
         "emailLabel": "Email",

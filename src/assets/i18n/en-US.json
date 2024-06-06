@@ -14,6 +14,7 @@
   "generic": {
     "actions": "Actions",
     "amount": "Amount",
+    "apply": "Apply",
     "cancel": "Cancel",
     "category": {
       "active": "active",
@@ -155,6 +156,46 @@
         "sortByCode": "Sort by code",
         "sortById": "Sort by id",
         "sortByUpdatedAt": "Sort by update date"
+      },
+      "_HomePageComponent": {
+        "appInDevelopment": "This application is still under development",
+        "appSugestionsFeedback": "Feel free to use it as you wish, give suggestions and feedback, your opinion is very important.",
+        "appTestMessage": "But it would help me a lot if you could test it with me.",
+        "backlog": {
+          "enableSendEmail": {
+            "description": "Enable email sending for user creation and password recovery",
+            "title": "Enable email sending"
+          },
+          "inputColorIOS": {
+            "description": "On iPhone, the color selection field did not open the dialog for selection",
+            "title": "Color selection field on IOS (iPhone)"
+          },
+          "inputDateTimeMobile": {
+            "description": "The device itself provides a selection dialog, so having 2 options like on iPhone causes a screen bug when opening one and closing the other",
+            "title": "Date and time field on mobile devices"
+          },
+          "loader": {
+            "description": "Without the loader, the user doesn't know if the request was made, if there is any processing, or if the application has frozen",
+            "title": "Loading indicator (loader)"
+          },
+          "showUserRegisterPassword": {
+            "description": "When registering a user, it's necessary to enter a password. For a better user experience, add a button to show the password",
+            "title": "Enable option to show password in user registration"
+          },
+          "transactionTypeNames": {
+            "description": "'Debit' and 'credit' names can be confusing for some users in transaction types. Change to 'payment' and 'receipt'",
+            "title": "Change transaction type names"
+          },
+          "userRegisterPasswordConfirm": {
+            "description": "When using a password suggested by the browser, automatically fill the confirm password field",
+            "title": "Fill confirm password field when using browser suggestion"
+          }
+        },
+        "contactMessage": "You can send me an email or a message on WhatsApp:",
+        "developmentBacklog": "Development backlog",
+        "userReportedChanges": "I will be very happy to have necessary changes that were reported by a user.",
+        "welcome": "Welcome!",
+        "whatsappMessage": "Hello,%20I%20got%20your%20contact%20through%20the%20financial%20control%20application%20developed%20by%20you"
       },
       "_SignUpPageComponent": {
         "emailLabel": "Email",

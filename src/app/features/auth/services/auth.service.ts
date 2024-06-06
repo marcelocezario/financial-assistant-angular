@@ -51,7 +51,7 @@ export class AuthService {
   refreshToken(): Promise<void> {
     return new Promise((resolve, reject) => {
       if (this._isRefreshTokenExpired()) {
-        reject('Expired refresh token');
+        reject('Refresh token is expired or does not exist');
         this.logout();
         return
       }
@@ -78,6 +78,12 @@ export class AuthService {
     };
 
     return new Promise((resolve, reject) => {
+      if (!this._authenticated$.value) {
+        actionsLogout();
+        resolve();
+        return;
+      }
+
       this._apiService.httpPost('/auth/logout').subscribe({
         next: () => {
           actionsLogout();
@@ -116,7 +122,8 @@ export class AuthService {
       const tokenData = this._jwtHelper.decodeToken(refreshToken);
       const tokenExp = tokenData.exp;
       const now = Math.floor((new Date).getTime() / 1000);
-      return (tokenExp - now) < 0;
+      const expDiff = tokenExp - now;
+      return expDiff < 0;
     }
     return true;
   }

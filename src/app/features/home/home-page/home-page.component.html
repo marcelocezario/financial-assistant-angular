@@ -1,1 +1,40 @@
-<p>home-page works!</p>
+<h1>{{ getTranslateKey('welcome') | translate }}</h1>
+<h2>{{ getTranslateKey('appInDevelopment') | translate }}</h2>
+<p>{{ getTranslateKey('appTestMessage') | translate }}</p>
+<p>{{ getTranslateKey('appSugestionsFeedback') | translate }}</p>
+<p>{{ getTranslateKey('userReportedChanges') | translate }}</p>
+<p>{{ getTranslateKey('contactMessage') | translate }}</p>
+
+
+<div class="d-flex flex-column">
+  <p>
+    <a href="mailto:marcelocezario@gmail.com">
+      <mat-icon class="mat-18">email</mat-icon>
+      <span>marcelocezario&#64;gmail.com</span>
+    </a>
+  </p>
+  <p>
+    <a
+      [href]="'http://api.whatsapp.com/send?phone=5541999162038&text=' + (getTranslateKey('whatsappMessage') | translate)">
+      <mat-icon svgIcon="whatsapp"></mat-icon>
+      <span>+55 (041) 99916-2038</span>
+    </a>
+  </p>
+</div>
+
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>{{ getTranslateKey('developmentBacklog') | translate }}</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <mat-list>
+      @for(backlogItem of backlog; track $index) {
+      <mat-divider></mat-divider>
+      <mat-list-item>
+        <span matListItemTitle> {{ getTranslateKey('backlog.' + backlogItem + '.title') | translate }} </span>
+        <span matListItemLine> {{ getTranslateKey('backlog.' + backlogItem + '.description') | translate }} </span>
+      </mat-list-item>
+      }
+    </mat-list>
+  </mat-card-content>
+</mat-card>

@@ -1,0 +1,15 @@
+<mat-card class="mhc-calendar-card">
+  <mat-calendar [(selected)]="dateTime"></mat-calendar>
+  <mat-divider></mat-divider>
+  <div class="d-flex justify-content-center">
+    <ngb-timepicker [(ngModel)]="time" />
+  </div>
+  <mat-dialog-actions class="d-flex">
+    <button mat-raised-button mat-dialog-close class="mhc-flex-1">
+      {{ 'generic.cancel' | translate }}
+    </button>
+    <button mat-raised-button color="primary" class="mhc-flex-1" (click)="selectDateTime()" cdkFocusInitial>
+      {{ 'generic.apply' | translate }}
+    </button>
+  </mat-dialog-actions>
+</mat-card>

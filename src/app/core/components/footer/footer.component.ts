@@ -1,12 +1,17 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
-import { MatToolbarModule } from '@angular/material/toolbar';
 import { LanguageSelectorComponent, ThemeSelectorComponent } from '../../../shared';
+import { MatToolbarModule } from '@angular/material/toolbar';
 
 @Component({
   selector: 'app-footer',
   standalone: true,
-  imports: [MatToolbarModule, CommonModule, LanguageSelectorComponent, ThemeSelectorComponent],
+  imports: [
+    CommonModule,
+    LanguageSelectorComponent,
+    MatToolbarModule,
+    ThemeSelectorComponent,
+  ],
   templateUrl: './footer.component.html',
   styleUrl: './footer.component.scss'
 })

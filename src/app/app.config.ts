@@ -12,6 +12,7 @@ import { HashLocationStrategy, LocationStrategy, registerLocaleData } from '@ang
 import localePt from '@angular/common/locales/pt';
 import localePtExtra from '@angular/common/locales/extra/pt';
 import { provideLuxonDateAdapter } from '@angular/material-luxon-adapter';
+import { provideNativeDateAdapter } from '@angular/material/core';
 
 registerLocaleData(localePt, 'pt-BR', localePtExtra);
 
@@ -22,6 +23,7 @@ export const appConfig: ApplicationConfig = {
     provideHttpClient(withInterceptors([
       authInterceptor, apiErrorInterceptor, languageInterceptor
     ])),
+    // provideNativeDateAdapter(),
     provideLuxonDateAdapter(),
     TranslateModule.forRoot({
       defaultLanguage: 'pt-BR',

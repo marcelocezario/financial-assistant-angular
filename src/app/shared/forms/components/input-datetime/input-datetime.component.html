@@ -1,12 +1,11 @@
 <mat-form-field appearance="outline" class="mhc-full-width">
-  <button class="mhc-prefix-form-button" type="button" mat-stroked-button matTextPrefix
-    (click)="openTimePicker()">
-    {{ getTranslateKey('selectTime') | translate }}
-  </button>
   <mat-label [attr.for]="id">{{ label }}</mat-label>
-  <input matInput [id]="id" [name]="id" type="text" [placeholder]="placeholder" [readonly]="!!isReadOnly"
-    [formControl]="getFormControl()" #timeInputText (input)="onTimeChanged()" />
+  <input matInput [id]="id" [name]="id" type="datetime-local" [placeholder]="placeholder" [readonly]="!!isReadOnly"
+    [formControl]="getFormControl()" />
   @if (hint) {
   <mat-hint>{{ hint }}</mat-hint>
   }
+  <button mat-icon-button matSuffix type="button" (click)="openDatetimePicker()">
+    <mat-icon matSuffix>calendar_month</mat-icon>
+  </button>
 </mat-form-field>

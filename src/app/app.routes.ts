@@ -14,7 +14,7 @@ import { unsavedChangesGuard } from './shared';
 
 export const routes: Routes = [
 
-  { path: '', component: TestComponent },
+  { path: '', component: HomePageComponent },
 
   { path: ROUTES_KEYS.forgotPassword, component: ForgotPasswordPageComponent, title: ROUTES_KEYS.forgotPassword },
   { path: ROUTES_KEYS.home, component: HomePageComponent, title: ROUTES_KEYS.home },

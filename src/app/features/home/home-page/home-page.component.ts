@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { TranslateModule } from '@ngx-translate/core';
-import { BacklogComponent } from '../../../shared';
+import { BacklogComponent } from '../../feature-request';
 
 @Component({
   selector: 'app-home-page',

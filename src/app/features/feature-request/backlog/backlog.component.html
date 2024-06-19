@@ -1,0 +1,25 @@
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>{{ getTranslateKey('developmentBacklog') | translate }}</mat-card-title>
+  </mat-card-header>
+  @for(backlogItem of backlog; track $index) {
+  <mat-divider></mat-divider>
+  <mat-card-content class="d-flex">
+    <div class="d-flex flex-column mhc-flex-1">
+      <br>
+      <p><strong matListItemTitle>{{ backlogItem.translations[ language ].title }}</strong></p>
+      <p>{{ backlogItem.translations[ language ].description }}</p>
+    </div>
+    <mat-divider vertical="true"></mat-divider>
+    <div class="d-flex flex-column align-items-center">
+      <button mat-icon-button (click)="rateFeatureRequest(backlogItem.id!, true)">
+        <mat-icon class="mat-18">thumb_up</mat-icon>
+      </button>
+      <span><strong>{{ backlogItem.rating }}</strong></span>
+      <button mat-icon-button (click)="rateFeatureRequest(backlogItem.id!, false)">
+        <mat-icon class="mat-18">thumb_down</mat-icon>
+      </button>
+    </div>
+  </mat-card-content>
+  }
+</mat-card>

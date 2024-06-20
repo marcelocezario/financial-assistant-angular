@@ -72,7 +72,6 @@ export class BacklogComponent implements OnInit, OnDestroy {
   async rateFeatureRequest(id: number, positive: boolean) {
     await this._featureRequestService.rate(id, positive).then()
     const index = this.backlog.findIndex(b => b.id === id);
-    console.log(id)
     const rate = positive ? 1 : -1;
     this.backlog[index].rating = this.backlog[index].rating + rate
   }

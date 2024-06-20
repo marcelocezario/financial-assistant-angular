@@ -33,7 +33,11 @@ export class AppComponent {
     sanitizer: DomSanitizer,
   ) {
     if (storageService.getRefreshToken()) {
-      authService.refreshToken();
+      try {
+        authService.refreshToken();
+      } catch(_) {
+        console.error('Refresh token failed')
+      }
     }
 
     languageService.determineBestLanguageForUser();

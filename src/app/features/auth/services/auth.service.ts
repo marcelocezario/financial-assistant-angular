@@ -32,7 +32,7 @@ export class AuthService {
   }
 
   login(username: string, password: string, keepLoggedIn: boolean = false): Promise<void> {
-    this._storageService.clearStorage();
+    this._localLogout()
     const credentials = {
       username: username, password: password
     }
@@ -52,7 +52,7 @@ export class AuthService {
     return new Promise((resolve, reject) => {
       if (this._isRefreshTokenExpired()) {
         reject('Refresh token is expired or does not exist');
-        this.logout();
+        this._localLogout();
         return
       }
       this._apiService.httpPost('/auth/refresh-token').subscribe({
@@ -60,37 +60,40 @@ export class AuthService {
           this._successfulAuthenticate(response);
           resolve();
         },
-        error: err => reject(err)
+        error: err => {
+          this._localLogout();
+          reject(err)
+        }
       })
     })
 
   }
 
-  logout(routeAfterLogout: string = this._router.url): Promise<void> {
-    const actionsLogout = () => {
-      this._storageService.clearStorage();
-      this._successfulAuthenticated$.next(false);
-      this._authenticated$.next(false);
-      this._isAdmin$.next(false);
-      this._router.navigate(['/']).then(() => {
-        this._router.navigate([routeAfterLogout]);
-      })
-    };
+  private _localLogout(routeAfterLogout: string = this._router.url) {
+    this._storageService.clearStorage();
+    this._successfulAuthenticated$.next(false);
+    this._authenticated$.next(false);
+    this._isAdmin$.next(false);
+    this._router.navigate(['/']).then(() => {
+      this._router.navigate([routeAfterLogout]);
+    })
+  }
 
+  logout(routeAfterLogout: string = this._router.url): Promise<void> {
     return new Promise((resolve, reject) => {
       if (!this._authenticated$.value) {
-        actionsLogout();
+        this._localLogout(routeAfterLogout);
         resolve();
         return;
       }
 
       this._apiService.httpPost('/auth/logout').subscribe({
         next: () => {
-          actionsLogout();
+          this._localLogout(routeAfterLogout);
           resolve();
         },
         error: err => {
-          actionsLogout();
+          this._localLogout(routeAfterLogout);
           reject(err)
         }
       })

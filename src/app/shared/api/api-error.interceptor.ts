@@ -37,12 +37,14 @@ export const apiErrorInterceptor: HttpInterceptorFn = (req, next) => {
     }
 
     const handle403 = () => {
-      const keyTitle = 'api.errors.http403.title';
-      const keyMessage = 'api.errors.http403.message';
-      languageService.getTranslate([keyTitle, keyMessage])
-        .then((translated: any) =>
-          notificationService.error(translated[keyMessage], translated[keyTitle])
-        )
+      if (!response.url?.endsWith('/auth/refresh-token')) {
+        const keyTitle = 'api.errors.http403.title';
+        const keyMessage = 'api.errors.http403.message';
+        languageService.getTranslate([keyTitle, keyMessage])
+          .then((translated: any) =>
+            notificationService.error(translated[keyMessage], translated[keyTitle])
+          )
+      }
     }
 
     const handle422 = (error: StandardError) => {

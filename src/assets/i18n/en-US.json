@@ -56,6 +56,7 @@
     "filter": "Filter",
     "filterPlaceholder": "Enter your search",
     "helloApp": "Hello {{user}}, welcome!",
+    "loading": "Please wait a moment, loading data...",
     "no": "No",
     "terms": "Terms: \"{{terms}}\"",
     "transaction": {
@@ -109,39 +110,7 @@
   "web": {
     "components": {
       "_BacklogComponent": {
-        "developmentBacklog": "Development backlog",
-        "enableSendEmail": {
-          "description": "Enable email sending for user creation and password recovery",
-          "title": "Enable email sending"
-        },
-        "inputColorIOS": {
-          "description": "On iPhone, the color selection field did not open the dialog for selection",
-          "title": "Color selection field on IOS (iPhone)"
-        },
-        "inputDateTimeMobile": {
-          "description": "The device itself provides a selection dialog, so having 2 options like on iPhone causes a screen bug when opening one and closing the other",
-          "title": "Date and time field on mobile devices"
-        },
-        "loader": {
-          "description": "Without the loader, the user doesn't know if the request was made, if there is any processing, or if the application has frozen",
-          "title": "Loading indicator (loader)"
-        },
-        "relativeTime": {
-          "description": "Relative time component (e.g., '1 week ago'), needs to be internationalized and adjusted for display times in transactions",
-          "title": "Adjust relative time component"
-        },
-        "showUserRegisterPassword": {
-          "description": "When registering a user, it's necessary to enter a password. For a better user experience, add a button to show the password",
-          "title": "Enable option to show password in user registration"
-        },
-        "transactionTypeNames": {
-          "description": "'Debit' and 'credit' names can be confusing for some users in transaction types. Change to 'payment' and 'receipt'",
-          "title": "Change transaction type names"
-        },
-        "userRegisterPasswordConfirm": {
-          "description": "When using a password suggested by the browser, automatically fill the confirm password field",
-          "title": "Fill confirm password field when using browser suggestion"
-        }
+        "developmentBacklog": "Development backlog"
       },
       "_CategoriesFormPageComponent": {
         "categoryCreatedSuccessfully": "Category created successfully",

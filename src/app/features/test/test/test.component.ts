@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { TranslateModule } from '@ngx-translate/core';
-import { InputDatetimeComponent, InputIconComponent, LanguageSelectorComponent, NotificationService, TimelineComponent } from '../../../shared';
+import { InputDatetimeComponent, InputIconComponent, LanguageSelectorComponent, LoaderComponent, NotificationService, TimelineComponent } from '../../../shared';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { IconCardComponent } from '../../../shared/forms/components/input-icon/icon-card/icon-card.component';
@@ -21,6 +21,7 @@ import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule } from '@angul
     InputDatetimeComponent,
     InputIconComponent,
     LanguageSelectorComponent,
+    LoaderComponent,
     MatButtonModule,
     MatCardModule,
     MatDialogModule,

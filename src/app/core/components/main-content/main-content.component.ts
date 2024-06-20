@@ -1,4 +1,4 @@
-import { BreadCrumbComponent, SectionTitleComponent } from '../../../shared';
+import { BreadCrumbComponent, LoaderComponent, SectionTitleComponent } from '../../../shared';
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { TranslateModule } from '@ngx-translate/core';
@@ -8,6 +8,7 @@ import { TranslateModule } from '@ngx-translate/core';
   standalone: true,
   imports: [
     BreadCrumbComponent,
+    LoaderComponent,
     RouterOutlet,
     SectionTitleComponent,
     TranslateModule,

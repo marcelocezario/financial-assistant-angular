@@ -56,6 +56,7 @@
     "filter": "Filtro",
     "filterPlaceholder": "Digite sua busca",
     "helloApp": "Olá {{user}}, bem vindo!",
+    "loading": "Aguarde um momento, carregando dados...",
     "no": "Não",
     "terms": "Termos: \"{{terms}}\"",
     "transaction": {
@@ -109,39 +110,7 @@
   "web": {
     "components": {
       "_BacklogComponent": {
-        "developmentBacklog": "Itens para desenvolvimento (backlog)",
-        "enableSendEmail": {
-          "description": "Habilitar envio de e-mail para criação de usuário e recuperação de senha",
-          "title": "Habilitar envio de e-mail"
-        },
-        "inputColorIOS": {
-          "description": "No iphone, o campo de seleção de cores não abriu o dialog para seleção",
-          "title": "Campo de seleção de cores no IOS (iphone)"
-        },
-        "inputDateTimeMobile": {
-          "description": "O próprio dispositivo fornece um dialog de seleção, ficando estranho 2 opções como no iphone que da um bug na tela ao abrir um e fechar o outro",
-          "title": "Campo de data e hora em dispositivos móveis"
-        },
-        "loader": {
-          "description": "Sem o carregamento, o usuário não sabe se a requisição foi realizada, se está tendo algum processamento, ou se a aplicação travou",
-          "title": "Indicador de carregamento (loader)"
-        },
-        "relativeTime": {
-          "description": "Componente de tempo relativo (ex. '1 semana atrás'), precisa ser internacionalizado e ajustado os tempos de exibição em transações",
-          "title": "Ajustar componente de tempo relativo"
-        },
-        "showUserRegisterPassword": {
-          "description": "Ao realizar cadastro do usuário, é necessário inserir uma senha, para melhor experiencia do usuário, adicionar um botão com opção de exibir a senha",
-          "title": "Habilitar opção de exibir senha no cadastro de usuário"
-        },
-        "transactionTypeNames": {
-          "description": "Nomes 'débito' e 'crédito' podem ser confusos para alguns usuários no tipo de transação, alterar para 'pagamento' e 'recebimento'",
-          "title": "Alterar nomes de tipo de transação"
-        },
-        "userRegisterPasswordConfirm": {
-          "description": "Ao usar senha sugerida pelo navegador, preencher automaticamente campo confirmar senha",
-          "title": "Preencher campo confirmar senha ao usar sugestão do navegador"
-        }
+        "developmentBacklog": "Itens para desenvolvimento (backlog)"
       },
       "_CategoriesFormPageComponent": {
         "categoryCreatedSuccessfully": "Categoria criada com sucesso",

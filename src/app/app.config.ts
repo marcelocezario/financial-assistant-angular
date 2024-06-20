@@ -5,7 +5,7 @@ import { provideAnimationsAsync } from '@angular/platform-browser/animations/asy
 import { HttpClient, provideHttpClient, withInterceptors } from '@angular/common/http';
 import { MissingTranslationHandler, TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
-import { AppMissingTranslationHandler, LocaleService, languageInterceptor } from './shared';
+import { AppMissingTranslationHandler, LocaleService, languageInterceptor, loaderInterceptor } from './shared';
 import { authInterceptor } from './features/auth';
 import { apiErrorInterceptor } from './shared/api/api-error.interceptor';
 import { HashLocationStrategy, LocationStrategy, registerLocaleData } from '@angular/common';
@@ -21,7 +21,7 @@ export const appConfig: ApplicationConfig = {
     provideRouter(routes),
     provideAnimationsAsync(),
     provideHttpClient(withInterceptors([
-      authInterceptor, apiErrorInterceptor, languageInterceptor
+      authInterceptor, apiErrorInterceptor, languageInterceptor, loaderInterceptor
     ])),
     // provideNativeDateAdapter(),
     provideLuxonDateAdapter(),

@@ -1,0 +1,14 @@
+@if ((isLoading$ | async) || false) {
+<div class="mhc-loader-container">
+  <div class="mhc-loader">
+    <div class="mhc-spin"></div>
+    <span class="material-icons mat-18">payments</span>
+    <span class="material-icons mat-18">attach_money</span>
+    <span class="material-icons mat-18">paid</span>
+    <span class="material-icons mat-18">account_balance_wallet</span>
+    <span class="material-icons mat-18">savings</span>
+    <span class="material-icons mat-18">currency_exchange</span>
+  </div>
+  <p class="mhc-loader-text">{{ 'generic.loading' | translate }}</p>
+</div>
+}

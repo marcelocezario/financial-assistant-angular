@@ -9,6 +9,7 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatDividerModule } from '@angular/material/divider';
 import { CommonModule } from '@angular/common';
 import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { TransactionsFormPageComponent } from '../../transactions';
 
 @Component({
   selector: 'app-test',
@@ -30,6 +31,7 @@ import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule } from '@angul
     ReactiveFormsModule,
     TimelineComponent,
     TranslateModule,
+    TransactionsFormPageComponent,
   ],
   templateUrl: './test.component.html',
   styleUrl: './test.component.scss'

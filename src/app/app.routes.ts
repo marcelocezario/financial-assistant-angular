@@ -15,6 +15,7 @@ import { unsavedChangesGuard } from './shared';
 export const routes: Routes = [
 
   { path: '', component: HomePageComponent },
+  { path: ROUTES_KEYS.test, component: TestComponent, canActivate: [adminGuard] },
 
   { path: ROUTES_KEYS.forgotPassword, component: ForgotPasswordPageComponent, title: ROUTES_KEYS.forgotPassword },
   { path: ROUTES_KEYS.home, component: HomePageComponent, title: ROUTES_KEYS.home },
@@ -34,8 +35,8 @@ export const routes: Routes = [
       { path: ROUTES_KEYS.myAccount, component: MyAccountPageComponent, title: ROUTES_KEYS.myAccount },
 
       { path: ROUTES_KEYS.transactions, component: TransactionsPageComponent, title: ROUTES_KEYS.transactions },
-      { path: ROUTES_KEYS.transactions_add, canDeactivate: [unsavedChangesGuard], component: TransactionsFormPageComponent, title: ROUTES_KEYS.transactions_add},
-      { path: `${ROUTES_KEYS.transactions}/${ROUTES_KEYS.transaction_id}`, canDeactivate: [unsavedChangesGuard], component: TransactionsFormPageComponent, title: ROUTES_KEYS.transaction_id},
+      { path: ROUTES_KEYS.transactions_add, canDeactivate: [unsavedChangesGuard], component: TransactionsFormPageComponent, title: ROUTES_KEYS.transactions_add },
+      { path: `${ROUTES_KEYS.transactions}/${ROUTES_KEYS.transaction_id}`, canDeactivate: [unsavedChangesGuard], component: TransactionsFormPageComponent, title: ROUTES_KEYS.transaction_id },
 
       { path: ROUTES_KEYS.wallets, component: WalletsPageComponent, title: ROUTES_KEYS.wallets },
       { path: ROUTES_KEYS.wallets_add, canDeactivate: [unsavedChangesGuard], component: WalletsFormPageComponent, title: ROUTES_KEYS.wallets_add },

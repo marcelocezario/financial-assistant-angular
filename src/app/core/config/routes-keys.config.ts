@@ -13,6 +13,7 @@ export const ROUTES_KEYS = {
   myAccount: 'my-account',
   notFound: 'not-found',
   signUp: 'sign-up',
+  test: 'test',
   transaction_id: ':transactionId',
   transactions_add: 'transactions/add',
   transactions: 'transactions',

@@ -1,0 +1,37 @@
+<mat-form-field [appearance]="appearance" class="mhc-full-width">
+  <mat-label [attr.for]="id">{{ label }}</mat-label>
+  <mat-select [id]="id" [attr.name]="id" [formControl]="getFormControl()" [multiple]="multiple"
+    [compareWith]="compareObjectId" (selectionChange)="onSelectionChange($event)">
+    <mat-option>{{ placeholder }}</mat-option>
+
+    @for(item of dataSource; track $index) {
+      <mat-option [value]="item">
+
+
+    @if (optionTemplate) {
+      <ng-container [ngTemplateOutlet]="optionTemplate" [ngTemplateOutletContext]="{ $implicit: item, item: item }">
+      </ng-container>
+    } @else {
+      <ng-template #defaultOptionTemplate>
+        {{ attributeLabel ? item[attributeLabel] : item }}
+      </ng-template>
+    }
+
+      <!-- {{ attributeLabel ? item[attributeLabel] : item }} -->
+    </mat-option>
+    }
+  </mat-select>
+  @if (hint) {
+  <mat-hint>{{ hint }}</mat-hint>
+  }
+  @if (icon) {
+  <mat-icon matSuffix>{{ icon }}</mat-icon>
+  }
+  @if (hintEnd) {
+  <mat-hint align="end">{{ hintEnd }}</mat-hint>
+  }
+  @if (getFormControl().errors) {
+  <mat-error [innerHtml]="getFirstErrorTranslateKey() | translate : getFormControl().errors ">
+  </mat-error>
+  }
+</mat-form-field>

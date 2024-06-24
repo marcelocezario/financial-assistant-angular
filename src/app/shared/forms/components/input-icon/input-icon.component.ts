@@ -9,6 +9,7 @@ import { MatFormField } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { TranslateModule } from '@ngx-translate/core';
+import { INPUT_CONFIG } from '../../config/input.config';
 
 @Component({
   selector: 'app-input-icon',
@@ -27,6 +28,8 @@ export class InputIconComponent {
   @Input() iconColor: string | undefined | null;
 
   materialIconsWebSite = 'https://fonts.google.com/icons';
+
+  appearance = INPUT_CONFIG.appearance;
 
   constructor(private _languageService: LanguageService, private _dialogService: DialogService) { }
 

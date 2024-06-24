@@ -1,5 +1,5 @@
 <input type="color" #colorInput (input)="onColorSelected()" style="position: absolute; opacity: 0;">
-<mat-form-field appearance="outline" class="mhc-full-width">
+<mat-form-field [appearance]="appearance" class="mhc-full-width">
   <button class="mhc-prefix-form-button" type="button" mat-stroked-button matTextPrefix
     (click)="openColorPicker(colorInput)">
     {{ getTranslateKey('selectColor') | translate }}

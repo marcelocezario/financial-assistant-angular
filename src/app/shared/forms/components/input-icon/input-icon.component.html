@@ -1,4 +1,4 @@
-<mat-form-field appearance="outline" class="mhc-full-width">
+<mat-form-field [appearance]="appearance" class="mhc-full-width">
   <mat-label [attr.for]="id">{{ label }}</mat-label>
   <button class="mhc-prefix-form-button" type="button" mat-stroked-button matTextPrefix (click)="searchIcon()">
     {{ getTranslateKey('selectIcon') | translate }}

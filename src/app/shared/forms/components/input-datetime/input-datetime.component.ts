@@ -7,6 +7,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { DialogService } from '../../../dialog/dialog.service';
 import { DatetimePickerComponent } from './datetime-picker/datetime-picker.component';
+import { INPUT_CONFIG } from '../../config/input.config';
 
 @Component({
   selector: 'app-input-datetime',
@@ -33,6 +34,8 @@ export class InputDatetimeComponent {
   @Input() placeholder: string = ''
   @Input() isReadOnly: boolean = false
   @Input() hint: string | undefined;
+
+  appearance = INPUT_CONFIG.appearance;
 
   constructor(
     private _dialogService: DialogService

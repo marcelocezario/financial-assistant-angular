@@ -1,11 +1,8 @@
 <form class="mhc-form" [formGroup]="formGroup" (ngSubmit)="onSubmit()">
 
-  <mat-form-field class="mhc-full-width" appearance="outline">
-    <mat-label>{{ getTranslateKey('nameLabel') | translate }}</mat-label>
-    <input matInput name="name" formControlName="name" [placeholder]="getTranslateKey('namePlaceholder') | translate">
-    <mat-error [innerHtml]="getFirstErrorTranslateKey('name') | translate : formGroup.get('name')?.errors ">
-    </mat-error>
-  </mat-form-field>
+  <app-input id="name" [control]="formGroup.get('name')" [label]="getTranslateKey('nameLabel') | translate"
+    [placeholder]="getTranslateKey('namePlaceholder') | translate">
+  </app-input>
 
   <app-input-color id="color" [label]="getTranslateKey('colorLabel') | translate"
     [placeholder]="getTranslateKey('colorPlaceholder') | translate" [control]="formGroup.get('color')">

@@ -1,20 +1,26 @@
-import { Component, OnInit } from '@angular/core';
-import { FormBaseDirective, FormValidations, InputColorComponent, InputIconComponent, LanguageService, NotificationService, StorageService } from '../../../shared';
-import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
-import { CategoryService } from '../category.service';
-import { Category } from '../../../core/models';
-import { MatFormFieldModule } from '@angular/material/form-field';
-import { TranslateModule } from '@ngx-translate/core';
-import { MatInputModule } from '@angular/material/input';
-import { MatButtonModule } from '@angular/material/button';
 import { ActivatedRoute, Router } from '@angular/router';
-import { ROUTES_KEYS } from '../../../core/config';
+import { Category } from '../../../core/models';
+import { CategoryService } from '../category.service';
+import { Component, OnInit } from '@angular/core';
+import { FormBaseDirective, FormValidations, InputColorComponent, InputComponent, InputIconComponent, LanguageService, NotificationService, StorageService } from '../../../shared';
+import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
+import { ROUTES_KEYS } from '../../../core/config';
+import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-categories-form-page',
   standalone: true,
-  imports: [ReactiveFormsModule, MatFormFieldModule, MatInputModule, TranslateModule, MatButtonModule, MatIconModule, InputColorComponent, InputIconComponent],
+  imports: [
+    InputColorComponent,
+    InputComponent,
+    InputIconComponent,
+    MatButtonModule,
+    MatIconModule,
+    ReactiveFormsModule,
+    TranslateModule,
+  ],
   templateUrl: './categories-form-page.component.html',
   styleUrl: './categories-form-page.component.scss'
 })
@@ -22,7 +28,7 @@ export class CategoriesFormPageComponent extends FormBaseDirective implements On
 
   override formGroup: FormGroup<any> = this._formBuilder.group({
     id: [null],
-    name: [null, [Validators.required]],
+    name: [null, [Validators.required, Validators.minLength(3)]],
     color: [null, [FormValidations.hexadecimalColor()]],
     icon: [null],
     active: [true],

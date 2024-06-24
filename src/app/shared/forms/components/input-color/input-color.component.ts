@@ -9,6 +9,7 @@ import { MatInputModule } from '@angular/material/input';
 import { TranslateModule } from '@ngx-translate/core';
 import { Utils } from '../../../utils/utils';
 import { MatTooltipModule } from '@angular/material/tooltip';
+import { INPUT_CONFIG } from '../../config/input.config';
 
 @Component({
   selector: 'app-input-color',
@@ -28,6 +29,8 @@ export class InputColorComponent implements OnInit {
   @Input() isReadOnly: boolean = false
   @Input() control: AbstractControl<any, any> | null = null;
   @Input() hint: string | undefined;
+
+  appearance = INPUT_CONFIG.appearance;
 
   constructor(private _languageService: LanguageService) { }
 

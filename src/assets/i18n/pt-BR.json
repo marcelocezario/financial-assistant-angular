@@ -80,8 +80,8 @@
       "notes": "observações",
       "transactionType": "tipo",
       "type": {
-        "CREDIT": "crédito",
-        "DEBIT": "débito"
+        "INCOME": "Recebimento",
+        "EXPENSE": "Pagamento"
       },
       "updatedAt": "atualizado em",
       "wallet": "carteira"

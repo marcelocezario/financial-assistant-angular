@@ -1,13 +1,9 @@
 <mat-form-field [appearance]="appearance" class="mhc-full-width">
   <mat-label [attr.for]="id">{{ label }}</mat-label>
   <mat-select [id]="id" [attr.name]="id" [formControl]="getFormControl()" [multiple]="multiple"
-    [compareWith]="compareObjectId" (selectionChange)="onSelectionChange($event)">
-    <mat-option>{{ placeholder }}</mat-option>
-
+    [compareWith]="compareObjectId" (selectionChange)="onSelectionChange($event)" [placeholder]="placeholder">
     @for(item of dataSource; track $index) {
       <mat-option [value]="item">
-
-
     @if (optionTemplate) {
       <ng-container [ngTemplateOutlet]="optionTemplate" [ngTemplateOutletContext]="{ $implicit: item, item: item }">
       </ng-container>

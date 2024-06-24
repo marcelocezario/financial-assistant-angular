@@ -17,52 +17,34 @@
     [placeholder]="getTranslateKey('currentInstallmentPlaceholder') | translate" type="number" [step]="1">
   </app-input>
 
-  <mat-form-field class="mhc-full-width" appearance="outline">
-    <mat-label>{{getTranslateKey('typeLabel') | translate}}</mat-label>
-    <mat-select name="type" formControlName="type" [placeholder]="getTranslateKey('typePlaceholder') | translate"
-      appCompareObjectId>
-      <mat-option value="CREDIT">
-        {{'generic.transaction.type.CREDIT' | translate}}
-      </mat-option>
-      <mat-option value="DEBIT">
-        {{'generic.transaction.type.DEBIT' | translate}}
-      </mat-option>
-    </mat-select>
-    <mat-error [innerHtml]="getFirstErrorTranslateKey('wallet') | translate : formGroup.get('wallet')?.errors ">
-    </mat-error>
-  </mat-form-field>
+  <app-select id="type" [control]="formGroup.get('type')" [label]="getTranslateKey('typeLabel') | translate"
+    [placeholder]="getTranslateKey('typePlaceholder') | translate" [dataSource]="transactionTypes" attributeLabel="type"
+    [optionTemplate]="typeOptionsTemplate">
+    <ng-template #typeOptionsTemplate let-item="item">
+      {{'generic.transaction.type.' + item | translate}}
+    </ng-template>
+  </app-select>
 
-  <mat-form-field class="mhc-full-width" appearance="outline">
-    <mat-label>{{getTranslateKey('walletLabel') | translate}}</mat-label>
-    <mat-select name="wallet" formControlName="wallet" [placeholder]="getTranslateKey('walletPlaceholder') | translate"
-      appCompareObjectId>
-      @for(wallet of wallets; track $index) {
-      <mat-option [value]="wallet">
-        <span>{{wallet.name}}</span>
-        @if (!wallet.active) {
-        <span>&nbsp;</span>
-        <span>--{{getTranslateKey('desactivatedWallet') | translate}}--</span>
-        }
-      </mat-option>
+  <app-select id="wallet" [control]="formGroup.get('wallet')" [label]="getTranslateKey('walletLabel') | translate"
+    [placeholder]="getTranslateKey('walletPlaceholder') | translate" [dataSource]="wallets" attributeLabel="name"
+    [optionTemplate]="walletOptionsTemplate">
+    <ng-template #walletOptionsTemplate let-item="item">
+      <span>{{item.name}}</span>
+      @if (!item.active) {
+      <span>&nbsp;</span>
+      <span>--{{getTranslateKey('desactivatedWallet') | translate}}--</span>
       }
-    </mat-select>
-    <mat-error [innerHtml]="getFirstErrorTranslateKey('wallet') | translate : formGroup.get('wallet')?.errors ">
-    </mat-error>
-  </mat-form-field>
+    </ng-template>
+  </app-select>
 
-  <mat-form-field class="mhc-full-width" appearance="outline">
-    <mat-label>{{getTranslateKey('methodLabel') | translate}}</mat-label>
-    <mat-select name="method" formControlName="method" [placeholder]="getTranslateKey('methodPlaceholder') | translate"
-      appCompareObjectId>
-      @for(method of formGroup.get('wallet')?.value?.availableTransactionMethods || []; track $index) {
-      <mat-option [value]="method">
-        {{'generic.transaction.method.' + method | translate}}
-      </mat-option>
-      }
-    </mat-select>
-    <mat-error [innerHtml]="getFirstErrorTranslateKey('method') | translate : formGroup.get('method')?.errors ">
-    </mat-error>
-  </mat-form-field>
+  <app-select id="method" [control]="formGroup.get('method')" [label]="getTranslateKey('methodLabel') | translate"
+    [placeholder]="getTranslateKey('methodPlaceholder') | translate"
+    [dataSource]="formGroup.get('wallet')?.value?.availableTransactionMethods || []" attributeLabel="method"
+    [optionTemplate]="methodOptionsTemplate">
+    <ng-template #methodOptionsTemplate let-item="item">
+      {{'generic.transaction.method.' + item | translate}}
+    </ng-template>
+  </app-select>
 
   <mat-card>
     <mat-card-header>
@@ -78,21 +60,15 @@
     <mat-card-actions class="d-flex flex-column">
       <form [formGroup]="formCategories" class="mhc-full-width" (ngSubmit)="addCategory(formCategories)">
 
-        <mat-form-field class="mhc-full-width" appearance="outline">
-          <mat-label>{{getTranslateKey('categoryLabel') | translate}}</mat-label>
-          <mat-select name="category" formControlName="category"
-            [placeholder]="getTranslateKey('categoryPlaceholder') | translate">
-            @for(category of categories; track $index) {
-            <mat-option [value]="category">
-              <mat-icon class="mat-18" [style.color]="category.color">{{category.icon}}</mat-icon>
-              <span>{{category.name}}</span>
-            </mat-option>
-            }
-          </mat-select>
-          <mat-error
-            [innerHtml]="getFirstErrorTranslateKey('category', formCategories) | translate : formCategories.get('category')?.errors ">
-          </mat-error>
-        </mat-form-field>
+        <app-select id="category" [control]="formCategories.get('category')"
+          [label]="getTranslateKey('categoryLabel') | translate"
+          [placeholder]="getTranslateKey('categoryPlaceholder') | translate" [dataSource]="categories"
+          attributeLabel="name" [optionTemplate]="categoryOptionsTemplate">
+          <ng-template #categoryOptionsTemplate let-item="item">
+            <mat-icon class="mat-18" [style.color]="item.color">{{item.icon}}</mat-icon>
+            <span>{{item.name}}</span>
+          </ng-template>
+        </app-select>
 
         <app-input id="amount" [control]="formCategories.get('amount')"
           [label]="getTranslateKey('categoryAmountLabel') | translate"

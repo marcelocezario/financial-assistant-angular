@@ -1,16 +1,14 @@
 import { ActivatedRoute, Router } from '@angular/router';
-import { Category, Transaction, TransactionCategory, Wallet } from '../../../core/models';
+import { Category, Transaction, TransactionCategory, TransactionType, Wallet } from '../../../core/models';
 import { CategoryService } from '../../categories';
 import { CommonModule } from '@angular/common';
-import { CompareObjectIdDirective, DialogService, FormBaseDirective, InputComponent, InputDatetimeComponent, LanguageService, NotificationService, StorageService } from '../../../shared';
+import { DialogService, FormBaseDirective, InputComponent, InputDatetimeComponent, LanguageService, NotificationService, SelectComponent, StorageService } from '../../../shared';
 import { Component, OnInit } from '@angular/core';
 import { FormArray, FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatCheckboxModule } from '@angular/material/checkbox';
-import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
-import { MatSelectModule } from '@angular/material/select';
 import { MatSortModule } from '@angular/material/sort';
 import { MatTableModule } from '@angular/material/table';
 import { ROUTES_KEYS } from '../../../core/config';
@@ -24,18 +22,16 @@ import Decimal from 'decimal.js';
   standalone: true,
   imports: [
     CommonModule,
-    CompareObjectIdDirective,
     InputComponent,
     InputDatetimeComponent,
     MatButtonModule,
     MatCardModule,
     MatCheckboxModule,
-    MatFormFieldModule,
     MatIconModule,
-    MatSelectModule,
     MatSortModule,
     MatTableModule,
     ReactiveFormsModule,
+    SelectComponent,
     TranslateModule,
   ],
   templateUrl: './transactions-form-page.component.html',
@@ -45,6 +41,7 @@ export class TransactionsFormPageComponent extends FormBaseDirective implements 
 
   categories: Category[] = []
   wallets: Wallet[] = []
+  transactionTypes = Object.keys(TransactionType);
 
   formCategories: FormGroup<any> = this._formBuilder.group({
     category: [null, [Validators.required]],

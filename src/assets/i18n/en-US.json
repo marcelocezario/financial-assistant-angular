@@ -80,8 +80,8 @@
       "notes": "notes",
       "transactionType": "type",
       "type": {
-        "CREDIT": "credit",
-        "DEBIT": "debit"
+        "INCOME": "Income",
+        "EXPENSE": "Expense"
       },
       "updatedAt": "updated at",
       "wallet": "wallet"

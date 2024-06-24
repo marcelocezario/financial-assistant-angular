@@ -1,29 +1,43 @@
+import { ActivatedRoute, Router } from '@angular/router';
+import { Category, Transaction, TransactionCategory, Wallet } from '../../../core/models';
+import { CategoryService } from '../../categories';
+import { CommonModule } from '@angular/common';
+import { CompareObjectIdDirective, DialogService, FormBaseDirective, InputComponent, InputDatetimeComponent, LanguageService, NotificationService, StorageService } from '../../../shared';
 import { Component, OnInit } from '@angular/core';
 import { FormArray, FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
+import { MatCardModule } from '@angular/material/card';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatInputModule } from '@angular/material/input';
+import { MatIconModule } from '@angular/material/icon';
 import { MatSelectModule } from '@angular/material/select';
-import { TranslateModule } from '@ngx-translate/core';
-import { CompareObjectIdDirective, DialogService, FormBaseDirective, InputDatetimeComponent, LanguageService, NotificationService, StorageService } from '../../../shared';
-import { CategoryService } from '../../categories';
-import { WalletService } from '../../wallets';
-import { Category, Transaction, TransactionCategory, Wallet } from '../../../core/models';
-import { ActivatedRoute, Router } from '@angular/router';
+import { MatSortModule } from '@angular/material/sort';
+import { MatTableModule } from '@angular/material/table';
 import { ROUTES_KEYS } from '../../../core/config';
 import { TransactionService } from '../transaction.service';
-import { MatTableModule } from '@angular/material/table';
-import { MatIconModule } from '@angular/material/icon';
-import { MatSortModule } from '@angular/material/sort';
-import { CommonModule } from '@angular/common';
-import { MatCardModule } from '@angular/material/card';
+import { TranslateModule } from '@ngx-translate/core';
+import { WalletService } from '../../wallets';
 import Decimal from 'decimal.js';
 
 @Component({
   selector: 'app-transactions-form-page',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule, MatFormFieldModule, MatInputModule, MatButtonModule, TranslateModule, MatCheckboxModule, MatSelectModule, CompareObjectIdDirective, MatTableModule, MatIconModule, MatSortModule, MatCardModule, InputDatetimeComponent],
+  imports: [
+    CommonModule,
+    CompareObjectIdDirective,
+    InputComponent,
+    InputDatetimeComponent,
+    MatButtonModule,
+    MatCardModule,
+    MatCheckboxModule,
+    MatFormFieldModule,
+    MatIconModule,
+    MatSelectModule,
+    MatSortModule,
+    MatTableModule,
+    ReactiveFormsModule,
+    TranslateModule,
+  ],
   templateUrl: './transactions-form-page.component.html',
   styleUrl: './transactions-form-page.component.scss'
 })

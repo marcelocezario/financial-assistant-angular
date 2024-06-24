@@ -10,7 +10,7 @@ import { MatInputModule } from '@angular/material/input';
 import { TranslateModule } from '@ngx-translate/core';
 
 // type InputTypes = 'color' | 'date' | 'datetime-local' | 'email' | 'month' | 'number' | 'password' | 'search' | 'tel' | 'text' | 'time' | 'url' | 'week'
-type InputTypes = 'email' | 'number' | 'password' | 'search' | 'tel' | 'text' | 'url'
+type InputTypes = 'email' | 'number' | 'password' | 'search' | 'tel' | 'text' | 'textarea' | 'url'
 
 @Component({
   selector: 'app-input',

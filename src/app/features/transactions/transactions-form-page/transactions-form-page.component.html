@@ -1,31 +1,21 @@
 <form class="mhc-form" [formGroup]="formGroup" (ngSubmit)="onSubmit()">
 
-  <mat-form-field class="mhc-full-width" appearance="outline">
-    <mat-label>{{ getTranslateKey('amountLabel') | translate }}</mat-label>
-    <input matInput type="number" step="0.01" name="amount" formControlName="amount"
-      [placeholder]="getTranslateKey('amountPlaceholder') | translate" (change)="updateCategoriesAmountDiff()">
-    <mat-error [innerHtml]="getFirstErrorTranslateKey('amount') | translate : formGroup.get('amount')?.errors ">
-    </mat-error>
-  </mat-form-field>
+  <app-input id="amount" [control]="formGroup.get('amount')" [label]="getTranslateKey('amountLabel') | translate"
+    [placeholder]="getTranslateKey('amountPlaceholder') | translate" type="number" [step]="0.01">
+  </app-input>
 
   <app-input-datetime id="moment" [label]="getTranslateKey('momentLabel') | translate"
     [placeholder]="getTranslateKey('momentPlaceholder') | translate" [control]="formGroup.get('moment')">
   </app-input-datetime>
 
-  <mat-form-field class="mhc-full-width" appearance="outline">
-    <mat-label>{{ getTranslateKey('notesLabel') | translate }}</mat-label>
-    <textarea matInput formControlName="notes"
-      [placeholder]="getTranslateKey('notesPlaceholder') | translate"></textarea>
-  </mat-form-field>
+  <app-input id="notes" [control]="formGroup.get('notes')" [label]="getTranslateKey('notesLabel') | translate"
+    [placeholder]="getTranslateKey('notesPlaceholder') | translate" type="textarea">
+  </app-input>
 
-  <mat-form-field class="mhc-full-width" appearance="outline">
-    <mat-label>{{ getTranslateKey('currentInstallmentLabel') | translate }}</mat-label>
-    <input matInput type="number" step="1" name="currentInstallment" formControlName="currentInstallment"
-      [placeholder]="getTranslateKey('currentInstallmentPlaceholder') | translate">
-    <mat-error
-      [innerHtml]="getFirstErrorTranslateKey('currentInstallment') | translate : formGroup.get('currentInstallment')?.errors ">
-    </mat-error>
-  </mat-form-field>
+  <app-input id="currentInstallment" [control]="formGroup.get('currentInstallment')"
+    [label]="getTranslateKey('currentInstallmentLabel') | translate"
+    [placeholder]="getTranslateKey('currentInstallmentPlaceholder') | translate" type="number" [step]="1">
+  </app-input>
 
   <mat-form-field class="mhc-full-width" appearance="outline">
     <mat-label>{{getTranslateKey('typeLabel') | translate}}</mat-label>
@@ -104,20 +94,11 @@
           </mat-error>
         </mat-form-field>
 
-        <mat-form-field class="mhc-full-width" appearance="outline">
-          <mat-label>{{getTranslateKey('categoryAmountLabel') | translate}}</mat-label>
-          @if (formGroup.get('wallet')?.value) {
-          <span matTextPrefix>
-            <span>{{(formGroup.get('wallet')?.value).currency.symbol}}</span>
-            <span>&nbsp;</span>
-          </span>
-          }
-          <input matInput type="number" step="0.01" name="amount" formControlName="amount"
-            [placeholder]="getTranslateKey('categoryAmountPlaceholder') | translate">
-          <mat-error
-            [innerHtml]="getFirstErrorTranslateKey('amount', formCategories) | translate : formCategories.get('amount')?.errors ">
-          </mat-error>
-        </mat-form-field>
+        <app-input id="amount" [control]="formCategories.get('amount')"
+          [label]="getTranslateKey('categoryAmountLabel') | translate"
+          [placeholder]="getTranslateKey('categoryAmountPlaceholder') | translate" type="number" [step]="0.01"
+          [textPrefix]="(formGroup.get('wallet')?.value)?.currency?.symbol">
+        </app-input>
 
         <button matTextSuffix type="submit" mat-flat-button color="primary" class="mhc-flex-1">
           <mat-icon class="mat-18">add</mat-icon>

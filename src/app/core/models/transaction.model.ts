@@ -6,7 +6,7 @@ import { Wallet } from "./wallet.model"
 export interface Transaction {
   id: string
   amount: number
-  moment: Date
+  paymentMoment: Date
   notes?: string
   type: TransactionType
   method: TransactionMethod

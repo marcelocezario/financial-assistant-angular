@@ -1,23 +1,36 @@
-import { ROUTES_KEYS } from './../../../core/config/routes-keys.config';
-import { Component, OnInit } from '@angular/core';
-import { TransactionService } from '../transaction.service';
-import { DialogService, LanguageService, NotificationService, Page, Pageable, TimelineDividerComponent, TimelineItemComponent } from '../../../shared';
-import { Transaction } from '../../../core/models';
-import { MatDividerModule } from '@angular/material/divider';
-import { MatButtonModule } from '@angular/material/button';
-import { MatIconModule } from '@angular/material/icon';
-import { TransactionCardComponent } from './transaction-card/transaction-card.component';
-import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatInputModule } from '@angular/material/input';
-import { TranslateModule } from '@ngx-translate/core';
-import { RouterModule } from '@angular/router';
-import { TimelineComponent } from '../../../shared/components/timeline/timeline.component';
 import { AppRelativeTimePipe } from '../../../shared/pipes/app-relative-time.pipe';
+import { Component, OnInit } from '@angular/core';
+import { DialogService, LanguageService, NotificationService, Page, Pageable, TimelineDividerComponent, TimelineItemComponent } from '../../../shared';
+import { MatButtonModule } from '@angular/material/button';
+import { MatDividerModule } from '@angular/material/divider';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatIconModule } from '@angular/material/icon';
+import { MatInputModule } from '@angular/material/input';
+import { RouterModule } from '@angular/router';
+import { ROUTES_KEYS } from './../../../core/config/routes-keys.config';
+import { TimelineComponent } from '../../../shared/components/timeline/timeline.component';
+import { Transaction } from '../../../core/models';
+import { TransactionCardComponent } from './transaction-card/transaction-card.component';
+import { TransactionService } from '../transaction.service';
+import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-transactions-page',
   standalone: true,
-  imports: [AppRelativeTimePipe, MatDividerModule, MatButtonModule, MatIconModule, TransactionCardComponent, TimelineComponent, TimelineItemComponent, MatFormFieldModule, MatInputModule, TranslateModule, RouterModule, TimelineDividerComponent],
+  imports: [
+    AppRelativeTimePipe,
+    MatButtonModule,
+    MatDividerModule,
+    MatFormFieldModule,
+    MatIconModule,
+    MatInputModule,
+    RouterModule,
+    TimelineComponent,
+    TimelineDividerComponent,
+    TimelineItemComponent,
+    TransactionCardComponent,
+    TranslateModule,
+  ],
   templateUrl: './transactions-page.component.html',
   styleUrl: './transactions-page.component.scss'
 })
@@ -29,7 +42,7 @@ export class TransactionsPageComponent implements OnInit {
   pageable: Pageable<Transaction> = {
     page: 0,
     size: 24,
-    sort: [['moment', 'desc'], ['amount', 'desc'], ['id', 'desc']]
+    sort: [['paymentMoment', 'desc'], ['amount', 'desc'], ['id', 'desc']]
   }
 
   constructor(
@@ -90,8 +103,8 @@ export class TransactionsPageComponent implements OnInit {
 
   isSameDate(transaction1: Transaction, transaction2: Transaction): boolean {
 
-    const date1: Date | undefined = new Date(transaction1?.moment);
-    const date2: Date | undefined = new Date(transaction2?.moment);
+    const date1: Date | undefined = new Date(transaction1?.paymentMoment);
+    const date2: Date | undefined = new Date(transaction2?.paymentMoment);
 
     if (!date1 || !date2) {
       return false;

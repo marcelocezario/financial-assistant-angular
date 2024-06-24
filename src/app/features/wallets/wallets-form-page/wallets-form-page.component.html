@@ -1,11 +1,8 @@
 <form class="mhc-form" [formGroup]="formGroup" (ngSubmit)="onSubmit()">
 
-  <mat-form-field class="mhc-full-width" appearance="outline">
-    <mat-label>{{getTranslateKey('nameLabel') | translate}}</mat-label>
-    <input matInput name="name" formControlName="name" [placeholder]="getTranslateKey('namePlaceholder') | translate">
-    <mat-error [innerHtml]="getFirstErrorTranslateKey('name') | translate : formGroup.get('name')?.errors ">
-    </mat-error>
-  </mat-form-field>
+  <app-input id="name" [control]="formGroup.get('name')" [label]="getTranslateKey('nameLabel') | translate"
+    [placeholder]="getTranslateKey('namePlaceholder') | translate">
+  </app-input>
 
   <mat-form-field class="mhc-full-width" appearance="outline">
     <mat-label>{{getTranslateKey('currencyLabel') | translate}}</mat-label>
@@ -26,19 +23,10 @@
     </mat-error>
   </mat-form-field>
 
-  <mat-form-field class="mhc-full-width" appearance="outline">
-    <mat-label>{{getTranslateKey('balanceLabel') | translate}}</mat-label>
-    @if (formGroup.get('currency')?.value) {
-    <span matTextPrefix>
-      <span>{{(formGroup.get('currency')?.value).symbol}}</span>
-      <span>&nbsp;</span>
-    </span>
-    }
-    <input matInput type="number" name="balance" formControlName="balance"
-      [placeholder]="getTranslateKey('balancePlaceholder') | translate">
-    <mat-error [innerHtml]="getFirstErrorTranslateKey('balance') | translate : formGroup.get('balance')?.errors ">
-    </mat-error>
-  </mat-form-field>
+  <app-input id="balance" [control]="formGroup.get('balance')" [label]="getTranslateKey('balanceLabel') | translate"
+    [placeholder]="getTranslateKey('balancePlaceholder') | translate" type="number" [step]="0.01"
+    [textPrefix]="(formGroup.get('currency')?.value)?.symbol">
+  </app-input>
 
   <mat-form-field class="mhc-full-width" appearance="outline">
     <mat-label>{{getTranslateKey('typeLabel') | translate}}</mat-label>
@@ -55,62 +43,39 @@
   </mat-form-field>
 
   @switch (formGroup.get('type')?.value) {
-    @case ('BANK_ACCOUNT') {
-      <h2>{{getTranslateKey('additionalInfoForBankAccount') | translate}}</h2>
-      <mat-form-field class="mhc-full-width" appearance="outline">
-        <mat-label>{{getTranslateKey('creditLimitLabel') | translate}}</mat-label>
-        @if (formGroup.get('currency')?.value) {
-        <span matTextPrefix>
-          <span>{{(formGroup.get('currency')?.value).symbol}}</span>
-          <span>&nbsp;</span>
-        </span>
-        }
-        <input matInput type="number" name="creditLimit" formControlName="creditLimit"
-          [placeholder]="getTranslateKey('creditLimitPlaceholder') | translate">
-        <mat-error [innerHtml]="getFirstErrorTranslateKey('creditLimit') | translate : formGroup.get('creditLimit')?.errors ">
-        </mat-error>
-      </mat-form-field>
+  @case ('BANK_ACCOUNT') {
+  <h2>{{getTranslateKey('additionalInfoForBankAccount') | translate}}</h2>
 
-      <mat-form-field class="mhc-full-width" appearance="outline">
-        <mat-label>{{getTranslateKey('interestRateLabel') | translate}}</mat-label>
-        <input matInput type="number" name="interestRate" formControlName="interestRate"
-          [placeholder]="getTranslateKey('interestRatePlaceholder') | translate">
-        <mat-error [innerHtml]="getFirstErrorTranslateKey('interestRate') | translate : formGroup.get('interestRate')?.errors ">
-        </mat-error>
-      </mat-form-field>
-    }
-    @case ('CREDIT_CARD') {
-      <h2>{{getTranslateKey('additionalInfoForCreditCard') | translate}}</h2>
-      <mat-form-field class="mhc-full-width" appearance="outline">
-        <mat-label>{{getTranslateKey('creditLimitLabel') | translate}}</mat-label>
-        @if (formGroup.get('currency')?.value) {
-        <span matTextPrefix>
-          <span>{{(formGroup.get('currency')?.value).symbol}}</span>
-          <span>&nbsp;</span>
-        </span>
-        }
-        <input matInput type="number" name="creditLimit" formControlName="creditLimit"
-          [placeholder]="getTranslateKey('creditLimitPlaceholder') | translate">
-        <mat-error [innerHtml]="getFirstErrorTranslateKey('creditLimit') | translate : formGroup.get('creditLimit')?.errors ">
-        </mat-error>
-      </mat-form-field>
+  <app-input id="creditLimit" [control]="formGroup.get('creditLimit')"
+    [label]="getTranslateKey('creditLimitLabel') | translate"
+    [placeholder]="getTranslateKey('balancePlaceholder') | translate" type="number" [step]="0.01"
+    [textPrefix]="(formGroup.get('currency')?.value)?.symbol">
+  </app-input>
 
-      <mat-form-field class="mhc-full-width" appearance="outline">
-        <mat-label>{{getTranslateKey('billingCycleDateLabel') | translate}}</mat-label>
-        <input matInput type="number" name="billingCycleDate" formControlName="billingCycleDate"
-          [placeholder]="getTranslateKey('billingCycleDatePlaceholder') | translate">
-        <mat-error [innerHtml]="getFirstErrorTranslateKey('billingCycleDate') | translate : formGroup.get('billingCycleDate')?.errors ">
-        </mat-error>
-      </mat-form-field>
+  <app-input id="interestRate" [control]="formGroup.get('interestRate')"
+    [label]="getTranslateKey('interestRateLabel') | translate"
+    [placeholder]="getTranslateKey('interestRatePlaceholder') | translate" type="number" [step]="0.01" textSuffix="%">
+  </app-input>
+  }
+  @case ('CREDIT_CARD') {
+  <h2>{{getTranslateKey('additionalInfoForCreditCard') | translate}}</h2>
 
-      <mat-form-field class="mhc-full-width" appearance="outline">
-        <mat-label>{{getTranslateKey('dueDateLabel') | translate}}</mat-label>
-        <input matInput type="number" name="dueDate" formControlName="dueDate"
-          [placeholder]="getTranslateKey('dueDatePlaceholder') | translate">
-        <mat-error [innerHtml]="getFirstErrorTranslateKey('dueDate') | translate : formGroup.get('dueDate')?.errors ">
-        </mat-error>
-      </mat-form-field>
-    }
+  <app-input id="creditLimit" [control]="formGroup.get('creditLimit')"
+    [label]="getTranslateKey('creditLimitLabel') | translate"
+    [placeholder]="getTranslateKey('balancePlaceholder') | translate" type="number" [step]="0.01"
+    [textPrefix]="(formGroup.get('currency')?.value)?.symbol">
+  </app-input>
+
+  <app-input id="billingCycleDate" [control]="formGroup.get('billingCycleDate')"
+    [label]="getTranslateKey('billingCycleDateLabel') | translate"
+    [placeholder]="getTranslateKey('billingCycleDatePlaceholder') | translate" type="number" [step]="1">
+  </app-input>
+
+  <app-input id="dueDate" [control]="formGroup.get('dueDate')" [label]="getTranslateKey('dueDateLabel') | translate"
+    [placeholder]="getTranslateKey('dueDatePlaceholder') | translate" type="number" [step]="1">
+  </app-input>
+
+  }
   }
 
   <mat-checkbox formControlName="active">

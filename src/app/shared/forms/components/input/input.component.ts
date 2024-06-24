@@ -41,6 +41,7 @@ export class InputComponent implements OnInit {
   @Input() maxlength: number | null = null;
   @Input() step: number | undefined;
   @Input() textPrefix: string | undefined;
+  @Input() textSuffix: string | undefined;
   @Input() type: InputTypes = 'text';
 
   appearance = INPUT_CONFIG.appearance;

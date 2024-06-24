@@ -1,23 +1,31 @@
-import { Component, OnInit } from '@angular/core';
-import { CompareObjectIdDirective, FormBaseDirective, LanguageService, NotificationService, StorageService } from '../../../shared';
-import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
-import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatInputModule } from '@angular/material/input';
-import { MatButtonModule } from '@angular/material/button';
-import { TranslateModule } from '@ngx-translate/core';
-import { MatCheckboxModule } from '@angular/material/checkbox';
 import { ActivatedRoute, Router } from '@angular/router';
-import { ROUTES_KEYS } from '../../../core/config';
+import { CompareObjectIdDirective, FormBaseDirective, InputComponent, LanguageService, NotificationService, StorageService } from '../../../shared';
+import { Component, OnInit } from '@angular/core';
 import { Currency, Wallet } from '../../../core/models';
+import { CurrencyService } from '../../currencies';
+import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { MatButtonModule } from '@angular/material/button';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatSelectModule } from '@angular/material/select';
+import { ROUTES_KEYS } from '../../../core/config';
+import { TranslateModule } from '@ngx-translate/core';
 import { WalletService } from '../wallet.service';
 import { WalletType } from '../../../core/models/wallet-type.enum';
-import { MatSelectModule } from '@angular/material/select';
-import { CurrencyService } from '../../currencies';
 
 @Component({
   selector: 'app-wallets-form-page',
   standalone: true,
-  imports: [ReactiveFormsModule, MatFormFieldModule, MatInputModule, MatButtonModule, TranslateModule, MatCheckboxModule, MatSelectModule, CompareObjectIdDirective],
+  imports: [
+    CompareObjectIdDirective,
+    InputComponent,
+    MatButtonModule,
+    MatCheckboxModule,
+    MatFormFieldModule,
+    MatSelectModule,
+    ReactiveFormsModule,
+    TranslateModule,
+  ],
   templateUrl: './wallets-form-page.component.html',
   styleUrl: './wallets-form-page.component.scss'
 })
@@ -35,7 +43,6 @@ export class WalletsFormPageComponent extends FormBaseDirective implements OnIni
     type: [null],
     createdAt: [null],
     updatedAt: [null],
-
   })
 
   constructor(
@@ -100,7 +107,7 @@ export class WalletsFormPageComponent extends FormBaseDirective implements OnIni
   }
 
   onTypeChange(type: WalletType) {
-    switch(type) {
+    switch (type) {
       case WalletType.BANK_ACCOUNT:
         this.formGroup.addControl('creditLimit', this._formBuilder.control(null, [Validators.required, Validators.min(0)]))
         this.formGroup.addControl('interestRate', this._formBuilder.control(null, [Validators.required, Validators.min(0), Validators.max(100)]))

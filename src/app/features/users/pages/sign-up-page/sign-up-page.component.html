@@ -1,37 +1,22 @@
 <form class="mhc-form" [formGroup]="formGroup" (ngSubmit)="onSubmit()">
 
-  <mat-form-field class="mhc-full-width" appearance="outline">
-    <mat-label>{{getTranslateKey('nicknameLabel') | translate}}</mat-label>
-    <input matInput name="nickname" formControlName="nickname"
-      [placeholder]="getTranslateKey('nicknamePlaceholder') | translate">
-    <mat-error [innerHtml]="getFirstErrorTranslateKey('nickname') | translate : formGroup.get('nickname')?.errors ">
-    </mat-error>
-  </mat-form-field>
+  <app-input id="nickname" [control]="formGroup.get('nickname')" [label]="getTranslateKey('nicknameLabel') | translate"
+    [placeholder]="getTranslateKey('nicknamePlaceholder') | translate">
+  </app-input>
 
-  <mat-form-field class="mhc-full-width" appearance="outline">
-    <mat-label>{{getTranslateKey('emailLabel') | translate}}</mat-label>
-    <input matInput type="email" name="email" formControlName="email"
-      [placeholder]="getTranslateKey('emailPlaceholder') | translate">
-    <mat-error [innerHtml]="getFirstErrorTranslateKey('email') | translate : formGroup.get('email')?.errors ">
-    </mat-error>
-  </mat-form-field>
+  <app-input id="email" [control]="formGroup.get('email')" [label]="getTranslateKey('emailLabel') | translate"
+    [placeholder]="getTranslateKey('emailPlaceholder') | translate" type="email">
+  </app-input>
 
-  <mat-form-field class="mhc-full-width" appearance="outline">
-    <mat-label>{{getTranslateKey('passwordLabel') | translate}}</mat-label>
-    <input matInput type="password" name="password" formControlName="password"
-      [placeholder]="getTranslateKey('passwordPlaceholder') | translate">
-    <mat-error [innerHtml]="getFirstErrorTranslateKey('password') | translate : formGroup.get('password')?.errors ">
-    </mat-error>
-  </mat-form-field>
+  <app-input id="password" [control]="formGroup.get('password')" [label]="getTranslateKey('passwordLabel') | translate"
+    [placeholder]="getTranslateKey('passwordPlaceholder') | translate" type="password" autocomplete="new-password">
+  </app-input>
 
-  <mat-form-field class="mhc-full-width" appearance="outline">
-    <mat-label>{{getTranslateKey('passwordConfirmationLabel') | translate}}</mat-label>
-    <input matInput type="password" name="passwordConfirmation" formControlName="passwordConfirmation"
-      [placeholder]="getTranslateKey('passwordConfirmationPlaceholder') | translate">
-    <mat-error
-      [innerHtml]="getFirstErrorTranslateKey('passwordConfirmation') | translate : formGroup.get('passwordConfirmation')?.errors ">
-    </mat-error>
-  </mat-form-field>
+  <app-input id="passwordConfirmation" [control]="formGroup.get('passwordConfirmation')"
+    [label]="getTranslateKey('passwordConfirmationLabel') | translate"
+    [placeholder]="getTranslateKey('passwordConfirmationPlaceholder') | translate" type="password"
+    autocomplete="new-password-confirmation">
+  </app-input>
 
   <div class="d-flex flex-column mhc-form-actions">
     <button type="submit" mat-raised-button color="primary">

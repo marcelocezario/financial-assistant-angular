@@ -1,7 +1,7 @@
 <mat-form-field [appearance]="appearance" class="mhc-full-width">
   <mat-label [attr.for]="id">{{ label }}</mat-label>
   <input matInput [id]="id" [name]="id" [type]="(type === 'password' && !hidePassword) ? 'text' : type" [step]="step"
-    [placeholder]="placeholder" [readonly]="!!isReadOnly" [formControl]="getFormControl()" [maxlength]="maxlength"
+    [placeholder]="placeholder" [readonly]="!!isReadOnly" [formControl]="getFormControl()" [maxlength]="maxlength" [autocomplete]="autocomplete"
     #input />
   @if (textPrefix) {
   <span matTextPrefix>{{ textPrefix }}&nbsp;</span>

@@ -1,19 +1,22 @@
 import { Component } from '@angular/core';
-import { FormBaseDirective, FormValidations, LanguageService, NotificationService } from '../../../../shared';
+import { FormBaseDirective, FormValidations, InputComponent, LanguageService, NotificationService } from '../../../../shared';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { MatButtonModule } from '@angular/material/button';
+import { Router } from '@angular/router';
+import { ROUTES_KEYS } from '../../../../core/config';
+import { TranslateModule } from '@ngx-translate/core';
 import { User } from '../../../../core/models';
 import { UserService } from '../../user.service';
-import { ROUTES_KEYS } from '../../../../core/config';
-import { Router } from '@angular/router';
-import { MatFormFieldModule } from '@angular/material/form-field';
-import { TranslateModule } from '@ngx-translate/core';
-import { MatInputModule } from '@angular/material/input';
-import { MatButtonModule } from '@angular/material/button';
 
 @Component({
   selector: 'app-sign-up-page',
   standalone: true,
-  imports: [ReactiveFormsModule, MatFormFieldModule, TranslateModule, MatInputModule, MatButtonModule],
+  imports: [
+    InputComponent,
+    MatButtonModule,
+    ReactiveFormsModule,
+    TranslateModule,
+  ],
   templateUrl: './sign-up-page.component.html',
   styleUrl: './sign-up-page.component.scss'
 })

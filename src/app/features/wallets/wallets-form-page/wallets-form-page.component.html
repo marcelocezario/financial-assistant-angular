@@ -4,43 +4,31 @@
     [placeholder]="getTranslateKey('namePlaceholder') | translate">
   </app-input>
 
-  <mat-form-field class="mhc-full-width" appearance="outline">
-    <mat-label>{{getTranslateKey('currencyLabel') | translate}}</mat-label>
-    <mat-select name="currency" formControlName="currency"
-      [placeholder]="getTranslateKey('currencyPlaceholder') | translate" appCompareObjectId>
-      @for(currency of currencies; track $index) {
-      <mat-option [value]="currency">
-        <span>{{'generic.currency.type.' + currency.code | translate}}</span>
-        <span>({{currency.symbol}})</span>
-        @if (!currency.active) {
-        <span>&nbsp;</span>
-        <span>--{{getTranslateKey('desactivatedCurrency') | translate}}--</span>
-        }
-      </mat-option>
+  <app-select id="currency" [control]="formGroup.get('currency')" [label]="getTranslateKey('currencyLabel') | translate"
+    [placeholder]="getTranslateKey('currencyPlaceholder') | translate" [dataSource]="currencies" attributeLabel="name"
+    [optionTemplate]="currencyOptionTemplate">
+    <ng-template #currencyOptionTemplate let-item="item">
+      <span>{{'generic.currency.type.' + item.code | translate}}</span>
+      <span>({{item.symbol}})</span>
+      @if (!item.active) {
+      <span>&nbsp;</span>
+      <span>--{{getTranslateKey('desactivatedCurrency') | translate}}--</span>
       }
-    </mat-select>
-    <mat-error [innerHtml]="getFirstErrorTranslateKey('currency') | translate : formGroup.get('currency')?.errors ">
-    </mat-error>
-  </mat-form-field>
+    </ng-template>
+  </app-select>
 
   <app-input id="balance" [control]="formGroup.get('balance')" [label]="getTranslateKey('balanceLabel') | translate"
     [placeholder]="getTranslateKey('balancePlaceholder') | translate" type="number" [step]="0.01"
     [textPrefix]="(formGroup.get('currency')?.value)?.symbol">
   </app-input>
 
-  <mat-form-field class="mhc-full-width" appearance="outline">
-    <mat-label>{{getTranslateKey('typeLabel') | translate}}</mat-label>
-    <mat-select name="type" formControlName="type" (selectionChange)="onTypeChange($event.value)"
-      [placeholder]="getTranslateKey('typePlaceholder') | translate" appCompareObjectId>
-      @for(type of walletTypes; track $index) {
-      <mat-option [value]="type">
-        {{'generic.wallet.type.' + type | translate}}
-      </mat-option>
-      }
-    </mat-select>
-    <mat-error [innerHtml]="getFirstErrorTranslateKey('type') | translate : formGroup.get('type')?.errors ">
-    </mat-error>
-  </mat-form-field>
+  <app-select id="type" [control]="formGroup.get('type')" [label]="getTranslateKey('typeLabel') | translate"
+    [placeholder]="getTranslateKey('typePlaceholder') | translate" [dataSource]="walletTypes" attributeLabel="type"
+    [optionTemplate]="typeOptionsTemplate" (selectionChange)="onTypeChange($event.value)">
+    <ng-template #typeOptionsTemplate let-item="item">
+      {{'generic.wallet.type.' + item | translate}}
+    </ng-template>
+  </app-select>
 
   @switch (formGroup.get('type')?.value) {
   @case ('BANK_ACCOUNT') {

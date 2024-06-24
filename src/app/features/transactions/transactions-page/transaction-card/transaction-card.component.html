@@ -1,14 +1,14 @@
 <div class="mhc-transaction-card-container">
   <div class="d-flex flex-row">
     <p class="mhc-transaction-moment">
-      {{transaction.moment | date: "dd-MMM-yyyy HH'h'mm"}}
+      {{transaction.paymentMoment | date: "dd-MMM-yyyy HH'h'mm"}}
     </p>
     <span class="mhc-empty-spacer"></span>
     <p class="mhc-transaction-amount" [ngClass]="{
-      'mhc-transaction-credit': transaction.type === 'CREDIT',
-      'mhc-transaction-debit': transaction.type === 'DEBIT',
+      'mhc-transaction-credit': transaction.type === 'INCOME',
+      'mhc-transaction-debit': transaction.type === 'EXPENSE',
     }">
-      @if (transaction.type === 'CREDIT') {
+      @if (transaction.type === 'INCOME') {
       <span>+</span>
       }
       <strong>

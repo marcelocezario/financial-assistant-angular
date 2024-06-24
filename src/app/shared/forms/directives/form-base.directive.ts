@@ -19,6 +19,7 @@ export abstract class FormBaseDirective {
   onSubmit(): void {
     this._submissionAttempted = true;
     if (this.formGroup.invalid) {
+      console.error(this.formGroup.errors, this.formGroup.value)
       return;
     }
     this.submit();

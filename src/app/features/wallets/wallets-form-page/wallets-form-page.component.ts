@@ -1,13 +1,11 @@
 import { ActivatedRoute, Router } from '@angular/router';
-import { CompareObjectIdDirective, FormBaseDirective, InputComponent, LanguageService, NotificationService, StorageService } from '../../../shared';
 import { Component, OnInit } from '@angular/core';
 import { Currency, Wallet } from '../../../core/models';
 import { CurrencyService } from '../../currencies';
+import { FormBaseDirective, InputComponent, LanguageService, NotificationService, SelectComponent, StorageService } from '../../../shared';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCheckboxModule } from '@angular/material/checkbox';
-import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatSelectModule } from '@angular/material/select';
 import { ROUTES_KEYS } from '../../../core/config';
 import { TranslateModule } from '@ngx-translate/core';
 import { WalletService } from '../wallet.service';
@@ -17,13 +15,11 @@ import { WalletType } from '../../../core/models/wallet-type.enum';
   selector: 'app-wallets-form-page',
   standalone: true,
   imports: [
-    CompareObjectIdDirective,
     InputComponent,
     MatButtonModule,
     MatCheckboxModule,
-    MatFormFieldModule,
-    MatSelectModule,
     ReactiveFormsModule,
+    SelectComponent,
     TranslateModule,
   ],
   templateUrl: './wallets-form-page.component.html',

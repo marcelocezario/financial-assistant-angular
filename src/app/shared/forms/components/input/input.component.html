@@ -1,8 +1,11 @@
 <mat-form-field [appearance]="appearance" class="mhc-full-width">
   <mat-label [attr.for]="id">{{ label }}</mat-label>
-  <input matInput [id]="id" [name]="id" [type]="(type === 'password' && !hidePassword) ? 'text' : type"
+  <input matInput [id]="id" [name]="id" [type]="(type === 'password' && !hidePassword) ? 'text' : type" [step]="step"
     [placeholder]="placeholder" [readonly]="!!isReadOnly" [formControl]="getFormControl()" [maxlength]="maxlength"
     #input />
+  @if (textPrefix) {
+  <span matTextPrefix>{{ textPrefix }}&nbsp;</span>
+  }
   @if (type === 'password') {
   <button type="button" mat-icon-button matSuffix (click)="hidePassword = !hidePassword">
     <mat-icon>{{ hidePassword ? "visibility_off" : "visibility" }}</mat-icon>

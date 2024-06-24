@@ -1,40 +1,24 @@
 <form class="mhc-form" [formGroup]="formGroup" (ngSubmit)="onSubmit()">
 
-  <mat-form-field class="mhc-full-width" appearance="outline">
-    <mat-label>{{ getTranslateKey('codeLabel') | translate }}</mat-label>
-    <input matInput name="code" formControlName="code" [placeholder]="getTranslateKey('codePlaceholder') | translate">
-    <mat-error [innerHtml]="getFirstErrorTranslateKey('code') | translate : formGroup.get('code')?.errors ">
-    </mat-error>
-  </mat-form-field>
+  <app-input id="code" [control]="formGroup.get('code')" [label]="getTranslateKey('codeLabel') | translate"
+    [placeholder]="getTranslateKey('codePlaceholder') | translate">
+  </app-input>
 
-  <mat-form-field class="mhc-full-width" appearance="outline">
-    <mat-label>{{ getTranslateKey('nameLabel') | translate }}</mat-label>
-    <input matInput name="name" formControlName="name" [placeholder]="getTranslateKey('namePlaceholder') | translate">
-    <mat-error [innerHtml]="getFirstErrorTranslateKey('name') | translate : formGroup.get('name')?.errors ">
-    </mat-error>
-  </mat-form-field>
+  <app-input id="name" [control]="formGroup.get('name')" [label]="getTranslateKey('nameLabel') | translate"
+    [placeholder]="getTranslateKey('namePlaceholder') | translate">
+  </app-input>
 
-  <mat-form-field class="mhc-full-width" appearance="outline">
-    <mat-label>{{ getTranslateKey('symbolLabel') | translate }}</mat-label>
-    <input matInput name="symbol" formControlName="symbol"
-      [placeholder]="getTranslateKey('symbolPlaceholder') | translate">
-    <mat-error [innerHtml]="getFirstErrorTranslateKey('symbol') | translate : formGroup.get('symbol')?.errors ">
-    </mat-error>
-  </mat-form-field>
+  <app-input id="symbol" [control]="formGroup.get('symbol')" [label]="getTranslateKey('symbolLabel') | translate"
+    [placeholder]="getTranslateKey('symbolPlaceholder') | translate">
+  </app-input>
 
-  <mat-form-field class="mhc-full-width" appearance="outline">
-    <mat-label>{{ getTranslateKey('brlRateLabel') | translate }}</mat-label>
-    <input matInput type="number" name="brlRate" formControlName="brlRate"
-      [placeholder]="getTranslateKey('brlRatePlaceholder') | translate">
-    <mat-error
-      [innerHtml]="getFirstErrorTranslateKey('brlRateLabel') | translate : formGroup.get('brlRateLabel')?.errors ">
-    </mat-error>
-  </mat-form-field>
+  <app-input id="brlRate" [control]="formGroup.get('brlRate')" [label]="getTranslateKey('brlRateLabel') | translate"
+    [placeholder]="getTranslateKey('brlRatePlaceholder') | translate" type="number" [step]="0.01" textPrefix="R$ ">
+  </app-input>
 
   <mat-checkbox formControlName="active">
     {{ getTranslateKey('activeLabel') | translate }}
   </mat-checkbox>
-
 
   <div class="d-flex flex-column mhc-form-actions">
     <button type="submit" mat-raised-button color="primary">

@@ -1,20 +1,24 @@
+import { ActivatedRoute, Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
+import { Currency } from '../../../core/models';
+import { CurrencyService } from '../currency.service';
+import { FormBaseDirective, InputComponent, LanguageService, NotificationService, StorageService } from '../../../shared';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
-import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatInputModule } from '@angular/material/input';
-import { TranslateModule } from '@ngx-translate/core';
-import { FormBaseDirective, LanguageService, NotificationService, StorageService } from '../../../shared';
-import { ActivatedRoute, Router } from '@angular/router';
-import { CurrencyService } from '../currency.service';
-import { ROUTES_KEYS } from '../../../core/config';
-import { Currency } from '../../../core/models';
 import { MatCheckboxModule } from '@angular/material/checkbox';
+import { ROUTES_KEYS } from '../../../core/config';
+import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-currencies-form-page',
   standalone: true,
-  imports: [ReactiveFormsModule, MatFormFieldModule, MatInputModule, TranslateModule, MatButtonModule, MatCheckboxModule],
+  imports: [
+    InputComponent,
+    MatButtonModule,
+    MatCheckboxModule,
+    ReactiveFormsModule,
+    TranslateModule,
+  ],
   templateUrl: './currencies-form-page.component.html',
   styleUrl: './currencies-form-page.component.scss'
 })

@@ -58,6 +58,51 @@
     "helloApp": "Hello {{user}}, welcome!",
     "loading": "Please wait a moment, loading data...",
     "no": "No",
+    "relativeTime": {
+      "DAY_OF_WEEK": {
+        "friday": "friday",
+        "monday": "monday",
+        "saturday": "saturday",
+        "sunday": "sunday",
+        "thursday": "thursday",
+        "tuesday": "tuesday",
+        "wednesday": "wednesday"
+      },
+      "DAYS": {
+        "plural": "{{count}} days",
+        "singular": "{{count}} day"
+      },
+      "FUTURE": "in {{relativeTime}}",
+      "HOURS": {
+        "plural": "{{count}} hours",
+        "singular": "{{count}} hour"
+      },
+      "MINUTES": {
+        "plural": "{{count}} minutes",
+        "singular": "{{count}} minute"
+      },
+      "MONTHS": {
+        "plural": "{{count}} months",
+        "singular": "{{count}} month"
+      },
+      "NOW": "now",
+      "PAST": "{{relativeTime}} ago",
+      "SECONDS": {
+        "plural": "{{count}} seconds",
+        "singular": "{{count}} second"
+      },
+      "TODAY": "today",
+      "TOMORROW": "tomorrow",
+      "WEEKS": {
+        "plural": "{{count}} weeks",
+        "singular": "{{count}} week"
+      },
+      "YEARS": {
+        "plural": "{{count}} years",
+        "singular": "{{count}} year"
+      },
+      "YESTERDAY": "yesterday"
+    },
     "terms": "Terms: \"{{terms}}\"",
     "transaction": {
       "active": "active",
@@ -80,8 +125,8 @@
       "notes": "notes",
       "transactionType": "type",
       "type": {
-        "INCOME": "Income",
-        "EXPENSE": "Expense"
+        "EXPENSE": "Expense",
+        "INCOME": "Income"
       },
       "updatedAt": "updated at",
       "wallet": "wallet"

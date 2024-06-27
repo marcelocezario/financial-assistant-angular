@@ -58,6 +58,51 @@
     "helloApp": "Olá {{user}}, bem vindo!",
     "loading": "Aguarde um momento, carregando dados...",
     "no": "Não",
+    "relativeTime": {
+      "DAY_OF_WEEK": {
+        "friday": "sexta-feira",
+        "monday": "segunda-feira",
+        "saturday": "sábado",
+        "sunday": "domingo",
+        "thursday": "quinta-feira",
+        "tuesday": "terça-feira",
+        "wednesday": "quarta-feira"
+      },
+      "DAYS": {
+        "plural": "{{count}} dias",
+        "singular": "{{count}} dia"
+      },
+      "FUTURE": "daqui {{relativeTime}}",
+      "HOURS": {
+        "plural": "{{count}} horas",
+        "singular": "{{count}} hora"
+      },
+      "MINUTES": {
+        "plural": "{{count}} minutos",
+        "singular": "{{count}} minuto"
+      },
+      "MONTHS": {
+        "plural": "{{count}} meses",
+        "singular": "{{count}} mês"
+      },
+      "NOW": "agora",
+      "PAST": "{{relativeTime}} atrás",
+      "SECONDS": {
+        "plural": "{{count}} segundos",
+        "singular": "{{count}} segundo"
+      },
+      "TODAY": "hoje",
+      "TOMORROW": "amanhã",
+      "WEEKS": {
+        "plural": "{{count}} semanas",
+        "singular": "{{count}} semana"
+      },
+      "YEARS": {
+        "plural": "{{count}} anos",
+        "singular": "{{count}} ano"
+      },
+      "YESTERDAY": "ontem"
+    },
     "terms": "Termos: \"{{terms}}\"",
     "transaction": {
       "active": "ativo",
@@ -80,8 +125,8 @@
       "notes": "observações",
       "transactionType": "tipo",
       "type": {
-        "INCOME": "Recebimento",
-        "EXPENSE": "Pagamento"
+        "EXPENSE": "Pagamento",
+        "INCOME": "Recebimento"
       },
       "updatedAt": "atualizado em",
       "wallet": "carteira"

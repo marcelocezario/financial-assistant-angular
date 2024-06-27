@@ -1,8 +1,10 @@
 <mat-toolbar color="primary">
   <mat-toolbar-row class="container">
+    @if ((isAuthenticated$ | async)) {
     <button mat-icon-button [matMenuTriggerFor]="menu">
       <mat-icon>menu</mat-icon>
     </button>
+    }
     <mat-menu #menu="matMenu">
       <button mat-menu-item [routerLink]="currenciesLink">
         <mat-icon>monetization_on</mat-icon>
@@ -21,13 +23,13 @@
         <span>{{getTranslateKey('transactions') | translate}}</span>
       </button>
       @if((isAdmin$ | async)) {
-        <button mat-menu-item [routerLink]="usersLink">
-          <mat-icon>group</mat-icon>
-          <span>{{getTranslateKey('users') | translate}}</span>
-        </button>
+      <button mat-menu-item [routerLink]="usersLink">
+        <mat-icon>group</mat-icon>
+        <span>{{getTranslateKey('users') | translate}}</span>
+      </button>
       }
     </mat-menu>
-  <a routerLink="/">My App</a>
+    <a routerLink="/">My App</a>
     <span class="mhc-empty-spacer"></span>
     <app-login-button />
   </mat-toolbar-row>

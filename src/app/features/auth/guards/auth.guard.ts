@@ -21,12 +21,14 @@ export const authGuard: CanActivateFn = async (route, state) => {
     await checkIsAuthenticated();
   }
   if (!isAuthenticated) {
-    const keyTitle = 'web.features.auth.guards.nonAuthenticated.title';
-    const keyMessage = 'web.features.auth.guards.nonAuthenticated.message';
-    languageService.getTranslate([keyTitle, keyMessage]).then(translated => {
-      notification.info(translated[keyMessage], translated[keyTitle]);
-    })
-    await dialogService.openComponent(LoginComponent).then();
+    const loginResponse = await dialogService.openComponent(LoginComponent).then();
+    if (!loginResponse || loginResponse.response === false) {
+      const keyTitle = 'web.features.auth.guards.nonAuthenticated.title';
+      const keyMessage = 'web.features.auth.guards.nonAuthenticated.message';
+      languageService.getTranslate([keyTitle, keyMessage]).then(translated => {
+        notification.info(translated[keyMessage], translated[keyTitle]);
+      })
+    }
     await checkIsAuthenticated();
   }
   return isAuthenticated;

@@ -17,5 +17,8 @@
     <app-transaction-card [transaction]="transaction" (deleteTransaction)="delete($event)"></app-transaction-card>
   </app-timeline-item>
   }
-  <button mat-raised-button (click)="findNextPage()">More</button>
+  <button mat-raised-button (click)="findNextPage()">
+    <mat-icon>add</mat-icon>
+    {{ getTranslateKey('moreTransactions') | translate }}
+  </button>
 </app-timeline>

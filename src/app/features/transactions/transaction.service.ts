@@ -41,7 +41,7 @@ export class TransactionService {
   async getByUser(pageable: Pageable<Transaction>): Promise<Page<Transaction>> {
     return new Promise((resolve, reject) => {
       this._apiService.httpGet(this._getPathWithUserId(), { pageable: pageable }).subscribe({
-        next: categories => resolve(categories),
+        next: response => resolve(response),
         error: error => reject(error)
       })
     });
@@ -50,7 +50,7 @@ export class TransactionService {
   async getByIdAndUser(id: string): Promise<Transaction> {
     return new Promise((resolve, reject) => {
       this._apiService.httpGet(`${this._getPathWithUserId()}/${id}`).subscribe({
-        next: categories => resolve(categories),
+        next: response => resolve(response),
         error: error => reject(error)
       })
     });

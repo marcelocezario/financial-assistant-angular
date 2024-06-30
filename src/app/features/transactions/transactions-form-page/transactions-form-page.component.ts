@@ -2,8 +2,8 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Category, Transaction, TransactionCategory, TransactionType, Wallet } from '../../../core/models';
 import { CategoryService } from '../../categories';
 import { CommonModule } from '@angular/common';
-import { DialogService, FormBaseDirective, InputComponent, InputDatetimeComponent, LanguageService, NotificationService, SelectComponent, StorageService } from '../../../shared';
 import { Component, OnInit } from '@angular/core';
+import { DialogService, FormBaseDirective, InputComponent, InputDatetimeComponent, LanguageService, NotificationService, SelectComponent, StorageService, Utils } from '../../../shared';
 import { FormArray, FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
@@ -16,6 +16,7 @@ import { TransactionService } from '../transaction.service';
 import { TranslateModule } from '@ngx-translate/core';
 import { WalletService } from '../../wallets';
 import Decimal from 'decimal.js';
+import { MatButtonToggleModule } from '@angular/material/button-toggle';
 
 @Component({
   selector: 'app-transactions-form-page',
@@ -33,6 +34,7 @@ import Decimal from 'decimal.js';
     ReactiveFormsModule,
     SelectComponent,
     TranslateModule,
+    MatButtonToggleModule,
   ],
   templateUrl: './transactions-form-page.component.html',
   styleUrl: './transactions-form-page.component.scss'
@@ -45,13 +47,15 @@ export class TransactionsFormPageComponent extends FormBaseDirective implements 
 
   formCategories: FormGroup<any> = this._formBuilder.group({
     category: [null, [Validators.required]],
-    amount: [null, [Validators.required, Validators.min(0)]]
+    amount: [null, [Validators.required, Validators.min(0)]],
+    type: [null]
   })
 
   override formGroup: FormGroup<any> = this._formBuilder.group({
     id: [null],
     amount: [null],
-    moment: [null],
+    dueDate: [null],
+    paymentMoment: [null],
     notes: [null],
     type: [null],
     method: [null],
@@ -94,6 +98,7 @@ export class TransactionsFormPageComponent extends FormBaseDirective implements 
     if (id) {
       this._transactionService.getByIdAndUser(id)
         .then(transaction => {
+          transaction.paymentMoment = Utils.formatDateTimeForInput(transaction.paymentMoment)
           this.formGroup.patchValue(transaction)
           if (this.wallets.findIndex(w => w.id === transaction.wallet.id) < 0) {
             this.wallets.unshift(transaction.wallet)

@@ -1,11 +1,12 @@
 <form class="mhc-form" [formGroup]="formGroup" (ngSubmit)="onSubmit()">
 
   <app-input id="amount" [control]="formGroup.get('amount')" [label]="getTranslateKey('amountLabel') | translate"
-    [placeholder]="getTranslateKey('amountPlaceholder') | translate" type="number" [step]="0.01">
+    [placeholder]="getTranslateKey('amountPlaceholder') | translate" type="number" [step]="0.01"
+    (change)="updateCategoriesAmountDiff()">
   </app-input>
 
-  <app-input-datetime id="moment" [label]="getTranslateKey('momentLabel') | translate"
-    [placeholder]="getTranslateKey('momentPlaceholder') | translate" [control]="formGroup.get('moment')">
+  <app-input-datetime id="paymentMoment" [label]="getTranslateKey('paymentMomentLabel') | translate"
+    [placeholder]="getTranslateKey('paymentMomentPlaceholder') | translate" [control]="formGroup.get('paymentMoment')">
   </app-input-datetime>
 
   <app-input id="notes" [control]="formGroup.get('notes')" [label]="getTranslateKey('notesLabel') | translate"
@@ -75,6 +76,11 @@
           [placeholder]="getTranslateKey('categoryAmountPlaceholder') | translate" type="number" [step]="0.01"
           [textPrefix]="(formGroup.get('wallet')?.value)?.currency?.symbol">
         </app-input>
+
+        <mat-button-toggle-group formControlName="type">
+          <mat-button-toggle value="INCOME">INCOME</mat-button-toggle>
+          <mat-button-toggle value="EXPENSE">EXPENSE</mat-button-toggle>
+        </mat-button-toggle-group>
 
         <button matTextSuffix type="submit" mat-flat-button color="primary" class="mhc-flex-1">
           <mat-icon class="mat-18">add</mat-icon>

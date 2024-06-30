@@ -102,6 +102,9 @@ export class TransactionsPageComponent implements OnInit {
   }
 
   isSameDate(transaction1: Transaction, transaction2: Transaction): boolean {
+    if (!transaction1?.paymentMoment || !transaction2?.paymentMoment) {
+      return false;
+    }
 
     const date1: Date | undefined = new Date(transaction1?.paymentMoment);
     const date2: Date | undefined = new Date(transaction2?.paymentMoment);

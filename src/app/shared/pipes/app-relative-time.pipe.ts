@@ -22,9 +22,9 @@ export class AppRelativeTimePipe implements PipeTransform {
 
   constructor(private _languageService: LanguageService) { }
 
-  transform(value: Date | string): unknown {
+  transform(value: Date | string | undefined): unknown {
     if (!value) {
-      return value
+      return ''
     }
     try {
       const date = new Date(value)

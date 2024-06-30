@@ -121,8 +121,8 @@
         "OTHERS": "outros",
         "PIX": "PIX"
       },
-      "moment": "data",
       "notes": "observações",
+      "paymentMoment": "momento pagamento",
       "transactionType": "tipo",
       "type": {
         "EXPENSE": "Pagamento",
@@ -242,16 +242,17 @@
         "mergeCategoryTitle": "Categoria já adicionada anteriormente",
         "methodLabel": "Método",
         "methodPlaceholder": "Selecione o método de pagamento",
-        "momentLabel": "Data",
-        "momentPlaceholder": "Selecione ou digite a data",
         "notesLabel": "Observações",
         "notesPlaceholder": "Observações adicionais de transação",
+        "paymentMomentLabel": "Momento pagamento",
+        "paymentMomentPlaceholder": "Selecione ou digite o momento de pagamento",
         "sortByCategory": "Ordenar por categoria",
         "sortByCategoryAmount": "Ordenar por valor categoria",
         "sumOfCategories": "Soma das categorias",
         "transactionCategoryDeleteConfirmMessage": "Você tem certeza que deseja remover a categoria '{{categoryName}}' dessa transação?",
         "transactionCategoryDeleteConfirmTitle": "Remover categoria",
         "transactionCategoryDeletedSuccessfully": "Categoria '{{categoryName}}' removida da transação com sucesso",
+        "transactionCreatedSuccessfully": "Transação criada com sucesso",
         "transactionUpdatedSuccessfully": "Transação atualizada com sucesso",
         "typeLabel": "Tipo transação",
         "typePlaceholder": "Selecione o tipo da transação",
@@ -263,7 +264,8 @@
         "noMoreData": "Não há mais dados",
         "transactionDeleteConfirmMessage": "Esta ação é irreversível e os dados serão permanentemente perdidos",
         "transactionDeleteConfirmTitle": "Você tem certeza que deseja deletar a transação?",
-        "transactionDeletedSuccessfully": "Transação '{{transactionId}}' deletada com sucesso"
+        "transactionDeletedSuccessfully": "Transação '{{transactionId}}' deletada com sucesso",
+        "moreTransactions": "Mais transações"
       },
       "_WalletsFormPageComponent": {
         "activeLabel": "Carteira ativa",

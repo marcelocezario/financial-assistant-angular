@@ -121,8 +121,8 @@
         "OTHERS": "others",
         "PIX": "PIX"
       },
-      "moment": "moment",
       "notes": "notes",
+      "paymentMoment": "payment moment",
       "transactionType": "type",
       "type": {
         "EXPENSE": "Expense",
@@ -242,16 +242,17 @@
         "mergeCategoryTitle": "Category already added previously",
         "methodLabel": "Method",
         "methodPlaceholder": "Select the payment method",
-        "momentLabel": "Date",
-        "momentPlaceholder": "Select or enter the date",
         "notesLabel": "Notes",
         "notesPlaceholder": "Additional transaction notes",
+        "paymentMomentLabel": "Payment moment",
+        "paymentMomentPlaceholder": "Select or enter the payment moment",
         "sortByCategory": "Sort by category",
         "sortByCategoryAmount": "Sort by category amount",
         "sumOfCategories": "Sum of the categories",
         "transactionCategoryDeleteConfirmMessage": "Are you sure you want to remove the category '{{categoryName}}' from this transaction?",
         "transactionCategoryDeleteConfirmTitle": "Remove Category",
         "transactionCategoryDeletedSuccessfully": "Category '{{categoryName}}' successfully removed from the transaction",
+        "transactionCreatedSuccessfully": "Transaction created successfully",
         "transactionUpdatedSuccessfully": "Transaction updated successfully",
         "typeLabel": "Transaction Type",
         "typePlaceholder": "Select the transaction type",
@@ -263,7 +264,8 @@
         "noMoreData": "There is no more data",
         "transactionDeleteConfirmMessage": "This action is irreversible and the data will be permanently lost",
         "transactionDeleteConfirmTitle": "Are you sure you want to delete transaction?",
-        "transactionDeletedSuccessfully": "Transaction '{{transactionId}}' deleted successfully"
+        "transactionDeletedSuccessfully": "Transaction '{{transactionId}}' deleted successfully",
+        "moreTransactions": "More transactions"
       },
       "_WalletsFormPageComponent": {
         "activeLabel": "Active wallet",

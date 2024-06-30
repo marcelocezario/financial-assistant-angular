@@ -15,4 +15,17 @@ export class Utils {
     return hexadecimal;
   }
 
+  static formatDateTimeForInput(localDateTime: string | undefined): string {
+    if (!localDateTime) {
+      return ''
+    }
+    let formattedDateTime = localDateTime.split('.')[0]
+    let dateTimeParts = formattedDateTime.split(':')
+    if (dateTimeParts.length === 3) {
+      dateTimeParts.pop();
+      formattedDateTime = dateTimeParts.join(':');
+    }
+    return formattedDateTime;
+  }
+
 }

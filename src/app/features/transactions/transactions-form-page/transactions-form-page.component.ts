@@ -48,7 +48,7 @@ export class TransactionsFormPageComponent extends FormBaseDirective implements 
   formCategories: FormGroup<any> = this._formBuilder.group({
     category: [null, [Validators.required]],
     amount: [null, [Validators.required, Validators.min(0)]],
-    type: [null]
+    type: [null, [Validators.required]]
   })
 
   override formGroup: FormGroup<any> = this._formBuilder.group({
@@ -167,9 +167,15 @@ export class TransactionsFormPageComponent extends FormBaseDirective implements 
   }
 
   getCategoriesAmount(): number {
+    const transactionType = this.formGroup.get('type')?.value
     const transactionCategories = this.formGroup.get('categories')?.value as Array<TransactionCategory> || []
-    const amount = transactionCategories.map((c: TransactionCategory) => c.amount).reduce((a: number, b: number) => a + b, 0.0)
-    return amount
+    const amount = transactionCategories.map((c: TransactionCategory) => {
+      if (transactionType) {
+        return transactionType === c.type ? c.amount : c.amount * -1
+      }
+      return c.type === TransactionType.INCOME ? c.amount : c.amount * -1
+    }).reduce((a: number, b: number) => a + b, 0.0)
+    return transactionType ? amount : Math.abs(amount)
   }
 
   async addCategory(formCategories: FormGroup) {
@@ -210,7 +216,15 @@ export class TransactionsFormPageComponent extends FormBaseDirective implements 
 
   updateCategoriesAmountDiff() {
     const diff = new Decimal(this.getCategoriesDiff())
-    this.formCategories.get('amount')?.setValue((diff && !diff.equals(0)) ? diff.toNumber() : null);
+    const transactionType = this.formGroup.get('type')?.value
+    if (transactionType) {
+      if (diff.toNumber() < 0) {
+        this.formCategories.get('type')?.setValue(transactionType === TransactionType.INCOME ? TransactionType.EXPENSE : TransactionType.INCOME)
+      } else {
+        this.formCategories.get('type')?.setValue(transactionType === TransactionType.INCOME ? TransactionType.INCOME : TransactionType.EXPENSE)
+      }
+    }
+    this.formCategories.get('amount')?.setValue((diff && !diff.equals(0)) ? Math.abs(diff.toNumber()) : null);
     this.formGroup.markAsDirty();
   }
 

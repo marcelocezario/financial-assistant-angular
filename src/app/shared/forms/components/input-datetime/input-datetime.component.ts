@@ -1,4 +1,4 @@
-import { Component, ElementRef, Input, ViewChild } from '@angular/core';
+import { Component, ElementRef, Input, ViewChild, OnInit } from '@angular/core';
 import { AbstractControl, FormControl, ReactiveFormsModule } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
@@ -23,7 +23,7 @@ import { INPUT_CONFIG } from '../../config/input.config';
   templateUrl: './input-datetime.component.html',
   styleUrl: './input-datetime.component.scss'
 })
-export class InputDatetimeComponent {
+export class InputDatetimeComponent implements OnInit {
 
   @ViewChild('timeInput') timeInput!: ElementRef<HTMLInputElement>;
   @ViewChild('timeInputText') timeInputText!: ElementRef<HTMLInputElement>;
@@ -40,6 +40,12 @@ export class InputDatetimeComponent {
   constructor(
     private _dialogService: DialogService
   ) { }
+
+  ngOnInit(): void {
+    if (this.control && this.control.value) {
+      this.control.setValue(this.formatDate(new Date(this.control.value)))
+    }
+  }
 
   onTimeSelected(): void {
     this.getFormControl().setValue(this.timeInput.nativeElement.value);

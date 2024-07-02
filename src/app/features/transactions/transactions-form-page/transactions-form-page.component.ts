@@ -35,6 +35,7 @@ import { MatButtonToggleModule } from '@angular/material/button-toggle';
     SelectComponent,
     TranslateModule,
     MatButtonToggleModule,
+
   ],
   templateUrl: './transactions-form-page.component.html',
   styleUrl: './transactions-form-page.component.scss'
@@ -55,7 +56,7 @@ export class TransactionsFormPageComponent extends FormBaseDirective implements 
     id: [null],
     amount: [null],
     dueDate: [null],
-    paymentMoment: [null],
+    paymentMoment: [new Date],
     notes: [null],
     type: [null],
     method: [null],

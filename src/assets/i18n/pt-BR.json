@@ -254,8 +254,6 @@
         "transactionCategoryDeletedSuccessfully": "Categoria '{{categoryName}}' removida da transação com sucesso",
         "transactionCreatedSuccessfully": "Transação criada com sucesso",
         "transactionUpdatedSuccessfully": "Transação atualizada com sucesso",
-        "typeLabel": "Tipo transação",
-        "typePlaceholder": "Selecione o tipo da transação",
         "walletLabel": "Carteira",
         "walletPlaceholder": "Selecione uma carteira"
       },

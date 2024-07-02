@@ -1,42 +1,57 @@
 <form class="mhc-form" [formGroup]="formGroup" (ngSubmit)="onSubmit()">
 
-  <app-input id="amount" [control]="formGroup.get('amount')" [label]="getTranslateKey('amountLabel') | translate"
-    [placeholder]="getTranslateKey('amountPlaceholder') | translate" type="number" [step]="0.01"
-    (change)="updateCategoriesAmountDiff()">
-  </app-input>
+  <div class="mhc-form-row mhc-full-width">
+    <mat-button-toggle-group formControlName="type" class="mhc-full-width">
+      <mat-button-toggle value="INCOME" class="mhc-flex-1">
+        {{ 'generic.transaction.type.INCOME' | translate }}
+      </mat-button-toggle>
+      <mat-button-toggle value="EXPENSE" class="mhc-flex-1">
+        {{ 'generic.transaction.type.EXPENSE' | translate }}
+      </mat-button-toggle>
+    </mat-button-toggle-group>
+  </div>
 
-  <app-input-datetime id="paymentMoment" [label]="getTranslateKey('paymentMomentLabel') | translate"
-    [placeholder]="getTranslateKey('paymentMomentPlaceholder') | translate" [control]="formGroup.get('paymentMoment')">
-  </app-input-datetime>
+  <div class="row">
+    <app-input class="col-sm" id="amount" [control]="formGroup.get('amount')"
+      [label]="getTranslateKey('amountLabel') | translate"
+      [placeholder]="getTranslateKey('amountPlaceholder') | translate" type="number" [step]="0.01"
+      (change)="updateCategoriesAmountDiff()">
+    </app-input>
 
-  <app-input id="notes" [control]="formGroup.get('notes')" [label]="getTranslateKey('notesLabel') | translate"
-    [placeholder]="getTranslateKey('notesPlaceholder') | translate" type="textarea">
-  </app-input>
+    <app-input-datetime class="col-sm" id="paymentMoment" [label]="getTranslateKey('paymentMomentLabel') | translate"
+      [placeholder]="getTranslateKey('paymentMomentPlaceholder') | translate"
+      [control]="formGroup.get('paymentMoment')">
+    </app-input-datetime>
+  </div>
 
-  <app-input id="currentInstallment" [control]="formGroup.get('currentInstallment')"
-    [label]="getTranslateKey('currentInstallmentLabel') | translate"
-    [placeholder]="getTranslateKey('currentInstallmentPlaceholder') | translate" type="number" [step]="1">
-  </app-input>
+  <div class="row">
+    <app-input class="col-sm" id="notes" [control]="formGroup.get('notes')"
+      [label]="getTranslateKey('notesLabel') | translate"
+      [placeholder]="getTranslateKey('notesPlaceholder') | translate" type="textarea">
+    </app-input>
+  </div>
 
-  <app-select id="type" [control]="formGroup.get('type')" [label]="getTranslateKey('typeLabel') | translate"
-    [placeholder]="getTranslateKey('typePlaceholder') | translate" [dataSource]="transactionTypes" attributeLabel="type"
-    [optionTemplate]="typeOptionsTemplate">
-    <ng-template #typeOptionsTemplate let-item="item">
-      {{'generic.transaction.type.' + item | translate}}
-    </ng-template>
-  </app-select>
+  <div class="row">
+    <app-input class="col-sm" id="currentInstallment" [control]="formGroup.get('currentInstallment')"
+      [label]="getTranslateKey('currentInstallmentLabel') | translate"
+      [placeholder]="getTranslateKey('currentInstallmentPlaceholder') | translate" type="number" [step]="1">
+    </app-input>
+  </div>
 
-  <app-select id="wallet" [control]="formGroup.get('wallet')" [label]="getTranslateKey('walletLabel') | translate"
-    [placeholder]="getTranslateKey('walletPlaceholder') | translate" [dataSource]="wallets" attributeLabel="name"
-    [optionTemplate]="walletOptionsTemplate">
-    <ng-template #walletOptionsTemplate let-item="item">
-      <span>{{item.name}}</span>
-      @if (!item.active) {
-      <span>&nbsp;</span>
-      <span>--{{getTranslateKey('desactivatedWallet') | translate}}--</span>
-      }
-    </ng-template>
-  </app-select>
+  <div class="row">
+    <app-select id="wallet" [control]="formGroup.get('wallet')" [label]="getTranslateKey('walletLabel') | translate"
+      [placeholder]="getTranslateKey('walletPlaceholder') | translate" [dataSource]="wallets" attributeLabel="name"
+      [optionTemplate]="walletOptionsTemplate">
+      <ng-template #walletOptionsTemplate let-item="item">
+        <span>{{item.name}}</span>
+        @if (!item.active) {
+        <span>&nbsp;</span>
+        <span>--{{getTranslateKey('desactivatedWallet') | translate}}--</span>
+        }
+      </ng-template>
+    </app-select>
+  </div>
+
 
   <app-select id="method" [control]="formGroup.get('method')" [label]="getTranslateKey('methodLabel') | translate"
     [placeholder]="getTranslateKey('methodPlaceholder') | translate"

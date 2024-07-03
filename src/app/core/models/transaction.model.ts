@@ -1,6 +1,6 @@
 import { TransactionCategory } from "./transaction-category.model"
 import { TransactionMethod } from "./transaction-method.enum"
-import { TransactionType } from "./transaction-type.enum"
+import { ClassificationType } from "./classification-type.enum"
 import { Wallet } from "./wallet.model"
 
 export interface Transaction {
@@ -9,7 +9,7 @@ export interface Transaction {
   dueDate: string
   paymentMoment?: string
   notes?: string
-  type: TransactionType
+  type: ClassificationType
   method: TransactionMethod
   currentInstallment: number
   active?: boolean

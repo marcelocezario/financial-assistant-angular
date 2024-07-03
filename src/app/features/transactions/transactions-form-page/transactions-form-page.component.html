@@ -1,12 +1,26 @@
 <form class="mhc-form" [formGroup]="formGroup" (ngSubmit)="onSubmit()">
 
+  <div class="row">
+    <app-select id="wallet" [control]="formGroup.get('wallet')" [label]="getTranslateKey('walletLabel') | translate"
+      [placeholder]="getTranslateKey('walletPlaceholder') | translate" [dataSource]="wallets" attributeLabel="name"
+      [optionTemplate]="walletOptionsTemplate">
+      <ng-template #walletOptionsTemplate let-item="item">
+        <span>{{item.name}}</span>
+        @if (!item.active) {
+        <span>&nbsp;</span>
+        <span>--{{getTranslateKey('desactivatedWallet') | translate}}--</span>
+        }
+      </ng-template>
+    </app-select>
+  </div>
+
   <div class="mhc-form-row mhc-full-width">
-    <mat-button-toggle-group formControlName="type" class="mhc-full-width">
+    <mat-button-toggle-group formControlName="type" class="mhc-full-width" (change)="changeTransactionType($event)">
       <mat-button-toggle value="INCOME" class="mhc-flex-1">
-        {{ 'generic.transaction.type.INCOME' | translate }}
+        {{ 'generic.types.classificationTypes.INCOME' | translate }}
       </mat-button-toggle>
       <mat-button-toggle value="EXPENSE" class="mhc-flex-1">
-        {{ 'generic.transaction.type.EXPENSE' | translate }}
+        {{ 'generic.types.classificationTypes.EXPENSE' | translate }}
       </mat-button-toggle>
     </mat-button-toggle-group>
   </div>
@@ -15,7 +29,7 @@
     <app-input class="col-sm" id="amount" [control]="formGroup.get('amount')"
       [label]="getTranslateKey('amountLabel') | translate"
       [placeholder]="getTranslateKey('amountPlaceholder') | translate" type="number" [step]="0.01"
-      (change)="updateCategoriesAmountDiff()">
+      (change)="updateCategoriesAmountDiff()" [textPrefix]="(formGroup.get('wallet')?.value)?.currency?.symbol">
     </app-input>
 
     <app-input-datetime class="col-sm" id="paymentMoment" [label]="getTranslateKey('paymentMomentLabel') | translate"
@@ -38,27 +52,12 @@
     </app-input>
   </div>
 
-  <div class="row">
-    <app-select id="wallet" [control]="formGroup.get('wallet')" [label]="getTranslateKey('walletLabel') | translate"
-      [placeholder]="getTranslateKey('walletPlaceholder') | translate" [dataSource]="wallets" attributeLabel="name"
-      [optionTemplate]="walletOptionsTemplate">
-      <ng-template #walletOptionsTemplate let-item="item">
-        <span>{{item.name}}</span>
-        @if (!item.active) {
-        <span>&nbsp;</span>
-        <span>--{{getTranslateKey('desactivatedWallet') | translate}}--</span>
-        }
-      </ng-template>
-    </app-select>
-  </div>
-
-
   <app-select id="method" [control]="formGroup.get('method')" [label]="getTranslateKey('methodLabel') | translate"
     [placeholder]="getTranslateKey('methodPlaceholder') | translate"
     [dataSource]="formGroup.get('wallet')?.value?.availableTransactionMethods || []" attributeLabel="method"
     [optionTemplate]="methodOptionsTemplate">
     <ng-template #methodOptionsTemplate let-item="item">
-      {{'generic.transaction.method.' + item | translate}}
+      {{'generic.types.transaction.method.' + item | translate}}
     </ng-template>
   </app-select>
 
@@ -68,43 +67,37 @@
       <mat-card-subtitle>
         <span>{{getTranslateKey('sumOfCategories') | translate}}:&nbsp;</span>
         <span>
-          {{getCategoriesAmount() | currency: formGroup.get('wallet')?.value?.currency?.symbol || '' }}
+          {{categoriesAmount | currency: formGroup.get('wallet')?.value?.currency?.symbol || ' ' }}
         </span>
       </mat-card-subtitle>
     </mat-card-header>
     <mat-card-actions class="d-flex flex-column">
       <form [formGroup]="formCategories" class="mhc-full-width" (ngSubmit)="addCategory(formCategories)">
 
-        <app-select id="category" [control]="formCategories.get('category')"
-          [label]="getTranslateKey('categoryLabel') | translate"
-          [placeholder]="getTranslateKey('categoryPlaceholder') | translate" [dataSource]="categories"
-          attributeLabel="name" [optionTemplate]="categoryOptionsTemplate">
-          <ng-template #categoryOptionsTemplate let-item="item">
-            <mat-icon class="mat-18" [style.color]="item.color">{{item.icon}}</mat-icon>
-            <span>{{item.name}}</span>
-          </ng-template>
-        </app-select>
+        <div class="row">
+          <app-select class="col-sm" id="category" [control]="formCategories.get('category')"
+            [label]="getTranslateKey('categoryLabel') | translate"
+            [placeholder]="getTranslateKey('categoryPlaceholder') | translate" [dataSource]="categoriesOptions"
+            attributeLabel="name" [optionTemplate]="categoryOptionsTemplate">
+            <ng-template #categoryOptionsTemplate let-item="item">
+              <mat-icon class="mat-18 mhc-v-middle" [style.color]="item.color">{{item.icon}}</mat-icon>
+              <span>{{item.name}}</span>
+            </ng-template>
+          </app-select>
 
-        <app-input id="amount" [control]="formCategories.get('amount')"
-          [label]="getTranslateKey('categoryAmountLabel') | translate"
-          [placeholder]="getTranslateKey('categoryAmountPlaceholder') | translate" type="number" [step]="0.01"
-          [textPrefix]="(formGroup.get('wallet')?.value)?.currency?.symbol">
-        </app-input>
+          <app-input class="col-sm" id="amount" [control]="formCategories.get('amount')"
+            [label]="getTranslateKey('categoryAmountLabel') | translate"
+            [placeholder]="getTranslateKey('categoryAmountPlaceholder') | translate" type="number" [step]="0.01"
+            [textPrefix]="(formGroup.get('wallet')?.value)?.currency?.symbol">
+          </app-input>
 
-        <mat-button-toggle-group formControlName="type" class="mhc-full-width">
-          <mat-button-toggle value="INCOME" class="mhc-flex-1">
-            {{ 'generic.transaction.type.INCOME' | translate }}
-          </mat-button-toggle>
-          <mat-button-toggle value="EXPENSE" class="mhc-flex-1">
-            {{ 'generic.transaction.type.EXPENSE' | translate }}
-          </mat-button-toggle>
-        </mat-button-toggle-group>
-
-        <button matTextSuffix type="submit" mat-flat-button color="primary" class="mhc-flex-1">
-          <mat-icon class="mat-18">add</mat-icon>
-          <span>{{getTranslateKey('addCategory') | translate}}</span>
-        </button>
-
+          <div class="col-sm-2 mhc-form-button">
+            <button matTextSuffix type="submit" mat-stroked-button class="mhc-flex-1">
+              <mat-icon class="mat-18">add</mat-icon>
+              <span>{{getTranslateKey('addCategory') | translate}}</span>
+            </button>
+          </div>
+        </div>
       </form>
     </mat-card-actions>
     <mat-card-content>
@@ -114,7 +107,7 @@
           <ng-container matColumnDef="category">
             <th mat-header-cell *matHeaderCellDef mat-sort-header
               [sortActionDescription]="getTranslateKey('sortByCategory') | translate">
-              {{'generic.category.name' | translate}}</th>
+              {{'generic.types.category.name' | translate}}</th>
             <td mat-cell *matCellDef="let element">
               <div class="d-flex flex-row align-items-center">
                 <mat-icon [style.color]="element.category.color"
@@ -127,7 +120,7 @@
           <ng-container matColumnDef="categoryAmount">
             <th mat-header-cell *matHeaderCellDef mat-sort-header
               [sortActionDescription]="getTranslateKey('sortByCategoryAmount') | translate">
-              {{'generic.transactionCategory.amount' | translate}}
+              {{'generic.types.transactionCategory.amount' | translate}}
             </th>
             <td mat-cell *matCellDef="let element">
               {{ element.type === 'INCOME' ? '+' : '-' }}

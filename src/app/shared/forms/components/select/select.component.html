@@ -3,16 +3,23 @@
   <mat-select [id]="id" [attr.name]="id" [formControl]="getFormControl()" [multiple]="multiple"
     [compareWith]="compareObjectId" (selectionChange)="onSelectionChange($event)" [placeholder]="placeholder">
     @for(item of dataSource; track $index) {
-      <mat-option [value]="item">
-    @if (optionTemplate) {
+    <mat-option [value]="item">
+      @if (optionTemplate) {
       <ng-container [ngTemplateOutlet]="optionTemplate" [ngTemplateOutletContext]="{ $implicit: item, item: item }">
       </ng-container>
-    } @else {
+      } @else {
       <ng-template #defaultOptionTemplate>
         {{ attributeLabel ? item[attributeLabel] : item }}
       </ng-template>
-    }
+      }
     </mat-option>
+    }
+    @if (optionTemplate && getFormControl().value) {
+    <mat-select-trigger>
+      <ng-container [ngTemplateOutlet]="optionTemplate"
+        [ngTemplateOutletContext]="{ $implicit: getFormControl().value, item: getFormControl().value }">
+      </ng-container>
+    </mat-select-trigger>
     }
   </mat-select>
   @if (hint) {

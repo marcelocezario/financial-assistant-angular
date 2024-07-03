@@ -6,5 +6,5 @@
   <input matInput [id]="id" [name]="id" type="text" [placeholder]="placeholder" [readonly]="!!isReadOnly"
     [formControl]="getFormControl()" />
   <mat-icon matSuffix [style.color]="iconColor">{{ getFormControl().value }}</mat-icon>
-  <mat-hint>{{ getTranslateKey('hint') | translate: {url: materialIconsWebSite} }}</mat-hint>
+  <!-- <mat-hint>{{ getTranslateKey('hint') | translate: {url: materialIconsWebSite} }}</mat-hint> -->
 </mat-form-field>

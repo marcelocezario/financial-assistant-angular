@@ -53,6 +53,15 @@
   padding-bottom: 22.4px;
 }
 
+.mhc-form-button {
+  display: flex;
+  flex-direction: column;
+  height: 56px;
+}
+
+.mhc-v-middle {
+  vertical-align: middle;
+}
 
 @mixin theme-personal-light {
 

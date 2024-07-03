@@ -1,11 +1,12 @@
 import { ActivatedRoute, Router } from '@angular/router';
-import { Category, Transaction, TransactionCategory, TransactionType, Wallet } from '../../../core/models';
+import { Category, Transaction, TransactionCategory, ClassificationType, Wallet } from '../../../core/models';
 import { CategoryService } from '../../categories';
 import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { DialogService, FormBaseDirective, InputComponent, InputDatetimeComponent, LanguageService, NotificationService, SelectComponent, StorageService, Utils } from '../../../shared';
 import { FormArray, FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
+import { MatButtonToggleChange, MatButtonToggleModule } from '@angular/material/button-toggle';
 import { MatCardModule } from '@angular/material/card';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatIconModule } from '@angular/material/icon';
@@ -16,7 +17,6 @@ import { TransactionService } from '../transaction.service';
 import { TranslateModule } from '@ngx-translate/core';
 import { WalletService } from '../../wallets';
 import Decimal from 'decimal.js';
-import { MatButtonToggleModule } from '@angular/material/button-toggle';
 
 @Component({
   selector: 'app-transactions-form-page',
@@ -26,6 +26,7 @@ import { MatButtonToggleModule } from '@angular/material/button-toggle';
     InputComponent,
     InputDatetimeComponent,
     MatButtonModule,
+    MatButtonToggleModule,
     MatCardModule,
     MatCheckboxModule,
     MatIconModule,
@@ -34,8 +35,6 @@ import { MatButtonToggleModule } from '@angular/material/button-toggle';
     ReactiveFormsModule,
     SelectComponent,
     TranslateModule,
-    MatButtonToggleModule,
-
   ],
   templateUrl: './transactions-form-page.component.html',
   styleUrl: './transactions-form-page.component.scss'
@@ -44,12 +43,13 @@ export class TransactionsFormPageComponent extends FormBaseDirective implements 
 
   categories: Category[] = []
   wallets: Wallet[] = []
-  transactionTypes = Object.keys(TransactionType);
+  transactionTypes = Object.keys(ClassificationType)
+  categoriesOptions: Category[] = []
+  categoriesAmount: number = 0
 
   formCategories: FormGroup<any> = this._formBuilder.group({
     category: [null, [Validators.required]],
-    amount: [null, [Validators.required, Validators.min(0)]],
-    type: [null, [Validators.required]]
+    amount: [null, [Validators.required, Validators.min(0)]]
   })
 
   override formGroup: FormGroup<any> = this._formBuilder.group({
@@ -172,14 +172,24 @@ export class TransactionsFormPageComponent extends FormBaseDirective implements 
     const transactionCategories = this.formGroup.get('categories')?.value as Array<TransactionCategory> || []
     const amount = transactionCategories.map((c: TransactionCategory) => {
       if (transactionType) {
-        return transactionType === c.type ? c.amount : c.amount * -1
+        return transactionType === c.category.type ? c.amount : c.amount * -1
       }
-      return c.type === TransactionType.INCOME ? c.amount : c.amount * -1
-    }).reduce((a: number, b: number) => a + b, 0.0)
+      return c.category.type === ClassificationType.INCOME ? c.amount : c.amount * -1
+    }).reduce((a: number, b: number) => (a * 1) + (b * 1), 0.0)
     return transactionType ? amount : Math.abs(amount)
   }
 
   async addCategory(formCategories: FormGroup) {
+    if (!formCategories.get('type')?.value) {
+      const transactionType = this.formGroup.get('type')?.value
+      if (!transactionType) {
+        const messageKey = this.getTranslateKey('transactionTypeError')
+        const message = await this._languageService.getTranslate(messageKey).then()
+        this._notification.error(message)
+        return
+      }
+      formCategories.get('type')?.setValue(transactionType)
+    }
     if (!formCategories.valid) {
       return
     }
@@ -212,21 +222,27 @@ export class TransactionsFormPageComponent extends FormBaseDirective implements 
   getCategoriesDiff(): number {
     const transactionAmount = new Decimal(this.formGroup.get('amount')?.value || 0)
     const categoriesAmount = new Decimal(this.getCategoriesAmount())
-    return transactionAmount.minus(categoriesAmount).toNumber();
+    const diff = transactionAmount.minus(categoriesAmount).toNumber()
+    return diff
   }
 
   updateCategoriesAmountDiff() {
+    this.categoriesAmount = this.getCategoriesAmount()
     const diff = new Decimal(this.getCategoriesDiff())
     const transactionType = this.formGroup.get('type')?.value
     if (transactionType) {
       if (diff.toNumber() < 0) {
-        this.formCategories.get('type')?.setValue(transactionType === TransactionType.INCOME ? TransactionType.EXPENSE : TransactionType.INCOME)
+        this.formCategories.get('type')?.setValue(transactionType === ClassificationType.INCOME ? ClassificationType.EXPENSE : ClassificationType.INCOME)
       } else {
-        this.formCategories.get('type')?.setValue(transactionType === TransactionType.INCOME ? TransactionType.INCOME : TransactionType.EXPENSE)
+        this.formCategories.get('type')?.setValue(transactionType === ClassificationType.INCOME ? ClassificationType.INCOME : ClassificationType.EXPENSE)
       }
     }
     this.formCategories.get('amount')?.setValue((diff && !diff.equals(0)) ? Math.abs(diff.toNumber()) : null);
     this.formGroup.markAsDirty();
+  }
+
+  changeTransactionType(event: MatButtonToggleChange) {
+    this.categoriesOptions = this.categories.filter(c => c.type === event.value)
   }
 
 }

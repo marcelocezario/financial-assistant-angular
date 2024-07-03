@@ -8,7 +8,7 @@
     [placeholder]="getTranslateKey('currencyPlaceholder') | translate" [dataSource]="currencies" attributeLabel="name"
     [optionTemplate]="currencyOptionTemplate">
     <ng-template #currencyOptionTemplate let-item="item">
-      <span>{{'generic.currency.type.' + item.code | translate}}</span>
+      <span>{{'generic.types.currency.type.' + item.code | translate}}</span>
       <span>({{item.symbol}})</span>
       @if (!item.active) {
       <span>&nbsp;</span>
@@ -26,7 +26,7 @@
     [placeholder]="getTranslateKey('typePlaceholder') | translate" [dataSource]="walletTypes" attributeLabel="type"
     [optionTemplate]="typeOptionsTemplate" (selectionChange)="onTypeChange($event.value)">
     <ng-template #typeOptionsTemplate let-item="item">
-      {{'generic.wallet.type.' + item | translate}}
+      {{'generic.types.wallet.type.' + item | translate}}
     </ng-template>
   </app-select>
 

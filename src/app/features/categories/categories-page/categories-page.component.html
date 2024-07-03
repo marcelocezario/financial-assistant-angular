@@ -39,7 +39,7 @@
     <ng-container matColumnDef="id">
       <th mat-header-cell *matHeaderCellDef mat-sort-header
         [sortActionDescription]="getTranslateKey('sortById') | translate">
-        {{'generic.category.id' | translate}}
+        {{'generic.types.category.id' | translate}}
       </th>
       <td mat-cell *matCellDef="let element">
         {{element.id}}
@@ -49,7 +49,7 @@
     <ng-container matColumnDef="name">
       <th mat-header-cell *matHeaderCellDef mat-sort-header
         [sortActionDescription]="getTranslateKey('sortByName') | translate">
-        {{'generic.category.name' | translate}}</th>
+        {{'generic.types.category.name' | translate}}</th>
       <td mat-cell *matCellDef="let element">
         <div class="d-flex flex-row align-items-center">
           <mat-icon [style.color]="element.color" class="mhc-category-icon">{{element.icon}}</mat-icon>
@@ -61,7 +61,7 @@
     <ng-container matColumnDef="icon">
       <th mat-header-cell *matHeaderCellDef mat-sort-header
         [sortActionDescription]="getTranslateKey('sortByIcon') | translate">
-        {{'generic.category.icon' | translate}}
+        {{'generic.types.category.icon' | translate}}
       </th>
       <td mat-cell *matCellDef="let element">
         <mat-icon class="mhc-category-icon">{{element.icon}}</mat-icon>
@@ -71,7 +71,7 @@
     <ng-container matColumnDef="color">
       <th mat-header-cell *matHeaderCellDef mat-sort-header
         [sortActionDescription]="getTranslateKey('sortByColor') | translate">
-        {{'generic.category.color' | translate}}</th>
+        {{'generic.types.category.color' | translate}}</th>
       <td mat-cell *matCellDef="let element">
         <div class="d-flex flex-row align-items-center">
           <div class="mhc-category-color" [style.background-color]="element.color"></div>
@@ -83,7 +83,7 @@
     <ng-container matColumnDef="active">
       <th mat-header-cell *matHeaderCellDef mat-sort-header
         [sortActionDescription]="getTranslateKey('sortByActive') | translate">
-        {{'generic.category.active' | translate}}</th>
+        {{'generic.types.category.active' | translate}}</th>
       <td mat-cell *matCellDef="let element">
         {{element.active}}
       </td>
@@ -92,14 +92,14 @@
     <ng-container matColumnDef="createdAt">
       <th mat-header-cell *matHeaderCellDef mat-sort-header
         [sortActionDescription]="getTranslateKey('sortByCreatedAt') | translate">
-        {{'generic.category.createdAt' | translate}}</th>
+        {{'generic.types.category.createdAt' | translate}}</th>
       <td mat-cell *matCellDef="let element"> {{element.createdAt | date: 'dd-MMM-yyyy HH:mm'}} </td>
     </ng-container>
 
     <ng-container matColumnDef="updatedAt">
       <th mat-header-cell *matHeaderCellDef mat-sort-header
         [sortActionDescription]="getTranslateKey('sortByUpdatedAt') | translate">
-        {{'generic.category.updatedAt' | translate}}</th>
+        {{'generic.types.category.updatedAt' | translate}}</th>
       <td mat-cell *matCellDef="let element"> {{element.updatedAt | date: 'dd-MMM-yyyy HH:mm'}} </td>
     </ng-container>
 

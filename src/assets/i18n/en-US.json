@@ -16,38 +16,7 @@
     "amount": "Amount",
     "apply": "Apply",
     "cancel": "Cancel",
-    "category": {
-      "active": "active",
-      "color": "color",
-      "createdAt": "created at",
-      "icon": "icon",
-      "id": "id",
-      "name": "name",
-      "updatedAt": "updated at"
-    },
     "confirm": "Confirm",
-    "currency": {
-      "active": "ativo",
-      "brlRate": "exchange rate to Brazilian reais (R$)",
-      "code": "code",
-      "createdAt": "criado em",
-      "id": "id",
-      "symbol": "symbol",
-      "type": {
-        "ARS": "Argentine Peso",
-        "AUD": "Australian Dollar",
-        "BRL": "Real",
-        "BTC": "Bitcoin",
-        "CAD": "Canadian Dollar",
-        "CHF": "Swiss Franc",
-        "ETH": "Ethereum",
-        "EUR": "Euro",
-        "GBP": "British Pound",
-        "JPY": "Yen",
-        "USD": "US Dollar"
-      },
-      "updatedAt": "atualizado em"
-    },
     "dataNotFound": "Data not found",
     "delete": "Delete",
     "edit": "Edit",
@@ -104,51 +73,84 @@
       "YESTERDAY": "yesterday"
     },
     "terms": "Terms: \"{{terms}}\"",
-    "transaction": {
-      "active": "active",
-      "amount": "amount",
-      "createdAt": "created at",
-      "currentInstallment": "current installment",
-      "id": "id",
-      "method": {
-        "AUTOMATIC_DEBIT": "automatic debit",
-        "BANK_SLIP": "bank slip",
-        "BANK_TRANSFER": "bank transfer",
-        "CASH": "cash",
-        "CREDIT_CARD": "credit card",
-        "CRYPTO": "crypto",
-        "DEBIT_CARD": "debit card",
-        "OTHERS": "others",
-        "PIX": "PIX"
+    "types": {
+      "category": {
+        "active": "active",
+        "color": "color",
+        "createdAt": "created at",
+        "icon": "icon",
+        "id": "id",
+        "name": "name",
+        "updatedAt": "updated at"
       },
-      "notes": "notes",
-      "paymentMoment": "payment moment",
-      "transactionType": "type",
-      "type": {
+      "classificationTypes": {
         "EXPENSE": "Expense",
         "INCOME": "Income"
       },
-      "updatedAt": "updated at",
-      "wallet": "wallet"
-    },
-    "transactionCategory": {
-      "amount": "amount"
-    },
-    "wallet": {
-      "active": "active",
-      "balance": "balance",
-      "createdAt": "created at",
-      "currency": "currency",
-      "id": "id",
-      "name": "name",
-      "type": {
-        "BANK_ACCOUNT": "Bank account",
-        "CASH_WALLET": "Money",
-        "CREDIT_CARD": "Crédit card",
-        "CRYPTO_WALLET": "Crypto"
+      "currency": {
+        "active": "ativo",
+        "brlRate": "exchange rate to Brazilian reais (R$)",
+        "code": "code",
+        "createdAt": "criado em",
+        "id": "id",
+        "symbol": "symbol",
+        "type": {
+          "ARS": "Argentine Peso",
+          "AUD": "Australian Dollar",
+          "BRL": "Real",
+          "BTC": "Bitcoin",
+          "CAD": "Canadian Dollar",
+          "CHF": "Swiss Franc",
+          "ETH": "Ethereum",
+          "EUR": "Euro",
+          "GBP": "British Pound",
+          "JPY": "Yen",
+          "USD": "US Dollar"
+        },
+        "updatedAt": "atualizado em"
       },
-      "updatedAt": "updated at",
-      "walletType": "type"
+      "transaction": {
+        "active": "active",
+        "amount": "amount",
+        "createdAt": "created at",
+        "currentInstallment": "current installment",
+        "id": "id",
+        "method": {
+          "AUTOMATIC_DEBIT": "automatic debit",
+          "BANK_SLIP": "bank slip",
+          "BANK_TRANSFER": "bank transfer",
+          "CASH": "cash",
+          "CREDIT_CARD": "credit card",
+          "CRYPTO": "crypto",
+          "DEBIT_CARD": "debit card",
+          "OTHERS": "others",
+          "PIX": "PIX"
+        },
+        "notes": "notes",
+        "paymentMoment": "payment moment",
+        "transactionType": "type",
+        "updatedAt": "updated at",
+        "wallet": "wallet"
+      },
+      "transactionCategory": {
+        "amount": "amount"
+      },
+      "wallet": {
+        "active": "active",
+        "balance": "balance",
+        "createdAt": "created at",
+        "currency": "currency",
+        "id": "id",
+        "name": "name",
+        "type": {
+          "BANK_ACCOUNT": "Bank account",
+          "CASH_WALLET": "Money",
+          "CREDIT_CARD": "Crédit card",
+          "CRYPTO_WALLET": "Crypto"
+        },
+        "updatedAt": "updated at",
+        "walletType": "type"
+      }
     },
     "yes": "Yes"
   },
@@ -159,6 +161,7 @@
       },
       "_CategoriesFormPageComponent": {
         "categoryCreatedSuccessfully": "Category created successfully",
+        "categoryTypeLabel": "Select the category type",
         "categoryUpdatedSuccessfully": "Category updated successfully",
         "colorLabel": "Color",
         "colorPlaceholder": "Select a color or enter one in hexadecimal format (e.g., '#00695C')",
@@ -253,17 +256,18 @@
         "transactionCategoryDeleteConfirmTitle": "Remove Category",
         "transactionCategoryDeletedSuccessfully": "Category '{{categoryName}}' successfully removed from the transaction",
         "transactionCreatedSuccessfully": "Transaction created successfully",
+        "transactionTypeError": "You must select a category",
         "transactionUpdatedSuccessfully": "Transaction updated successfully",
         "walletLabel": "Wallet",
         "walletPlaceholder": "Select a wallet"
       },
       "_TransactionsPageComponent": {
         "addTransaction": "Add transaction",
+        "moreTransactions": "More transactions",
         "noMoreData": "There is no more data",
         "transactionDeleteConfirmMessage": "This action is irreversible and the data will be permanently lost",
         "transactionDeleteConfirmTitle": "Are you sure you want to delete transaction?",
-        "transactionDeletedSuccessfully": "Transaction '{{transactionId}}' deleted successfully",
-        "moreTransactions": "More transactions"
+        "transactionDeletedSuccessfully": "Transaction '{{transactionId}}' deleted successfully"
       },
       "_WalletsFormPageComponent": {
         "activeLabel": "Active wallet",

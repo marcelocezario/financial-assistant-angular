@@ -8,6 +8,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { ROUTES_KEYS } from '../../../core/config';
 import { TranslateModule } from '@ngx-translate/core';
+import { MatButtonToggleModule } from '@angular/material/button-toggle';
 
 @Component({
   selector: 'app-categories-form-page',
@@ -17,6 +18,7 @@ import { TranslateModule } from '@ngx-translate/core';
     InputComponent,
     InputIconComponent,
     MatButtonModule,
+    MatButtonToggleModule,
     MatIconModule,
     ReactiveFormsModule,
     TranslateModule,
@@ -31,6 +33,7 @@ export class CategoriesFormPageComponent extends FormBaseDirective implements On
     name: [null, [Validators.required, Validators.minLength(3)]],
     color: [null, [FormValidations.hexadecimalColor()]],
     icon: [null],
+    type: [null, [Validators.required]],
     active: [true],
     createdAt: [null],
     updatedAt: [null]
@@ -52,7 +55,10 @@ export class CategoriesFormPageComponent extends FormBaseDirective implements On
     const id = this._route.snapshot.paramMap.get('categoryId');
     if (id) {
       this._categoryService.getByIdAndUser(id)
-        .then(category => this.formGroup.patchValue(category))
+        .then(category => {
+          this.formGroup.patchValue(category)
+          this.formGroup.get('type')?.disable()
+        })
         .catch(() => this._router.navigate([`/${ROUTES_KEYS.categories}`]))
     }
   }

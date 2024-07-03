@@ -16,38 +16,7 @@
     "amount": "Valor total",
     "apply": "Aplicar",
     "cancel": "Cancelar",
-    "category": {
-      "active": "ativo",
-      "color": "cor",
-      "createdAt": "criado em",
-      "icon": "ícone",
-      "id": "id",
-      "name": "nome",
-      "updatedAt": "atualizado em"
-    },
     "confirm": "Confirmar",
-    "currency": {
-      "active": "ativo",
-      "brlRate": "cotação em reais (R$)",
-      "code": "código",
-      "createdAt": "criado em",
-      "id": "id",
-      "symbol": "símbolo",
-      "type": {
-        "ARS": "Peso Argentino",
-        "AUD": "Dólar Australiano",
-        "BRL": "Real",
-        "BTC": "Bitcoin",
-        "CAD": "Dólar Canadense",
-        "CHF": "Franco Suíço",
-        "ETH": "Ethereum",
-        "EUR": "Euro",
-        "GBP": "Libra Esterlina",
-        "JPY": "Iene",
-        "USD": "Dólar Americano"
-      },
-      "updatedAt": "atualizado em"
-    },
     "dataNotFound": "Sem dados econtrados",
     "delete": "Deletar",
     "edit": "Editar",
@@ -104,51 +73,84 @@
       "YESTERDAY": "ontem"
     },
     "terms": "Termos: \"{{terms}}\"",
-    "transaction": {
-      "active": "ativo",
-      "amount": "valor total",
-      "createdAt": "criado em",
-      "currentInstallment": "parcela atual",
-      "id": "id",
-      "method": {
-        "AUTOMATIC_DEBIT": "débito automático",
-        "BANK_SLIP": "boleto",
-        "BANK_TRANSFER": "transferência bancária",
-        "CASH": "dinheiro",
-        "CREDIT_CARD": "cartão de crédito",
-        "CRYPTO": "cripto",
-        "DEBIT_CARD": "cartão de débito",
-        "OTHERS": "outros",
-        "PIX": "PIX"
+    "types": {
+      "category": {
+        "active": "ativo",
+        "color": "cor",
+        "createdAt": "criado em",
+        "icon": "ícone",
+        "id": "id",
+        "name": "nome",
+        "updatedAt": "atualizado em"
       },
-      "notes": "observações",
-      "paymentMoment": "momento pagamento",
-      "transactionType": "tipo",
-      "type": {
+      "classificationTypes": {
         "EXPENSE": "Pagamento",
         "INCOME": "Recebimento"
       },
-      "updatedAt": "atualizado em",
-      "wallet": "carteira"
-    },
-    "transactionCategory": {
-      "amount": "valor"
-    },
-    "wallet": {
-      "active": "ativa",
-      "balance": "saldo",
-      "createdAt": "criado em",
-      "currency": "moeda",
-      "id": "id",
-      "name": "nome",
-      "type": {
-        "BANK_ACCOUNT": "Conta bancária",
-        "CASH_WALLET": "Dinheiro",
-        "CREDIT_CARD": "Cartão de crédito",
-        "CRYPTO_WALLET": "Cripto"
+      "currency": {
+        "active": "ativo",
+        "brlRate": "cotação em reais (R$)",
+        "code": "código",
+        "createdAt": "criado em",
+        "id": "id",
+        "symbol": "símbolo",
+        "type": {
+          "ARS": "Peso Argentino",
+          "AUD": "Dólar Australiano",
+          "BRL": "Real",
+          "BTC": "Bitcoin",
+          "CAD": "Dólar Canadense",
+          "CHF": "Franco Suíço",
+          "ETH": "Ethereum",
+          "EUR": "Euro",
+          "GBP": "Libra Esterlina",
+          "JPY": "Iene",
+          "USD": "Dólar Americano"
+        },
+        "updatedAt": "atualizado em"
       },
-      "updatedAt": "atualizado em",
-      "walletType": "tipo"
+      "transaction": {
+        "active": "ativo",
+        "amount": "valor total",
+        "createdAt": "criado em",
+        "currentInstallment": "parcela atual",
+        "id": "id",
+        "method": {
+          "AUTOMATIC_DEBIT": "débito automático",
+          "BANK_SLIP": "boleto",
+          "BANK_TRANSFER": "transferência bancária",
+          "CASH": "dinheiro",
+          "CREDIT_CARD": "cartão de crédito",
+          "CRYPTO": "cripto",
+          "DEBIT_CARD": "cartão de débito",
+          "OTHERS": "outros",
+          "PIX": "PIX"
+        },
+        "notes": "descrição",
+        "paymentMoment": "momento pagamento",
+        "transactionCategory": {
+          "amount": "valor"
+        },
+        "transactionType": "tipo",
+        "updatedAt": "atualizado em",
+        "wallet": "carteira"
+      },
+      "wallet": {
+        "active": "ativa",
+        "balance": "saldo",
+        "createdAt": "criado em",
+        "currency": "moeda",
+        "id": "id",
+        "name": "nome",
+        "type": {
+          "BANK_ACCOUNT": "Conta bancária",
+          "CASH_WALLET": "Dinheiro",
+          "CREDIT_CARD": "Cartão de crédito",
+          "CRYPTO_WALLET": "Cripto"
+        },
+        "updatedAt": "atualizado em",
+        "walletType": "tipo"
+      }
     },
     "yes": "Sim"
   },
@@ -159,6 +161,7 @@
       },
       "_CategoriesFormPageComponent": {
         "categoryCreatedSuccessfully": "Categoria criada com sucesso",
+        "categoryTypeLabel": "Selecione o tipo da categoria",
         "categoryUpdatedSuccessfully": "Categoria alterada com sucesso",
         "colorLabel": "Cor",
         "colorPlaceholder": "Selecione uma cor ou digite uma no formato hexadecimal (ex: '#00695C')",
@@ -242,8 +245,8 @@
         "mergeCategoryTitle": "Categoria já adicionada anteriormente",
         "methodLabel": "Método",
         "methodPlaceholder": "Selecione o método de pagamento",
-        "notesLabel": "Observações",
-        "notesPlaceholder": "Observações adicionais de transação",
+        "notesLabel": "Descrição",
+        "notesPlaceholder": "Descrição da transação",
         "paymentMomentLabel": "Momento pagamento",
         "paymentMomentPlaceholder": "Selecione ou digite o momento de pagamento",
         "sortByCategory": "Ordenar por categoria",
@@ -253,17 +256,18 @@
         "transactionCategoryDeleteConfirmTitle": "Remover categoria",
         "transactionCategoryDeletedSuccessfully": "Categoria '{{categoryName}}' removida da transação com sucesso",
         "transactionCreatedSuccessfully": "Transação criada com sucesso",
+        "transactionTypeError": "É necessário selecionar uma categoria",
         "transactionUpdatedSuccessfully": "Transação atualizada com sucesso",
         "walletLabel": "Carteira",
         "walletPlaceholder": "Selecione uma carteira"
       },
       "_TransactionsPageComponent": {
         "addTransaction": "Adicionar transação",
+        "moreTransactions": "Mais transações",
         "noMoreData": "Não há mais dados",
         "transactionDeleteConfirmMessage": "Esta ação é irreversível e os dados serão permanentemente perdidos",
         "transactionDeleteConfirmTitle": "Você tem certeza que deseja deletar a transação?",
-        "transactionDeletedSuccessfully": "Transação '{{transactionId}}' deletada com sucesso",
-        "moreTransactions": "Mais transações"
+        "transactionDeletedSuccessfully": "Transação '{{transactionId}}' deletada com sucesso"
       },
       "_WalletsFormPageComponent": {
         "activeLabel": "Carteira ativa",

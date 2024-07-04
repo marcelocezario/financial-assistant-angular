@@ -1,26 +1,29 @@
 <div class="d-flex">
   <div class="d-flex justify-content">
     <button mat-raised-button color="primary" [routerLink]="addTransactionLink">
-      {{getTranslateKey('addTransaction') |translate}}
+      {{ getTranslateKey('addTransaction') |translate }}
     </button>
   </div>
   <span class="mhc-empty-spacer"></span>
 </div>
 
-<app-timeline>
-  @for(transaction of transactions; track $index) {
-  @if (!isSameDate(transaction, transactions[$index - 1])) {
-  @if ($index === 0 || ((transaction.paymentMoment | appRelativeTime) !== (transactions[$index - 1].paymentMoment | appRelativeTime))) {
-  <app-timeline-divider [data]="transaction.paymentMoment | appRelativeTime"></app-timeline-divider>
-  }
-  }
-  <app-timeline-item linePosition="center" [eventPosition]="transaction.type === 'INCOME' ? 'left' : 'right'"
-    [icons]="getIcons(transaction)">
-    <app-transaction-card [transaction]="transaction" (deleteTransaction)="delete($event)"></app-transaction-card>
-  </app-timeline-item>
-  }
-  <button mat-raised-button (click)="findNextPage()">
-    <mat-icon>add</mat-icon>
-    {{ getTranslateKey('moreTransactions') | translate }}
-  </button>
-</app-timeline>
+<div class="mhc-timeline-container">
+  <app-timeline>
+    @for(transaction of transactions; track $index) {
+    @if (!isSameDate(transaction, transactions[$index - 1])) {
+    @if ($index === 0 || ((transaction.paymentMoment | appRelativeTime) !== (transactions[$index - 1].paymentMoment |
+    appRelativeTime))) {
+    <app-timeline-divider [data]="transaction.paymentMoment | appRelativeTime"></app-timeline-divider>
+    }
+    }
+    <app-timeline-item linePosition="center" [eventPosition]="transaction.type === 'INCOME' ? 'left' : 'right'"
+      [icons]="getIcons(transaction)">
+      <app-transaction-card [transaction]="transaction" (deleteTransaction)="delete($event)"></app-transaction-card>
+    </app-timeline-item>
+    }
+    <button mat-raised-button (click)="findNextPage()">
+      <mat-icon>add</mat-icon>
+      {{ getTranslateKey('moreTransactions') | translate }}
+    </button>
+  </app-timeline>
+</div>

@@ -1,21 +1,29 @@
 import { AbstractControl, FormControl, ReactiveFormsModule } from '@angular/forms';
+import { ColorUtils } from '../../../utils/color-utils';
 import { CommonModule } from '@angular/common';
 import { Component, Input } from '@angular/core';
 import { DialogService } from '../../../dialog/dialog.service';
 import { IconPickerComponent } from './icon-picker/icon-picker.component';
+import { INPUT_CONFIG } from '../../config/input.config';
 import { LanguageService } from '../../../language';
 import { MatButtonModule } from '@angular/material/button';
 import { MatFormField } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { TranslateModule } from '@ngx-translate/core';
-import { INPUT_CONFIG } from '../../config/input.config';
-import { ColorUtils } from '../../../utils/color-utils';
 
 @Component({
   selector: 'app-input-icon',
   standalone: true,
-  imports: [CommonModule, MatFormField, MatInputModule, ReactiveFormsModule, MatButtonModule, MatIconModule, TranslateModule],
+  imports: [
+    CommonModule,
+    MatButtonModule,
+    MatFormField,
+    MatIconModule,
+    MatInputModule,
+    ReactiveFormsModule,
+    TranslateModule,
+  ],
   templateUrl: './input-icon.component.html',
   styleUrl: './input-icon.component.scss'
 })

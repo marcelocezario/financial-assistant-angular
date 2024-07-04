@@ -1,20 +1,29 @@
 import { AbstractControl, FormControl, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { Component, ElementRef, Input, OnInit, ViewChild, forwardRef } from '@angular/core';
+import { INPUT_CONFIG } from '../../config/input.config';
 import { LanguageService } from '../../../language';
 import { MatButtonModule } from '@angular/material/button';
 import { MatFormField } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
+import { MatTooltipModule } from '@angular/material/tooltip';
 import { TranslateModule } from '@ngx-translate/core';
 import { Utils } from '../../../utils/utils';
-import { MatTooltipModule } from '@angular/material/tooltip';
-import { INPUT_CONFIG } from '../../config/input.config';
 
 @Component({
   selector: 'app-input-color',
   standalone: true,
-  imports: [CommonModule, MatFormField, MatInputModule, ReactiveFormsModule, MatButtonModule, MatIconModule, TranslateModule, MatTooltipModule],
+  imports: [
+    CommonModule,
+    MatButtonModule,
+    MatFormField,
+    MatIconModule,
+    MatInputModule,
+    MatTooltipModule,
+    ReactiveFormsModule,
+    TranslateModule,
+  ],
   templateUrl: './input-color.component.html',
   styleUrl: './input-color.component.scss'
 })

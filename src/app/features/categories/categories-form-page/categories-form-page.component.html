@@ -1,19 +1,24 @@
 <form class="mhc-form" [formGroup]="formGroup" (ngSubmit)="onSubmit()">
 
-  <app-input id="name" [control]="formGroup.get('name')" [label]="getTranslateKey('nameLabel') | translate"
-    [placeholder]="getTranslateKey('namePlaceholder') | translate">
-  </app-input>
+  <div class="row">
+    <app-input id="name" [control]="formGroup.get('name')" [label]="getTranslateKey('nameLabel') | translate"
+      [placeholder]="getTranslateKey('namePlaceholder') | translate">
+    </app-input>
+  </div>
 
-  <app-input-color id="color" [label]="getTranslateKey('colorLabel') | translate"
-    [placeholder]="getTranslateKey('colorPlaceholder') | translate" [control]="formGroup.get('color')">
-  </app-input-color>
+  <div class="row">
+    <app-input-color class="col-sm" id="color" [label]="getTranslateKey('colorLabel') | translate"
+      [placeholder]="getTranslateKey('colorPlaceholder') | translate" [control]="formGroup.get('color')">
+    </app-input-color>
 
-  <app-input-icon id="icon" [label]="getTranslateKey('iconLabel') | translate"
-    [iconColor]="formGroup.get('color')?.value" [placeholder]="getTranslateKey('iconPlaceholder') | translate"
-    [control]="formGroup.get('icon')">
-  </app-input-icon>
+    <app-input-icon class="col-sm" id="icon" [label]="getTranslateKey('iconLabel') | translate"
+      [iconColor]="formGroup.get('color')?.value" [placeholder]="getTranslateKey('iconPlaceholder') | translate"
+      [control]="formGroup.get('icon')">
+    </app-input-icon>
+  </div>
 
-  <div class="mhc-form-row mhc-full-width">
+  <div class="mhc-form-row mhc-full-width"
+    [ngClass]="{'mhc-error': submissionAttempted() && formGroup.get('type')?.errors}">
     <label>{{ getTranslateKey('categoryTypeLabel') | translate }}</label>
     <mat-button-toggle-group formControlName="type" class="mhc-full-width">
       <mat-button-toggle value="INCOME" class="mhc-flex-1">
@@ -30,6 +35,11 @@
       </mat-button-toggle>
     </mat-button-toggle-group>
   </div>
+  @if (submissionAttempted() && formGroup.get('type')?.errors) {
+  <div class="mhc-message-error">
+    <p>{{getFirstErrorTranslateKey('type') | translate}}</p>
+  </div>
+  }
 
   <div class="d-flex flex-column mhc-form-actions">
     <button type="submit" mat-raised-button color="primary">

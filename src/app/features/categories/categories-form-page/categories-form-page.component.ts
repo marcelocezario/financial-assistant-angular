@@ -1,19 +1,21 @@
 import { ActivatedRoute, Router } from '@angular/router';
 import { Category } from '../../../core/models';
 import { CategoryService } from '../category.service';
+import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { FormBaseDirective, FormValidations, InputColorComponent, InputComponent, InputIconComponent, LanguageService, NotificationService, StorageService } from '../../../shared';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
+import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { MatIconModule } from '@angular/material/icon';
 import { ROUTES_KEYS } from '../../../core/config';
 import { TranslateModule } from '@ngx-translate/core';
-import { MatButtonToggleModule } from '@angular/material/button-toggle';
 
 @Component({
   selector: 'app-categories-form-page',
   standalone: true,
   imports: [
+    CommonModule,
     InputColorComponent,
     InputComponent,
     InputIconComponent,

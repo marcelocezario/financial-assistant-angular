@@ -1,17 +1,17 @@
 import { CommonModule } from '@angular/common';
-import { ChangeDetectorRef, Component, Inject, OnInit } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
+import { IconCardComponent } from './icon-card/icon-card.component';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { MatButtonModule } from '@angular/material/button';
+import { MatCardModule } from '@angular/material/card';
 import { MatDialogModule } from '@angular/material/dialog';
+import { MatDividerModule } from '@angular/material/divider';
 import { MatIconModule } from '@angular/material/icon';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
-import { TranslateModule } from '@ngx-translate/core';
-import { FormsModule } from '@angular/forms';
-import { MatCardModule } from '@angular/material/card';
-import { IconCardComponent } from './icon-card/icon-card.component';
-import { MatDividerModule } from '@angular/material/divider';
 import { take } from 'rxjs';
+import { TranslateModule } from '@ngx-translate/core';
 
 interface MaterialIcons {
   categories: string[]
@@ -28,15 +28,15 @@ interface MaterialIcons {
   standalone: true,
   imports: [
     CommonModule,
-    MatButtonModule,
-    MatIconModule,
-    MatDialogModule,
-    TranslateModule,
-    MatSlideToggleModule,
     FormsModule,
-    MatCardModule,
     IconCardComponent,
+    MatButtonModule,
+    MatCardModule,
+    MatDialogModule,
     MatDividerModule,
+    MatIconModule,
+    MatSlideToggleModule,
+    TranslateModule,
   ],
   templateUrl: './icon-picker.component.html',
   styleUrl: './icon-picker.component.scss'

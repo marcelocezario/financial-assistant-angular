@@ -10,6 +10,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { TranslateModule } from '@ngx-translate/core';
 import { INPUT_CONFIG } from '../../config/input.config';
+import { ColorUtils } from '../../../utils/color-utils';
 
 @Component({
   selector: 'app-input-icon',
@@ -68,6 +69,13 @@ export class InputIconComponent {
 
   getTranslateKey(key: string): string {
     return `web.shared.components.${this.constructor.name}.${key}`
+  }
+
+  getContrastingColor(color: string | null | undefined): string | null {
+    if (color) {
+      return ColorUtils.getContrastingColor(color);
+    }
+    return null;
   }
 
 }

@@ -378,6 +378,8 @@
     "shared": {
       "components": {
         "_IconPickerComponent": {
+          "iconNotFound": "I didn't find the ideal icon for me",
+          "findMoreIcons": "Find more icons",
           "previous": "Previous",
           "selected": "Selected",
           "title": "Select an icon",

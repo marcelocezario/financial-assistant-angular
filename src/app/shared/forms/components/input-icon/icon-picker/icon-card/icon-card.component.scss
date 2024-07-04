@@ -1,7 +1,9 @@
 .mhc-icon-card-container {
   display: flex;
   flex-direction: column;
+  width: 100px;
   max-width: 100%;
+  justify-content: center;
 }
 
 .mhc-icon-text {

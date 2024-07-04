@@ -7,16 +7,41 @@
   </div>
   <mat-dialog-content>
     <div class="container mhc-icon-picker-container justify-content-center">
-      @for(icon of icons; track icon) {
+      @for(icon of defaultIcons; track icon) {
       <button class="d-flex flex-column justify-content-center mhc-icon-button" mat-stroked-button
-        (click)="selectIcon(icon.name)" [ngClass]="{
-        'mhc-current-icon': icon.name === currentIcon,
-        'mhc-selected-icon': icon.name === selectedIcon
+        (click)="selectIcon(icon)" [ngClass]="{
+        'mhc-current-icon': icon === currentIcon,
+        'mhc-selected-icon': icon === selectedIcon
         }">
-        <app-icon-card [icon]="icon.name" [customColor]="useCustomColor ? iconColor : undefined"></app-icon-card>
+        <app-icon-card [icon]="icon" [customColor]="useCustomColor ? iconColor : undefined"></app-icon-card>
       </button>
       }
     </div>
+    <mat-divider></mat-divider>
+    @if (filteredIcons.length === 0) {
+      <div class="mhc-more-icons">
+        <h3>
+          <span>{{ getTranslateKey('iconNotFound') | translate }}&nbsp;</span>
+          <mat-icon class="mhc-v-middle">sentiment_dissatisfied</mat-icon>
+        </h3>
+        <button mat-fab extended color="accent" (click)="findIcons()">
+          <mat-icon class="mhc-v-middle">add</mat-icon>
+          <span>{{ getTranslateKey('findMoreIcons') | translate }}</span>
+        </button>
+      </div>
+    } @else {
+      <div class="container mhc-icon-picker-container justify-content-center">
+        @for(icon of filteredIcons; track icon) {
+        <button class="d-flex flex-column justify-content-center mhc-icon-button" mat-stroked-button
+          (click)="selectIcon(icon.name)" [ngClass]="{
+          'mhc-current-icon': icon.name === currentIcon,
+          'mhc-selected-icon': icon.name === selectedIcon
+          }">
+          <app-icon-card [icon]="icon.name" [customColor]="useCustomColor ? iconColor : undefined"></app-icon-card>
+        </button>
+        }
+      </div>
+    }
   </mat-dialog-content>
   <mat-dialog-actions>
     <button mat-raised-button mat-dialog-close>{{ 'generic.cancel' | translate }}</button>

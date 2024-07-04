@@ -9,6 +9,10 @@
     [formControl]="getFormControl()" #colorInputText (input)="onTextColorChanged()" />
   <button type="button" mat-icon-button matSuffix (click)="setRandomColor()"
     [matTooltip]="getTranslateKey('generateRandomColor') | translate">
+    <mat-icon [style.color]="getFormControl().value">shuffle</mat-icon>
+  </button>
+  <button type="button" mat-icon-button matSuffix (click)="openColorPicker(colorInput)"
+    [matTooltip]="getTranslateKey('selectColor') | translate">
     <mat-icon [style.color]="getFormControl().value">palette</mat-icon>
   </button>
   @if (hint) {

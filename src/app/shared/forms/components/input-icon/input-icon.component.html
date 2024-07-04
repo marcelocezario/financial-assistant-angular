@@ -5,6 +5,12 @@
   </button>
   <input matInput [id]="id" [name]="id" type="text" [placeholder]="placeholder" [readonly]="!!isReadOnly"
     [formControl]="getFormControl()" />
-  <mat-icon matSuffix [style.color]="iconColor">{{ getFormControl().value }}</mat-icon>
+
+  <button type="button" mat-icon-button matSuffix (click)="searchIcon()">
+    <mat-icon [style.color]="iconColor">{{ getFormControl().value }}</mat-icon>
+  </button>
+  <!-- <button type="button" mat-icon-button matSuffix (click)="searchIcon()" [style.background-color]="iconColor">
+    <mat-icon [style.color]="getContrastingColor(iconColor)">{{ getFormControl().value }}</mat-icon>
+  </button> -->
   <!-- <mat-hint>{{ getTranslateKey('hint') | translate: {url: materialIconsWebSite} }}</mat-hint> -->
 </mat-form-field>

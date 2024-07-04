@@ -3,7 +3,7 @@ import { TranslateModule } from '@ngx-translate/core';
 import { InputDatetimeComponent, InputIconComponent, LanguageSelectorComponent, LoaderComponent, NotificationService, TimelineComponent } from '../../../shared';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
-import { IconCardComponent } from '../../../shared/forms/components/input-icon/icon-card/icon-card.component';
+import { IconCardComponent } from '../../../shared/forms/components/input-icon/icon-picker/icon-card/icon-card.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatDividerModule } from '@angular/material/divider';

@@ -104,12 +104,12 @@ export class TransactionsFormPageComponent extends FormBaseDirective implements 
           if (this.wallets.findIndex(w => w.id === transaction.wallet.id) < 0) {
             this.wallets.unshift(transaction.wallet)
           }
-
           const categories = transaction.categories || []
           const categoriesFormArray = this.formGroup.get('categories') as FormArray;
           categories.forEach(category => {
             categoriesFormArray.push(this._formBuilder.control(category));
           });
+          this.changeTransactionType(transaction.type)
         })
         .catch(() => this._router.navigate([`/${ROUTES_KEYS.transactions}`]))
     }
@@ -241,8 +241,8 @@ export class TransactionsFormPageComponent extends FormBaseDirective implements 
     this.formGroup.markAsDirty();
   }
 
-  changeTransactionType(event: MatButtonToggleChange) {
-    this.categoriesOptions = this.categories.filter(c => c.type === event.value)
+  changeTransactionType(transactionType: string) {
+    this.categoriesOptions = this.categories.filter(c => c.type === transactionType)
   }
 
 }

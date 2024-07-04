@@ -15,7 +15,7 @@
   </div>
 
   <div class="mhc-form-row mhc-full-width">
-    <mat-button-toggle-group formControlName="type" class="mhc-full-width" (change)="changeTransactionType($event)">
+    <mat-button-toggle-group formControlName="type" class="mhc-full-width" (change)="changeTransactionType($event.value)">
       <mat-button-toggle value="INCOME" class="mhc-flex-1">
         {{ 'generic.types.classificationTypes.INCOME' | translate }}
       </mat-button-toggle>

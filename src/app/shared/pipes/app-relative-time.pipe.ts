@@ -28,7 +28,7 @@ export class AppRelativeTimePipe implements PipeTransform {
     }
     try {
       const date = new Date(value)
-      const now = new Date('2024-06-30T12:00:00')
+      const now = new Date()
       const temporalPosition = now.getTime() >= date.getTime() ? 'PAST' : 'FUTURE'
       const yesterday = new Date(now.getTime() - 86400000)
       const tomorrow = new Date(now.getTime() + 86400000)
@@ -114,11 +114,11 @@ export class AppRelativeTimePipe implements PipeTransform {
   }
 
   private _getDiffDatesInMonths(date1: Date, date2: Date): number {
-    return Math.floor(Math.abs(date1.getUTCMonth() - date2.getUTCMonth() + (this._getDiffDatesInYears(date1, date2) * timeConstants.MONTHS_IN_YEARS)))
+    return Math.floor(Math.abs(date1.getMonth() - date2.getMonth() + (this._getDiffDatesInYears(date1, date2) * timeConstants.MONTHS_IN_YEARS)))
   }
 
   private _getDiffDatesInYears(date1: Date, date2: Date): number {
-    return Math.floor(Math.abs(date1.getUTCFullYear() - date2.getUTCFullYear()))
+    return Math.floor(Math.abs(date1.getFullYear() - date2.getFullYear()))
   }
 
   private _getDaysOfTheWeek(date: Date): string {

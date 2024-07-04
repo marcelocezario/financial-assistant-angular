@@ -9,8 +9,10 @@
 
 <app-timeline>
   @for(transaction of transactions; track $index) {
-  @if(!isSameDate(transaction, transactions[$index - 1])) {
+  @if (!isSameDate(transaction, transactions[$index - 1])) {
+  @if ($index === 0 || ((transaction.paymentMoment | appRelativeTime) !== (transactions[$index - 1].paymentMoment | appRelativeTime))) {
   <app-timeline-divider [data]="transaction.paymentMoment | appRelativeTime"></app-timeline-divider>
+  }
   }
   <app-timeline-item linePosition="center" [eventPosition]="transaction.type === 'INCOME' ? 'left' : 'right'"
     [icons]="getIcons(transaction)">

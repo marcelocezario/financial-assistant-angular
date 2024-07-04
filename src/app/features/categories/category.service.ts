@@ -21,7 +21,6 @@ export class CategoryService {
   }
 
   async update(category: Category): Promise<Category> {
-    console.log(category)
     return new Promise((resolve, reject) => {
       this._apiService.httpPut(`${this._getPathWithUserId()}/${category.id}`, category).subscribe({
         next: response => resolve(response),

@@ -19,7 +19,12 @@ export abstract class FormBaseDirective {
   onSubmit(): void {
     this._submissionAttempted = true;
     if (this.formGroup.invalid) {
-      console.error(this.formGroup.errors, this.formGroup.value)
+      Object.keys(this.formGroup.controls).forEach(key => {
+        const control = this.formGroup.get(key);
+        if (control && control.errors) {
+          console.error(`Control error '${key}':`, control.errors);
+        }
+      })
       return;
     }
     this.submit();

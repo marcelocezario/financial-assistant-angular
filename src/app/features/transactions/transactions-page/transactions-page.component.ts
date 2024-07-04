@@ -113,9 +113,9 @@ export class TransactionsPageComponent implements OnInit {
       return false;
     }
 
-    const isSameYear = date1.getUTCFullYear() === date2.getUTCFullYear();
-    const isSameMonth = date1.getUTCMonth() === date2.getUTCMonth();
-    const isSameDate = date1.getUTCDate() === date2.getUTCDate();
+    const isSameYear = date1.getFullYear() === date2.getFullYear();
+    const isSameMonth = date1.getMonth() === date2.getMonth();
+    const isSameDate = date1.getDate() === date2.getDate();
 
     return isSameYear && isSameMonth && isSameDate;
   }

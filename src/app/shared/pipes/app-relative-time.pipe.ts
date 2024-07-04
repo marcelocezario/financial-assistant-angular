@@ -58,7 +58,7 @@ export class AppRelativeTimePipe implements PipeTransform {
         return this._getTranslate('HOURS', diffInHours, temporalPosition)
       } else if (now.toDateString() === date.toDateString()) {
         return this._getTranslate('TODAY')
-      } else if (diffInDays < 6) {
+      } else if (diffInDays < 7) {
         if (temporalPosition === 'PAST') {
           return `${this._getDaysOfTheWeek(date)}`
         }

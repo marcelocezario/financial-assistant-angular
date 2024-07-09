@@ -9,7 +9,7 @@ import { MatInputModule } from '@angular/material/input';
 import { RouterModule } from '@angular/router';
 import { ROUTES_KEYS } from './../../../core/config/routes-keys.config';
 import { TimelineComponent } from '../../../shared/components/timeline/timeline.component';
-import { Transaction } from '../../../core/models';
+import { ClassificationType, Transaction } from '../../../core/models';
 import { TransactionCardComponent } from './transaction-card/transaction-card.component';
 import { TransactionService } from '../transaction.service';
 import { TranslateModule } from '@ngx-translate/core';
@@ -74,7 +74,7 @@ export class TransactionsPageComponent implements OnInit {
 
   getIcons(transaction: Transaction) {
     const icons =  transaction.categories.sort((a, b) => b.amount - a.amount).map(c => c.category).map(c => {
-      const icon = {icon: c.icon, color: c.color};
+      const icon = {icon: c.icon, color: c.color, borderColor: c.type === ClassificationType.INCOME ? 'green' : undefined };
       return icon;
     })
     return icons;

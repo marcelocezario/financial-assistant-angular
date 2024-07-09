@@ -21,8 +21,11 @@
       </button>
       }
       @for (icon of icons; track icon) {
-      <button mat-mini-fab [style.background-color]="icon.color">
-        <mat-icon class="mat-18" [style.color]="getContrastingColor(icon.color)">{{icon.icon}}</mat-icon>
+      <button mat-mini-fab [style.background-color]="icon.color" [style.border-color]="icon.borderColor"
+        [ngClass]="{'mhc-icon-timeline': icon.borderColor}">
+        <mat-icon class="mat-18" [style.color]="getContrastingColor(icon.color)">
+          {{icon.icon}}
+        </mat-icon>
       </button>
       }
     </div>

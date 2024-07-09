@@ -123,8 +123,8 @@
               {{'generic.types.transactionCategory.amount' | translate}}
             </th>
             <td mat-cell *matCellDef="let element">
-              {{ element.type === 'INCOME' ? '+' : '-' }}
-              {{ element.amount }}
+              {{ element.category.type === 'INCOME' ? '+' : '-' }}
+              {{ element.amount | currency: ' ' }}
             </td>
           </ng-container>
 

@@ -128,12 +128,12 @@
         },
         "notes": "descrição",
         "paymentMoment": "momento pagamento",
-        "transactionCategory": {
-          "amount": "valor"
-        },
         "transactionType": "tipo",
         "updatedAt": "atualizado em",
         "wallet": "carteira"
+      },
+      "transactionCategory": {
+        "amount": "valor"
       },
       "wallet": {
         "active": "ativa",
@@ -378,8 +378,8 @@
     "shared": {
       "components": {
         "_IconPickerComponent": {
-          "iconNotFound": "Não encontrei o ícone ideal para mim",
           "findMoreIcons": "Buscar mais ícones",
+          "iconNotFound": "Não encontrei o ícone ideal para mim",
           "previous": "Anterior",
           "selected": "Selecionado",
           "title": "Selecione um ícone",

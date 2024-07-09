@@ -10,7 +10,12 @@ import { ColorUtils } from '../../../utils/index-utils';
 @Component({
   selector: 'app-timeline-item',
   standalone: true,
-  imports: [CommonModule, MatChipsModule, MatButtonModule, MatIconModule],
+  imports: [
+    CommonModule,
+    MatChipsModule,
+    MatButtonModule,
+    MatIconModule,
+  ],
   templateUrl: './timeline-item.component.html',
   styleUrl: './timeline-item.component.scss'
 })
@@ -18,7 +23,7 @@ export class TimelineItemComponent implements OnInit, OnDestroy {
 
   @Input() eventPosition: 'left' | 'right' = 'right'
   @Input() linePosition: 'left' | 'center' | 'right' = 'left'
-  @Input() icons: {icon: string, color: string}[] = []
+  @Input() icons: { icon: string, color: string, borderColor: string | undefined }[] = []
 
   priorityEventPosition: 'left' | 'right' = this.eventPosition
   priorityLinePosition: 'left' | 'center' | 'right' = this.linePosition

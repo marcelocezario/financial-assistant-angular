@@ -15,7 +15,7 @@
   </div>
 
   <div class="mhc-form-row mhc-full-width">
-    <mat-button-toggle-group formControlName="type" class="mhc-full-width" (change)="changeTransactionType($event.value)">
+    <mat-button-toggle-group formControlName="type" class="mhc-full-width">
       <mat-button-toggle value="INCOME" class="mhc-flex-1">
         {{ 'generic.types.classificationTypes.INCOME' | translate }}
       </mat-button-toggle>
@@ -29,7 +29,7 @@
     <app-input class="col-sm" id="amount" [control]="formGroup.get('amount')"
       [label]="getTranslateKey('amountLabel') | translate"
       [placeholder]="getTranslateKey('amountPlaceholder') | translate" type="number" [step]="0.01"
-      (change)="updateCategoriesAmountDiff()" [textPrefix]="(formGroup.get('wallet')?.value)?.currency?.symbol">
+      [textPrefix]="(formGroup.get('wallet')?.value)?.currency?.symbol">
     </app-input>
 
     <app-input-datetime class="col-sm" id="paymentMoment" [label]="getTranslateKey('paymentMomentLabel') | translate"
@@ -71,82 +71,61 @@
         </span>
       </mat-card-subtitle>
     </mat-card-header>
-    <mat-card-actions class="d-flex flex-column">
-      <form [formGroup]="formCategories" class="mhc-full-width" (ngSubmit)="addCategory(formCategories)">
 
-        <div class="row">
-          <app-select class="col-sm" id="category" [control]="formCategories.get('category')"
-            [label]="getTranslateKey('categoryLabel') | translate"
-            [placeholder]="getTranslateKey('categoryPlaceholder') | translate" [dataSource]="categoriesOptions"
-            attributeLabel="name" [optionTemplate]="categoryOptionsTemplate">
-            <ng-template #categoryOptionsTemplate let-item="item">
-              <mat-icon class="mat-18 mhc-v-middle" [style.color]="item.color">{{item.icon}}</mat-icon>
-              <span>{{item.name}}</span>
-            </ng-template>
-          </app-select>
+    @for(categoryControl of categories.controls; track $index) {
+    <mat-card-actions>
 
-          <app-input class="col-sm" id="amount" [control]="formCategories.get('amount')"
-            [label]="getTranslateKey('categoryAmountLabel') | translate"
-            [placeholder]="getTranslateKey('categoryAmountPlaceholder') | translate" type="number" [step]="0.01"
-            [textPrefix]="(formGroup.get('wallet')?.value)?.currency?.symbol">
-          </app-input>
-
-          <div class="col-sm-2 mhc-form-button">
-            <button matTextSuffix type="submit" mat-stroked-button class="mhc-flex-1">
-              <mat-icon class="mat-18">add</mat-icon>
-              <span>{{getTranslateKey('addCategory') | translate}}</span>
-            </button>
-          </div>
+      <div class="row">
+        <div>
+          @if (categoryControl?.value?.category?.type === 'INCOME') {
+          <mat-icon>savings</mat-icon>
+          } @else if (categoryControl?.value?.category?.type === 'EXPENSE') {
+          <mat-icon>receipt_long</mat-icon>
+          }
         </div>
-      </form>
-    </mat-card-actions>
-    <mat-card-content>
-      <div class="card table-responsive">
-        <table mat-table [dataSource]="formGroup.get('categories')?.value || []" matSort class="mhc-table">
 
-          <ng-container matColumnDef="category">
-            <th mat-header-cell *matHeaderCellDef mat-sort-header
-              [sortActionDescription]="getTranslateKey('sortByCategory') | translate">
-              {{'generic.types.category.name' | translate}}</th>
-            <td mat-cell *matCellDef="let element">
-              <div class="d-flex flex-row align-items-center">
-                <mat-icon [style.color]="element.category.color"
-                  class="mhc-category-icon">{{element.category.icon}}</mat-icon>
-                <span>{{element.category.name}}</span>
-              </div>
-            </td>
-          </ng-container>
+        <mat-slide-toggle [formControl]="convertAbstractControlToFormControl(categoryControl.get('isDiscount'))">{{
+          getTranslateKey('addDiscount') | translate }}</mat-slide-toggle>
 
-          <ng-container matColumnDef="categoryAmount">
-            <th mat-header-cell *matHeaderCellDef mat-sort-header
-              [sortActionDescription]="getTranslateKey('sortByCategoryAmount') | translate">
-              {{'generic.types.transactionCategory.amount' | translate}}
-            </th>
-            <td mat-cell *matCellDef="let element">
-              {{ element.category.type === 'INCOME' ? '+' : '-' }}
-              {{ element.amount | currency: ' ' }}
-            </td>
-          </ng-container>
+        <app-select class="col-sm-5" id="category" [control]="categoryControl.get('category')"
+          [label]="getTranslateKey('categoryLabel') | translate"
+          [placeholder]="getTranslateKey('categoryPlaceholder') | translate"
+          [dataSource]="getCategoriesOptions(categoryControl.get('isDiscount')?.value)" attributeLabel="name"
+          [optionTemplate]="categoryOptionsTemplate">
+          <ng-template #categoryOptionsTemplate let-item="item">
+            <mat-icon class="mat-18 mhc-v-middle" [style.color]="item.color">{{item.icon}}</mat-icon>
+            <span>{{item.name}}</span>
+            @if (item.active === false) {
+            <span>--{{getTranslateKey('desactivatedCategory') | translate}}--</span>
+            }
+          </ng-template>
+        </app-select>
 
-          <ng-container matColumnDef="actions">
-            <th mat-header-cell *matHeaderCellDef>
-              {{'generic.actions' | translate}}
-            </th>
-            <td mat-cell *matCellDef="let element">
-              <button type="button" mat-icon-button (click)="deleteTransactionCategory(element)">
-                <mat-icon class="mat-18">delete</mat-icon>
-              </button>
-            </td>
-          </ng-container>
+        <app-input class="col" id="amount" [control]="categoryControl.get('amount')"
+          [label]="getTranslateKey('categoryAmountLabel') | translate"
+          [placeholder]="getTranslateKey('categoryAmountPlaceholder') | translate" type="number" [step]="0.01"
+          [textPrefix]="(formGroup.get('wallet')?.value)?.currency?.symbol">
+        </app-input>
 
-          <tr mat-header-row *matHeaderRowDef="['category', 'categoryAmount', 'actions']"></tr>
-          <tr mat-row *matRowDef="let row; columns: ['category', 'categoryAmount', 'actions'];"></tr>
-
-        </table>
+        <div class="col">
+          <button mat-icon-button (click)="removeCategory($index)">
+            <mat-icon>delete</mat-icon>
+          </button>
+        </div>
       </div>
-    </mat-card-content>
-  </mat-card>
+    </mat-card-actions>
+    <mat-divider></mat-divider>
 
+    }
+    <mat-card-actions>
+      <div class="col-sm-2 mhc-form-button">
+        <button matTextSuffix type="button" mat-stroked-button class="mhc-flex-1" (click)="addCategory()">
+          <mat-icon class="mat-18">add</mat-icon>
+          <span>{{getTranslateKey('addCategory') | translate}}</span>
+        </button>
+      </div>
+    </mat-card-actions>
+  </mat-card>
   <div class="d-flex flex-column mhc-form-actions">
     <button type="submit" mat-raised-button color="primary">
       {{ 'generic.confirm' | translate }}

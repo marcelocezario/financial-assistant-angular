@@ -230,7 +230,8 @@
         "userCreatedSuccessfully": "User '{{ nickname }}' created successfully"
       },
       "_TransactionsFormPageComponent": {
-        "addCategory": "Add Category",
+        "addCategory": "Add category",
+        "addDiscount": "Add discount",
         "amountLabel": "Total Amount",
         "amountPlaceholder": "Enter the total transaction amount",
         "categories": "Categories",
@@ -240,6 +241,7 @@
         "categoryPlaceholder": "Select a category",
         "currentInstallmentLabel": "Current Installment",
         "currentInstallmentPlaceholder": "Enter the current installment of the transaction",
+        "desactivatedCategory": "Desactivated category",
         "desactivatedWallet": "Desactivated wallet",
         "mergeCategoryMessage": "The category '{{categoryName}}' has already been added to this transaction. It cannot be added twice. Do you want to merge the values?",
         "mergeCategoryTitle": "Category already added previously",

@@ -21,13 +21,13 @@
     [ngClass]="{'mhc-error': submissionAttempted() && formGroup.get('type')?.errors}">
     <label>{{ getTranslateKey('categoryTypeLabel') | translate }}</label>
     <mat-button-toggle-group formControlName="type" class="mhc-full-width">
-      <mat-button-toggle value="INCOME" class="mhc-flex-1">
+      <mat-button-toggle [value]="ClassificationType.INCOME" class="mhc-flex-1">
         <span>
           {{ 'generic.types.classificationTypes.INCOME' | translate }}
         </span>
         <mat-icon>savings</mat-icon>
       </mat-button-toggle>
-      <mat-button-toggle value="EXPENSE" class="mhc-flex-1">
+      <mat-button-toggle [value]="ClassificationType.EXPENSE" class="mhc-flex-1">
         <span>
           {{ 'generic.types.classificationTypes.EXPENSE' | translate }}
         </span>

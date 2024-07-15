@@ -1,5 +1,5 @@
 import { ActivatedRoute, Router } from '@angular/router';
-import { Category } from '../../../core/models';
+import { Category, ClassificationType } from '../../../core/models';
 import { CategoryService } from '../category.service';
 import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
@@ -30,6 +30,8 @@ import { TranslateModule } from '@ngx-translate/core';
 })
 export class CategoriesFormPageComponent extends FormBaseDirective implements OnInit {
 
+  ClassificationType = ClassificationType
+
   override formGroup: FormGroup<any> = this._formBuilder.group({
     id: [null],
     name: [null, [Validators.required, Validators.minLength(3)]],
@@ -59,14 +61,16 @@ export class CategoriesFormPageComponent extends FormBaseDirective implements On
       this._categoryService.getByIdAndUser(id)
         .then(category => {
           this.formGroup.patchValue(category)
+          console.warn(this.formGroup.value)
           this.formGroup.get('type')?.disable()
+          console.error(this.formGroup.value)
         })
         .catch(() => this._router.navigate([`/${ROUTES_KEYS.categories}`]))
     }
   }
 
   override async submit(): Promise<void> {
-    const category: Category = this.formGroup.value
+    const category: Category = this.formGroup.getRawValue()
     category.userId = this._storageService.getUserId()!
     if (category.id) {
       await this._update(category).then();
